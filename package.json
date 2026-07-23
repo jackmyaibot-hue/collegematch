@@ -1,0 +1,24 @@
+{
+  "name": "recruitment-app-backend",
+  "version": "0.1.0",
+  "description": "Backend for the athlete-college recruitment matching app (player onboarding MVP)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sequelize": "^6.37.3",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "twilio": "^5.0.4",
+    "multer": "^1.4.5-lts.1",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
