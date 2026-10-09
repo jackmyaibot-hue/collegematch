@@ -9,9 +9,11 @@ import { schoolSizeFromEnrollment } from './format';
 import { regionForState } from './regions';
 import {
   POSITIONS,
+  type CampusLife,
   type Coach,
   type Division,
   type IdCamp,
+  type JucoDivision,
   type Position,
   type Program,
   type RosterCount,
@@ -85,6 +87,59 @@ function campsFor(index: number): IdCamp[] {
   return list;
 }
 
+const JUCO_TIER: Record<string, JucoDivision> = {
+  'cedar-metro': 'D1',
+  saltmarsh: 'D2',
+  valleyford: 'D1',
+  lakepoint: 'D2',
+  harborline: 'D3',
+  'amber-plains': 'D3',
+};
+
+/** Fictional campus vibes. Close-to-home and far-from-home are not stored here. */
+const CAMPUS_LIFE_BY_ID: Record<string, CampusLife[]> = {
+  northwind: ['game-days', 'research', 'mountains', 'four-seasons', 'diverse'],
+  'harbor-pine': ['research', 'college-town', 'four-seasons', 'arts', 'close-knit'],
+  'cinder-valley': ['warm-weather', 'city', 'game-days', 'diverse', 'research'],
+  'redbird-state': ['game-days', 'college-town', 'four-seasons', 'greek', 'research'],
+  lakeshore: ['city', 'game-days', 'diverse', 'arts', 'four-seasons', 'research'],
+  'palmetto-state': ['warm-weather', 'beach', 'game-days', 'greek', 'college-town'],
+  goldfinch: ['warm-weather', 'city', 'game-days', 'diverse', 'greek'],
+  marlowe: ['city', 'research', 'arts', 'four-seasons', 'diverse'],
+  'cascade-poly': ['mountains', 'research', 'four-seasons', 'city', 'game-days'],
+  sunridge: ['warm-weather', 'beach', 'game-days', 'diverse', 'greek'],
+  'briar-hollow': ['mountains', 'college-town', 'four-seasons', 'close-knit', 'greek'],
+  copperline: ['mountains', 'game-days', 'four-seasons', 'research', 'diverse'],
+  whitecap: ['beach', 'warm-weather', 'city', 'diverse', 'game-days'],
+  ironwood: ['college-town', 'four-seasons', 'close-knit', 'greek', 'arts'],
+  meadowlark: ['college-town', 'four-seasons', 'close-knit', 'faith', 'greek'],
+  bayfern: ['beach', 'warm-weather', 'close-knit', 'diverse'],
+  stonebridge: ['warm-weather', 'college-town', 'greek', 'faith', 'close-knit'],
+  highwater: ['four-seasons', 'college-town', 'close-knit', 'research'],
+  'elm-ivy': ['college-town', 'four-seasons', 'arts', 'research', 'close-knit'],
+  lantern: ['four-seasons', 'mountains', 'close-knit', 'arts'],
+  'quill-field': ['college-town', 'four-seasons', 'close-knit', 'greek'],
+  westmere: ['four-seasons', 'close-knit', 'college-town', 'arts'],
+  'sable-hill': ['warm-weather', 'mountains', 'faith', 'close-knit', 'college-town'],
+  kindling: ['mountains', 'four-seasons', 'close-knit', 'arts'],
+  rookery: ['beach', 'four-seasons', 'arts', 'close-knit', 'college-town'],
+  glasslake: ['four-seasons', 'close-knit', 'college-town', 'research'],
+  thistle: ['warm-weather', 'college-town', 'close-knit', 'arts'],
+  paperkite: ['beach', 'warm-weather', 'city', 'arts', 'diverse'],
+  'prairie-lantern': ['faith', 'close-knit', 'college-town', 'warm-weather'],
+  riverknot: ['four-seasons', 'college-town', 'close-knit', 'faith'],
+  bluefen: ['mountains', 'four-seasons', 'close-knit', 'college-town'],
+  'orchard-state': ['four-seasons', 'college-town', 'faith', 'close-knit'],
+  'keel-compass': ['warm-weather', 'beach', 'close-knit', 'faith'],
+  'foothill-mercy': ['mountains', 'faith', 'close-knit', 'four-seasons'],
+  'cedar-metro': ['city', 'warm-weather', 'diverse', 'game-days'],
+  saltmarsh: ['beach', 'city', 'four-seasons', 'diverse'],
+  valleyford: ['warm-weather', 'city', 'diverse', 'beach'],
+  lakepoint: ['beach', 'warm-weather', 'close-knit'],
+  harborline: ['city', 'four-seasons', 'arts', 'diverse'],
+  'amber-plains': ['close-knit', 'college-town', 'four-seasons', 'faith'],
+};
+
 function toProgram(seed: SchoolSeed, index: number): Program {
   const region = regionForState(seed.state);
   if (!region) throw new Error(`No region for ${seed.state}`);
@@ -101,6 +156,8 @@ function toProgram(seed: SchoolSeed, index: number): Program {
     side: 'women',
     schoolName: seed.schoolName,
     division: seed.division,
+    jucoDivision: seed.division === 'NJCAA' ? (JUCO_TIER[seed.id] ?? 'D1') : null,
+    campusLife: CAMPUS_LIFE_BY_ID[seed.id] ?? ['close-knit', 'college-town'],
     conference: seed.conference,
     city: seed.city,
     state: seed.state,

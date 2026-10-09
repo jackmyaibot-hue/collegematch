@@ -29,6 +29,7 @@ import {
   sportHeading,
   SPORT_LABEL,
 } from '../data/sports';
+import { CAMPUS_LIFE_LABEL, LEVEL_LABEL } from '../data/types';
 import { SPORTS, type Sport } from '../data/types';
 import { expoGoToolsClearance } from '../lib/expoGo';
 import { useAppState } from '../state/AppState';
@@ -65,7 +66,7 @@ const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
     'otherAchievement',
   ],
   about: ['proudOf', 'funFact'],
-  preferences: ['preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail'],
+  preferences: ['levels', 'preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail', 'campusLife'],
   review: [],
 };
 
@@ -75,7 +76,7 @@ const TITLES: Record<'you' | 'game' | 'coaches' | 'academics' | 'about' | 'prefe
   coaches: 'Your coaches',
   academics: 'Academics',
   about: 'About me',
-  preferences: 'What you want',
+  preferences: "Where you'll thrive",
 };
 
 export default function OnboardingScreen() {
@@ -298,7 +299,20 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Honors" value={honorLine(draft)} />
         <Line label="Proud of" value={draft.proudOf.trim() || 'Not added'} />
         <Line label="Fun fact" value={draft.funFact.trim() || 'Not added'} />
+        <Line
+          label="Level"
+          value={draft.openToAllLevels ? 'Open to all' : draft.levels.map((level) => LEVEL_LABEL[level]).join(', ')}
+        />
         <Line label="Regions" value={draft.preferredRegions.join(', ')} />
+        <Line
+          label="Campus life"
+          value={
+            draft.campusLife.length > 0
+              ? draft.campusLife.map((life) => CAMPUS_LIFE_LABEL[life]).join(', ')
+              : 'Not added'
+          }
+        />
+        <Line label="Parent email" value={draft.parentEmail} />
       </View>
     </View>
   );

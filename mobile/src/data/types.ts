@@ -16,6 +16,60 @@ export type Position = (typeof POSITIONS)[number];
 export const DIVISIONS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA'] as const;
 export type Division = (typeof DIVISIONS)[number];
 
+export const JUCO_DIVISIONS = ['D1', 'D2', 'D3'] as const;
+export type JucoDivision = (typeof JUCO_DIVISIONS)[number];
+
+/** Levels an athlete can ask for. NJCAA is split so JUCO D1, D2, and D3 can be chosen apart. */
+export const LEVEL_PREFS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA D1', 'NJCAA D2', 'NJCAA D3'] as const;
+export type LevelPref = (typeof LEVEL_PREFS)[number];
+
+export const LEVEL_LABEL: Record<LevelPref, string> = {
+  'NCAA D1': 'NCAA D1',
+  'NCAA D2': 'NCAA D2',
+  'NCAA D3': 'NCAA D3',
+  NAIA: 'NAIA',
+  'NJCAA D1': 'NJCAA / JUCO D1',
+  'NJCAA D2': 'NJCAA / JUCO D2',
+  'NJCAA D3': 'NJCAA / JUCO D3',
+};
+
+export const CAMPUS_LIFE = [
+  'game-days',
+  'close-knit',
+  'city',
+  'college-town',
+  'beach',
+  'mountains',
+  'faith',
+  'greek',
+  'diverse',
+  'close-to-home',
+  'far-from-home',
+  'warm-weather',
+  'four-seasons',
+  'arts',
+  'research',
+] as const;
+export type CampusLife = (typeof CAMPUS_LIFE)[number];
+
+export const CAMPUS_LIFE_LABEL: Record<CampusLife, string> = {
+  'game-days': 'Big-time game days',
+  'close-knit': 'Close-knit community',
+  city: 'City vibes',
+  'college-town': 'College town',
+  beach: 'Near the beach',
+  mountains: 'Mountains and outdoors',
+  faith: 'Strong faith community',
+  greek: 'Greek life',
+  diverse: 'Diverse campus',
+  'close-to-home': 'Close to home',
+  'far-from-home': 'Far from home adventure',
+  'warm-weather': 'Warm weather',
+  'four-seasons': 'Four seasons',
+  arts: 'Arts and music scene',
+  research: 'Research opportunities',
+};
+
 export const SPORTS = [
   'soccer',
   'basketball',
@@ -140,6 +194,11 @@ export type PlayerProfile = {
   /** USPS abbreviation, including DC. */
   homeState: string;
   preferredRegions: Region[];
+  /** False means `levels` is the allow-list for the deck. */
+  openToAllLevels: boolean;
+  levels: LevelPref[];
+  /** Optional vibes. Close to home and far from home are scored from location. */
+  campusLife: CampusLife[];
   schoolSizePreference: SchoolSizePreference;
   /** One or more majors. "Undeclared" is allowed. */
   intendedMajors: string[];
@@ -187,6 +246,10 @@ export type Program = {
   side: ProgramSide;
   schoolName: string;
   division: Division;
+  /** NJCAA programs name D1, D2, or D3. Everyone else leaves this empty. */
+  jucoDivision: JucoDivision | null;
+  /** School traits used for the optional campus-life match. Not a fit-score weight. */
+  campusLife: CampusLife[];
   conference: string;
   city: string;
   state: string;

@@ -2,12 +2,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { emptyRecruiting, isIsoDate } from '../format';
 import {
   ATHLETE_GENDERS,
+  CAMPUS_LIFE,
   LEAGUE_IDS,
+  LEVEL_PREFS,
   SPORTS,
   type AthleteGender,
   type DominantSide,
   type LeagueId,
+  type CampusLife,
   type HonorsProfile,
+  type LevelPref,
   type PersonContact,
   type PlayerProfile,
   type PlayerStats,
@@ -111,6 +115,16 @@ function readHonors(value: unknown): HonorsProfile {
   };
 }
 
+function readLevels(value: unknown): LevelPref[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is LevelPref => typeof item === 'string' && (LEVEL_PREFS as readonly string[]).includes(item));
+}
+
+function readCampusLife(value: unknown): CampusLife[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is CampusLife => typeof item === 'string' && (CAMPUS_LIFE as readonly string[]).includes(item));
+}
+
 function readMajors(raw: PlayerProfile & { intendedMajor?: string }): string[] {
   if (Array.isArray(raw.intendedMajors)) {
     const majors = raw.intendedMajors.filter((major): major is string => typeof major === 'string' && major.trim().length >= 2);
@@ -141,6 +155,9 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
     honors: readHonors(raw.honors),
     proudOf: typeof raw.proudOf === 'string' ? raw.proudOf : '',
     funFact: typeof raw.funFact === 'string' ? raw.funFact : '',
+    openToAllLevels: raw.openToAllLevels !== false,
+    levels: readLevels(raw.levels),
+    campusLife: readCampusLife(raw.campusLife),
   };
 }
 

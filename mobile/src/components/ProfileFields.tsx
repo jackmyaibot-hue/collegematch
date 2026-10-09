@@ -9,10 +9,16 @@ import {
 } from '../data/profileDraft';
 import { dominantSidePrompt, GENDER_OPTIONS, positionSlash, sportSetup, SPORT_SETUPS } from '../data/sports';
 import {
+  CAMPUS_LIFE,
+  CAMPUS_LIFE_LABEL,
+  LEVEL_LABEL,
+  LEVEL_PREFS,
   POSITION_LABEL,
   REGIONS,
   SIZE_LABEL,
+  type CampusLife,
   type LeagueId,
+  type LevelPref,
   type Position,
   type Region,
   type SchoolSizePreference,
@@ -624,8 +630,44 @@ export function PreferenceFields({
   errors: FieldErrors;
 }) {
   const sizes: SchoolSizePreference[] = ['small', 'medium', 'large', 'any'];
+
+  function toggleLevel(level: LevelPref) {
+    const has = draft.levels.includes(level);
+    onChange({
+      openToAllLevels: false,
+      levels: has ? draft.levels.filter((item) => item !== level) : [...draft.levels, level],
+    });
+  }
+
+  function toggleLife(life: CampusLife) {
+    onChange({ campusLife: toggle(draft.campusLife, life) });
+  }
+
   return (
     <View>
+      <AppText variant="body" style={styles.help}>
+        Four years is a long time. Show us the kind of place that would feel like home.
+      </AppText>
+      <AppText variant="label">Level</AppText>
+      <AppText variant="caption" style={styles.help}>
+        Pick every level you'd actually play. Open to all if you are still looking around.
+      </AppText>
+      <Wrap>
+        {LEVEL_PREFS.map((level) => (
+          <Chip
+            key={level}
+            label={LEVEL_LABEL[level]}
+            selected={!draft.openToAllLevels && draft.levels.includes(level)}
+            onPress={() => toggleLevel(level)}
+          />
+        ))}
+        <Chip
+          label="Open to all"
+          selected={draft.openToAllLevels}
+          onPress={() => onChange({ openToAllLevels: !draft.openToAllLevels, levels: [] })}
+        />
+      </Wrap>
+      {errors.levels ? <Error text={errors.levels} /> : null}
       <AppText variant="label">Preferred regions</AppText>
       <AppText variant="caption" style={styles.help}>
         Pick everywhere you would actually go.
@@ -656,6 +698,22 @@ export function PreferenceFields({
       </Wrap>
       {errors.schoolSizePreference ? <Error text={errors.schoolSizePreference} /> : null}
       <AppText variant="label" style={styles.section}>
+        Campus life
+      </AppText>
+      <AppText variant="caption" style={styles.help}>
+        Optional. Tap the vibes you want. We'll mention a match on the card.
+      </AppText>
+      <Wrap>
+        {CAMPUS_LIFE.map((life) => (
+          <Chip
+            key={life}
+            label={CAMPUS_LIFE_LABEL[life]}
+            selected={draft.campusLife.includes(life)}
+            onPress={() => toggleLife(life)}
+          />
+        ))}
+      </Wrap>
+      <AppText variant="label" style={styles.section}>
         Budget for net cost
       </AppText>
       <Wrap>
@@ -676,9 +734,9 @@ export function PreferenceFields({
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="email-address"
-        placeholder="Optional"
+        placeholder="parent@email.com"
         error={errors.parentEmail}
-        hint="Optional. Copied on coach emails. Stored only on this phone."
+        hint="Required. Copied on coach emails. Stored only on this phone."
       />
     </View>
   );

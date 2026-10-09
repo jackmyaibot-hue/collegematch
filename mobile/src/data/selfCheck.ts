@@ -42,6 +42,12 @@ for (const program of SAMPLE_PROGRAMS) {
     check(spot.graduating <= spot.count && spot.graduating >= 0, `${program.id} ${spot.position} roster is invalid`);
   }
   check(!blockedNames.some((name) => program.schoolName.includes(name)), `${program.schoolName} looks like a real school`);
+  check(program.campusLife.length >= 2, `${program.id} needs campus life traits`);
+  if (program.division === 'NJCAA') {
+    check(program.jucoDivision === 'D1' || program.jucoDivision === 'D2' || program.jucoDivision === 'D3', `${program.id} needs a JUCO tier`);
+  } else {
+    check(program.jucoDivision === null, `${program.id} should not have a JUCO tier`);
+  }
 }
 
 for (const sponsor of SAMPLE_SPONSORS) {
@@ -77,6 +83,9 @@ const strong: PlayerProfile = {
   act: null,
   homeState: 'OR',
   preferredRegions: ['West'],
+  openToAllLevels: true,
+  levels: [],
+  campusLife: [],
   schoolSizePreference: 'large',
   intendedMajors: ['Biology', 'Business'],
   honors: {
@@ -235,6 +244,9 @@ const draft: ProfileDraft = {
   act: '',
   homeState: 'OR',
   preferredRegions: ['West'],
+  openToAllLevels: true,
+  levels: [],
+  campusLife: [],
   schoolSizePreference: 'large',
   intendedMajors: ['Biology', 'Business'],
   customMajor: 'Sports medicine',
@@ -253,7 +265,7 @@ const draft: ProfileDraft = {
   proudOf: 'sticking with my club through a hard season',
   funFact: 'I bake bread for the team bus',
   budgetId: '15-30',
-  parentEmail: '',
+  parentEmail: 'parent@example.com',
 };
 check(Object.keys(validateDraft(draft)).length === 0, `draft should be valid: ${JSON.stringify(validateDraft(draft))}`);
 const profile = profileFromDraft(draft, 'player-1');
@@ -297,6 +309,30 @@ const boysDeck = buildDeck(
 );
 check(boysDeck.length === 0, 'boys soccer should not show the women\'s sample deck');
 check(SAMPLE_PROGRAMS.every((program) => program.sport === 'soccer' && program.side === 'women'), 'sample programs should be women\'s soccer');
+
+const naiaDeck = buildDeck(
+  SAMPLE_PROGRAMS,
+  { ...strong, openToAllLevels: false, levels: ['NAIA'] },
+  emptyRecruiting(),
+  SAMPLE_SPONSORS,
+);
+const naiaPrograms = naiaDeck.filter((card) => card.type === 'program');
+check(naiaPrograms.length === 6, `NAIA-only deck should have 6 programs, got ${naiaPrograms.length}`);
+check(
+  naiaPrograms.every((card) => card.type === 'program' && card.program.division === 'NAIA'),
+  'level filter should drop other divisions',
+);
+
+if (northwind) {
+  const lively = scoreProgram({ ...strong, campusLife: ['game-days', 'mountains'] }, northwind);
+  check(lively.why.toLowerCase().includes('game days'), 'why line should mention a campus-life match');
+  check(lively.total >= scoreProgram(strong, northwind).total, 'a campus-life match should not lower the score');
+}
+
+const missingParent = validateDraft({ ...draft, parentEmail: '' });
+check(Boolean(missingParent.parentEmail), 'parent email should be required');
+const badParent = validateDraft({ ...draft, parentEmail: 'not-an-email' });
+check(Boolean(badParent.parentEmail), 'parent email should be validated');
 
 if (failures.length > 0) {
   console.error(failures.join('\n'));

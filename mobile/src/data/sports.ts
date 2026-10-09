@@ -3,7 +3,9 @@ import {
   POSITION_LABEL,
   type AthleteGender,
   type DominantSide,
+  type JucoDivision,
   type LeagueId,
+  type LevelPref,
   type PlayerProfile,
   type Position,
   type Program,
@@ -107,8 +109,8 @@ export function leagueById(id: LeagueId): LeagueDef | undefined {
 }
 
 /** Strongest selected pathway. Multiple leagues are allowed; the top one sets the level. */
-export function strongestLeagueLevel(leagues: LeagueId[]): number {
-  if (leagues.length === 0) return 2.25;
+export function strongestLeagueLevel(leagues: LeagueId[] | null | undefined): number {
+  if (!leagues || leagues.length === 0) return 2.25;
   return Math.max(...leagues.map((id) => leagueById(id)?.level ?? 2.25));
 }
 
@@ -168,6 +170,25 @@ export function dominantSidePhrase(sport: Sport, side: DominantSide | null): str
   if (side === 'left') return "I'm left-footed";
   if (side === 'right') return "I'm right-footed";
   return 'I play with both feet';
+}
+
+export function programLevel(program: Pick<Program, 'division' | 'jucoDivision'>): LevelPref {
+  if (program.division === 'NJCAA') {
+    const tier: JucoDivision = program.jucoDivision ?? 'D1';
+    if (tier === 'D2') return 'NJCAA D2';
+    if (tier === 'D3') return 'NJCAA D3';
+    return 'NJCAA D1';
+  }
+  return program.division;
+}
+
+/** Open to all, or an empty list from an older profile, keeps every division in the deck. */
+export function wantsLevel(
+  profile: Pick<PlayerProfile, 'openToAllLevels' | 'levels'>,
+  program: Pick<Program, 'division' | 'jucoDivision'>,
+): boolean {
+  if (profile.openToAllLevels || profile.levels.length === 0) return true;
+  return profile.levels.includes(programLevel(program));
 }
 
 export function programSidePhrase(program: Pick<Program, 'side' | 'sport'>): string {

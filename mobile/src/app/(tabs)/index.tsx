@@ -5,7 +5,7 @@ import { ComingSoon } from '../../components/ComingSoon';
 import { SwipeDeck } from '../../components/SwipeDeck';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildDeck, type DeckCard } from '../../data/deck';
-import { programMatchesAthlete, SPORT_LABEL } from '../../data/sports';
+import { programMatchesAthlete, SPORT_LABEL, wantsLevel } from '../../data/sports';
 import { useAppState } from '../../state/AppState';
 import { colors } from '../../theme';
 
@@ -72,11 +72,22 @@ export default function DiscoverScreen() {
       </View>
       {deck.length === 0 ? (
         <View style={styles.empty}>
-          <AppText variant="title">You’re through the sample deck.</AppText>
-          <AppText variant="body">
-            Every program is saved or passed. Saved schools are ready for a coach email.
-          </AppText>
-          {passed > 0 ? <Button label="Put passes back in the deck" kind="ghost" onPress={resetPasses} /> : null}
+          {programs.some((program) => programMatchesAthlete(program, profile) && wantsLevel(profile, program)) ? (
+            <>
+              <AppText variant="title">You’re through the sample deck.</AppText>
+              <AppText variant="body">
+                Every program is saved or passed. Saved schools are ready for a coach email.
+              </AppText>
+              {passed > 0 ? <Button label="Put passes back in the deck" kind="ghost" onPress={resetPasses} /> : null}
+            </>
+          ) : (
+            <>
+              <AppText variant="title">No schools at those levels.</AppText>
+              <AppText variant="body">
+                The sample deck doesn't have a program for every level you picked. Add a level, or choose Open to all, on your profile.
+              </AppText>
+            </>
+          )}
         </View>
       ) : (
         <View style={styles.deck}>

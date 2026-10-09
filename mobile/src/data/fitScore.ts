@@ -1,8 +1,11 @@
-import { ADJACENT_REGIONS } from './regions';
-import { formatMoney } from './format';
-import { leagueShortList, positionsInDisplayOrder, strongestLeagueLevel } from './sports';
+import { ADJACENT_REGIONS, regionForState } from './regions';
+import { formatMoney, joinLabels } from './format';
+import { leagueShortList, positionsInDisplayOrder, programLevel, strongestLeagueLevel } from './sports';
 import {
+  CAMPUS_LIFE_LABEL,
+  LEVEL_LABEL,
   POSITION_PLURAL,
+  type CampusLife,
   type PlayerProfile,
   type Position,
   type Program,
@@ -38,7 +41,7 @@ export const FIT_FACTORS: {
     key: 'level',
     label: 'Level',
     weight: 0.2,
-    blurb: 'Your league against this division.',
+    blurb: 'Your league against this division. Levels you skip stay out of the deck.',
   },
   {
     key: 'region',
@@ -123,11 +126,39 @@ function academicsScore(profile: PlayerProfile, program: Program): number {
   return roundScore(average);
 }
 
-function levelScore(profile: PlayerProfile, program: Program): { score: number; playerHigher: boolean } {
+function levelScore(profile: PlayerProfile, program: Program): { score: number; playerHigher: boolean; chosen: boolean } {
   const diff = playerLevel(profile) - DIVISION_LEVEL[program.division];
   // Peak when the player is only a touch above the program and can contribute.
   const distance = Math.abs(diff - 0.25);
-  return { score: roundScore(100 - distance * 38), playerHigher: diff > 0.9 };
+  let score = roundScore(100 - distance * 38);
+  const chosen = !profile.openToAllLevels && profile.levels.includes(programLevel(program));
+  // A level they asked for should not look like a poor fit. Closer matches still rank higher.
+  if (chosen) score = Math.max(score, 74);
+  return { score, playerHigher: diff > 0.9, chosen };
+}
+
+export function matchingCampusLife(profile: PlayerProfile, program: Program): CampusLife[] {
+  const homeRegion = regionForState(profile.homeState);
+  return profile.campusLife.filter((item) => {
+    if (item === 'close-to-home') {
+      return program.state === profile.homeState || (homeRegion != null && program.region === homeRegion);
+    }
+    if (item === 'far-from-home') {
+      if (!homeRegion || program.state === profile.homeState || program.region === homeRegion) return false;
+      return !ADJACENT_REGIONS[homeRegion].includes(program.region);
+    }
+    return program.campusLife.includes(item);
+  });
+}
+
+function campusLifeNote(profile: PlayerProfile, program: Program): string | null {
+  const hits = matchingCampusLife(profile, program);
+  if (hits.length === 0) return null;
+  const names = hits.slice(0, 2).map((item) => {
+    const label = CAMPUS_LIFE_LABEL[item];
+    return label.charAt(0).toLowerCase() + label.slice(1);
+  });
+  return `You'd also get ${joinLabels(names)}.`;
 }
 
 function regionScore(profile: PlayerProfile, program: Program): number {
@@ -193,6 +224,7 @@ function factorDetail(
   program: Program,
   roster: { position: Position; spot: RosterCount },
   playerHigher: boolean,
+  chosenLevel: boolean,
 ): string {
   const inRegion = profile.preferredRegions.includes(program.region);
   const home = program.state === profile.homeState;
@@ -221,14 +253,19 @@ function factorDetail(
         return `Your GPA is in range of their typical admits (about ${program.academics.avgGpa.toFixed(1)}).`;
       }
       return `Academics are a stretch versus their typical GPA of ${program.academics.avgGpa.toFixed(1)}.`;
-    case 'level':
-      if (score >= 75) {
-        return `${program.division} lines up with ${leagueName(profile)}.`;
+    case 'level': {
+      const name = LEVEL_LABEL[programLevel(program)];
+      if (chosenLevel && score >= 75) {
+        return `${name} is a level you want, and it lines up with ${leagueName(profile)}.`;
       }
-      if (playerHigher) {
-        return `You may be a step above ${program.division} based on your league.`;
+      if (chosenLevel && playerHigher) {
+        return `${name} is a level you want. You may be a step above it from ${leagueName(profile)}.`;
       }
-      return `${program.division} looks like a reach from ${leagueName(profile)}.`;
+      if (chosenLevel) return `${name} is a level you want. It looks like a reach from ${leagueName(profile)}.`;
+      if (score >= 75) return `${name} lines up with ${leagueName(profile)}.`;
+      if (playerHigher) return `You may be a step above ${name} based on your league.`;
+      return `${name} looks like a reach from ${leagueName(profile)}.`;
+    }
     case 'size':
       if (score >= 80) {
         return `${program.enrollment.toLocaleString('en-US')} students matches the campus size you want.`;
@@ -260,7 +297,7 @@ export function scoreProgram(profile: PlayerProfile, program: Program): FitResul
     label: factor.label,
     score: scores[factor.key],
     weight: factor.weight,
-    detail: factorDetail(factor.key, scores[factor.key], profile, program, roster, level.playerHigher),
+    detail: factorDetail(factor.key, scores[factor.key], profile, program, roster, level.playerHigher, level.chosen),
   }));
 
   const ranked = [...factors].sort((a, b) => {
@@ -269,12 +306,16 @@ export function scoreProgram(profile: PlayerProfile, program: Program): FitResul
       FIT_FACTORS.findIndex((factor) => factor.key === b.key);
   });
 
+  const life = matchingCampusLife(profile, program);
+  const lifeBump = life.length === 0 ? 0 : Math.min(4, 2 + life.length);
   const total = roundScore(
-    factors.reduce((sum, factor) => sum + factor.score * WEIGHT[factor.key], 0),
+    factors.reduce((sum, factor) => sum + factor.score * WEIGHT[factor.key], 0) + lifeBump,
   );
 
   const lead = ranked[0];
-  const why = lead.score < 55 ? `Mixed fit. ${lead.detail}` : lead.detail;
+  const baseWhy = lead.score < 55 ? `Mixed fit. ${lead.detail}` : lead.detail;
+  const note = campusLifeNote(profile, program);
+  const why = note ? `${baseWhy} ${note}` : baseWhy;
 
   return {
     total,

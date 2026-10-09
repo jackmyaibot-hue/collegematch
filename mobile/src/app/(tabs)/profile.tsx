@@ -16,7 +16,7 @@ import { FIT_FACTORS } from '../../data/fitScore';
 import { formatLongDate, joinLabels } from '../../data/format';
 import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
 import { dominantSideDisplay, GENDER_LABEL, leagueShortList, positionSlash, SPORT_LABEL } from '../../data/sports';
-import type { HonorsProfile } from '../../data/types';
+import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
 import { stateName } from '../../data/regions';
 import { useAppState } from '../../state/AppState';
 import { colors, radius } from '../../theme';
@@ -127,7 +127,19 @@ export default function ProfileScreen() {
             <Row label="Honors" value={honorSummary(profile)} />
             <Row label="Proud of" value={profile.proudOf || 'Not added'} />
             <Row label="Fun fact" value={profile.funFact || 'Not added'} />
+            <Row
+              label="Level"
+              value={profile.openToAllLevels ? 'Open to all' : profile.levels.map((level) => LEVEL_LABEL[level]).join(', ')}
+            />
             <Row label="Regions" value={profile.preferredRegions.join(', ')} />
+            <Row
+              label="Campus life"
+              value={
+                profile.campusLife.length > 0
+                  ? profile.campusLife.map((life) => CAMPUS_LIFE_LABEL[life]).join(', ')
+                  : 'Not added'
+              }
+            />
             <Row label="Budget" value={profile.budget.label} />
             <Row label="Highlight" value={profile.highlightVideoUrl || 'Not added'} />
             <Row label="Parent email" value={profile.parentEmail || 'Not added'} />

@@ -10,7 +10,7 @@ import type {
   Sport,
 } from './types';
 import { isIsoDate } from './format';
-import type { HonorsProfile } from './types';
+import type { CampusLife, HonorsProfile, LevelPref } from './types';
 
 export const BUDGET_OPTIONS = [
   { id: 'under-15', label: 'Under $15k', min: 0, max: 15000 },
@@ -59,6 +59,9 @@ export type ProfileDraft = {
   act: string;
   homeState: string;
   preferredRegions: Region[];
+  openToAllLevels: boolean;
+  levels: LevelPref[];
+  campusLife: CampusLife[];
   schoolSizePreference: SchoolSizePreference | null;
   intendedMajors: string[];
   /** Typed into "add your own" and merged when it is long enough to keep. */
@@ -109,6 +112,9 @@ export function emptyDraft(): ProfileDraft {
     act: '',
     homeState: '',
     preferredRegions: [],
+    openToAllLevels: false,
+    levels: [],
+    campusLife: [],
     schoolSizePreference: null,
     intendedMajors: [],
     customMajor: '',
@@ -157,6 +163,9 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     act: profile.act == null ? '' : String(profile.act),
     homeState: profile.homeState,
     preferredRegions: [...profile.preferredRegions],
+    openToAllLevels: profile.openToAllLevels ?? false,
+    levels: [...(profile.levels ?? [])],
+    campusLife: [...(profile.campusLife ?? [])],
     schoolSizePreference: profile.schoolSizePreference,
     intendedMajors: [...(profile.intendedMajors ?? [])],
     customMajor: '',
@@ -290,6 +299,9 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
     if (act == null || act < 1 || act > 36) errors.act = 'ACT scores run from 1 to 36.';
   }
   if (!draft.homeState) errors.homeState = 'Pick your home state.';
+  if (!draft.openToAllLevels && draft.levels.length === 0) {
+    errors.levels = 'Pick at least one level, or Open to all.';
+  }
   if (draft.preferredRegions.length === 0) errors.preferredRegions = 'Pick at least one region.';
   if (!draft.schoolSizePreference) errors.schoolSizePreference = 'Pick a campus size.';
   if (majorsFromDraft(draft).length === 0) {
@@ -311,8 +323,10 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
     if (draft[key].trim().length > 240) errors[key] = `Keep ${label} to a sentence or two.`;
   }
   if (!draft.budgetId) errors.budgetId = 'Pick a budget range.';
-  if (draft.parentEmail.trim() && !validEmail(draft.parentEmail)) {
-    errors.parentEmail = 'That email does not look right. You can also leave it blank.';
+  if (!draft.parentEmail.trim()) {
+    errors.parentEmail = 'Add a parent email. It is copied on coach emails and stays on this phone.';
+  } else if (!validEmail(draft.parentEmail)) {
+    errors.parentEmail = 'That email does not look right.';
   }
   return errors;
 }
@@ -365,6 +379,9 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     act: draft.act.trim() === '' ? null : Number(draft.act),
     homeState: draft.homeState,
     preferredRegions: [...draft.preferredRegions],
+    openToAllLevels: draft.openToAllLevels,
+    levels: draft.openToAllLevels ? [] : [...draft.levels],
+    campusLife: [...draft.campusLife],
     schoolSizePreference: draft.schoolSizePreference,
     intendedMajors: majorsFromDraft(draft),
     honors: honorsFromDraft(draft),

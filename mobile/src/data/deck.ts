@@ -1,5 +1,5 @@
 import { scoreProgram, type FitResult } from './fitScore';
-import { placementMatchesAthlete, programMatchesAthlete } from './sports';
+import { placementMatchesAthlete, programMatchesAthlete, wantsLevel } from './sports';
 import type { PlayerProfile, Program, RecruitingState, SponsoredPlacement } from './types';
 
 export type DeckCard =
@@ -19,7 +19,9 @@ export function buildDeck(
   recruiting: RecruitingState,
   sponsors: SponsoredPlacement[],
 ): DeckCard[] {
-  const mine = programs.filter((program) => programMatchesAthlete(program, profile));
+  const mine = programs.filter(
+    (program) => programMatchesAthlete(program, profile) && wantsLevel(profile, program),
+  );
   const seen = mine.filter((program) => recruiting.saved[program.id] || recruiting.passed[program.id]).length;
   const ranked = mine
     .filter((program) => !recruiting.saved[program.id] && !recruiting.passed[program.id])
