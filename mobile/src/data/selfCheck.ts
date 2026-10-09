@@ -56,11 +56,21 @@ check(Math.abs(weightSum - 1) < 0.0001, `weights sum to ${weightSum}`);
 const strong: PlayerProfile = {
   id: 'test-strong',
   name: 'Maya Chen',
+  birthdate: '2010-04-12',
+  gender: 'girls',
+  sport: 'soccer',
   gradYear: 2028,
   positions: ['CB'],
+  primaryPosition: 'CB',
   clubTeam: 'Valley United',
-  league: 'ECNL',
-  stats: { gamesPlayed: 18, goals: 2, assists: 4, cleanSheets: null, savePercentage: null },
+  leagues: ['ecnl'],
+  stats: {
+    yearsAtLevel: 3,
+    dominantSide: 'left',
+    jerseyNumber: 4,
+    clubCoach: { name: 'Jordan Lee', email: 'jordan@club.example.com', phone: '503-555-0142' },
+    highSchoolCoach: { name: 'Pat Nguyen', email: 'pat@school.example.com', phone: '503-555-0199' },
+  },
   highlightVideoUrl: 'https://video.example.com/maya-chen',
   gpa: 3.6,
   sat: 1200,
@@ -68,7 +78,23 @@ const strong: PlayerProfile = {
   homeState: 'OR',
   preferredRegions: ['West'],
   schoolSizePreference: 'large',
-  intendedMajor: 'Biology',
+  intendedMajors: ['Biology', 'Business'],
+  honors: {
+    asb: true,
+    asbRole: 'President',
+    valedictorian: false,
+    salutatorian: false,
+    honorRoll: true,
+    nationalHonorSociety: true,
+    apCourses: '4',
+    honorsCourses: '',
+    teamCaptain: true,
+    scholarAthlete: '',
+    serviceHours: '80',
+    otherAchievement: '',
+  },
+  proudOf: 'sticking with my club through a hard season',
+  funFact: 'I bake bread for the team bus',
   budget: { id: '15-30', label: '$15–30k', min: 15000, max: 30000 },
   parentEmail: 'parent@example.com',
   updatedAt: '2026-10-09T00:00:00.000Z',
@@ -120,6 +146,18 @@ if (!northwind || !amber || !harbor || !cinder) {
   check(email.subject.includes('Maya Chen'), 'subject missing player name');
   check(email.body.includes('Northwind University'), 'body missing school');
   check(email.body.includes('https://video.example.com/maya-chen'), 'body missing highlight');
+  check(email.body.includes("I'm left-footed"), 'body missing dominant foot');
+  check(email.body.includes('#4'), 'body missing jersey number');
+  check(email.body.includes('3 years'), 'body missing years at league level');
+  check(email.body.includes('Jordan Lee'), 'body missing club coach');
+  check(email.body.includes('Pat Nguyen'), 'body missing high school coach');
+  check(!/goals|assists|clean sheets|save percentage/i.test(email.body), 'body should not mention scoring stats');
+  check(email.body.includes('Biology') && email.body.includes('Business'), 'body should name every intended major');
+  check(email.body.includes('National Honor Society'), 'body should mention a standout honor');
+  check(email.body.includes('team captain'), 'body should mention team captain');
+  check(email.body.includes('80 community service hours'), 'body should mention service hours');
+  check(email.body.includes("I'm proud of sticking with my club through a hard season"), 'body should include what they are proud of');
+  check(email.body.includes('Fun fact: I bake bread for the team bus'), 'body should include the fun fact');
   check(email.body.includes('2028'), 'body missing grad year');
   check(email.to.endsWith('.example.com'), 'email recipient is not example.com');
   check(email.cc === 'parent@example.com', 'parent email should be copied');
@@ -174,15 +212,23 @@ check(replied === 'replied', 'replied should not flip back to follow-up due');
 
 const draft: ProfileDraft = {
   name: 'Maya Chen',
+  birthdate: '2010-04-12',
+  gender: 'girls',
+  sport: 'soccer',
   gradYear: 2028,
   positions: ['CB', 'GK'],
+  primaryPosition: 'CB',
   clubTeam: 'Valley United',
-  league: 'ECNL',
-  gamesPlayed: '18',
-  goals: '1',
-  assists: '0',
-  cleanSheets: '8',
-  savePercentage: '80',
+  leagues: ['ecnl', 'ga'],
+  yearsAtLevel: '3',
+  dominantSide: 'left',
+  jerseyNumber: '4',
+  clubCoachName: 'Jordan Lee',
+  clubCoachEmail: 'jordan@club.example.com',
+  clubCoachPhone: '503-555-0142',
+  highSchoolCoachName: '',
+  highSchoolCoachEmail: '',
+  highSchoolCoachPhone: '',
   highlightVideoUrl: 'https://video.example.com/maya',
   gpa: '3.6',
   sat: '',
@@ -190,14 +236,67 @@ const draft: ProfileDraft = {
   homeState: 'OR',
   preferredRegions: ['West'],
   schoolSizePreference: 'large',
-  intendedMajor: 'Biology',
+  intendedMajors: ['Biology', 'Business'],
+  customMajor: 'Sports medicine',
+  asb: true,
+  asbRole: 'President',
+  valedictorian: false,
+  salutatorian: false,
+  honorRoll: true,
+  nationalHonorSociety: true,
+  apCourses: '4',
+  honorsCourses: '',
+  teamCaptain: true,
+  scholarAthlete: '',
+  serviceHours: '80',
+  otherAchievement: '',
+  proudOf: 'sticking with my club through a hard season',
+  funFact: 'I bake bread for the team bus',
   budgetId: '15-30',
   parentEmail: '',
 };
 check(Object.keys(validateDraft(draft)).length === 0, `draft should be valid: ${JSON.stringify(validateDraft(draft))}`);
 const profile = profileFromDraft(draft, 'player-1');
-check(profile.stats.savePercentage === 80, 'GK save percentage should be kept');
+check(profile.stats.dominantSide === 'left', 'dominant foot should be kept');
+check(profile.stats.jerseyNumber === 4, 'jersey number should be kept');
+check(profile.stats.yearsAtLevel === 3, 'years at league level should be kept');
+check(profile.stats.clubCoach.email === 'jordan@club.example.com', 'club coach email should be kept');
+check(profile.stats.highSchoolCoach.name === '', 'blank high school coach should stay blank');
 check(profile.sat === null, 'blank SAT should be null');
+check(profile.leagues.includes('ecnl') && profile.leagues.includes('ga'), 'both leagues should be kept');
+check(profile.primaryPosition === 'CB', 'primary position should be kept');
+check(
+  profile.intendedMajors.includes('Biology') &&
+    profile.intendedMajors.includes('Business') &&
+    profile.intendedMajors.includes('Sports medicine'),
+  'selected majors and a custom major should be kept',
+);
+check(profile.honors.asbRole === 'President' && profile.honors.teamCaptain, 'honors should be kept');
+check(profile.proudOf.includes('hard season') && profile.funFact.includes('bread'), 'personal notes should be kept');
+
+const multi: PlayerProfile = { ...strong, positions: ['CB', 'ST'], primaryPosition: 'ST', leagues: ['ecnl', 'ga'] };
+if (northwind) {
+  const onlyCb = scoreProgram({ ...strong, positions: ['CB'], primaryPosition: 'CB' }, northwind);
+  const onlySt = scoreProgram({ ...strong, positions: ['ST'], primaryPosition: 'ST' }, northwind);
+  const both = scoreProgram(multi, northwind);
+  const cbRoster = onlyCb.factors.find((factor) => factor.key === 'roster')?.score ?? -1;
+  const stRoster = onlySt.factors.find((factor) => factor.key === 'roster')?.score ?? -1;
+  const bothRoster = both.factors.find((factor) => factor.key === 'roster')?.score ?? -1;
+  check(bothRoster === Math.max(cbRoster, stRoster), 'fit score should use the stronger of the selected positions');
+  const multiEmail = buildIntroEmail(multi, northwind, northwind.coaches[0], '2026-10-09');
+  check(multiEmail.body.toLowerCase().includes('center back'), 'email should name every selected position');
+  check(multiEmail.body.toLowerCase().includes('striker'), 'email should name the second position');
+  check(multiEmail.body.includes('ECNL') && multiEmail.body.includes('GA'), 'email should name every selected league');
+  check(multiEmail.subject.startsWith('2028 ST/CB'), 'primary position should lead the subject');
+}
+const boysDeck = buildDeck(
+  SAMPLE_PROGRAMS,
+  { ...strong, gender: 'boys' },
+  emptyRecruiting(),
+  SAMPLE_SPONSORS,
+);
+check(boysDeck.length === 0, 'boys soccer should not show the women\'s sample deck');
+check(SAMPLE_PROGRAMS.every((program) => program.sport === 'soccer' && program.side === 'women'), 'sample programs should be women\'s soccer');
 
 if (failures.length > 0) {
   console.error(failures.join('\n'));

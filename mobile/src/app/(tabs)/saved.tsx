@@ -1,16 +1,20 @@
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ComingSoon } from '../../components/ComingSoon';
 import { AppText, SampleBanner, StatusPill } from '../../components/ui';
 import { scoreProgram } from '../../data/fitScore';
 import { effectiveStatus } from '../../data/format';
+import { programMatchesAthlete } from '../../data/sports';
 import { useAppState } from '../../state/AppState';
 import { colors, divisionTone, fitTone, radius } from '../../theme';
 
 export default function SavedScreen() {
   const insets = useSafeAreaInsets();
-  const { profile, programs, sponsors, recruiting } = useAppState();
+  const { profile, programs, sponsors, recruiting, saveProfile } = useAppState();
   if (!profile) return null;
+
+  const hasCatalog = programs.some((program) => programMatchesAthlete(program, profile));
 
   const saved = Object.values(recruiting.saved)
     .map((item) => {
@@ -33,7 +37,12 @@ export default function SavedScreen() {
         Schools you swiped right on. Open one to see coaches and write an intro.
       </AppText>
       <SampleBanner />
-      {saved.length === 0 ? (
+      {!hasCatalog ? (
+        <ComingSoon
+          sport={profile.sport}
+          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'girls' })}
+        />
+      ) : saved.length === 0 ? (
         <View style={styles.empty}>
           <AppText variant="headline">No schools saved yet.</AppText>
           <AppText variant="body">Swipe right on Discover when a program looks like a fit.</AppText>

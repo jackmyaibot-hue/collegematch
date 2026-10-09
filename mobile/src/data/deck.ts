@@ -1,4 +1,5 @@
 import { scoreProgram, type FitResult } from './fitScore';
+import { placementMatchesAthlete, programMatchesAthlete } from './sports';
 import type { PlayerProfile, Program, RecruitingState, SponsoredPlacement } from './types';
 
 export type DeckCard =
@@ -18,15 +19,16 @@ export function buildDeck(
   recruiting: RecruitingState,
   sponsors: SponsoredPlacement[],
 ): DeckCard[] {
-  const seen = programs.filter((program) => recruiting.saved[program.id] || recruiting.passed[program.id]).length;
-  const ranked = programs
+  const mine = programs.filter((program) => programMatchesAthlete(program, profile));
+  const seen = mine.filter((program) => recruiting.saved[program.id] || recruiting.passed[program.id]).length;
+  const ranked = mine
     .filter((program) => !recruiting.saved[program.id] && !recruiting.passed[program.id])
     .map((program) => ({ program, fit: scoreProgram(profile, program) }))
     .sort((a, b) => b.fit.total - a.fit.total || a.program.schoolName.localeCompare(b.program.schoolName));
 
   const cards: DeckCard[] = ranked.map((row) => ({ type: 'program', program: row.program, fit: row.fit }));
   const active = sponsors
-    .filter((placement) => !recruiting.sponsors[placement.id])
+    .filter((placement) => placementMatchesAthlete(placement, profile) && !recruiting.sponsors[placement.id])
     .map((placement) => ({ placement, at: placement.insertAt - seen }))
     .filter((slot) => slot.at >= 0)
     .sort((a, b) => b.at - a.at);

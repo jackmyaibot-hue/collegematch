@@ -1,10 +1,16 @@
+import { BIRTHDATE_MAX, BIRTHDATE_MIN } from './sports';
 import type {
-  League,
+  AthleteGender,
+  DominantSide,
+  LeagueId,
   PlayerProfile,
   Position,
   Region,
   SchoolSizePreference,
+  Sport,
 } from './types';
+import { isIsoDate } from './format';
+import type { HonorsProfile } from './types';
 
 export const BUDGET_OPTIONS = [
   { id: 'under-15', label: 'Under $15k', min: 0, max: 15000 },
@@ -30,15 +36,23 @@ export const MAJOR_SUGGESTIONS = [
 
 export type ProfileDraft = {
   name: string;
+  birthdate: string;
+  gender: AthleteGender | null;
+  sport: Sport | null;
   gradYear: number | null;
   positions: Position[];
+  primaryPosition: Position | null;
   clubTeam: string;
-  league: League | null;
-  gamesPlayed: string;
-  goals: string;
-  assists: string;
-  cleanSheets: string;
-  savePercentage: string;
+  leagues: LeagueId[];
+  yearsAtLevel: string;
+  dominantSide: DominantSide | null;
+  jerseyNumber: string;
+  clubCoachName: string;
+  clubCoachEmail: string;
+  clubCoachPhone: string;
+  highSchoolCoachName: string;
+  highSchoolCoachEmail: string;
+  highSchoolCoachPhone: string;
   highlightVideoUrl: string;
   gpa: string;
   sat: string;
@@ -46,7 +60,23 @@ export type ProfileDraft = {
   homeState: string;
   preferredRegions: Region[];
   schoolSizePreference: SchoolSizePreference | null;
-  intendedMajor: string;
+  intendedMajors: string[];
+  /** Typed into "add your own" and merged when it is long enough to keep. */
+  customMajor: string;
+  asb: boolean;
+  asbRole: string;
+  valedictorian: boolean;
+  salutatorian: boolean;
+  honorRoll: boolean;
+  nationalHonorSociety: boolean;
+  apCourses: string;
+  honorsCourses: string;
+  teamCaptain: boolean;
+  scholarAthlete: string;
+  serviceHours: string;
+  otherAchievement: string;
+  proudOf: string;
+  funFact: string;
   budgetId: string | null;
   parentEmail: string;
 };
@@ -56,15 +86,23 @@ export type FieldErrors = Partial<Record<keyof ProfileDraft, string>>;
 export function emptyDraft(): ProfileDraft {
   return {
     name: '',
+    birthdate: '',
+    gender: null,
+    sport: null,
     gradYear: null,
     positions: [],
+    primaryPosition: null,
     clubTeam: '',
-    league: null,
-    gamesPlayed: '',
-    goals: '',
-    assists: '',
-    cleanSheets: '',
-    savePercentage: '',
+    leagues: [],
+    yearsAtLevel: '',
+    dominantSide: null,
+    jerseyNumber: '',
+    clubCoachName: '',
+    clubCoachEmail: '',
+    clubCoachPhone: '',
+    highSchoolCoachName: '',
+    highSchoolCoachEmail: '',
+    highSchoolCoachPhone: '',
     highlightVideoUrl: '',
     gpa: '',
     sat: '',
@@ -72,7 +110,22 @@ export function emptyDraft(): ProfileDraft {
     homeState: '',
     preferredRegions: [],
     schoolSizePreference: null,
-    intendedMajor: '',
+    intendedMajors: [],
+    customMajor: '',
+    asb: false,
+    asbRole: '',
+    valedictorian: false,
+    salutatorian: false,
+    honorRoll: false,
+    nationalHonorSociety: false,
+    apCourses: '',
+    honorsCourses: '',
+    teamCaptain: false,
+    scholarAthlete: '',
+    serviceHours: '',
+    otherAchievement: '',
+    proudOf: '',
+    funFact: '',
     budgetId: null,
     parentEmail: '',
   };
@@ -81,15 +134,23 @@ export function emptyDraft(): ProfileDraft {
 export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
   return {
     name: profile.name,
+    birthdate: profile.birthdate,
+    gender: profile.gender,
+    sport: profile.sport,
     gradYear: profile.gradYear,
     positions: [...profile.positions],
+    primaryPosition: profile.primaryPosition,
     clubTeam: profile.clubTeam,
-    league: profile.league,
-    gamesPlayed: String(profile.stats.gamesPlayed),
-    goals: String(profile.stats.goals),
-    assists: String(profile.stats.assists),
-    cleanSheets: profile.stats.cleanSheets == null ? '' : String(profile.stats.cleanSheets),
-    savePercentage: profile.stats.savePercentage == null ? '' : String(profile.stats.savePercentage),
+    leagues: [...profile.leagues],
+    yearsAtLevel: String(profile.stats.yearsAtLevel ?? 0),
+    dominantSide: profile.stats.dominantSide ?? null,
+    jerseyNumber: profile.stats.jerseyNumber == null ? '' : String(profile.stats.jerseyNumber),
+    clubCoachName: profile.stats.clubCoach?.name ?? '',
+    clubCoachEmail: profile.stats.clubCoach?.email ?? '',
+    clubCoachPhone: profile.stats.clubCoach?.phone ?? '',
+    highSchoolCoachName: profile.stats.highSchoolCoach?.name ?? '',
+    highSchoolCoachEmail: profile.stats.highSchoolCoach?.email ?? '',
+    highSchoolCoachPhone: profile.stats.highSchoolCoach?.phone ?? '',
     highlightVideoUrl: profile.highlightVideoUrl,
     gpa: String(profile.gpa),
     sat: profile.sat == null ? '' : String(profile.sat),
@@ -97,9 +158,50 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     homeState: profile.homeState,
     preferredRegions: [...profile.preferredRegions],
     schoolSizePreference: profile.schoolSizePreference,
-    intendedMajor: profile.intendedMajor,
+    intendedMajors: [...(profile.intendedMajors ?? [])],
+    customMajor: '',
+    asb: profile.honors?.asb ?? false,
+    asbRole: profile.honors?.asbRole ?? '',
+    valedictorian: profile.honors?.valedictorian ?? false,
+    salutatorian: profile.honors?.salutatorian ?? false,
+    honorRoll: profile.honors?.honorRoll ?? false,
+    nationalHonorSociety: profile.honors?.nationalHonorSociety ?? false,
+    apCourses: profile.honors?.apCourses ?? '',
+    honorsCourses: profile.honors?.honorsCourses ?? '',
+    teamCaptain: profile.honors?.teamCaptain ?? false,
+    scholarAthlete: profile.honors?.scholarAthlete ?? '',
+    serviceHours: profile.honors?.serviceHours ?? '',
+    otherAchievement: profile.honors?.otherAchievement ?? '',
+    proudOf: profile.proudOf ?? '',
+    funFact: profile.funFact ?? '',
     budgetId: profile.budget.id,
     parentEmail: profile.parentEmail,
+  };
+}
+
+export function majorsFromDraft(draft: ProfileDraft): string[] {
+  const majors = draft.intendedMajors.map((major) => major.trim()).filter((major) => major.length >= 2);
+  const custom = draft.customMajor.trim();
+  if (custom.length >= 2 && !majors.some((major) => major.toLowerCase() === custom.toLowerCase())) {
+    majors.push(custom);
+  }
+  return majors;
+}
+
+function honorsFromDraft(draft: ProfileDraft): HonorsProfile {
+  return {
+    asb: draft.asb,
+    asbRole: draft.asb ? draft.asbRole.trim() : '',
+    valedictorian: draft.valedictorian,
+    salutatorian: draft.valedictorian ? false : draft.salutatorian,
+    honorRoll: draft.honorRoll,
+    nationalHonorSociety: draft.nationalHonorSociety,
+    apCourses: draft.apCourses.trim(),
+    honorsCourses: draft.honorsCourses.trim(),
+    teamCaptain: draft.teamCaptain,
+    scholarAthlete: draft.scholarAthlete.trim(),
+    serviceHours: draft.serviceHours.trim(),
+    otherAchievement: draft.otherAchievement.trim(),
   };
 }
 
@@ -109,34 +211,66 @@ function parseIntField(value: string): number | null {
   return Number(value.trim());
 }
 
+function validEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+function validPhone(value: string): boolean {
+  const digits = value.replace(/\D/g, '');
+  return digits.length >= 7 && digits.length <= 15;
+}
+
+function applyContactErrors(
+  errors: FieldErrors,
+  prefix: 'clubCoach' | 'highSchoolCoach',
+  draft: ProfileDraft,
+  required: boolean,
+) {
+  const name = draft[`${prefix}Name`];
+  const email = draft[`${prefix}Email`];
+  const phone = draft[`${prefix}Phone`];
+  const started = name.trim() !== '' || email.trim() !== '' || phone.trim() !== '';
+  if (!required && !started) return;
+  if (name.trim().length < 2) errors[`${prefix}Name`] = 'Add their name.';
+  if (!email.trim()) errors[`${prefix}Email`] = 'Add their email.';
+  else if (!validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
+  if (required && !phone.trim()) errors[`${prefix}Phone`] = 'Add their phone number.';
+  else if (phone.trim() && !validPhone(phone)) {
+    errors[`${prefix}Phone`] = 'Use a phone number with at least 7 digits.';
+  }
+}
+
 export function validateDraft(draft: ProfileDraft): FieldErrors {
   const errors: FieldErrors = {};
   if (draft.name.trim().length < 2) errors.name = 'Add your name.';
+  if (!draft.birthdate || !isIsoDate(draft.birthdate)) errors.birthdate = 'Add your birthday.';
+  else if (draft.birthdate < BIRTHDATE_MIN || draft.birthdate > BIRTHDATE_MAX) {
+    errors.birthdate = 'Use a birthday that fits a high school athlete.';
+  }
+  if (!draft.gender) errors.gender = 'Pick Girls, Boys, or Prefer not to say.';
+  if (!draft.sport) errors.sport = 'Pick your sport.';
   if (!draft.gradYear) errors.gradYear = 'Pick your grad year.';
   if (draft.positions.length === 0) errors.positions = 'Pick at least one position.';
+  if (draft.primaryPosition && !draft.positions.includes(draft.primaryPosition)) {
+    errors.primaryPosition = 'Pick a primary from the positions you selected.';
+  }
+  if (!draft.primaryPosition && draft.positions.length > 0) {
+    errors.primaryPosition = 'Mark one position as primary.';
+  }
   if (draft.clubTeam.trim().length < 2) errors.clubTeam = 'Add your club team.';
-  if (!draft.league) errors.league = 'Pick a league.';
+  if (draft.leagues.length === 0) errors.leagues = 'Pick at least one league.';
 
-  const games = parseIntField(draft.gamesPlayed);
-  const goals = draft.goals.trim() === '' ? 0 : parseIntField(draft.goals);
-  const assists = draft.assists.trim() === '' ? 0 : parseIntField(draft.assists);
-  if (games == null) errors.gamesPlayed = 'Add games played. Use 0 if the season has not started.';
-  if (goals == null) errors.goals = 'Use a whole number, or leave goals blank.';
-  if (assists == null) errors.assists = 'Use a whole number, or leave assists blank.';
-  if (games === 0 && ((goals ?? 0) > 0 || (assists ?? 0) > 0)) {
-    errors.gamesPlayed = 'Add the games those goals and assists came from.';
+  const years = parseIntField(draft.yearsAtLevel);
+  if (years == null || years > 15) {
+    errors.yearsAtLevel = 'Use a whole number from 0 to 15. 0 means this is your first year at this level.';
   }
-
-  const isGk = draft.positions.includes('GK');
-  if (isGk && draft.cleanSheets.trim() !== '' && parseIntField(draft.cleanSheets) == null) {
-    errors.cleanSheets = 'Use a whole number, or leave it blank.';
+  if (draft.sport === 'soccer' && !draft.dominantSide) {
+    errors.dominantSide = 'Pick Left, Right, or Both.';
   }
-  if (isGk && draft.savePercentage.trim() !== '') {
-    const saves = Number(draft.savePercentage);
-    if (!Number.isFinite(saves) || saves < 0 || saves > 100) {
-      errors.savePercentage = 'Save percentage should be between 0 and 100.';
-    }
-  }
+  const jersey = parseIntField(draft.jerseyNumber);
+  if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
+  applyContactErrors(errors, 'clubCoach', draft, true);
+  applyContactErrors(errors, 'highSchoolCoach', draft, false);
 
   const highlight = draft.highlightVideoUrl.trim();
   if (highlight && !/^https?:\/\//i.test(highlight)) {
@@ -158,9 +292,26 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   if (!draft.homeState) errors.homeState = 'Pick your home state.';
   if (draft.preferredRegions.length === 0) errors.preferredRegions = 'Pick at least one region.';
   if (!draft.schoolSizePreference) errors.schoolSizePreference = 'Pick a campus size.';
-  if (draft.intendedMajor.trim().length < 2) errors.intendedMajor = 'Add a major, or write Undeclared.';
+  if (majorsFromDraft(draft).length === 0) {
+    errors.intendedMajors = 'Pick at least one major, or add your own.';
+  }
+  if (draft.customMajor.trim().length === 1) {
+    errors.customMajor = 'Add a little more, or clear this box.';
+  }
+  for (const [key, label] of [
+    ['apCourses', 'AP courses'],
+    ['honorsCourses', 'honors courses'],
+    ['scholarAthlete', 'scholar-athlete awards'],
+    ['serviceHours', 'community service'],
+    ['otherAchievement', 'the other achievement'],
+    ['asbRole', 'the role'],
+    ['proudOf', 'what you are proud of'],
+    ['funFact', 'the fun fact'],
+  ] as const) {
+    if (draft[key].trim().length > 240) errors[key] = `Keep ${label} to a sentence or two.`;
+  }
   if (!draft.budgetId) errors.budgetId = 'Pick a budget range.';
-  if (draft.parentEmail.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft.parentEmail.trim())) {
+  if (draft.parentEmail.trim() && !validEmail(draft.parentEmail)) {
     errors.parentEmail = 'That email does not look right. You can also leave it blank.';
   }
   return errors;
@@ -172,23 +323,41 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     throw new Error('Profile draft is incomplete.');
   }
   const budget = BUDGET_OPTIONS.find((option) => option.id === draft.budgetId);
-  if (!budget || !draft.gradYear || !draft.league || !draft.schoolSizePreference) {
+  if (
+    !budget ||
+    !draft.gradYear ||
+    !draft.gender ||
+    !draft.sport ||
+    !draft.primaryPosition ||
+    !draft.schoolSizePreference
+  ) {
     throw new Error('Profile draft is incomplete.');
   }
-  const isGk = draft.positions.includes('GK');
   return {
     id: existingId ?? `player-${Date.now()}`,
     name: draft.name.trim(),
+    birthdate: draft.birthdate,
+    gender: draft.gender,
+    sport: draft.sport,
     gradYear: draft.gradYear,
     positions: [...draft.positions],
+    primaryPosition: draft.primaryPosition,
     clubTeam: draft.clubTeam.trim(),
-    league: draft.league,
+    leagues: [...draft.leagues],
     stats: {
-      gamesPlayed: Number(draft.gamesPlayed),
-      goals: draft.goals.trim() === '' ? 0 : Number(draft.goals),
-      assists: draft.assists.trim() === '' ? 0 : Number(draft.assists),
-      cleanSheets: isGk && draft.cleanSheets.trim() !== '' ? Number(draft.cleanSheets) : null,
-      savePercentage: isGk && draft.savePercentage.trim() !== '' ? Number(draft.savePercentage) : null,
+      yearsAtLevel: Number(draft.yearsAtLevel),
+      dominantSide: draft.sport === 'soccer' ? draft.dominantSide : null,
+      jerseyNumber: Number(draft.jerseyNumber),
+      clubCoach: {
+        name: draft.clubCoachName.trim(),
+        email: draft.clubCoachEmail.trim(),
+        phone: draft.clubCoachPhone.trim(),
+      },
+      highSchoolCoach: {
+        name: draft.highSchoolCoachName.trim(),
+        email: draft.highSchoolCoachEmail.trim(),
+        phone: draft.highSchoolCoachPhone.trim(),
+      },
     },
     highlightVideoUrl: draft.highlightVideoUrl.trim(),
     gpa: Math.round(Number(draft.gpa) * 100) / 100,
@@ -197,7 +366,10 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     homeState: draft.homeState,
     preferredRegions: [...draft.preferredRegions],
     schoolSizePreference: draft.schoolSizePreference,
-    intendedMajor: draft.intendedMajor.trim(),
+    intendedMajors: majorsFromDraft(draft),
+    honors: honorsFromDraft(draft),
+    proudOf: draft.proudOf.trim(),
+    funFact: draft.funFact.trim(),
     budget: { id: budget.id, label: budget.label, min: budget.min, max: budget.max },
     parentEmail: draft.parentEmail.trim(),
     updatedAt: new Date().toISOString(),

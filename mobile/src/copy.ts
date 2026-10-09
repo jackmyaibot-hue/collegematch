@@ -1,5 +1,5 @@
 export const PRIVACY_LINE =
-  'CollegeMatch is free for players. Your profile stays on this phone. No ads SDK, no tracking, no third-party analytics.';
+  'Free for athletes. Your info stays on this phone — super secure, no tracking.';
 
 export const SAMPLE_LINE =
   'Sample programs only. Names, coaches, costs, and camps are fictional. Emails end in example.com.';

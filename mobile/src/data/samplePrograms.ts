@@ -97,6 +97,8 @@ function toProgram(seed: SchoolSeed, index: number): Program {
   const bump = seed.division === 'NCAA D1' ? 1 : 0;
   return {
     id: seed.id,
+    sport: 'soccer',
+    side: 'women',
     schoolName: seed.schoolName,
     division: seed.division,
     conference: seed.conference,

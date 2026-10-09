@@ -1,7 +1,15 @@
 import { scoreProgram } from './fitScore';
-import { formatLongDate, isoToday } from './format';
+import { formatLongDate, isoToday, joinLabels } from './format';
 import { stateName } from './regions';
-import { POSITION_LABEL, type Coach, type PlayerProfile, type Program } from './types';
+import { dominantSidePhrase, leagueShortList, positionsInDisplayOrder, programSidePhrase } from './sports';
+import {
+  POSITION_LABEL,
+  type Coach,
+  type HonorsProfile,
+  type PersonContact,
+  type PlayerProfile,
+  type Program,
+} from './types';
 
 export type IntroEmail = {
   subject: string;
@@ -11,24 +19,98 @@ export type IntroEmail = {
 };
 
 function leaguePhrase(profile: PlayerProfile): string {
-  if (profile.league === 'other') return 'club / high school soccer';
-  return profile.league;
+  return leagueShortList(profile.leagues);
 }
 
-function statsLine(profile: PlayerProfile): string {
-  const games = profile.stats.gamesPlayed;
-  if (profile.positions.includes('GK') && profile.positions.length === 1) {
-    const saves =
-      profile.stats.savePercentage != null ? `${profile.stats.savePercentage}% saves` : 'save numbers available on request';
-    const sheets =
-      profile.stats.cleanSheets != null ? `${profile.stats.cleanSheets} clean sheets` : null;
-    const bits = [sheets, saves].filter(Boolean).join(', ');
-    return games > 0 ? `This season: ${bits} in ${games} games.` : `This season: ${bits}.`;
+function yearsPhrase(years: number): string {
+  if (years <= 0) return 'This is my first year at this league level';
+  if (years === 1) return "I've played at this league level for 1 year";
+  return `I've played at this league level for ${years} years`;
+}
+
+function positionSentence(profile: PlayerProfile): string {
+  const ordered = positionsInDisplayOrder(profile.positions, profile.primaryPosition);
+  const primary = POSITION_LABEL[profile.primaryPosition].toLowerCase();
+  const secondary = ordered
+    .filter((position) => position !== profile.primaryPosition)
+    .map((position) => POSITION_LABEL[position].toLowerCase());
+  if (secondary.length === 0) return `My position is ${primary}`;
+  if (secondary.length === 1) return `My primary position is ${primary}, and I also play ${secondary[0]}`;
+  const last = secondary[secondary.length - 1];
+  return `My primary position is ${primary}, and I also play ${secondary.slice(0, -1).join(', ')} and ${last}`;
+}
+
+function contactLine(role: string, person: PersonContact): string | null {
+  const name = person.name.trim();
+  if (!name) return null;
+  const bits = [person.email.trim(), person.phone.trim()].filter(Boolean);
+  return bits.length > 0 ? `My ${role} is ${name} (${bits.join(', ')}).` : `My ${role} is ${name}.`;
+}
+
+function gameSentence(profile: PlayerProfile): string {
+  const details = [
+    profile.stats.jerseyNumber != null ? `I wear #${profile.stats.jerseyNumber}` : null,
+    dominantSidePhrase(profile.sport, profile.stats.dominantSide),
+    yearsPhrase(profile.stats.yearsAtLevel),
+  ].filter((line): line is string => Boolean(line));
+  return `${positionSentence(profile)}. I play for ${profile.clubTeam} (${leaguePhrase(profile)}) in ${stateName(profile.homeState)}. ${details.join('. ')}.`;
+}
+
+function studyLine(majors: string[]): string {
+  const named = majors.map((major) => major.trim()).filter(Boolean);
+  if (named.length === 0) return '';
+  return `I'm planning to study ${joinLabels(named)}.`;
+}
+
+function honorsSentence(honors: HonorsProfile): string | null {
+  const roles: string[] = [];
+  if (honors.valedictorian) roles.push('valedictorian');
+  else if (honors.salutatorian) roles.push('salutatorian');
+  if (honors.teamCaptain) roles.push('team captain');
+  if (honors.nationalHonorSociety) roles.push('National Honor Society');
+  if (honors.asb) {
+    const role = honors.asbRole.trim();
+    roles.push(role ? `student government (${role})` : 'student government');
   }
-  if (games <= 0 && profile.stats.goals <= 0 && profile.stats.assists <= 0) {
-    return 'I can send a full stat sheet with my film.';
+  if (honors.honorRoll) roles.push("principal's list");
+
+  const details: string[] = [];
+  if (honors.apCourses.trim()) {
+    const courses = honors.apCourses.trim();
+    details.push(/course/i.test(courses) ? courses : `${courses} AP courses`);
   }
-  return `This season: ${profile.stats.goals} goals and ${profile.stats.assists} assists in ${games} games.`;
+  if (honors.honorsCourses.trim()) details.push(honors.honorsCourses.trim());
+  if (honors.scholarAthlete.trim()) details.push(honors.scholarAthlete.trim());
+  if (honors.serviceHours.trim()) {
+    const hours = honors.serviceHours.trim();
+    details.push(/hour/i.test(hours) ? `${hours} of community service` : `${hours} community service hours`);
+  }
+  if (honors.otherAchievement.trim()) details.push(honors.otherAchievement.trim());
+
+  if (roles.length === 0 && details.length === 0) return null;
+  const picked = roles.slice(0, 3);
+  const extra = details.slice(0, 2);
+  if (picked.length === 0) return `In school: ${joinLabels(extra)}.`;
+  const lead = `In school: ${joinLabels(picked)}`;
+  return extra.length === 0 ? `${lead}.` : `${lead}, plus ${joinLabels(extra)}.`;
+}
+
+function personalSentence(profile: PlayerProfile): string | null {
+  const proud = profile.proudOf.trim();
+  const fact = profile.funFact.trim();
+  const parts: string[] = [];
+  if (proud) {
+    parts.push(/^i['’]?m proud\b/i.test(proud) ? proud.replace(/\.$/, '') : `I'm proud of ${lowerFirst(proud).replace(/\.$/, '')}`);
+  }
+  if (fact) {
+    parts.push(/^fun fact\b/i.test(fact) ? fact.replace(/\.$/, '') : `Fun fact: ${fact.replace(/\.$/, '')}`);
+  }
+  return parts.length > 0 ? `${parts.join('. ')}.` : null;
+}
+
+function lowerFirst(value: string): string {
+  if (/^[A-Z]{2,}/.test(value)) return value;
+  return value.charAt(0).toLowerCase() + value.slice(1);
 }
 
 function nextCamp(program: Program, today: string): Program['idCamps'][number] | undefined {
@@ -44,7 +126,14 @@ export function buildIntroEmail(
   today = isoToday(),
 ): IntroEmail {
   const lastName = coach.name.split(' ').slice(-1)[0] ?? coach.name;
-  const positions = profile.positions.map((position) => POSITION_LABEL[position]).join(' / ');
+  const ordered = positionsInDisplayOrder(profile.positions, profile.primaryPosition);
+  const positions = ordered
+    .map((position) => {
+      const label = POSITION_LABEL[position];
+      return position === profile.primaryPosition && ordered.length > 1 ? `${label} (primary)` : label;
+    })
+    .join(' / ');
+  const positionCodes = ordered.join('/');
   const fit = scoreProgram(profile, program);
   const camp = nextCamp(program, today);
   const tests = [
@@ -61,15 +150,24 @@ export function buildIntroEmail(
     : 'I would love to know if you have an ID camp or questionnaire I should complete.';
   const parentLine = profile.parentEmail ? 'My parent is copied on this email.' : '';
 
-  const subject = `${profile.gradYear} ${profile.positions.join('/')} | ${profile.name} | ${profile.clubTeam}`;
+  const jersey = profile.stats.jerseyNumber != null ? ` #${profile.stats.jerseyNumber}` : '';
+  const coaches = [
+    contactLine('club coach', profile.stats.clubCoach),
+    contactLine('high school coach', profile.stats.highSchoolCoach),
+  ]
+    .filter((line): line is string => Boolean(line))
+    .join(' ');
+  const subject = `${profile.gradYear} ${positionCodes}${jersey} | ${profile.name} | ${profile.clubTeam}`;
   const body = [
     `Hi Coach ${lastName},`,
     '',
-    `I'm ${profile.name}, class of ${profile.gradYear}, a ${positions} with ${profile.clubTeam} (${leaguePhrase(profile)}) in ${stateName(profile.homeState)}. I'm interested in women's soccer at ${program.schoolName}. ${fit.why}`,
+    `I'm ${profile.name}, class of ${profile.gradYear}. ${gameSentence(profile)} I'm interested in ${programSidePhrase(program)} at ${program.schoolName}. ${fit.why}`,
     '',
-    statsLine(profile),
+    coaches,
     film,
-    `GPA: ${profile.gpa.toFixed(2)}${tests ? ` · ${tests}` : ''}. I'm planning to study ${profile.intendedMajor}.`,
+    `GPA: ${profile.gpa.toFixed(2)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
+    honorsSentence(profile.honors) ?? '',
+    personalSentence(profile) ?? '',
     '',
     `Are you recruiting ${positions.toLowerCase()} for the class of ${profile.gradYear}? ${campLine}`,
     '',

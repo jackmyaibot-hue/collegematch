@@ -44,18 +44,21 @@ export function Screen({
   scroll = false,
   footer,
   padded = true,
+  extraTop = 0,
 }: {
   children: ReactNode;
   dark?: boolean;
   scroll?: boolean;
   footer?: ReactNode;
   padded?: boolean;
+  /** Added under the safe area. Used to clear Expo Go's tools button. */
+  extraTop?: number;
 }) {
   const insets = useSafeAreaInsets();
   const backgroundColor = dark ? colors.greenDark : colors.bg;
   const contentStyle = {
     paddingHorizontal: padded ? 20 : 0,
-    paddingTop: padded ? insets.top + 12 : 0,
+    paddingTop: padded ? insets.top + 12 + extraTop : 0,
     paddingBottom: footer ? 12 : insets.bottom + 28,
   };
   return (
@@ -121,21 +124,33 @@ export function Chip({
   label,
   selected,
   onPress,
+  badge,
 }: {
   label: string;
   selected: boolean;
   onPress: () => void;
+  /** Extra marker, such as Primary, shown only while selected. */
+  badge?: string;
 }) {
   return (
     <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ selected }}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: selected }}
+      accessibilityLabel={badge && selected ? `${label}, ${badge}` : label}
       onPress={onPress}
       style={[styles.chip, selected && styles.chipOn]}
     >
+      {selected ? <Ionicons name="checkmark" size={15} color="#F4F1EA" /> : null}
       <AppText variant="caption" color={selected ? '#F4F1EA' : colors.ink} style={styles.chipText}>
         {label}
       </AppText>
+      {selected && badge ? (
+        <View style={styles.chipBadge}>
+          <AppText variant="caption" color={colors.ink} style={styles.chipBadgeText}>
+            {badge}
+          </AppText>
+        </View>
+      ) : null}
     </Pressable>
   );
 }
@@ -280,6 +295,9 @@ const styles = StyleSheet.create({
   },
   buttonLabel: { fontSize: 16 },
   chip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
     borderRadius: radius.pill,
     paddingHorizontal: 14,
     paddingVertical: 10,
@@ -287,6 +305,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.line,
   },
+  chipBadge: {
+    backgroundColor: colors.lime,
+    borderRadius: radius.pill,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+  },
+  chipBadgeText: { fontSize: 11, lineHeight: 14, color: colors.ink },
   chipOn: {
     backgroundColor: colors.greenDark,
     borderColor: colors.greenDark,

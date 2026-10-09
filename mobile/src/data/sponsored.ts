@@ -8,6 +8,8 @@ import type { SponsoredPlacement } from './types';
 export const SAMPLE_SPONSORS: SponsoredPlacement[] = [
   {
     id: 'sponsor-harborlight-winter',
+    sport: 'soccer',
+    side: 'women',
     label: 'Sponsored',
     sponsorName: 'Harborlight Soccer',
     title: 'Winter ID Camp',
@@ -21,6 +23,8 @@ export const SAMPLE_SPONSORS: SponsoredPlacement[] = [
   },
   {
     id: 'sponsor-pitchweek-spring',
+    sport: 'soccer',
+    side: 'women',
     label: 'Sponsored',
     sponsorName: 'Pitchweek',
     title: 'Spring Showcase',

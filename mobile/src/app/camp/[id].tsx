@@ -53,8 +53,7 @@ export default function CampScreen() {
         </AppText>
       </View>
       <AppText variant="caption">
-        Placeholder slot. CollegeMatch is free for players and would be funded by sponsors like this, not by player fees.
-        No ad network is loaded.
+        Placeholder slot. CollegeMatch is free for athletes. A sponsor could fund this later, not athlete fees.
       </AppText>
       {status ? <AppText variant="caption">Saved on this phone as {status}.</AppText> : null}
       <Button label="Open sample link" kind="ghost" icon="open-outline" onPress={() => openExternal(placement.url)} />

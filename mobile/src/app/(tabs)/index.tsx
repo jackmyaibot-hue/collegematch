@@ -1,15 +1,17 @@
 import { useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ComingSoon } from '../../components/ComingSoon';
 import { SwipeDeck } from '../../components/SwipeDeck';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildDeck, type DeckCard } from '../../data/deck';
+import { programMatchesAthlete, SPORT_LABEL } from '../../data/sports';
 import { useAppState } from '../../state/AppState';
 import { colors } from '../../theme';
 
 export default function DiscoverScreen() {
   const insets = useSafeAreaInsets();
-  const { profile, programs, sponsors, recruiting, saveProgram, passProgram, saveSponsor, dismissSponsor, resetPasses, undo, canUndo } =
+  const { profile, programs, sponsors, recruiting, saveProfile, saveProgram, passProgram, saveSponsor, dismissSponsor, resetPasses, undo, canUndo } =
     useAppState();
 
   const deck = useMemo(
@@ -18,6 +20,22 @@ export default function DiscoverScreen() {
   );
 
   if (!profile) return null;
+
+  const hasCatalog = programs.some((program) => programMatchesAthlete(program, profile));
+  if (!hasCatalog) {
+    return (
+      <View style={[styles.screen, { paddingTop: insets.top + 16 }]}>
+        <AppText variant="title" style={styles.wordmark}>
+          CollegeMatch
+        </AppText>
+        <ComingSoon
+          sport={profile.sport}
+          detail={`${SPORT_LABEL[profile.sport]} programs that match your profile are coming soon. We'll let you know when you can swipe them.`}
+          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'girls' })}
+        />
+      </View>
+    );
+  }
 
   async function onSwipe(direction: 'left' | 'right', item: DeckCard) {
     if (item.type === 'sponsored') {

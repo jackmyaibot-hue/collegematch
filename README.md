@@ -1,8 +1,10 @@
 # CollegeMatch
 
-CollegeMatch is a free iOS and Android app for high school girls’ soccer players. It works like a card deck for women’s college programs: swipe right to save a school, left to pass, then write a short intro to a coach.
+CollegeMatch is a free iOS and Android app for high school athletes. It works like a card deck for college programs: swipe right to save a school, left to pass, then write a short intro to a coach.
 
-The app does not charge players. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. There is no ad SDK and no third-party analytics. Profile data stays on the phone.
+Girls' soccer is the first deck, with a fictional women's college catalog. Other sports, and men's programs, are in the profile so they can be added later. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
+
+The app does not charge athletes. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. Profile data stays on the phone. The app does not track athletes.
 
 ## Sample data
 
@@ -30,10 +32,10 @@ A desktop preview (same screens, mouse-drag to swipe) is `npm run web` from `mob
 
 ## What the MVP does
 
-1. **Profile.** Name, grad year, positions, club and league (ECNL, Girls Academy, or other), games, goals, assists, goalkeeper stats when relevant, highlight link, GPA, optional SAT/ACT, home state, regions, campus size, intended major, net-cost budget, optional parent email.
+1. **Profile.** Name, birthday, girls or boys programs (or prefer not to say), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, club coach contact, optional high school coach contact, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, regions, campus size, net-cost budget, optional parent email.
 2. **Deck.** Programs ranked by a fit score. Each card shows division, conference, location, enrollment, acceptance rate, estimated net cost, roster count at the player’s position, how many are graduating, and a one-line “why this fits.”
 3. **Saved schools.** Detail page with coaches (name, title, email), questionnaire link, ID camp dates, admissions and cost info, and an athletics link.
-4. **Coach email.** A short editable intro (stats, highlight, grad year, why this school) opens in the device mail app with `mailto`. Status per school: not contacted, emailed, replied, follow-up due, plus a reminder date.
+4. **Coach email.** A short editable intro (positions, jersey number, dominant foot, years at league level, coach references, highlight, grad year, majors, a brief honors line, and a light personal note) opens in the device mail app with `mailto`. Status per school: not contacted, emailed, replied, follow-up due, plus a reminder date.
 5. **Sponsored slots.** A “Sponsored ID camp” card can appear in the deck. It is labeled Sponsored and is not scored as a college match.
 
 Swipe right saves, left passes. Undo puts the last swipe back. Passed schools can be returned to the deck from the empty state or the profile tab.
@@ -44,14 +46,18 @@ TypeScript types live in `mobile/src/data/types.ts`. The important records:
 
 | Type | Role |
 |---|---|
-| `PlayerProfile` | The player. Stored only on device. |
-| `Program` | One women’s soccer program: campus, cost, academics, roster by position, coaches, camps, links. |
+| `PlayerProfile` | The athlete. Sport, gender, birthday, positions, primary position, and leagues. Stored only on device. |
+| `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, links. The sample rows are women's soccer. |
 | `Coach` | Name, title, email. |
 | `SponsoredPlacement` | A labeled sponsor card and where it sits in the deck. |
 | `SavedProgram` | Save time, outreach status, follow-up date, and the last email draft. |
 | `RecruitingState` | Saved programs, passes, and sponsor saves or dismissals. |
 
-Positions are `GK`, `CB`, `FB`, `DM`, `CM`, `W`, and `ST`. Divisions are `NCAA D1`, `NCAA D2`, `NCAA D3`, `NAIA`, and `NJCAA`.
+Soccer positions are `GK`, `CB`, `FB`, `DM`, `CM`, `W`, and `ST`. Other sports keep an empty position and league list in `mobile/src/data/sports.ts` until they have a catalog. Divisions are `NCAA D1`, `NCAA D2`, `NCAA D3`, `NAIA`, and `NJCAA`.
+
+Girls maps to women's programs and boys maps to men's. Prefer not to say does not filter by side. A sport and side with no programs shows a coming-soon screen.
+
+Welcome backgrounds are original illustrations generated for this app and bundled in `mobile/assets/welcome`. They are not stock photos. The picture follows the sport chosen on About you; before that, a general sports scene is used.
 
 Screens do not import the sample JSON directly. They use `mobile/src/data/index.ts`:
 
@@ -80,15 +86,15 @@ The score is 0–100, a weighted average of six 0–100 pieces. The card sentenc
 | Piece | Weight | Rule, in short |
 |---|---|---|
 | Academics | 22% | GPA, and SAT/ACT when the player entered them, versus the school’s typical admits. |
-| Level | 20% | ECNL sits near the top, Girls Academy in the middle, other club or high school lower. Goals, assists, or goalkeeper save percentage nudge that. Closest match to the division scores highest. |
+| Level | 20% | The strongest selected league sets the level: ECNL highest, then NWSL Academy, ECNL-RL, USL Academy, Girls Academy, NAL, USYS, then other or high school. Goals and assists are not part of the score. Closest match to the division scores highest. |
 | Region | 18% | 100 if the campus is in a picked region or the home state, partial credit for a neighboring region. |
-| Roster need | 16% | Share of players at the position who are graduating. The better of the player’s positions is used. |
+| Roster need | 16% | Share of players at the position who are graduating. Every selected position is scored, and the strongest one is used. The primary position wins a tie. |
 | Cost | 14% | Estimated net cost versus the budget range. “Not sure yet” stays near the middle. |
 | Size | 10% | Under 3,000, 3,000–10,000, or 10,000+, or no preference. |
 
 ## Privacy
 
-Most players are minors. The MVP does not create accounts, does not send the profile to a server, and does not include analytics or ads. The optional parent email is stored on the device and added as a Cc when a coach draft opens. Reset from the profile tab erases the local profile and the deck.
+Most athletes are minors. The MVP does not create accounts and does not send the profile to a server. It does not track anyone. The optional parent email is stored on the device and added as a Cc when a coach draft opens. Reset from the profile tab erases the local profile and the deck.
 
 ## Repo layout
 
@@ -99,7 +105,7 @@ backend/    Earlier Node API for accounts and profiles. Not required for the MVP
 
 The backend was checked in as loose files at the repo root (`server.js` required `./routes/auth`, which was not in the upload). Those files are under `backend/` now, and the auth router is filled in so the server matches its own routes. See `backend/README.md`.
 
-Mobile profile fields line up with columns on `backend/models/Player.js` for a later sync: `positions`, `league`, `stats`, `sat`, `act`, `home_state`, `school_size_preference`, `intended_major`, `budget_min`, `budget_max`, `parent_email`, plus the original `club_name`, `gpa`, `graduation_year`, and `highlight_video_url`. The phone still stores a single display name; the API has separate first and last name fields.
+Mobile profile fields line up with columns on `backend/models/Player.js` for a later sync: `positions`, `league`, `stats`, `sat`, `act`, `home_state`, `school_size_preference`, `intended_major`, `budget_min`, `budget_max`, `parent_email`, plus the original `club_name`, `gpa`, `graduation_year`, and `highlight_video_url`. The phone now also stores `sport`, `gender`, `birthdate`, `primaryPosition`, a list of `leagues`, dominant foot, years at league level, jersey number, club and high school coach contacts inside `stats`, `intendedMajors`, honors, `proudOf`, and `funFact`. The phone still stores a single display name; the API has separate first and last name fields.
 
 ## Next steps
 

@@ -1,5 +1,6 @@
 import { ADJACENT_REGIONS } from './regions';
 import { formatMoney } from './format';
+import { leagueShortList, positionsInDisplayOrder, strongestLeagueLevel } from './sports';
 import {
   POSITION_PLURAL,
   type PlayerProfile,
@@ -37,7 +38,7 @@ export const FIT_FACTORS: {
     key: 'level',
     label: 'Level',
     weight: 0.2,
-    blurb: 'Your league and stats against this division.',
+    blurb: 'Your league against this division.',
   },
   {
     key: 'region',
@@ -105,21 +106,9 @@ function roundScore(value: number): number {
   return clamp(Math.round(value), 0, 100);
 }
 
-/** Rough 1–5 playing level from league plus production. Higher means closer to high D1. */
+/** Rough 1–5 playing level from the strongest league they selected. */
 export function playerLevel(profile: PlayerProfile): number {
-  const leagueBase = profile.league === 'ECNL' ? 4.1 : profile.league === 'Girls Academy' ? 3.15 : 2.25;
-  const games = Math.max(1, profile.stats.gamesPlayed);
-  let bump = 0;
-  if (profile.positions.includes('GK')) {
-    const savePct = profile.stats.savePercentage ?? 72;
-    bump = (savePct - 72) / 18;
-    const cleanSheets = profile.stats.cleanSheets ?? 0;
-    bump += Math.min(0.4, cleanSheets / games);
-  } else {
-    const contributions = (profile.stats.goals + profile.stats.assists) / games;
-    bump = Math.min(1.3, contributions * 1.1);
-  }
-  return clamp(leagueBase + bump, 1.2, 5.2);
+  return clamp(strongestLeagueLevel(profile.leagues), 1.2, 5.2);
 }
 
 function academicsScore(profile: PlayerProfile, program: Program): number {
@@ -176,7 +165,7 @@ function costScore(profile: PlayerProfile, program: Program): number {
 
 function rosterMatch(profile: PlayerProfile, program: Program): { score: number; position: Position; spot: RosterCount } {
   let best: { score: number; position: Position; spot: RosterCount } | null = null;
-  for (const position of profile.positions) {
+  for (const position of positionsInDisplayOrder(profile.positions, profile.primaryPosition)) {
     const spot = program.roster.find((row) => row.position === position);
     if (!spot) continue;
     const ratio = spot.graduating / Math.max(1, spot.count);
@@ -194,8 +183,7 @@ function rosterMatch(profile: PlayerProfile, program: Program): { score: number;
 }
 
 function leagueName(profile: PlayerProfile): string {
-  if (profile.league === 'other') return 'your club league';
-  return profile.league;
+  return leagueShortList(profile.leagues);
 }
 
 function factorDetail(
@@ -235,10 +223,10 @@ function factorDetail(
       return `Academics are a stretch versus their typical GPA of ${program.academics.avgGpa.toFixed(1)}.`;
     case 'level':
       if (score >= 75) {
-        return `${program.division} lines up with ${leagueName(profile)} and your stat line.`;
+        return `${program.division} lines up with ${leagueName(profile)}.`;
       }
       if (playerHigher) {
-        return `You may be a step above ${program.division} based on your league and stats.`;
+        return `You may be a step above ${program.division} based on your league.`;
       }
       return `${program.division} looks like a reach from ${leagueName(profile)}.`;
     case 'size':

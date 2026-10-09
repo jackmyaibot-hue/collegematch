@@ -2,17 +2,21 @@ import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
+  AboutFields,
   AcademicFields,
+  CoachFields,
+  GameFields,
   IdentityFields,
   PreferenceFields,
   SoccerFields,
-  StatsFields,
 } from '../../components/ProfileFields';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { PRIVACY_LINE } from '../../copy';
 import { FIT_FACTORS } from '../../data/fitScore';
+import { formatLongDate, joinLabels } from '../../data/format';
 import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
-import { POSITION_LABEL } from '../../data/types';
+import { dominantSideDisplay, GENDER_LABEL, leagueShortList, positionSlash, SPORT_LABEL } from '../../data/sports';
+import type { HonorsProfile } from '../../data/types';
 import { stateName } from '../../data/regions';
 import { useAppState } from '../../state/AppState';
 import { colors, radius } from '../../theme';
@@ -66,9 +70,18 @@ export default function ProfileScreen() {
       >
         <AppText variant="title">{profile.name}</AppText>
         <AppText variant="body" style={styles.lead}>
-          Class of {profile.gradYear} · {profile.positions.map((position) => POSITION_LABEL[position]).join(', ')} ·{' '}
-          {profile.clubTeam}
+          Class of {profile.gradYear} · {SPORT_LABEL[profile.sport]} ·{' '}
+          {positionSlash(profile.positions, profile.primaryPosition)} · {profile.clubTeam}
         </AppText>
+        {dominantSideDisplay(profile.sport, profile.stats.dominantSide) ? (
+          <View style={[styles.mark, profile.stats.dominantSide === 'left' && styles.markLeft]}>
+            <AppText variant="label">{dominantSideDisplay(profile.sport, profile.stats.dominantSide)}</AppText>
+            <AppText variant="headline">
+              #{profile.stats.jerseyNumber ?? '—'} · {profile.stats.yearsAtLevel}{' '}
+              {profile.stats.yearsAtLevel === 1 ? 'year' : 'years'} at this level
+            </AppText>
+          </View>
+        ) : null}
         <SampleBanner />
         <View style={styles.stats}>
           <Stat label="Saved" value={String(saved)} />
@@ -80,8 +93,10 @@ export default function ProfileScreen() {
           <View style={styles.form}>
             <IdentityFields draft={draft} onChange={patch} errors={errors} />
             <SoccerFields draft={draft} onChange={patch} errors={errors} />
-            <StatsFields draft={draft} onChange={patch} errors={errors} />
+            <GameFields draft={draft} onChange={patch} errors={errors} />
+            <CoachFields draft={draft} onChange={patch} errors={errors} />
             <AcademicFields draft={draft} onChange={patch} errors={errors} />
+            <AboutFields draft={draft} onChange={patch} errors={errors} />
             <PreferenceFields draft={draft} onChange={patch} errors={errors} />
             <Button label="Save profile" onPress={save} />
             <Button
@@ -96,10 +111,22 @@ export default function ProfileScreen() {
           </View>
         ) : (
           <View style={styles.summary}>
-            <Row label="League" value={profile.league === 'other' ? 'Other' : profile.league} />
+            <Row label="Birthday" value={formatLongDate(profile.birthdate)} />
+            <Row label="Programs" value={GENDER_LABEL[profile.gender]} />
+            <Row label="Sport" value={SPORT_LABEL[profile.sport]} />
+            <Row label="Positions" value={positionSlash(profile.positions, profile.primaryPosition)} />
+            <Row label="Foot" value={dominantSideDisplay(profile.sport, profile.stats.dominantSide) || 'Not added'} />
+            <Row label="Jersey" value={profile.stats.jerseyNumber == null ? 'Not added' : `#${profile.stats.jerseyNumber}`} />
+            <Row label="Years at level" value={String(profile.stats.yearsAtLevel)} />
+            <Row label="Club coach" value={contactSummary(profile.stats.clubCoach)} />
+            <Row label="High school coach" value={contactSummary(profile.stats.highSchoolCoach)} />
+            <Row label="Leagues" value={leagueShortList(profile.leagues)} />
             <Row label="GPA" value={profile.gpa.toFixed(2)} />
             <Row label="Tests" value={tests(profile.sat, profile.act)} />
-            <Row label="Major" value={profile.intendedMajor} />
+            <Row label="Majors" value={joinLabels(profile.intendedMajors)} />
+            <Row label="Honors" value={honorSummary(profile)} />
+            <Row label="Proud of" value={profile.proudOf || 'Not added'} />
+            <Row label="Fun fact" value={profile.funFact || 'Not added'} />
             <Row label="Regions" value={profile.preferredRegions.join(', ')} />
             <Row label="Budget" value={profile.budget.label} />
             <Row label="Highlight" value={profile.highlightVideoUrl || 'Not added'} />
@@ -128,6 +155,28 @@ export default function ProfileScreen() {
       </ScrollView>
     </KeyboardAvoidingView>
   );
+}
+
+function honorSummary(profile: { honors: HonorsProfile }): string {
+  const honors = profile.honors;
+  const bits = [
+    honors.valedictorian ? 'Valedictorian' : null,
+    honors.salutatorian ? 'Salutatorian' : null,
+    honors.nationalHonorSociety ? 'National Honor Society' : null,
+    honors.honorRoll ? "Principal's list" : null,
+    honors.asb ? (honors.asbRole ? `ASB, ${honors.asbRole}` : 'ASB') : null,
+    honors.teamCaptain ? 'Team captain' : null,
+    honors.apCourses ? `${honors.apCourses} AP` : null,
+    honors.scholarAthlete || null,
+    honors.serviceHours ? `${honors.serviceHours} service hours` : null,
+    honors.otherAchievement || null,
+  ].filter((item): item is string => Boolean(item));
+  return bits.length > 0 ? joinLabels(bits) : 'Not added';
+}
+
+function contactSummary(person: { name: string; email: string; phone: string }): string {
+  const bits = [person.name, person.email, person.phone].map((part) => part.trim()).filter(Boolean);
+  return bits.length > 0 ? bits.join(' · ') : 'Not added';
 }
 
 function tests(sat: number | null, act: number | null): string {
@@ -162,6 +211,14 @@ function Row({ label, value }: { label: string; value: string }) {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
   lead: { marginTop: 6, marginBottom: 12 },
+  mark: {
+    backgroundColor: colors.white,
+    borderRadius: radius.md,
+    padding: 14,
+    gap: 4,
+    marginBottom: 4,
+  },
+  markLeft: { backgroundColor: colors.lime },
   stats: { flexDirection: 'row', gap: 8, marginTop: 14 },
   stat: { flex: 1, backgroundColor: colors.white, borderRadius: radius.md, padding: 12 },
   statLabel: { marginBottom: 4 },

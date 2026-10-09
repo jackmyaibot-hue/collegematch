@@ -37,7 +37,7 @@ export default function SchoolScreen() {
   const saved = recruiting.saved[program.id];
   const tone = fitTone(fit.total);
   const division = divisionTone(program.division);
-  const majorMatch = offersMajor(program, profile.intendedMajor);
+  const matchedMajors = profile.intendedMajors.filter((major) => offersMajor(program, major));
   const status = saved ? effectiveStatus(saved) : null;
 
   const chooseStatus = async (next: OutreachStatus) => {
@@ -86,12 +86,12 @@ export default function SchoolScreen() {
           <AppText variant="body" color={colors.ink}>
             {fit.why}
           </AppText>
-          {majorMatch ? (
+          {matchedMajors.length > 0 ? (
             <AppText variant="caption" color={colors.greenDark}>
-              Lists {profile.intendedMajor}. Major match is not part of the fit score.
+              Lists {matchedMajors.join(', ')}. Major match is not part of the fit score.
             </AppText>
           ) : (
-            <AppText variant="caption">Intended major is shown for you and is not part of the fit score.</AppText>
+            <AppText variant="caption">Intended majors are shown for you and are not part of the fit score.</AppText>
           )}
         </View>
 

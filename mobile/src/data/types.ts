@@ -16,8 +16,44 @@ export type Position = (typeof POSITIONS)[number];
 export const DIVISIONS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA'] as const;
 export type Division = (typeof DIVISIONS)[number];
 
-export const LEAGUES = ['ECNL', 'Girls Academy', 'other'] as const;
-export type League = (typeof LEAGUES)[number];
+export const SPORTS = [
+  'soccer',
+  'basketball',
+  'volleyball',
+  'softball',
+  'baseball',
+  'lacrosse',
+  'track',
+  'swimming',
+  'football',
+  'tennis',
+  'golf',
+  'other',
+] as const;
+export type Sport = (typeof SPORTS)[number];
+
+export const ATHLETE_GENDERS = ['girls', 'boys', 'unspecified'] as const;
+export type AthleteGender = (typeof ATHLETE_GENDERS)[number];
+
+/** College program side. Girls maps to women, boys maps to men. */
+export const PROGRAM_SIDES = ['women', 'men'] as const;
+export type ProgramSide = (typeof PROGRAM_SIDES)[number];
+
+/**
+ * Soccer pathways. Other sports will add their own ids beside this list.
+ * See `sports.ts` for labels and the per-sport grouping.
+ */
+export const LEAGUE_IDS = [
+  'ecnl',
+  'ecnl-rl',
+  'ga',
+  'nal',
+  'usys',
+  'nwsl-academy',
+  'usl-academy',
+  'other',
+] as const;
+export type LeagueId = (typeof LEAGUE_IDS)[number];
 
 export const REGIONS = [
   'Northeast',
@@ -41,23 +77,60 @@ export const OUTREACH_STATUSES = [
 ] as const;
 export type OutreachStatus = (typeof OUTREACH_STATUSES)[number];
 
+export const DOMINANT_SIDES = ['left', 'right', 'both'] as const;
+export type DominantSide = (typeof DOMINANT_SIDES)[number];
+
+export type PersonContact = {
+  name: string;
+  email: string;
+  phone: string;
+};
+
+/** Playing details coaches look for on film and at showcases. No scoring stats. */
 export type PlayerStats = {
-  gamesPlayed: number;
-  goals: number;
-  assists: number;
-  /** Goalkeepers only. Null for field players. */
-  cleanSheets: number | null;
-  /** 0–100. Goalkeepers only. */
-  savePercentage: number | null;
+  /** Years at the current league level. */
+  yearsAtLevel: number;
+  /**
+   * Soccer stores a foot. Other sports leave this empty until they have
+   * their own equivalent, such as a dominant hand.
+   */
+  dominantSide: DominantSide | null;
+  jerseyNumber: number | null;
+  clubCoach: PersonContact;
+  highSchoolCoach: PersonContact;
+};
+
+export type HonorsProfile = {
+  asb: boolean;
+  asbRole: string;
+  valedictorian: boolean;
+  salutatorian: boolean;
+  honorRoll: boolean;
+  nationalHonorSociety: boolean;
+  /** A count or a short list. */
+  apCourses: string;
+  /** Honors, IB, or dual-enrollment courses. */
+  honorsCourses: string;
+  teamCaptain: boolean;
+  scholarAthlete: string;
+  serviceHours: string;
+  otherAchievement: string;
 };
 
 export type PlayerProfile = {
   id: string;
   name: string;
+  /** YYYY-MM-DD */
+  birthdate: string;
+  gender: AthleteGender;
+  sport: Sport;
   gradYear: number;
   positions: Position[];
+  /** One of `positions`. Listed first in emails and used to break roster ties. */
+  primaryPosition: Position;
   clubTeam: string;
-  league: League;
+  /** Every pathway they play in. The strongest one drives the fit level. */
+  leagues: LeagueId[];
   stats: PlayerStats;
   highlightVideoUrl: string;
   /** 4.0 scale. */
@@ -68,7 +141,13 @@ export type PlayerProfile = {
   homeState: string;
   preferredRegions: Region[];
   schoolSizePreference: SchoolSizePreference;
-  intendedMajor: string;
+  /** One or more majors. "Undeclared" is allowed. */
+  intendedMajors: string[];
+  honors: HonorsProfile;
+  /** Optional. Anything, on or off the field. */
+  proudOf: string;
+  /** Optional. A light personal detail for the coach email. */
+  funFact: string;
   budget: {
     id: string;
     label: string;
@@ -104,6 +183,8 @@ export type RosterCount = {
 
 export type Program = {
   id: string;
+  sport: Sport;
+  side: ProgramSide;
   schoolName: string;
   division: Division;
   conference: string;
@@ -142,6 +223,8 @@ export type Program = {
 
 export type SponsoredPlacement = {
   id: string;
+  sport: Sport;
+  side: ProgramSide;
   /** Always shown in the UI. Sponsored cards are not college matches. */
   label: 'Sponsored';
   sponsorName: string;

@@ -64,7 +64,7 @@ const Player = sequelize.define('Player', {
   },
   league: DataTypes.STRING, // ECNL, Girls Academy, other
   jersey_number: DataTypes.INTEGER,
-  stats: DataTypes.JSONB, // { gamesPlayed, goals, assists, cleanSheets, savePercentage }
+  stats: DataTypes.JSONB, // { yearsAtLevel, dominantSide, jerseyNumber, clubCoach, highSchoolCoach }
 
   // College preferences (from survey)
   division_level: {
