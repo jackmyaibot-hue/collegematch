@@ -1,3 +1,6 @@
+// Future account store for CollegeMatch. The Expo app keeps the same ideas
+// on device for now (see mobile/src/data/types.ts). New columns below match
+// the mobile profile so this API can take over later without a second model.
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
@@ -42,12 +45,26 @@ const Player = sequelize.define('Player', {
     type: DataTypes.FLOAT,
     validate: { min: 0.0, max: 4.0 }
   },
+  sat: DataTypes.INTEGER,
+  act: DataTypes.INTEGER,
   graduation_year: DataTypes.INTEGER,
+  home_state: DataTypes.STRING,
+  school_size_preference: DataTypes.STRING,
+  intended_major: DataTypes.STRING,
+  budget_min: DataTypes.INTEGER,
+  budget_max: DataTypes.INTEGER,
+  parent_email: DataTypes.STRING,
 
   // Athletic info
   primary_sport: DataTypes.STRING,
-  position: DataTypes.STRING,
+  position: DataTypes.STRING, // legacy single position
+  positions: {
+    type: DataTypes.ARRAY(DataTypes.STRING), // GK, CB, FB, DM, CM, W, ST
+    defaultValue: []
+  },
+  league: DataTypes.STRING, // ECNL, Girls Academy, other
   jersey_number: DataTypes.INTEGER,
+  stats: DataTypes.JSONB, // { gamesPlayed, goals, assists, cleanSheets, savePercentage }
 
   // College preferences (from survey)
   division_level: {
