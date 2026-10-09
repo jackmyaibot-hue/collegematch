@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ImageBackground, KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ComingSoon } from '../components/ComingSoon';
@@ -15,15 +15,15 @@ import {
   SoccerFields,
 } from '../components/ProfileFields';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
-import { PRIVACY_LINE } from '../copy';
+import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
 import { joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
 import { stateName } from '../data/regions';
-import { welcomeImage } from '../components/welcomeImages';
+import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
 import {
   dominantSideDisplay,
   GENDER_LABEL,
-  leagueShortList,
+  leagueNameList,
   positionSlash,
   programMatchesAthlete,
   sportHeading,
@@ -85,6 +85,15 @@ export default function OnboardingScreen() {
   const toolsClearance = expoGoToolsClearance();
   const [step, setStep] = useState<Step>('welcome');
   const [draft, setDraft] = useState<ProfileDraft>(emptyDraft());
+  const [welcomeFrame, setWelcomeFrame] = useState(0);
+
+  useEffect(() => {
+    if (draft.sport) return;
+    const timer = setInterval(() => {
+      setWelcomeFrame((frame) => (frame + 1) % WELCOME_SHOWCASE.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, [draft.sport]);
   const [errors, setErrors] = useState<Partial<Record<keyof ProfileDraft, string>>>({});
   const index = STEPS.indexOf(step);
 
@@ -145,7 +154,7 @@ export default function OnboardingScreen() {
   if (step === 'welcome') {
     return (
       <ImageBackground
-        source={welcomeImage(draft.sport)}
+        source={draft.sport ? welcomeImage(draft.sport) : welcomeImage(WELCOME_SHOWCASE[welcomeFrame])}
         style={[styles.welcome, { paddingTop: insets.top + 28 }]}
         imageStyle={styles.welcomeImage}
       >
@@ -178,7 +187,8 @@ export default function OnboardingScreen() {
             You've got this.
           </AppText>
           <AppText variant="body" color="#E7F3EC" style={styles.welcomeCopy}>
-            We'll help you find where you fit, one swipe at a time.
+            {PLAYMAKERS[0].toUpperCase()}
+            {PLAYMAKERS.slice(1)} find where they fit, one swipe at a time.
           </AppText>
           <AppText variant="caption" color="#D5E6DC">
             {PRIVACY_LINE}
@@ -277,7 +287,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
     <View>
       <AppText variant="title">Look right?</AppText>
       <AppText variant="body" style={styles.reviewLead}>
-        We'll rank the sample deck from this. You can edit it anytime.
+        We'll use this to rank schools for {PLAYMAKERS}. You can edit it anytime.
       </AppText>
       <View style={styles.reviewCard}>
         <Line label="Name" value={`${draft.name} · ${draft.gradYear}`} />
@@ -287,7 +297,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="From" value={stateName(draft.homeState)} />
         <Line label="Positions" value={positionSlash(draft.positions, draft.primaryPosition)} />
         <Line label="Club" value={draft.clubTeam} />
-        <Line label="Leagues" value={leagueShortList(draft.leagues)} />
+        <Line label="Leagues" value={leagueNameList(draft.leagues)} />
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
         <Line label="Years at level" value={draft.yearsAtLevel} />

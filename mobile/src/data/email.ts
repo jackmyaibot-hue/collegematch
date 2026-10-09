@@ -1,9 +1,10 @@
-import { scoreProgram } from './fitScore';
+import { matchingCampusLife } from './fitScore';
 import { formatLongDate, isoToday, joinLabels } from './format';
 import { stateName } from './regions';
 import { dominantSidePhrase, leagueShortList, positionsInDisplayOrder, programSidePhrase } from './sports';
 import {
   POSITION_LABEL,
+  type CampusLife,
   type Coach,
   type HonorsProfile,
   type PersonContact,
@@ -108,6 +109,55 @@ function personalSentence(profile: PlayerProfile): string | null {
   return parts.length > 0 ? `${parts.join('. ')}.` : null;
 }
 
+/**
+ * A short note from the player to the coach.
+ * Campus-life matches are fine. Fit-score wording and admit stats are not.
+ */
+function interestSentence(profile: PlayerProfile, program: Program): string {
+  const phrases = matchingCampusLife(profile, program)
+    .slice(0, 2)
+    .map((item) => campusLifeForCoach(item));
+  if (phrases.length === 0) {
+    return "I'd love to learn more about the program and what you're looking for.";
+  }
+  return `I'm drawn to ${joinLabels(phrases.map((phrase) => `your ${phrase}`))}.`;
+}
+
+function campusLifeForCoach(item: CampusLife): string {
+  switch (item) {
+    case 'game-days':
+      return 'big-time game days';
+    case 'close-knit':
+      return 'close-knit campus community';
+    case 'city':
+      return 'city campus';
+    case 'college-town':
+      return 'college-town setting';
+    case 'beach':
+      return 'campus near the beach';
+    case 'mountains':
+      return 'mountains and the outdoors';
+    case 'faith':
+      return 'faith community';
+    case 'greek':
+      return 'Greek life';
+    case 'diverse':
+      return 'diverse campus';
+    case 'close-to-home':
+      return 'campus close to home';
+    case 'far-from-home':
+      return 'chance to start somewhere new';
+    case 'warm-weather':
+      return 'warm-weather campus';
+    case 'four-seasons':
+      return 'four-season campus';
+    case 'arts':
+      return 'arts and music scene';
+    case 'research':
+      return 'research opportunities';
+  }
+}
+
 function lowerFirst(value: string): string {
   if (/^[A-Z]{2,}/.test(value)) return value;
   return value.charAt(0).toLowerCase() + value.slice(1);
@@ -134,7 +184,6 @@ export function buildIntroEmail(
     })
     .join(' / ');
   const positionCodes = ordered.join('/');
-  const fit = scoreProgram(profile, program);
   const camp = nextCamp(program, today);
   const tests = [
     profile.sat != null ? `SAT ${profile.sat}` : null,
@@ -161,7 +210,7 @@ export function buildIntroEmail(
   const body = [
     `Hi Coach ${lastName},`,
     '',
-    `I'm ${profile.name}, class of ${profile.gradYear}. ${gameSentence(profile)} I'm interested in ${programSidePhrase(program)} at ${program.schoolName}. ${fit.why}`,
+    `I'm ${profile.name}, class of ${profile.gradYear}. ${gameSentence(profile)} I'm interested in ${programSidePhrase(program)} at ${program.schoolName}. ${interestSentence(profile, program)}`,
     '',
     coaches,
     film,

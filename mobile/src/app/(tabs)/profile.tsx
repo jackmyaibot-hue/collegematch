@@ -15,7 +15,7 @@ import { PRIVACY_LINE } from '../../copy';
 import { FIT_FACTORS } from '../../data/fitScore';
 import { formatLongDate, joinLabels } from '../../data/format';
 import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
-import { dominantSideDisplay, GENDER_LABEL, leagueShortList, positionSlash, SPORT_LABEL } from '../../data/sports';
+import { dominantSideDisplay, GENDER_LABEL, leagueNameList, positionSlash, SPORT_LABEL } from '../../data/sports';
 import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
 import { stateName } from '../../data/regions';
 import { useAppState } from '../../state/AppState';
@@ -120,7 +120,7 @@ export default function ProfileScreen() {
             <Row label="Years at level" value={String(profile.stats.yearsAtLevel)} />
             <Row label="Club coach" value={contactSummary(profile.stats.clubCoach)} />
             <Row label="High school coach" value={contactSummary(profile.stats.highSchoolCoach)} />
-            <Row label="Leagues" value={leagueShortList(profile.leagues)} />
+            <Row label="Leagues" value={leagueNameList(profile.leagues)} />
             <Row label="GPA" value={profile.gpa.toFixed(2)} />
             <Row label="Tests" value={tests(profile.sat, profile.act)} />
             <Row label="Majors" value={joinLabels(profile.intendedMajors)} />

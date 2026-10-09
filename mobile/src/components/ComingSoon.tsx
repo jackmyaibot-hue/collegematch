@@ -1,3 +1,4 @@
+import { PLAYMAKERS } from '../copy';
 import { AppText, Button } from './ui';
 import { SPORT_LABEL } from '../data/sports';
 import type { Sport } from '../data/types';
@@ -18,7 +19,7 @@ export function ComingSoon({
       <AppText variant="title">{name} is coming soon.</AppText>
       <AppText variant="body">
         {detail ??
-          `We'll let you know when ${name.toLowerCase()} programs are ready to swipe. Your pick stays on this phone.`}
+          `We'll let you know when ${name.toLowerCase()} programs are ready for ${PLAYMAKERS} to swipe. Your pick stays on this phone.`}
       </AppText>
       <AppText variant="body">Girls' soccer is open now if you want to start.</AppText>
       {onTrySoccer ? <Button label="Try girls' soccer" onPress={onTrySoccer} /> : null}

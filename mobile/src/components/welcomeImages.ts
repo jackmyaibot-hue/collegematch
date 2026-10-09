@@ -17,7 +17,10 @@ const WELCOME_IMAGES: Record<Sport | 'default', ImageSourcePropType> = {
   other: require('../../assets/welcome/welcome-other.jpg'),
 };
 
+/** Sports that rotate on the welcome screen before a sport is chosen. */
+export const WELCOME_SHOWCASE: Sport[] = ['football', 'soccer', 'basketball', 'track', 'volleyball', 'baseball'];
+
 export function welcomeImage(sport: Sport | null): ImageSourcePropType {
-  if (!sport) return WELCOME_IMAGES.default;
+  if (!sport) return WELCOME_IMAGES[WELCOME_SHOWCASE[0]];
   return WELCOME_IMAGES[sport];
 }

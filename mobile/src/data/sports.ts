@@ -60,7 +60,7 @@ export const SOCCER_LEAGUES: LeagueDef[] = [
   { id: 'usys', label: 'US Youth Soccer National League (USYS)', short: 'USYS', level: 2.75 },
   { id: 'nwsl-academy', label: 'NWSL Academy (club academies)', short: 'NWSL Academy', level: 3.7 },
   { id: 'usl-academy', label: 'USL Academy', short: 'USL Academy', level: 3.35 },
-  { id: 'other', label: 'Other / High school', short: 'high school', level: 2.25 },
+  { id: 'other', label: 'Other / High school', short: 'High school', level: 2.25 },
 ];
 
 type SportPosition = { id: string; label: string };
@@ -119,6 +119,12 @@ export function leagueShortList(leagues: LeagueId[]): string {
   if (names.length === 0) return 'club';
   if (leagues.length === 1 && leagues[0] === 'other') return 'high school or another club league';
   return names.join(', ');
+}
+
+/** Full league names for review and profile, such as "Elite Clubs National League (ECNL)". */
+export function leagueNameList(leagues: LeagueId[]): string {
+  if (!leagues || leagues.length === 0) return '';
+  return leagues.map((id) => leagueById(id)?.label ?? id).join(', ');
 }
 
 export function positionsInDisplayOrder(positions: Position[], primary: Position | null): Position[] {

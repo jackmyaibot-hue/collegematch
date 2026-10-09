@@ -5,6 +5,7 @@ import { FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
+import { leagueNameList } from './sports';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
 import { DIVISIONS, POSITIONS, type PlayerProfile } from './types';
@@ -194,12 +195,30 @@ if (!northwind || !amber || !harbor || !cinder) {
   check(email.body.includes('2028'), 'body missing grad year');
   check(email.to.endsWith('.example.com'), 'email recipient is not example.com');
   check(email.cc === 'parent@example.com', 'parent email should be copied');
+  check(email.body.includes("I'd love to learn more about the program"), 'email should be in the player voice');
+  check(!/your gpa|typical admit|you'd also get|fit score/i.test(email.body), 'email should not quote the fit card');
+  const drawn = buildIntroEmail(
+    { ...strong, campusLife: ['game-days', 'mountains', 'close-knit'] },
+    northwind,
+    northwind.coaches[0],
+    '2026-10-09',
+  );
+  check(
+    drawn.body.includes("I'm drawn to your big-time game days and your mountains and the outdoors"),
+    'email should mention matching campus life in first person',
+  );
+  check(!/your gpa|typical admit|you'd also get/i.test(drawn.body), 'campus-life email should not quote the fit card');
   const url = mailtoUrl(email);
   check(url.startsWith('mailto:'), 'mailto url missing scheme');
   check(url.includes(encodeURIComponent(email.subject)), 'mailto missing subject');
 }
 
 check(regionForState('OR') === 'West', 'Oregon should map to West');
+check(
+  leagueNameList(['ecnl', 'other']) === 'Elite Clubs National League (ECNL), Other / High school',
+  'league names should use the proper labels',
+);
+check(!leagueNameList(['ecnl', 'other']).toLowerCase().includes('ecnl, high school'), 'league list should not use the short high school form');
 
 const due = effectiveStatus(
   {

@@ -57,7 +57,7 @@ Soccer positions are `GK`, `CB`, `FB`, `DM`, `CM`, `W`, and `ST`. Other sports k
 
 Girls maps to women's programs and boys maps to men's. Prefer not to say does not filter by side. A sport and side with no programs shows a coming-soon screen.
 
-Welcome backgrounds are original illustrations generated for this app and bundled in `mobile/assets/welcome`. They are not stock photos. The picture follows the sport chosen on About you; before that, a general sports scene is used.
+Welcome backgrounds are original illustrations generated for this app and bundled in `mobile/assets/welcome`. They are not stock photos. Before a sport is chosen, the welcome screen rotates through a few sports under the lights. After that, it uses the picture for the sport they picked. Onboarding calls the athletes playmakers.
 
 Discover-card photos live in `mobile/assets/cards`. Campus, field, team, and city pictures are Unsplash stock under the [Unsplash License](https://unsplash.com/license), cropped and compressed so the schools can share one small pool. Coach portraits in that folder are original illustrations made for this app, not photographs of real coaches.
 
