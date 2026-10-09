@@ -98,6 +98,15 @@ if (!northwind || !amber || !harbor || !cinder) {
   const deck = buildDeck(SAMPLE_PROGRAMS, strong, emptyRecruiting(), SAMPLE_SPONSORS);
   check(deck.some((card) => card.type === 'sponsored'), 'deck is missing a sponsored card');
   check(deck[3]?.type === 'sponsored', 'first sponsored card should sit at index 3');
+  const passedThree = emptyRecruiting();
+  deck
+    .filter((card) => card.type === 'program')
+    .slice(0, 3)
+    .forEach((card) => {
+      if (card.type === 'program') passedThree.passed[card.program.id] = { at: '2026-10-09T00:00:00.000Z' };
+    });
+  const afterThree = buildDeck(SAMPLE_PROGRAMS, strong, passedThree, SAMPLE_SPONSORS);
+  check(afterThree[0]?.type === 'sponsored', 'sponsored card should reach the top after 3 passes');
   const programCards = deck.filter((card) => card.type === 'program');
   check(programCards.length === 40, 'sponsored cards should not replace programs');
   if (programCards[0]?.type === 'program' && programCards[1]?.type === 'program') {

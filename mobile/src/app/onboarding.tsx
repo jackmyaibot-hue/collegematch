@@ -50,6 +50,11 @@ export default function OnboardingScreen() {
 
   function patch(next: Partial<ProfileDraft>) {
     setDraft((current) => ({ ...current, ...next }));
+    setErrors((current) => {
+      const cleared = { ...current };
+      for (const key of Object.keys(next) as (keyof ProfileDraft)[]) delete cleared[key];
+      return cleared;
+    });
   }
 
   function back() {

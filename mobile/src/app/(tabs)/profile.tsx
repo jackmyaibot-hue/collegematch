@@ -31,6 +31,11 @@ export default function ProfileScreen() {
 
   function patch(next: Partial<ProfileDraft>) {
     setDraft((current) => (current ? { ...current, ...next } : current));
+    setErrors((current) => {
+      const cleared = { ...current };
+      for (const key of Object.keys(next) as (keyof ProfileDraft)[]) delete cleared[key];
+      return cleared;
+    });
   }
 
   async function save() {

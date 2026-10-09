@@ -190,7 +190,7 @@ export function StatsFields({
         value={draft.gamesPlayed}
         onChangeText={(gamesPlayed) => onChange({ gamesPlayed })}
         keyboardType="number-pad"
-        placeholder="18"
+        placeholder="How many"
         error={errors.gamesPlayed}
       />
       <TextField
