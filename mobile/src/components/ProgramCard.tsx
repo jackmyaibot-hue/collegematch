@@ -105,11 +105,8 @@ export function ProgramCard({
           <View style={styles.metrics}>
             <Metric label="Enrollment" value={formatEnrollment(program.enrollment)} />
             <Metric label="Acceptance" value={formatPercent(program.acceptanceRate)} />
-            <Metric label="Net cost" value={formatMoney(program.estimatedNetCost)} />
+            <Metric label="Net cost" value={formatMoney(program.estimatedNetCost)} hint={costCaption(profile, program)} />
           </View>
-          <AppText variant="caption" numberOfLines={1} style={styles.costNote}>
-            {costCaption(profile, program)}
-          </AppText>
 
           <View style={styles.block}>
             <AppText variant="label" color={colors.ink} style={styles.blockLabel}>
@@ -169,33 +166,32 @@ export function ProgramCard({
               </View>
             ) : null}
           </View>
-
-          <View style={styles.links}>
-            <Pressable
-              accessibilityRole="link"
-              accessibilityLabel="Athletics webpage"
-              onPress={() => openExternal(program.athleticsUrl)}
-              style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
-            >
-              <Ionicons name="globe-outline" size={14} color={colors.ink} />
-              <AppText variant="caption" color={colors.ink} style={styles.linkText}>
-                Athletics
-              </AppText>
-            </Pressable>
-            <Pressable
-              accessibilityRole="link"
-              accessibilityLabel={`Instagram @${program.instagramHandle}`}
-              onPress={() => openExternal(instagramProfileUrl(program.instagramHandle))}
-              style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
-            >
-              <Ionicons name="logo-instagram" size={14} color={colors.ink} />
-              <AppText variant="caption" color={colors.ink} numberOfLines={1} style={styles.linkText}>
-                @{program.instagramHandle}
-              </AppText>
-            </Pressable>
-          </View>
         </View>
       </ScrollView>
+      <View style={styles.links}>
+        <Pressable
+          accessibilityRole="link"
+          accessibilityLabel="Athletics webpage"
+          onPress={() => openExternal(program.athleticsUrl)}
+          style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
+        >
+          <Ionicons name="globe-outline" size={14} color={colors.ink} />
+          <AppText variant="caption" color={colors.ink} style={styles.linkText}>
+            Athletics
+          </AppText>
+        </Pressable>
+        <Pressable
+          accessibilityRole="link"
+          accessibilityLabel={`Instagram @${program.instagramHandle}`}
+          onPress={() => openExternal(instagramProfileUrl(program.instagramHandle))}
+          style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
+        >
+          <Ionicons name="logo-instagram" size={14} color={colors.ink} />
+          <AppText variant="caption" color={colors.ink} numberOfLines={1} style={styles.linkText}>
+            @{program.instagramHandle}
+          </AppText>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -229,7 +225,7 @@ function monogram(schoolName: string): string {
   return `${words[0][0]}${words[1][0]}`.toUpperCase();
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function Metric({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <View style={styles.metric}>
       <AppText variant="label" style={styles.metricLabel}>
@@ -238,6 +234,11 @@ function Metric({ label, value }: { label: string; value: string }) {
       <AppText variant="headline" numberOfLines={1} style={styles.metricValue}>
         {value}
       </AppText>
+      {hint ? (
+        <AppText variant="caption" numberOfLines={1} style={styles.metricHint}>
+          {hint}
+        </AppText>
+      ) : null}
     </View>
   );
 }
@@ -284,12 +285,12 @@ const styles = StyleSheet.create({
   },
   scroll: { flex: 1 },
   scrollContent: { paddingBottom: 8 },
-  hero: { height: 206, backgroundColor: colors.greenDark },
+  hero: { height: 168, backgroundColor: colors.greenDark, overflow: 'hidden' },
   heroImage: { ...StyleSheet.absoluteFill },
   shade: { ...StyleSheet.absoluteFill },
   shadeClear: { flex: 1 },
-  shadeMid: { height: 28, backgroundColor: 'rgba(8, 14, 12, 0.28)' },
-  shadeDeep: { height: 96, backgroundColor: 'rgba(8, 14, 12, 0.78)' },
+  shadeMid: { height: 22, backgroundColor: 'rgba(8, 14, 12, 0.28)' },
+  shadeDeep: { height: 78, backgroundColor: 'rgba(8, 14, 12, 0.78)' },
   heroTop: {
     position: 'absolute',
     top: 12,
@@ -322,8 +323,8 @@ const styles = StyleSheet.create({
   dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: 'rgba(247, 244, 238, 0.45)' },
   dotOn: { width: 16, backgroundColor: '#F7F4EE' },
   mascot: { marginBottom: 0, letterSpacing: 1.1, textTransform: 'uppercase', fontSize: 11 },
-  name: { fontSize: 26, lineHeight: 30 },
-  body: { paddingHorizontal: 14, paddingTop: 12, gap: 10 },
+  name: { fontSize: 24, lineHeight: 28 },
+  body: { paddingHorizontal: 14, paddingTop: 10, gap: 8 },
   metaRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   conference: { flex: 1 },
   metrics: { flexDirection: 'row', gap: 6 },
@@ -337,7 +338,7 @@ const styles = StyleSheet.create({
   },
   metricLabel: { marginBottom: 0, fontSize: 10 },
   metricValue: { fontSize: 14, lineHeight: 18 },
-  costNote: { marginTop: -4 },
+  metricHint: { fontSize: 10, lineHeight: 13 },
   block: { gap: 6 },
   blockLabel: { marginBottom: 0, fontFamily: 'Outfit_700Bold' },
   meter: { gap: 3 },
@@ -369,7 +370,14 @@ const styles = StyleSheet.create({
   whyToggle: { flexDirection: 'row', alignItems: 'center', gap: 4, alignSelf: 'flex-start' },
   whyToggleText: { fontFamily: 'Outfit_700Bold' },
   whyBody: { gap: 10, paddingBottom: 2 },
-  links: { flexDirection: 'row', gap: 8, marginTop: 2 },
+  links: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderTopWidth: 1,
+    borderTopColor: colors.line,
+  },
   link: {
     flex: 1,
     flexDirection: 'row',
