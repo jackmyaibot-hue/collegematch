@@ -2,6 +2,7 @@ import { buildDeck } from './deck';
 import { buildIntroEmail, mailtoUrl } from './email';
 import { effectiveStatus, emptyRecruiting } from './format';
 import { FIT_FACTORS, scoreProgram } from './fitScore';
+import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
@@ -48,7 +49,30 @@ for (const program of SAMPLE_PROGRAMS) {
   } else {
     check(program.jucoDivision === null, `${program.id} should not have a JUCO tier`);
   }
+  check(/^cm[a-z0-9]+$/.test(program.instagramHandle), `${program.id} instagram handle is not a fictional cm handle`);
+  check(
+    instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
+    `${program.id} instagram url is not an instagram.com profile`,
+  );
+  check(program.mascot.length >= 3, `${program.id} needs a mascot`);
+  check(
+    program.colors.length === 2 && program.colors.every((color) => /^#[0-9A-Fa-f]{6}$/.test(color)),
+    `${program.id} colors should be two hex values`,
+  );
+  check(program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
+  check(program.record.wins + program.record.losses + program.record.ties > 0, `${program.id} record is empty`);
+  check(program.conferenceFinish.length > 0 && program.postseason.length > 0, `${program.id} needs a season story`);
+  check(program.funFact.length > 0 && program.funFact.length <= 80, `${program.id} fun fact should stay one short line`);
+  check(program.headCoachYears >= 1 && program.headCoachYears <= 40, `${program.id} coach years look wrong`);
+  check(program.coachPortrait >= 0 && program.coachPortrait < 4, `${program.id} coach portrait index`);
+  check(program.photoSet >= 0 && program.photoSet < 4, `${program.id} photo set index`);
+  check((program.rosterOrigin.byState[program.state] ?? 0) >= 1, `${program.id} should have players from its state`);
+  check((program.rosterOrigin.byLeague.ecnl ?? 0) >= 1, `${program.id} should list ECNL players`);
 }
+
+const handles = SAMPLE_PROGRAMS.map((program) => program.instagramHandle);
+check(new Set(handles).size === 40, 'instagram handles are not unique');
+check(handles.includes('cmnorthwind') && handles.includes('cmbayfern'), 'expected sample instagram handles');
 
 for (const sponsor of SAMPLE_SPONSORS) {
   check(sponsor.label === 'Sponsored', 'sponsor missing Sponsored label');

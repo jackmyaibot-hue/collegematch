@@ -1,4 +1,5 @@
 import * as Haptics from 'expo-haptics';
+import { router } from 'expo-router';
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
@@ -66,7 +67,8 @@ const TopCard = forwardRef<
   const pan = useMemo(
     () =>
       Gesture.Pan()
-        .activeOffsetX([-8, 8])
+        .activeOffsetX([-20, 20])
+        .failOffsetY([-14, 14])
         .onUpdate((event) => {
           if (locked.value) return;
           x.value = event.translationX;
@@ -146,6 +148,15 @@ export function SwipeDeck({
   if (!top) return null;
   const rightLabel = top.type === 'sponsored' ? 'Save camp' : 'Save';
   const leftLabel = top.type === 'sponsored' ? 'Skip' : 'Pass';
+  const visitLabel = top.type === 'sponsored' ? 'More' : 'Visit';
+
+  const openDetail = () => {
+    if (top.type === 'sponsored') {
+      router.push({ pathname: '/camp/[id]', params: { id: top.placement.id } });
+      return;
+    }
+    router.push({ pathname: '/school/[id]', params: { id: top.program.id } });
+  };
 
   return (
     <View style={styles.deck}>
@@ -170,6 +181,7 @@ export function SwipeDeck({
           tone="pass"
           onPress={() => cardRef.current?.fling('left')}
         />
+        <ActionButton label={visitLabel} glyph="→" tone="visit" onPress={openDetail} />
         <ActionButton
           label={rightLabel}
           glyph="♥"
@@ -192,21 +204,27 @@ function ActionButton({
 }: {
   label: string;
   glyph: string;
-  tone: 'pass' | 'save';
+  tone: 'pass' | 'save' | 'visit';
   onPress: () => void;
 }) {
   const save = tone === 'save';
+  const visit = tone === 'visit';
+  const ink = save ? colors.ink : visit ? colors.greenDark : colors.rose;
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={label}
       onPress={onPress}
-      style={({ pressed }) => [styles.action, save ? styles.actionSave : styles.actionPass, pressed && { opacity: 0.85 }]}
+      style={({ pressed }) => [
+        styles.action,
+        save ? styles.actionSave : visit ? styles.actionVisit : styles.actionPass,
+        pressed && { opacity: 0.85 },
+      ]}
     >
-      <AppText variant="title" color={save ? colors.ink : colors.rose} style={styles.glyph}>
+      <AppText variant="title" color={ink} style={styles.glyph}>
         {glyph}
       </AppText>
-      <AppText variant="caption" color={save ? colors.ink : colors.rose} style={styles.actionLabel}>
+      <AppText variant="caption" color={ink} style={styles.actionLabel}>
         {label}
       </AppText>
     </Pressable>
@@ -229,11 +247,11 @@ const styles = StyleSheet.create({
   saveStamp: { left: 18, borderColor: colors.green, transform: [{ rotate: '-12deg' }] },
   passStamp: { right: 18, borderColor: colors.rose, transform: [{ rotate: '12deg' }] },
   stampText: { letterSpacing: 1.5 },
-  actions: { flexDirection: 'row', justifyContent: 'center', gap: 28 },
+  actions: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 14 },
   action: {
-    width: 92,
-    height: 72,
-    borderRadius: 24,
+    width: 84,
+    height: 68,
+    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.white,
@@ -242,6 +260,7 @@ const styles = StyleSheet.create({
   },
   actionSave: { backgroundColor: colors.lime, borderColor: colors.lime },
   actionPass: { backgroundColor: colors.white },
+  actionVisit: { width: 68, height: 60, borderRadius: 20, backgroundColor: colors.white },
   glyph: { fontSize: 22, lineHeight: 26 },
   actionLabel: { fontFamily: 'Outfit_700Bold' },
   hint: { textAlign: 'center', marginTop: 8 },

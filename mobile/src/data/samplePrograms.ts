@@ -1,11 +1,13 @@
 /**
  * Fictional women's college soccer catalog.
  *
- * Every school, city, conference, coach, cost, roster count, and camp date
- * is made up for the MVP. Coach emails are on *.example.com. Do not treat
- * this file as a real recruiting directory.
+ * Every school, city, conference, coach, cost, roster count, camp date,
+ * mascot, record, and Instagram handle is made up for the MVP. Coach emails
+ * are on *.example.com. Instagram handles use a `cm` prefix and are not real
+ * accounts. Do not treat this file as a real recruiting directory.
  */
 import { schoolSizeFromEnrollment } from './format';
+import { instagramHandleFor, rosterOrigin, seasonStory } from './poster';
 import { regionForState } from './regions';
 import {
   POSITIONS,
@@ -140,9 +142,55 @@ const CAMPUS_LIFE_BY_ID: Record<string, CampusLife[]> = {
   'amber-plains': ['close-knit', 'college-town', 'four-seasons', 'faith'],
 };
 
+/** Fictional mascot and school colors. The card badge is drawn from the initials. */
+const IDENTITY: Record<string, { mascot: string; colors: [string, string] }> = {
+  northwind: { mascot: 'Storm Elk', colors: ['#0B3A4A', '#E8C547'] },
+  'harbor-pine': { mascot: 'Schooners', colors: ['#123C34', '#D7E6C8'] },
+  'cinder-valley': { mascot: 'Cinders', colors: ['#3D1F14', '#E07A3D'] },
+  'redbird-state': { mascot: 'Redbirds', colors: ['#7A1E2C', '#F2C14E'] },
+  lakeshore: { mascot: 'Loons', colors: ['#163A5F', '#F4F1EA'] },
+  'palmetto-state': { mascot: 'Palms', colors: ['#1B4D3E', '#F0C75E'] },
+  goldfinch: { mascot: 'Goldfinches', colors: ['#1F3A2E', '#E2B93B'] },
+  marlowe: { mascot: 'Quills', colors: ['#2C2416', '#C4A574'] },
+  'cascade-poly': { mascot: 'Cascades', colors: ['#0E3B4C', '#7EC8C3'] },
+  sunridge: { mascot: 'Sunrays', colors: ['#8A3B12', '#F6D36B'] },
+  'briar-hollow': { mascot: 'Briars', colors: ['#2E3A22', '#C5D86D'] },
+  copperline: { mascot: 'Coppers', colors: ['#6B3A22', '#E7B48A'] },
+  whitecap: { mascot: 'Whitecaps', colors: ['#0E4D6C', '#E8F4F8'] },
+  ironwood: { mascot: 'Ironwoods', colors: ['#2A2E28', '#C8B48A'] },
+  meadowlark: { mascot: 'Meadowlarks', colors: ['#3E4A1F', '#E6C84A'] },
+  bayfern: { mascot: 'Ferns', colors: ['#1E4A38', '#A8D5A2'] },
+  stonebridge: { mascot: 'Keystones', colors: ['#3A3F46', '#D4A017'] },
+  highwater: { mascot: 'Herons', colors: ['#1A3A4A', '#8FB9C9'] },
+  'elm-ivy': { mascot: 'Ivies', colors: ['#1E3A2F', '#C5D4A5'] },
+  lantern: { mascot: 'Lanterns', colors: ['#4A2E12', '#F0B429'] },
+  'quill-field': { mascot: 'Inkwells', colors: ['#2A2418', '#E4C98A'] },
+  westmere: { mascot: 'Otters', colors: ['#1A4A55', '#E8A87C'] },
+  'sable-hill': { mascot: 'Sables', colors: ['#2C241C', '#C4A484'] },
+  kindling: { mascot: 'Sparks', colors: ['#5C2A12', '#F2A65A'] },
+  rookery: { mascot: 'Rooks', colors: ['#1C2430', '#D9C7A1'] },
+  glasslake: { mascot: 'Glassfish', colors: ['#0E4A5C', '#B7E4EA'] },
+  thistle: { mascot: 'Thistles', colors: ['#3A2458', '#C9A0DC'] },
+  paperkite: { mascot: 'Kites', colors: ['#1E3A5F', '#F28B6A'] },
+  'prairie-lantern': { mascot: 'Fireflies', colors: ['#2A3A18', '#E8F27A'] },
+  riverknot: { mascot: 'Rivercats', colors: ['#1A3048', '#E07A5F'] },
+  bluefen: { mascot: 'Cranes', colors: ['#16324A', '#A9C7D6'] },
+  'orchard-state': { mascot: 'Apples', colors: ['#6B1D2A', '#F2D0A4'] },
+  'keel-compass': { mascot: 'Compasses', colors: ['#12324A', '#E6C35C'] },
+  'foothill-mercy': { mascot: 'Foothills', colors: ['#3A3328', '#C4B49A'] },
+  'cedar-metro': { mascot: 'Cedars', colors: ['#1E3A28', '#D4C4A8'] },
+  saltmarsh: { mascot: 'Marshlights', colors: ['#1A3A32', '#E8D48B'] },
+  valleyford: { mascot: 'Fords', colors: ['#3A2A18', '#E0A050'] },
+  lakepoint: { mascot: 'Pointers', colors: ['#163A58', '#F2E6C8'] },
+  harborline: { mascot: 'Gulls', colors: ['#1A4050', '#F4F0E6'] },
+  'amber-plains': { mascot: 'Bison', colors: ['#5C3A12', '#E8B84A'] },
+};
+
 function toProgram(seed: SchoolSeed, index: number): Program {
   const region = regionForState(seed.state);
   if (!region) throw new Error(`No region for ${seed.state}`);
+  const identity = IDENTITY[seed.id];
+  if (!identity) throw new Error(`Missing poster identity for ${seed.id}`);
   const coaches: Coach[] = seed.coaches.map(([name, title]) => ({
     id: slug(name),
     name,
@@ -150,6 +198,7 @@ function toProgram(seed: SchoolSeed, index: number): Program {
     email: `${slug(name)}@${seed.id}.example.com`,
   }));
   const bump = seed.division === 'NCAA D1' ? 1 : 0;
+  const story = seasonStory(index);
   return {
     id: seed.id,
     sport: 'soccer',
@@ -174,6 +223,17 @@ function toProgram(seed: SchoolSeed, index: number): Program {
     admissionsUrl: `https://example.com/schools/${seed.id}/admissions`,
     costUrl: `https://example.com/schools/${seed.id}/cost`,
     athleticsUrl: `https://example.com/schools/${seed.id}/athletics`,
+    mascot: identity.mascot,
+    colors: identity.colors,
+    record: story.record,
+    conferenceFinish: story.conferenceFinish,
+    postseason: story.postseason,
+    funFact: story.funFact,
+    headCoachYears: story.headCoachYears,
+    coachPortrait: index % 4,
+    photoSet: index % 4,
+    instagramHandle: instagramHandleFor(seed.id),
+    rosterOrigin: rosterOrigin(seed.state, index),
     idCamps: campsFor(index),
     sample: true,
   };

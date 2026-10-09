@@ -240,6 +240,21 @@ export type RosterCount = {
   graduating: number;
 };
 
+export type TeamRecord = {
+  wins: number;
+  losses: number;
+  ties: number;
+};
+
+/**
+ * Where players on the current roster came from.
+ * Counts are fictional and do not have to add up to the roster size.
+ */
+export type RosterOrigin = {
+  byState: Record<string, number>;
+  byLeague: Partial<Record<LeagueId, number>>;
+};
+
 export type Program = {
   id: string;
   sport: Sport;
@@ -272,6 +287,26 @@ export type Program = {
   admissionsUrl: string;
   costUrl: string;
   athleticsUrl: string;
+  /** Fictional nickname shown on the card. */
+  mascot: string;
+  /** Primary, then accent. Used for the badge and the spot meter. */
+  colors: [string, string];
+  record: TeamRecord;
+  conferenceFinish: string;
+  postseason: string;
+  /** One short fictional line in the team snapshot. */
+  funFact: string;
+  headCoachYears: number;
+  /** Index into the shared illustrated coach portraits. */
+  coachPortrait: number;
+  /** Index into the shared campus photo sets. */
+  photoSet: number;
+  /**
+   * Fictional Instagram handle, without @.
+   * Sample rows use a `cm` prefix so the link is not a real account.
+   */
+  instagramHandle: string;
+  rosterOrigin: RosterOrigin;
   idCamps: IdCamp[];
   /**
    * True for the bundled fictional catalog.

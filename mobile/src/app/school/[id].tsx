@@ -7,6 +7,7 @@ import { FitBars } from '../../components/FitBars';
 import { AppText, Button, Pill, SampleBanner, StatusPill } from '../../components/ui';
 import { offersMajor, scoreProgram } from '../../data/fitScore';
 import { addDays, effectiveStatus, formatEnrollment, formatLongDate, formatMoney, formatPercent, isoToday, isIsoDate } from '../../data/format';
+import { instagramProfileUrl, recordLine } from '../../data/poster';
 import { OUTREACH_STATUSES, POSITION_LABEL, STATUS_LABEL, type OutreachStatus } from '../../data/types';
 import { openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
@@ -73,7 +74,10 @@ export default function SchoolScreen() {
           {program.schoolName}
         </AppText>
         <AppText variant="body" color="#D5E6DC">
-          {program.city}, {program.state} · {program.conference}
+          {program.mascot} · {program.city}, {program.state}
+        </AppText>
+        <AppText variant="caption" color="#D5E6DC">
+          {recordLine(program.record)} · {program.conferenceFinish}
         </AppText>
       </View>
 
@@ -151,6 +155,12 @@ export default function SchoolScreen() {
         <Button label="Admissions" kind="ghost" icon="open-outline" onPress={() => openExternal(program.admissionsUrl)} />
         <Button label="Cost and aid" kind="ghost" icon="open-outline" onPress={() => openExternal(program.costUrl)} />
         <Button label="Athletics site" kind="ghost" icon="open-outline" onPress={() => openExternal(program.athleticsUrl)} />
+        <Button
+          label={`Instagram @${program.instagramHandle}`}
+          kind="ghost"
+          icon="logo-instagram"
+          onPress={() => openExternal(instagramProfileUrl(program.instagramHandle))}
+        />
 
         <AppText variant="headline">ID camps</AppText>
         {program.idCamps.map((camp) => {

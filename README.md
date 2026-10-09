@@ -8,7 +8,7 @@ The app does not charge athletes. Sponsor slots are placeholders in the deck, cl
 
 ## Sample data
 
-**The schools in the app are fictional.** Names, conferences, coaches, roster counts, costs, acceptance rates, and camp dates are made up so the MVP can run without a live data license. Coach emails use `example.com` and will not reach anyone. The banner in the app says the same thing. The catalog is `mobile/src/data/samplePrograms.ts` (40 programs across NCAA D1, D2, D3, NAIA, and NJCAA) plus two sponsor placeholders in `mobile/src/data/sponsored.ts`.
+**The schools in the app are fictional.** Names, conferences, coaches, roster counts, costs, acceptance rates, camp dates, mascots, records, and Instagram handles are made up so the MVP can run without a live data license. Coach emails use `example.com` and will not reach anyone. Instagram handles start with `cm` (for example `cmnorthwind`) and are not real accounts. The banner in the app says the same thing. The catalog is `mobile/src/data/samplePrograms.ts` (40 programs across NCAA D1, D2, D3, NAIA, and NJCAA) plus two sponsor placeholders in `mobile/src/data/sponsored.ts`.
 
 ## Run it on a phone
 
@@ -33,7 +33,7 @@ A desktop preview (same screens, mouse-drag to swipe) is `npm run web` from `mob
 ## What the MVP does
 
 1. **Profile.** Name, birthday, girls or boys programs (or prefer not to say), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, club coach contact, optional high school coach contact, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, the levels they want (or open to all), regions, campus size, optional campus-life vibes, net-cost budget, and a required parent email that is copied on coach emails and stays on the phone.
-2. **Deck.** Programs ranked by a fit score. Each card shows division, conference, location, enrollment, acceptance rate, estimated net cost, roster count at the player’s position, how many are graduating, and a one-line “why this fits.”
+2. **Deck.** Programs ranked by a fit score. Each card is a short recruiting poster: a photo carousel (campus, field, team, city), school colors and mascot, division, location, enrollment, acceptance, and net cost. A spot meter shows how many players at her positions are graduating. A team snapshot has last season’s record, conference finish, postseason, and the head coach. “Could you play here?” counts players from her state and league, with the fit score and an expandable “why this fits.” Two small links open the athletics page and the team’s Instagram in the browser or the Instagram app. There is no video on the card. Pass and Save stay under the card. Visit opens the school page.
 3. **Saved schools.** Detail page with coaches (name, title, email), questionnaire link, ID camp dates, admissions and cost info, and an athletics link.
 4. **Coach email.** A short editable intro (positions, jersey number, dominant foot, years at league level, coach references, highlight, grad year, majors, a brief honors line, and a light personal note) opens in the device mail app with `mailto`. Status per school: not contacted, emailed, replied, follow-up due, plus a reminder date.
 5. **Sponsored slots.** A “Sponsored ID camp” card can appear in the deck. It is labeled Sponsored and is not scored as a college match.
@@ -47,7 +47,7 @@ TypeScript types live in `mobile/src/data/types.ts`. The important records:
 | Type | Role |
 |---|---|
 | `PlayerProfile` | The athlete. Sport, gender, birthday, positions, primary position, and leagues. Stored only on device. |
-| `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, links. The sample rows are women's soccer. |
+| `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, links, plus a fictional poster (mascot, colors, record, roster origins, Instagram handle). The sample rows are women's soccer. |
 | `Coach` | Name, title, email. |
 | `SponsoredPlacement` | A labeled sponsor card and where it sits in the deck. |
 | `SavedProgram` | Save time, outreach status, follow-up date, and the last email draft. |
@@ -58,6 +58,8 @@ Soccer positions are `GK`, `CB`, `FB`, `DM`, `CM`, `W`, and `ST`. Other sports k
 Girls maps to women's programs and boys maps to men's. Prefer not to say does not filter by side. A sport and side with no programs shows a coming-soon screen.
 
 Welcome backgrounds are original illustrations generated for this app and bundled in `mobile/assets/welcome`. They are not stock photos. The picture follows the sport chosen on About you; before that, a general sports scene is used.
+
+Discover-card photos live in `mobile/assets/cards`. Campus, field, team, and city pictures are Unsplash stock under the [Unsplash License](https://unsplash.com/license), cropped and compressed so the schools can share one small pool. Coach portraits in that folder are original illustrations made for this app, not photographs of real coaches.
 
 Screens do not import the sample JSON directly. They use `mobile/src/data/index.ts`:
 
