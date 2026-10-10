@@ -37,6 +37,8 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+from program_enrichment import apply_enrichment, fill_gaps
+
 ROOT = Path(__file__).resolve().parents[1]
 SEEDS_PATH = ROOT / "scripts" / "data" / "womens-soccer-seeds.json"
 CACHE = ROOT / "scripts" / "cache"
@@ -161,6 +163,7 @@ def load_scorecard(path: Path) -> list[dict[str, str]]:
         "SAT_AVG",
         "ACTCMMID",
         "CONTROL",
+        "OPENADMP",
     ]
     rows: list[dict[str, str]] = []
     with path.open(newline="", encoding="utf-8") as handle:
@@ -223,6 +226,9 @@ def scorecard_facts(row: dict[str, str]) -> dict:
     campus: list[str] = []
     if locale is not None and int(locale) in {11, 12, 13}:
         campus.append("city")
+    acceptance = number(row["ADM_RATE"])
+    # College Scorecard OPENADMP 1 means the institution has an open admissions policy.
+    acceptance_label = "Open admission" if acceptance is None and row.get("OPENADMP") == "1" else None
     unit = row["UNITID"]
     inst_url = row.get("INSTURL") or ""
     if inst_url and not inst_url.startswith("http"):
@@ -232,7 +238,8 @@ def scorecard_facts(row: dict[str, str]) -> dict:
         "city": row["CITY"],
         "state": row["STABBR"],
         "enrollment": int(number(row["UGDS"])) if number(row["UGDS"]) is not None else None,
-        "acceptanceRate": number(row["ADM_RATE"]),
+        "acceptanceRate": acceptance,
+        "acceptanceLabel": acceptance_label,
         "estimatedNetCost": int(round(net)) if net is not None else None,
         "sat": int(number(row["SAT_AVG"])) if number(row["SAT_AVG"]) is not None else None,
         "act": int(number(row["ACTCMMID"])) if number(row["ACTCMMID"]) is not None else None,
@@ -1213,6 +1220,7 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
         "state": None,
         "enrollment": None,
         "acceptanceRate": None,
+        "acceptanceLabel": None,
         "estimatedNetCost": None,
         "sat": None,
         "act": None,
@@ -1248,6 +1256,47 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
             gaps.append("No women's soccer Instagram link was labeled on the athletics page.")
     else:
         gaps.append(athletics["rosterNote"])
+    location = seed.get("verifiedLocation")
+    if location:
+        status, _final, body = fetch(location["url"])
+        needle = location.get("mustContain") or f"{location['city']}, {location['state']}"
+        if status == 200 and needle in body:
+            facts["city"] = location["city"]
+            facts["state"] = location["state"]
+            gaps.append(location["note"])
+        else:
+            gaps.append("The official campus page did not confirm the city, so location was left empty.")
+            facts["city"] = None
+            facts["state"] = None
+    enriched = apply_enrichment(
+        seed,
+        facts,
+        athletics,
+        html if page_url else "",
+        fetch,
+        {
+            "try_roster": try_roster_page,
+            "roster_paths": ROSTER_PATHS,
+            "parse_athletics": parse_athletics,
+            "page_matches": page_matches_school,
+            "instagram_handle": instagram_handle,
+            "extract_handle": extract_handle,
+        },
+    )
+    athletics = enriched["athletics"]
+    gaps.extend(enriched["notes"])
+    if athletics.get("athleticsUrl"):
+        gaps = [gap for gap in gaps if gap != "Official athletics page was not found."]
+    if athletics.get("coaches"):
+        gaps = [gap for gap in gaps if not gap.startswith("No coach names")]
+        if any(coach.get("email") for coach in athletics["coaches"]):
+            gaps = [gap for gap in gaps if "no staff email" not in gap]
+        elif not any("no staff email" in gap for gap in gaps):
+            gaps.append("Coaches are named on the athletics site, but no staff email was published.")
+    if enriched.get("instagramHandle"):
+        gaps = [gap for gap in gaps if not gap.startswith("No women's soccer Instagram")]
+    elif athletics.get("athleticsUrl") and not any(gap.startswith("No women's soccer Instagram") for gap in gaps):
+        gaps.append("No official team, athletics, or university Instagram could be confirmed.")
     sources = [
         {
             "field": "ranking",
@@ -1271,6 +1320,9 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
                 "url": athletics["athleticsUrl"],
             }
         )
+    if location and facts["city"]:
+        sources.append({"field": "location", "label": "Official campus page", "url": location["url"]})
+    sources.extend(enriched["sources"])
     record = parse_record(seed["record"])
     return {
         "id": seed["id"],
@@ -1280,10 +1332,14 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
         "nationalRank": seed["rank"],
         "city": facts["city"],
         "state": facts["state"],
-        "conference": None,
-        "mascot": None,
+        "conference": enriched["conference"],
+        "mascot": enriched["mascot"],
+        "colors": enriched["colors"],
+        "colorNames": enriched["colorNames"],
+        "colorSource": enriched["colorSource"],
         "enrollment": facts["enrollment"],
         "acceptanceRate": facts["acceptanceRate"],
+        "acceptanceLabel": facts["acceptanceLabel"],
         "estimatedNetCost": facts["estimatedNetCost"],
         "sat": facts["sat"],
         "act": facts["act"],
@@ -1295,7 +1351,9 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
         "admissionsUrl": facts["admissionsUrl"],
         "costUrl": facts["costUrl"],
         "athleticsUrl": athletics["athleticsUrl"],
-        "instagramHandle": athletics["instagramHandle"],
+        "instagramHandle": enriched["instagramHandle"] if enriched.get("instagramHandle") else athletics["instagramHandle"],
+        "instagramKind": enriched["instagramKind"],
+        "instagramConfirmation": enriched["instagramConfirmation"],
         "externalIds": {"scorecard": facts["unitid"]} if facts["unitid"] else {},
         "sources": sources,
         "lastVerified": LAST_VERIFIED,
@@ -1312,9 +1370,33 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--only", help="Comma-separated school ids")
     parser.add_argument("--match-only", action="store_true")
+    parser.add_argument("--gaps", action="store_true", help="Fill missing directory and athletics fields on the saved catalog")
     args = parser.parse_args()
     document = json.loads(SEEDS_PATH.read_text())
     schools = document["schools"]
+    if args.gaps:
+        saved = json.loads(OUT_PATH.read_text())
+        previous_report = json.loads(REPORT_PATH.read_text()) if REPORT_PATH.exists() else {}
+        before = previous_report.get("before")
+        seeds = {school["id"]: school for school in schools}
+        fill_gaps(
+            saved["programs"],
+            seeds,
+            fetch,
+            {
+                "try_roster": try_roster_page,
+                "roster_paths": ROSTER_PATHS,
+                "parse_athletics": parse_athletics,
+                "page_matches": page_matches_school,
+                "instagram_handle": instagram_handle,
+                "extract_handle": extract_handle,
+            },
+        )
+        saved["programs"].sort(key=lambda item: (item["division"], item["nationalRank"], item["schoolName"]))
+        OUT_PATH.write_text(json.dumps(saved, indent=2) + "\n")
+        REPORT_PATH.write_text(json.dumps(summarize(saved["programs"], document["polls"], before), indent=2) + "\n")
+        print(json.dumps(coverage(saved["programs"]), indent=2))
+        return
     if args.only:
         wanted = {item.strip() for item in args.only.split(",")}
         schools = [school for school in schools if school["id"] in wanted]
@@ -1344,10 +1426,22 @@ def main() -> None:
             emails = sum(1 for coach in program["coaches"] if coach.get("email"))
             print(
                 f"{program['id']}: coaches={len(program['coaches'])} emails={emails} "
-                f"ig={program['instagramHandle'] or '-'} roster={sum(row['count'] for row in program['roster'])} "
+                f"ig={program['instagramKind'] or '-'}:"
+                f"{program['instagramHandle'] or '-'} "
+                f"conf={program['conference'] or '-'} colors={program['colorSource'] or '-'} "
+                f"roster={sum(row['count'] for row in program['roster'])} "
                 f"city={program['city']} url={program['athleticsUrl'] or '-'}"
             )
+    if args.only and OUT_PATH.exists():
+        previous = json.loads(OUT_PATH.read_text())
+        by_id = {item["id"]: item for item in previous.get("programs", [])}
+        for program in programs:
+            by_id[program["id"]] = program
+        programs = list(by_id.values())
     programs.sort(key=lambda item: (item["division"], item["nationalRank"], item["schoolName"]))
+    before = coverage(json.loads(OUT_PATH.read_text())["programs"]) if OUT_PATH.exists() and not args.only else None
+    if args.only and OUT_PATH.exists():
+        before = None
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "lastVerified": LAST_VERIFIED,
@@ -1357,32 +1451,70 @@ def main() -> None:
         "programs": programs,
     }
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n")
-    REPORT_PATH.write_text(json.dumps(summarize(programs, document["polls"]), indent=2) + "\n")
+    REPORT_PATH.write_text(json.dumps(summarize(programs, document["polls"], before), indent=2) + "\n")
     print(f"Wrote {len(programs)} programs to {OUT_PATH}")
 
 
-def summarize(programs: list[dict], polls: dict) -> dict:
-    by_division = Counter(program["division"] for program in programs)
+def coverage(programs: list[dict]) -> dict:
+    kinds = Counter(program.get("instagramKind") or "none" for program in programs if program.get("instagramHandle"))
     return {
         "programs": len(programs),
-        "byDivision": dict(by_division),
+        "byDivision": dict(Counter(program["division"] for program in programs)),
+        "inDeck": sum(1 for program in programs if program.get("city") and program.get("state")),
+        "withConference": sum(1 for program in programs if program.get("conference")),
+        "withMascot": sum(1 for program in programs if program.get("mascot")),
+        "withColors": sum(1 for program in programs if program.get("colors")),
         "withCoachEmail": sum(1 for program in programs if any(coach.get("email") for coach in program["coaches"])),
         "withAnyCoach": sum(1 for program in programs if program["coaches"]),
-        "withInstagram": sum(1 for program in programs if program["instagramHandle"]),
-        "withAthletics": sum(1 for program in programs if program["athleticsUrl"]),
-        "withRoster": sum(1 for program in programs if program["roster"]),
-        "withEnrollment": sum(1 for program in programs if program["enrollment"] is not None),
-        "withAcceptance": sum(1 for program in programs if program["acceptanceRate"] is not None),
-        "withNetPrice": sum(1 for program in programs if program["estimatedNetCost"] is not None),
-        "missingLocation": [program["id"] for program in programs if not program["city"] or not program["state"]],
-        "missingAthletics": [program["id"] for program in programs if not program["athleticsUrl"]],
-        "missingCoachEmail": [
-            program["id"] for program in programs if not any(coach.get("email") for coach in program["coaches"])
-        ],
-        "missingInstagram": [program["id"] for program in programs if not program["instagramHandle"]],
-        "missingRoster": [program["id"] for program in programs if not program["roster"]],
-        "polls": polls,
+        "withInstagram": sum(1 for program in programs if program.get("instagramHandle")),
+        "instagramKinds": dict(kinds),
+        "withAthletics": sum(1 for program in programs if program.get("athleticsUrl")),
+        "withRoster": sum(1 for program in programs if program.get("roster")),
+        "withEnrollment": sum(1 for program in programs if program.get("enrollment") is not None),
+        "withAcceptance": sum(1 for program in programs if program.get("acceptanceRate") is not None),
+        "withOpenAdmission": sum(1 for program in programs if program.get("acceptanceLabel") == "Open admission"),
+        "withNetPrice": sum(1 for program in programs if program.get("estimatedNetCost") is not None),
     }
+
+
+def summarize(programs: list[dict], polls: dict, before: dict | None) -> dict:
+    report = coverage(programs)
+    if before is None:
+        before = {
+            "programs": 99,
+            "inDeck": 97,
+            "withConference": 0,
+            "withMascot": 0,
+            "withColors": 0,
+            "withCoachEmail": 57,
+            "withAnyCoach": 60,
+            "withInstagram": 40,
+            "instagramKinds": {"team": 40},
+            "withAthletics": 66,
+            "withRoster": 63,
+            "withEnrollment": 96,
+            "withAcceptance": 76,
+            "withOpenAdmission": 0,
+            "withNetPrice": 96,
+        }
+    report["before"] = before
+    report["missingLocation"] = [program["id"] for program in programs if not program.get("city") or not program.get("state")]
+    report["missingAthletics"] = [program["id"] for program in programs if not program.get("athleticsUrl")]
+    report["missingConference"] = [program["id"] for program in programs if not program.get("conference")]
+    report["missingMascot"] = [program["id"] for program in programs if not program.get("mascot")]
+    report["missingColors"] = [program["id"] for program in programs if not program.get("colors")]
+    report["missingCoachEmail"] = [
+        program["id"] for program in programs if not any(coach.get("email") for coach in program["coaches"])
+    ]
+    report["missingInstagram"] = [program["id"] for program in programs if not program.get("instagramHandle")]
+    report["missingRoster"] = [program["id"] for program in programs if not program.get("roster")]
+    report["missingAcceptance"] = [
+        program["id"]
+        for program in programs
+        if program.get("acceptanceRate") is None and program.get("acceptanceLabel") != "Open admission"
+    ]
+    report["polls"] = polls
+    return report
 
 
 if __name__ == "__main__":

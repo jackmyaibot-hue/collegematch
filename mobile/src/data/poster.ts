@@ -11,6 +11,14 @@ export function instagramProfileUrl(handle: string): string {
   return `https://www.instagram.com/${clean}/`;
 }
 
+/** Short button label for a confirmed official account. */
+export function instagramLinkLabel(kind: 'team' | 'athletics' | 'school' | null | undefined): string {
+  if (kind === 'team') return 'Team IG';
+  if (kind === 'athletics') return 'Athletics IG';
+  if (kind === 'school') return 'School IG';
+  return 'Instagram';
+}
+
 export function recordLine(record: TeamRecord | null): string {
   if (!record) return '';
   return `${record.wins}\u2013${record.losses}\u2013${record.ties}`;

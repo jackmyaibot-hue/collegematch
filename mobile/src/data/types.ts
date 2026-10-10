@@ -277,8 +277,10 @@ export type Program = {
   state: string;
   region: Region;
   enrollment: number | null;
-  /** 0–1. Empty when Scorecard does not publish it. */
+  /** 0–1. Empty when Scorecard does not publish a rate. */
   acceptanceRate: number | null;
+  /** Set when Scorecard marks the school open admission and publishes no rate. */
+  acceptanceLabel?: string | null;
   /** Average net price from College Scorecard, in dollars. Sample rows use a fictional estimate. */
   estimatedNetCost: number | null;
   schoolSize: SchoolSize | null;
@@ -301,6 +303,13 @@ export type Program = {
    * are read off the athletics site. `colorsVerified` is true only then.
    */
   colors: [string, string];
+  /**
+   * `brand-guide` when hex values came from the school's identity page.
+   * `athletics-css` when they came from the athletics site theme.
+   */
+  colorSource?: 'brand-guide' | 'athletics-css' | null;
+  /** Color names from a directory or brand page, when that page printed them. */
+  colorNames?: string | null;
   colorsVerified?: boolean;
   record: TeamRecord | null;
   conferenceFinish: string | null;
@@ -317,6 +326,9 @@ export type Program = {
    * Sample rows use a `cm` prefix so the link is not a real account.
    */
   instagramHandle: string | null;
+  /** Which official account the handle is, when it was confirmed. */
+  instagramKind?: 'team' | 'athletics' | 'school' | null;
+  instagramConfirmation?: { method: string; kind?: string; url: string; note: string } | null;
   rosterOrigin: RosterOrigin | null;
   idCamps: IdCamp[];
   /**

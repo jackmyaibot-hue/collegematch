@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { costCaption } from '../data/fitScore';
 import type { FitResult } from '../data/fitScore';
 import { formatEnrollment, formatMoney, formatPercent } from '../data/format';
-import { instagramProfileUrl, playersFromLeagues, playersFromState, recordLine } from '../data/poster';
+import { instagramLinkLabel, instagramProfileUrl, playersFromLeagues, playersFromState, recordLine } from '../data/poster';
 import { stateName } from '../data/regions';
 import { leagueById, positionsInDisplayOrder } from '../data/sports';
 import { POSITION_LABEL, type PlayerProfile, type Position, type Program, type RosterCount } from '../data/types';
@@ -107,7 +107,11 @@ export function ProgramCard({
           {program.enrollment != null || program.acceptanceRate != null || program.estimatedNetCost != null ? (
             <View style={styles.metrics}>
               {program.enrollment != null ? <Metric label="Enrollment" value={formatEnrollment(program.enrollment)} /> : null}
-              {program.acceptanceRate != null ? <Metric label="Acceptance" value={formatPercent(program.acceptanceRate)} /> : null}
+              {program.acceptanceRate != null ? (
+                <Metric label="Acceptance" value={formatPercent(program.acceptanceRate)} />
+              ) : program.acceptanceLabel ? (
+                <Metric label="Acceptance" value={program.acceptanceLabel} />
+              ) : null}
               {program.estimatedNetCost != null ? (
                 <Metric label="Net cost" value={formatMoney(program.estimatedNetCost)} hint={costCaption(profile, program)} />
               ) : null}
@@ -206,13 +210,13 @@ export function ProgramCard({
           {program.instagramHandle ? (
             <Pressable
               accessibilityRole="link"
-              accessibilityLabel={`Instagram @${program.instagramHandle}`}
+              accessibilityLabel={`${instagramLinkLabel(program.instagramKind)} @${program.instagramHandle}`}
               onPress={() => openExternal(instagramProfileUrl(program.instagramHandle!))}
               style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
             >
               <Ionicons name="logo-instagram" size={14} color={colors.ink} />
               <AppText variant="caption" color={colors.ink} numberOfLines={1} style={styles.linkText}>
-                @{program.instagramHandle}
+                {program.instagramKind ? instagramLinkLabel(program.instagramKind) : `@${program.instagramHandle}`}
               </AppText>
             </Pressable>
           ) : null}
@@ -267,7 +271,7 @@ function Metric({ label, value, hint }: { label: string; value: string; hint?: s
       <AppText variant="label" style={styles.metricLabel}>
         {label}
       </AppText>
-      <AppText variant="headline" numberOfLines={1} style={styles.metricValue}>
+      <AppText variant="headline" numberOfLines={2} style={styles.metricValue}>
         {value}
       </AppText>
       {hint ? (

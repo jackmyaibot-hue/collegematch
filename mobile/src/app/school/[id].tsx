@@ -7,7 +7,7 @@ import { FitBars } from '../../components/FitBars';
 import { AppText, Button, Pill, SampleBanner, StatusPill } from '../../components/ui';
 import { offersMajor, scoreProgram } from '../../data/fitScore';
 import { addDays, effectiveStatus, formatEnrollment, formatLongDate, formatMoney, formatPercent, isoToday, isIsoDate } from '../../data/format';
-import { instagramProfileUrl, recordLine } from '../../data/poster';
+import { instagramLinkLabel, instagramProfileUrl, recordLine } from '../../data/poster';
 import { OUTREACH_STATUSES, POSITION_LABEL, STATUS_LABEL, type OutreachStatus } from '../../data/types';
 import { openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
@@ -107,7 +107,11 @@ export default function SchoolScreen() {
         <AppText variant="headline">Campus and cost</AppText>
         <View style={styles.grid}>
           {program.enrollment != null ? <Fact label="Enrollment" value={formatEnrollment(program.enrollment)} /> : null}
-          {program.acceptanceRate != null ? <Fact label="Acceptance" value={formatPercent(program.acceptanceRate)} /> : null}
+          {program.acceptanceRate != null ? (
+            <Fact label="Acceptance" value={formatPercent(program.acceptanceRate)} />
+          ) : program.acceptanceLabel ? (
+            <Fact label="Acceptance" value={program.acceptanceLabel} />
+          ) : null}
           {program.estimatedNetCost != null ? <Fact label="Est. net cost" value={formatMoney(program.estimatedNetCost)} /> : null}
           {program.academics.avgGpa != null ? <Fact label="Typical GPA" value={program.academics.avgGpa.toFixed(1)} /> : null}
           {program.academics.avgSat != null ? <Fact label="Typical SAT" value={String(program.academics.avgSat)} /> : null}
@@ -174,7 +178,11 @@ export default function SchoolScreen() {
         ) : null}
         {program.instagramHandle ? (
           <Button
-            label={`Instagram @${program.instagramHandle}`}
+            label={
+              program.instagramKind
+                ? `${instagramLinkLabel(program.instagramKind)} @${program.instagramHandle}`
+                : `Instagram @${program.instagramHandle}`
+            }
             kind="ghost"
             icon="logo-instagram"
             onPress={() => openExternal(instagramProfileUrl(program.instagramHandle!))}

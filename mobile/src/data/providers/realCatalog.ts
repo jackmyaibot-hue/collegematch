@@ -24,6 +24,10 @@ type RawProgram = {
   mascot?: string | null;
   enrollment?: number | null;
   acceptanceRate?: number | null;
+  acceptanceLabel?: string | null;
+  colors?: [string, string] | null;
+  colorNames?: string | null;
+  colorSource?: 'brand-guide' | 'athletics-css' | null;
   estimatedNetCost?: number | null;
   sat?: number | null;
   act?: number | null;
@@ -36,6 +40,8 @@ type RawProgram = {
   costUrl?: string | null;
   athleticsUrl?: string | null;
   instagramHandle?: string | null;
+  instagramKind?: 'team' | 'athletics' | 'school' | null;
+  instagramConfirmation?: Program['instagramConfirmation'];
   externalIds?: { scorecard?: string };
   sources?: ProgramSource[];
   lastVerified?: string;
@@ -66,6 +72,16 @@ function coachesFor(programId: string, coaches: RawCoach[] | undefined): Coach[]
   });
 }
 
+function verifiedColors(raw: RawProgram): { colors: [string, string]; colorsVerified: boolean } {
+  const source = raw.colorSource;
+  const pair = raw.colors;
+  const hex = /^#[0-9A-Fa-f]{6}$/;
+  if ((source === 'brand-guide' || source === 'athletics-css') && pair && hex.test(pair[0]) && hex.test(pair[1])) {
+    return { colors: [pair[0].toUpperCase(), pair[1].toUpperCase()], colorsVerified: true };
+  }
+  return { colors: PLACEHOLDER_COLORS, colorsVerified: false };
+}
+
 function toProgram(raw: RawProgram): Program | null {
   if (!DIVISIONS.has(raw.division as Division)) return null;
   const city = raw.city?.trim() ?? '';
@@ -75,6 +91,7 @@ function toProgram(raw: RawProgram): Program | null {
   const division = raw.division as Division;
   const juco = raw.jucoDivision && JUCO.has(raw.jucoDivision as JucoDivision) ? (raw.jucoDivision as JucoDivision) : null;
   const enrollment = raw.enrollment ?? null;
+  const palette = verifiedColors(raw);
   return {
     id: raw.id,
     sport: 'soccer',
@@ -89,6 +106,7 @@ function toProgram(raw: RawProgram): Program | null {
     region,
     enrollment,
     acceptanceRate: raw.acceptanceRate ?? null,
+    acceptanceLabel: raw.acceptanceLabel ?? null,
     estimatedNetCost: raw.estimatedNetCost ?? null,
     schoolSize: enrollment == null ? null : schoolSizeFromEnrollment(enrollment),
     academics: {
@@ -104,8 +122,10 @@ function toProgram(raw: RawProgram): Program | null {
     costUrl: raw.costUrl ?? null,
     athleticsUrl: raw.athleticsUrl ?? null,
     mascot: raw.mascot ?? null,
-    colors: PLACEHOLDER_COLORS,
-    colorsVerified: false,
+    colors: palette.colors,
+    colorSource: palette.colorsVerified ? raw.colorSource : null,
+    colorNames: raw.colorNames ?? null,
+    colorsVerified: palette.colorsVerified,
     record: raw.record ?? null,
     conferenceFinish: null,
     postseason: null,
@@ -114,6 +134,8 @@ function toProgram(raw: RawProgram): Program | null {
     coachPortrait: null,
     photoSet: null,
     instagramHandle: raw.instagramHandle ?? null,
+    instagramKind: raw.instagramKind ?? null,
+    instagramConfirmation: raw.instagramConfirmation ?? null,
     rosterOrigin: null,
     idCamps: [],
     sample: false,

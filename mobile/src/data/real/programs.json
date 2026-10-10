@@ -43,10 +43,17 @@
       "nationalRank": 1,
       "city": "West Palm Beach",
       "state": "FL",
-      "conference": null,
+      "conference": "The Sun Conference",
       "mascot": null,
+      "colors": [
+        "#002D62",
+        "#0081C6"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": null,
       "acceptanceRate": null,
+      "acceptanceLabel": null,
       "estimatedNetCost": null,
       "sat": null,
       "act": null,
@@ -100,6 +107,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?13508112",
       "athleticsUrl": "https://kuseahawks.com/sports/womens-soccer/roster",
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "13508112"
       },
@@ -118,6 +127,16 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://kuseahawks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://kuseahawks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://kuseahawks.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -134,10 +153,14 @@
       "nationalRank": 2,
       "city": "Williamsburg",
       "state": "KY",
-      "conference": null,
+      "conference": "Mid-South Conference",
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 6941,
       "acceptanceRate": 0.9881,
+      "acceptanceLabel": null,
       "estimatedNetCost": 14107,
       "sat": null,
       "act": 21,
@@ -186,6 +209,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?156541",
       "athleticsUrl": "https://cumberlandspatriots.com/sports/womens-soccer/roster",
       "instagramHandle": "UCWSOC",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://cumberlandspatriots.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "156541"
       },
@@ -204,6 +234,16 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://cumberlandspatriots.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://cumberlandspatriots.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://cumberlandspatriots.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -221,8 +261,12 @@
       "state": "AZ",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 3218,
       "acceptanceRate": 0.7658,
+      "acceptanceLabel": null,
       "estimatedNetCost": 40287,
       "sat": 1250,
       "act": 26,
@@ -241,6 +285,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?104586",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "104586"
       },
@@ -271,8 +317,12 @@
       "state": "OK",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 673,
       "acceptanceRate": 0.6617,
+      "acceptanceLabel": null,
       "estimatedNetCost": 28358,
       "sat": null,
       "act": 20,
@@ -289,6 +339,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?206835",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "206835"
       },
@@ -317,10 +369,17 @@
       "nationalRank": 5,
       "city": "Indianapolis",
       "state": "IN",
-      "conference": null,
-      "mascot": null,
+      "conference": "Crossroads Conference",
+      "mascot": "Ind",
+      "colors": [
+        "#031E51",
+        "#FDB813"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2266,
       "acceptanceRate": 0.9546,
+      "acceptanceLabel": null,
       "estimatedNetCost": 24018,
       "sat": null,
       "act": null,
@@ -376,6 +435,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?151786",
       "athleticsUrl": "https://muknights.com/sports/womens-soccer/roster",
       "instagramHandle": "marianwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://muknights.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "151786"
       },
@@ -394,6 +460,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://muknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://muknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://muknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://muknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://muknights.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -411,8 +497,12 @@
       "state": "MO",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 1443,
       "acceptanceRate": 0.6918,
+      "acceptanceLabel": null,
       "estimatedNetCost": 18086,
       "sat": 974,
       "act": 19,
@@ -428,7 +518,14 @@
       "admissionsUrl": "https://www.moval.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?178369",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "missouri_valley_college",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.moval.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "178369"
       },
@@ -442,6 +539,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?178369"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.moval.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -457,10 +559,17 @@
       "nationalRank": 7,
       "city": "Siloam Springs",
       "state": "AR",
-      "conference": null,
+      "conference": "Sooner Athletic Conference",
       "mascot": null,
+      "colors": [
+        "#174D83",
+        "#F8C925"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 1471,
       "acceptanceRate": 0.7614,
+      "acceptanceLabel": null,
       "estimatedNetCost": 20397,
       "sat": 1195,
       "act": 26,
@@ -493,6 +602,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?107141",
       "athleticsUrl": "https://jbuathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "JBUwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://jbuathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "107141"
       },
@@ -510,6 +626,21 @@
         {
           "field": "athletics",
           "label": "Official athletics page",
+          "url": "https://jbuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://jbuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://jbuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
           "url": "https://jbuathletics.com/sports/womens-soccer/roster"
         }
       ],
@@ -529,8 +660,12 @@
       "state": "GA",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 744,
       "acceptanceRate": 0.7826,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22227,
       "sat": null,
       "act": 21,
@@ -547,6 +682,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?141237",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "141237"
       },
@@ -575,10 +712,17 @@
       "nationalRank": 9,
       "city": "Hattiesburg",
       "state": "MS",
-      "conference": null,
+      "conference": "Southern States Athletic Conference",
       "mascot": null,
+      "colors": [
+        "#B01E24",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2201,
       "acceptanceRate": 0.6029,
+      "acceptanceLabel": null,
       "estimatedNetCost": 14258,
       "sat": 1122,
       "act": 25,
@@ -624,6 +768,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?176479",
       "athleticsUrl": "https://careyathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "wcu_womens_soccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://careyathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "176479"
       },
@@ -642,6 +793,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://careyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://careyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://careyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://careyathletics.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -657,10 +823,17 @@
       "nationalRank": 10,
       "city": "Caldwell",
       "state": "ID",
-      "conference": null,
+      "conference": "Cascade Collegiate Conference",
       "mascot": null,
+      "colors": [
+        "#3F2A55",
+        "#A39161"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 1041,
       "acceptanceRate": 0.491,
+      "acceptanceLabel": null,
       "estimatedNetCost": 19481,
       "sat": 1180,
       "act": 26,
@@ -713,7 +886,14 @@
       "admissionsUrl": "https://www.collegeofidaho.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?142294",
       "athleticsUrl": "https://yoteathletics.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "collegeofidaho",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://collegeofidaho.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "142294"
       },
@@ -732,12 +912,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://yoteathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://yoteathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://yoteathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://collegeofidaho.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -750,8 +944,12 @@
       "state": "IN",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 1974,
       "acceptanceRate": 0.8894,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22866,
       "sat": 1082,
       "act": 23,
@@ -767,7 +965,14 @@
       "admissionsUrl": "https://www.indwes.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?151801",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "indwes",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.indwes.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "151801"
       },
@@ -781,6 +986,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?151801"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.indwes.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -798,8 +1008,12 @@
       "state": "IN",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 1464,
       "acceptanceRate": 0.8215,
+      "acceptanceLabel": null,
       "estimatedNetCost": 19932,
       "sat": 1119,
       "act": 23,
@@ -816,6 +1030,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?150677",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "150677"
       },
@@ -846,8 +1062,12 @@
       "state": "GA",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 893,
       "acceptanceRate": 0.9303,
+      "acceptanceLabel": null,
       "estimatedNetCost": 29791,
       "sat": 1030,
       "act": 19,
@@ -865,7 +1085,14 @@
       "admissionsUrl": "https://www.life.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?140252",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "lifeuniversityga",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.life.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "140252"
       },
@@ -879,6 +1106,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?140252"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.life.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -896,8 +1128,12 @@
       "state": "IN",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 2025,
       "acceptanceRate": 0.7353,
+      "acceptanceLabel": null,
       "estimatedNetCost": 24865,
       "sat": 1220,
       "act": null,
@@ -913,7 +1149,14 @@
       "admissionsUrl": "https://www.taylor.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?152530",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "tayloruniv",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.taylor.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "152530"
       },
@@ -927,6 +1170,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?152530"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.taylor.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -942,10 +1190,17 @@
       "nationalRank": 15,
       "city": "Columbia",
       "state": "KY",
-      "conference": null,
-      "mascot": null,
+      "conference": "Mid-South Conference",
+      "mascot": "Lindsey Wilson University",
+      "colors": [
+        "#0063A5",
+        "#0063A5"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 1585,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 15070,
       "sat": null,
       "act": null,
@@ -993,7 +1248,14 @@
       "admissionsUrl": "https://www.lindsey.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?157216",
       "athleticsUrl": "https://lindseyathletics.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "lindseywilsoncollege",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.lindsey.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "157216"
       },
@@ -1012,12 +1274,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://lindseyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://lindseyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://lindseyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://lindseyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.lindsey.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 17 of 21 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 17 of 21 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -1030,8 +1311,12 @@
       "state": "KS",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 983,
       "acceptanceRate": 0.788,
+      "acceptanceLabel": null,
       "estimatedNetCost": 32165,
       "sat": 1048,
       "act": 20,
@@ -1048,6 +1333,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?155520",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "155520"
       },
@@ -1076,10 +1363,17 @@
       "nationalRank": 17,
       "city": "Lakeland",
       "state": "FL",
-      "conference": null,
+      "conference": "Independent",
       "mascot": null,
+      "colors": [
+        "#D50032",
+        "#000000"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 4813,
       "acceptanceRate": 0.5298,
+      "acceptanceLabel": null,
       "estimatedNetCost": 31942,
       "sat": null,
       "act": 22,
@@ -1125,6 +1419,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?137564",
       "athleticsUrl": "https://fire.seu.edu/sports/womens-soccer/roster",
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "137564"
       },
@@ -1142,6 +1438,16 @@
         {
           "field": "athletics",
           "label": "Official athletics page",
+          "url": "https://fire.seu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://fire.seu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
           "url": "https://fire.seu.edu/sports/womens-soccer/roster"
         }
       ],
@@ -1161,8 +1467,12 @@
       "state": "MO",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 1040,
       "acceptanceRate": 0.5687,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22766,
       "sat": 1048,
       "act": 21,
@@ -1178,7 +1488,14 @@
       "admissionsUrl": "https://www.centralmethodist.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?176947",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "centralmethodist",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.centralmethodist.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "176947"
       },
@@ -1192,6 +1509,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?176947"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.centralmethodist.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1207,10 +1529,17 @@
       "nationalRank": 19,
       "city": "Lebanon",
       "state": "TN",
-      "conference": null,
+      "conference": "Mid-South Conference",
       "mascot": null,
+      "colors": [
+        "#83142C",
+        "#83142C"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2104,
       "acceptanceRate": 0.6733,
+      "acceptanceLabel": null,
       "estimatedNetCost": 18759,
       "sat": null,
       "act": null,
@@ -1254,6 +1583,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?219949",
       "athleticsUrl": "https://gocumberlandathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "cuwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gocumberlandathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "219949"
       },
@@ -1272,6 +1608,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gocumberlandathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://gocumberlandathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://gocumberlandathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gocumberlandathletics.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1289,8 +1640,12 @@
       "state": "OK",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 941,
       "acceptanceRate": 0.6582,
+      "acceptanceLabel": null,
       "estimatedNetCost": 6624,
       "sat": 1152,
       "act": null,
@@ -1306,7 +1661,14 @@
       "admissionsUrl": "https://usao.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?207722",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "usaodrovers",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://usao.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "207722"
       },
@@ -1320,6 +1682,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?207722"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://usao.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1335,10 +1702,14 @@
       "nationalRank": 1,
       "city": "Tallahassee",
       "state": "FL",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Seminoles",
+      "colors": null,
+      "colorNames": "Garnet & Gold",
+      "colorSource": null,
       "enrollment": 32212,
       "acceptanceRate": 0.2422,
+      "acceptanceLabel": null,
       "estimatedNetCost": 11297,
       "sat": 1361,
       "act": 28,
@@ -1394,6 +1765,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?134097",
       "athleticsUrl": "https://seminoles.com/sports/womens-soccer/roster",
       "instagramHandle": "nolesoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://seminoles.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "134097"
       },
@@ -1412,6 +1790,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://seminoles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/florida-st"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/florida-st"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/florida-st"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://seminoles.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1427,10 +1825,14 @@
       "nationalRank": 2,
       "city": "Stanford",
       "state": "CA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Cardinal",
+      "colors": null,
+      "colorNames": "Cardinal & White",
+      "colorSource": null,
       "enrollment": 7554,
       "acceptanceRate": 0.0361,
+      "acceptanceLabel": null,
       "estimatedNetCost": 13807,
       "sat": 1553,
       "act": 35,
@@ -1484,6 +1886,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?243744",
       "athleticsUrl": "https://gostanford.com/sports/womens-soccer/roster",
       "instagramHandle": "stanfordwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gostanford.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "243744"
       },
@@ -1502,6 +1911,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gostanford.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/stanford"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/stanford"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/stanford"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gostanford.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1517,10 +1946,14 @@
       "nationalRank": 3,
       "city": "Durham",
       "state": "NC",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Blue Devils",
+      "colors": null,
+      "colorNames": "Duke Blue & White",
+      "colorSource": null,
       "enrollment": 6442,
       "acceptanceRate": 0.0571,
+      "acceptanceLabel": null,
       "estimatedNetCost": 29612,
       "sat": 1548,
       "act": 34,
@@ -1575,7 +2008,14 @@
       "admissionsUrl": "https://www.duke.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?198419",
       "athleticsUrl": "https://goduke.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "dukewsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://goduke.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
       "externalIds": {
         "scorecard": "198419"
       },
@@ -1594,12 +2034,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://goduke.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/duke"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/duke"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/duke"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://goduke.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 19 of 25 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 25 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -1612,8 +2071,15 @@
       "state": "TX",
       "conference": null,
       "mascot": null,
+      "colors": [
+        "#CF2E2E",
+        "#000000"
+      ],
+      "colorNames": "Black, White, Red, Orange",
+      "colorSource": "brand-guide",
       "enrollment": 11026,
       "acceptanceRate": 0.4449,
+      "acceptanceLabel": null,
       "estimatedNetCost": 36660,
       "sat": 1298,
       "act": 29,
@@ -1668,7 +2134,14 @@
       "admissionsUrl": "https://www.tcu.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?228875",
       "athleticsUrl": "https://gofrogs.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "texaschristianuniversity",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.tcu.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "228875"
       },
@@ -1687,12 +2160,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gofrogs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Official brand or identity page",
+          "url": "https://brand.tcu.edu/licensed-vendors/"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.tcu.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 17 of 28 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 17 of 28 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -1703,10 +2185,14 @@
       "nationalRank": 5,
       "city": "Nashville",
       "state": "TN",
-      "conference": null,
-      "mascot": null,
+      "conference": "Southeastern",
+      "mascot": "Commodores",
+      "colors": null,
+      "colorNames": "Black & Gold",
+      "colorSource": null,
       "enrollment": 7208,
       "acceptanceRate": 0.0586,
+      "acceptanceLabel": null,
       "estimatedNetCost": 15846,
       "sat": 1549,
       "act": 35,
@@ -1761,7 +2247,14 @@
       "admissionsUrl": "https://www.vanderbilt.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?221999",
       "athleticsUrl": "https://vucommodores.com/sports/wsoc/roster",
-      "instagramHandle": null,
+      "instagramHandle": "vanderbiltu",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.vanderbilt.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "221999"
       },
@@ -1780,12 +2273,36 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://vucommodores.com/sports/wsoc/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://vucommodores.com/sports/wsoc/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/vanderbilt"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/vanderbilt"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/vanderbilt"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.vanderbilt.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -1796,10 +2313,14 @@
       "nationalRank": 6,
       "city": "Seattle",
       "state": "WA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big Ten",
+      "mascot": "Huskies",
+      "colors": null,
+      "colorNames": "Purple & Gold",
+      "colorSource": null,
       "enrollment": 31942,
       "acceptanceRate": 0.3915,
+      "acceptanceLabel": null,
       "estimatedNetCost": 14091,
       "sat": null,
       "act": null,
@@ -1854,7 +2375,14 @@
       "admissionsUrl": "https://www.washington.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?236948",
       "athleticsUrl": "https://gohuskies.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "uwathletics",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gohuskies.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
       "externalIds": {
         "scorecard": "236948"
       },
@@ -1873,12 +2401,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gohuskies.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/washington"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/washington"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/washington"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gohuskies.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating."
       ]
     },
     {
@@ -1889,10 +2436,14 @@
       "nationalRank": 7,
       "city": "East Lansing",
       "state": "MI",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big Ten",
+      "mascot": "Spartans",
+      "colors": null,
+      "colorNames": "Green & White",
+      "colorSource": null,
       "enrollment": 40922,
       "acceptanceRate": 0.848,
+      "acceptanceLabel": null,
       "estimatedNetCost": 19680,
       "sat": 1269,
       "act": 26,
@@ -1953,6 +2504,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?171100",
       "athleticsUrl": "https://msuspartans.com/sports/womens-soccer/roster",
       "instagramHandle": "msu_wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://msuspartans.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "171100"
       },
@@ -1971,6 +2529,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://msuspartans.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/michigan-st"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/michigan-st"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/michigan-st"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://msuspartans.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -1986,10 +2564,14 @@
       "nationalRank": 8,
       "city": "Charlottesville",
       "state": "VA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Cavaliers",
+      "colors": null,
+      "colorNames": "Orange & Blue",
+      "colorSource": null,
       "enrollment": 17597,
       "acceptanceRate": 0.1681,
+      "acceptanceLabel": null,
       "estimatedNetCost": 21565,
       "sat": 1480,
       "act": 34,
@@ -2048,6 +2630,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?234076",
       "athleticsUrl": "https://virginiasports.com/sports/wsoc/roster",
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "234076"
       },
@@ -2066,6 +2650,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://virginiasports.com/sports/wsoc/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/virginia"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/virginia"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/virginia"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2084,8 +2683,12 @@
       "state": "OH",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 45638,
       "acceptanceRate": 0.6057,
+      "acceptanceLabel": null,
       "estimatedNetCost": 17339,
       "sat": 1387,
       "act": 29,
@@ -2130,7 +2733,14 @@
       "admissionsUrl": "https://www.osu.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?204796",
       "athleticsUrl": "https://ohiostatebuckeyes.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "ohiostathletics",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://ohiostatebuckeyes.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
       "externalIds": {
         "scorecard": "204796"
       },
@@ -2149,12 +2759,16 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://ohiostatebuckeyes.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://ohiostatebuckeyes.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 6 of 27 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 6 of 27 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2165,10 +2779,17 @@
       "nationalRank": 10,
       "city": "Washington",
       "state": "DC",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big East Conference",
+      "mascot": "Hoyas",
+      "colors": [
+        "#011E41",
+        "#011E41"
+      ],
+      "colorNames": "Blue & Gray",
+      "colorSource": "athletics-css",
       "enrollment": 7569,
       "acceptanceRate": 0.1291,
+      "acceptanceLabel": null,
       "estimatedNetCost": 40815,
       "sat": 1487,
       "act": 34,
@@ -2224,6 +2845,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?131496",
       "athleticsUrl": "https://guhoyas.com/sports/womens-soccer/roster",
       "instagramHandle": "hoyaswsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://guhoyas.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "131496"
       },
@@ -2242,6 +2870,36 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://guhoyas.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://guhoyas.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://guhoyas.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/georgetown"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/georgetown"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/georgetown"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://guhoyas.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2257,10 +2915,14 @@
       "nationalRank": 11,
       "city": "Notre Dame",
       "state": "IN",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Fighting Irish",
+      "colors": null,
+      "colorNames": "Blue & Gold",
+      "colorSource": null,
       "enrollment": 8818,
       "acceptanceRate": 0.1127,
+      "acceptanceLabel": null,
       "estimatedNetCost": 26780,
       "sat": 1520,
       "act": 34,
@@ -2313,7 +2975,14 @@
       "admissionsUrl": "https://www.nd.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?152080",
       "athleticsUrl": "https://fightingirish.com/sports/wsoc/roster",
-      "instagramHandle": null,
+      "instagramHandle": "notredame",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.nd.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "152080"
       },
@@ -2332,12 +3001,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://fightingirish.com/sports/wsoc/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/notre-dame"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/notre-dame"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/notre-dame"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.nd.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2348,10 +3036,14 @@
       "nationalRank": 12,
       "city": "Boulder",
       "state": "CO",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big 12",
+      "mascot": "Buffaloes",
+      "colors": null,
+      "colorNames": "Silver, Black & Gold",
+      "colorSource": null,
       "enrollment": 31939,
       "acceptanceRate": 0.7808,
+      "acceptanceLabel": null,
       "estimatedNetCost": 25346,
       "sat": 1357,
       "act": 28,
@@ -2401,7 +3093,14 @@
       "admissionsUrl": "https://www.colorado.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?126614",
       "athleticsUrl": "https://cubuffs.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "cuboulder",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.colorado.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "126614"
       },
@@ -2420,12 +3119,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://cubuffs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/colorado"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/colorado"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/colorado"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.colorado.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 18 of 28 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 18 of 28 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2436,10 +3154,14 @@
       "nationalRank": 13,
       "city": "Chapel Hill",
       "state": "NC",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Coast",
+      "mascot": "Tar Heels",
+      "colors": null,
+      "colorNames": "Carolina Blue & White",
+      "colorSource": null,
       "enrollment": 20752,
       "acceptanceRate": 0.1534,
+      "acceptanceLabel": null,
       "estimatedNetCost": 11655,
       "sat": 1439,
       "act": 25,
@@ -2495,6 +3217,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?199120",
       "athleticsUrl": "https://goheels.com/sports/womens-soccer/roster",
       "instagramHandle": "uncwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://goheels.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "199120"
       },
@@ -2513,6 +3242,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://goheels.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/north-carolina"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/north-carolina"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/north-carolina"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://goheels.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2528,10 +3277,14 @@
       "nationalRank": 14,
       "city": "Lawrence",
       "state": "KS",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big 12",
+      "mascot": "Kansas Jayhawks",
+      "colors": null,
+      "colorNames": "Crimson & Blue",
+      "colorSource": null,
       "enrollment": 21217,
       "acceptanceRate": 0.9348,
+      "acceptanceLabel": null,
       "estimatedNetCost": 18059,
       "sat": 1190,
       "act": 25,
@@ -2586,7 +3339,14 @@
       "admissionsUrl": "https://ku.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?155317",
       "athleticsUrl": "https://kuathletics.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "universityofkansas",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://ku.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "155317"
       },
@@ -2605,12 +3365,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://kuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://kuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://ku.edu/"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/kansas"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/kansas"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 24 of 31 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 24 of 31 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2621,10 +3400,14 @@
       "nationalRank": 15,
       "city": "Waco",
       "state": "TX",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big 12",
+      "mascot": "Bears",
+      "colors": null,
+      "colorNames": "Green & Gold",
+      "colorSource": null,
       "enrollment": 14785,
       "acceptanceRate": 0.5128,
+      "acceptanceLabel": null,
       "estimatedNetCost": 41104,
       "sat": 1329,
       "act": 29,
@@ -2684,7 +3467,14 @@
       "admissionsUrl": "https://www.baylor.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?223232",
       "athleticsUrl": "https://baylorbears.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "baylorathletics",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://baylorbears.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
       "externalIds": {
         "scorecard": "223232"
       },
@@ -2703,12 +3493,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://baylorbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://baylorbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/baylor"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/baylor"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/baylor"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2719,10 +3528,14 @@
       "nationalRank": 16,
       "city": "Baton Rouge",
       "state": "LA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Southeastern",
+      "mascot": "Fighting Tigers",
+      "colors": null,
+      "colorNames": "Purple & Gold",
+      "colorSource": null,
       "enrollment": 30594,
       "acceptanceRate": 0.7333,
+      "acceptanceLabel": null,
       "estimatedNetCost": 19151,
       "sat": 1285,
       "act": 26,
@@ -2741,6 +3554,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?159391",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "159391"
       },
@@ -2754,6 +3569,21 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?159391"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/lsu"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/lsu"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/lsu"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2769,10 +3599,14 @@
       "nationalRank": 17,
       "city": "Fayetteville",
       "state": "AR",
-      "conference": null,
-      "mascot": null,
+      "conference": "Southeastern",
+      "mascot": "Razorbacks",
+      "colors": null,
+      "colorNames": "Cardinal & White",
+      "colorSource": null,
       "enrollment": 28677,
       "acceptanceRate": 0.743,
+      "acceptanceLabel": null,
       "estimatedNetCost": 18209,
       "sat": 1169,
       "act": 25,
@@ -2790,7 +3624,14 @@
       "admissionsUrl": "https://www.uark.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?106397",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "uarkansas",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.uark.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "106397"
       },
@@ -2804,6 +3645,26 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?106397"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.uark.edu/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/arkansas"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/arkansas"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/arkansas"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2819,10 +3680,14 @@
       "nationalRank": 18,
       "city": "Memphis",
       "state": "TN",
-      "conference": null,
-      "mascot": null,
+      "conference": "American",
+      "mascot": "Tigers",
+      "colors": null,
+      "colorNames": "Blue & Gray",
+      "colorSource": null,
       "enrollment": 12701,
       "acceptanceRate": 0.7203,
+      "acceptanceLabel": null,
       "estimatedNetCost": 12397,
       "sat": 1088,
       "act": null,
@@ -2877,7 +3742,14 @@
       "admissionsUrl": "https://www.memphis.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?220862",
       "athleticsUrl": "https://gotigersgo.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "memphisathletics",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gotigersgo.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
       "externalIds": {
         "scorecard": "220862"
       },
@@ -2896,12 +3768,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gotigersgo.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gotigersgo.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/memphis"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/memphis"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/memphis"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 18 of 26 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 18 of 26 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -2912,10 +3803,14 @@
       "nationalRank": 19,
       "city": "Morgantown",
       "state": "WV",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big 12",
+      "mascot": "Mountaineers",
+      "colors": null,
+      "colorNames": "Old Gold & Blue",
+      "colorSource": null,
       "enrollment": 17385,
       "acceptanceRate": 0.89,
+      "acceptanceLabel": null,
       "estimatedNetCost": 15634,
       "sat": 1122,
       "act": 24,
@@ -2970,7 +3865,14 @@
       "admissionsUrl": "https://www.wvu.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?238032",
       "athleticsUrl": "https://wvusports.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "westvirginiau",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.wvu.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "238032"
       },
@@ -2989,12 +3891,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://wvusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.wvu.edu/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/west-virginia"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/west-virginia"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/west-virginia"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 20 of 30 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 20 of 30 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -3005,10 +3926,14 @@
       "nationalRank": 20,
       "city": "Provo",
       "state": "UT",
-      "conference": null,
-      "mascot": null,
+      "conference": "Big 12",
+      "mascot": "Cougars",
+      "colors": null,
+      "colorNames": "Blue and White",
+      "colorSource": null,
       "enrollment": 32952,
       "acceptanceRate": 0.6778,
+      "acceptanceLabel": null,
       "estimatedNetCost": 15564,
       "sat": 1376,
       "act": 29,
@@ -3027,6 +3952,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?230038",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "230038"
       },
@@ -3040,6 +3967,21 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?230038"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/byu"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/byu"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/byu"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3055,10 +3997,17 @@
       "nationalRank": 1,
       "city": "Melbourne",
       "state": "FL",
-      "conference": null,
-      "mascot": null,
+      "conference": "Sunshine State Conference",
+      "mascot": "Panthers",
+      "colors": [
+        "#630C0D",
+        "#630C0D"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 3404,
       "acceptanceRate": 0.577,
+      "acceptanceLabel": null,
       "estimatedNetCost": 35639,
       "sat": 1225,
       "act": 27,
@@ -3104,6 +4053,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?133881",
       "athleticsUrl": "https://floridatechsports.com/sports/womens-soccer/roster",
       "instagramHandle": "floridatechwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://floridatechsports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "133881"
       },
@@ -3122,6 +4078,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://floridatechsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://floridatechsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://floridatechsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://floridatechsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://floridatechsports.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3137,10 +4113,17 @@
       "nationalRank": 2,
       "city": "Pomona",
       "state": "CA",
-      "conference": null,
-      "mascot": null,
+      "conference": "CCAA",
+      "mascot": "Broncos",
+      "colors": [
+        "#005030",
+        "#FFB81C"
+      ],
+      "colorNames": "Green & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 25042,
       "acceptanceRate": 0.7517,
+      "acceptanceLabel": null,
       "estimatedNetCost": 11531,
       "sat": null,
       "act": null,
@@ -3189,6 +4172,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?110529",
       "athleticsUrl": "https://broncoathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "cppwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://broncoathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "110529"
       },
@@ -3207,6 +4197,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://broncoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://broncoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://broncoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://broncoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/cal-poly-pomona"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/cal-poly-pomona"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3222,10 +4237,17 @@
       "nationalRank": 3,
       "city": "Rindge",
       "state": "NH",
-      "conference": null,
-      "mascot": null,
+      "conference": "Northeast 10",
+      "mascot": "Ravens",
+      "colors": [
+        "#6F1931",
+        "#6F1931"
+      ],
+      "colorNames": "Crimson and Grey",
+      "colorSource": "athletics-css",
       "enrollment": 992,
       "acceptanceRate": 0.9347,
+      "acceptanceLabel": null,
       "estimatedNetCost": 27154,
       "sat": 1175,
       "act": null,
@@ -3235,13 +4257,57 @@
         "losses": 3,
         "ties": 5
       },
-      "roster": [],
-      "coaches": [],
+      "roster": [
+        {
+          "position": "GK",
+          "count": 1,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 14,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 17,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Kevon Isa",
+          "title": "Associate Head Coach",
+          "email": "isak@franklinpierce.edu"
+        },
+        {
+          "name": "Matt Johnson",
+          "title": "Director of Athletics / Head Women's Soccer Coach",
+          "email": "johnsonma@franklinpierce.edu"
+        },
+        {
+          "name": "Nathalia Da Silva",
+          "title": "Assistant Coach",
+          "email": "dasilvan@franklinpierce.edu"
+        },
+        {
+          "name": "Olivia Crespo",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
       "questionnaireUrl": null,
       "admissionsUrl": "https://www.franklinpierce.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?182795",
-      "athleticsUrl": null,
-      "instagramHandle": null,
+      "athleticsUrl": "https://fpuravens.com/sports/womens-soccer/roster",
+      "instagramHandle": "franklinpierceuniversity",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://franklinpierce.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "182795"
       },
@@ -3255,6 +4321,36 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?182795"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://franklinpierce.edu/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/franklin-pierce"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/franklin-pierce"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/franklin-pierce"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://fpuravens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://fpuravens.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3270,10 +4366,17 @@
       "nationalRank": 4,
       "city": "Topeka",
       "state": "KS",
-      "conference": null,
-      "mascot": null,
+      "conference": "MIAA",
+      "mascot": "Ichabods",
+      "colors": [
+        "#01265A",
+        "#01265A"
+      ],
+      "colorNames": "Yale Blue & White",
+      "colorSource": "athletics-css",
       "enrollment": 4562,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 15280,
       "sat": null,
       "act": null,
@@ -3324,6 +4427,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?156082",
       "athleticsUrl": "https://wusports.com/sports/womens-soccer/roster",
       "instagramHandle": "ichabodwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wusports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "156082"
       },
@@ -3342,6 +4452,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://wusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://wusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://wusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/washburn"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/washburn"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3357,10 +4492,14 @@
       "nationalRank": 5,
       "city": "Dallas",
       "state": "TX",
-      "conference": null,
-      "mascot": null,
+      "conference": "Lone Star",
+      "mascot": "Patriots",
+      "colors": null,
+      "colorNames": "Red, White and Navy Blue",
+      "colorSource": null,
       "enrollment": 2403,
       "acceptanceRate": 0.8884,
+      "acceptanceLabel": null,
       "estimatedNetCost": 28516,
       "sat": 1120,
       "act": 23,
@@ -3379,6 +4518,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?224226",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "224226"
       },
@@ -3392,6 +4533,21 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?224226"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/dallas-baptist"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/dallas-baptist"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/dallas-baptist"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3407,10 +4563,17 @@
       "nationalRank": 6,
       "city": "West Chester",
       "state": "PA",
-      "conference": null,
-      "mascot": null,
+      "conference": "PSAC",
+      "mascot": "Golden Rams",
+      "colors": [
+        "#360056",
+        "#FFC405"
+      ],
+      "colorNames": "Purple & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 14164,
       "acceptanceRate": 0.784,
+      "acceptanceLabel": null,
       "estimatedNetCost": 23331,
       "sat": 1187,
       "act": 26,
@@ -3458,7 +4621,14 @@
       "admissionsUrl": "https://www.wcupa.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?216764",
       "athleticsUrl": "https://wcupagoldenrams.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "wcuathletics",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://wcupagoldenrams.com/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
       "externalIds": {
         "scorecard": "216764"
       },
@@ -3477,12 +4647,36 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://wcupagoldenrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://wcupagoldenrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://wcupagoldenrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official athletics Instagram",
+          "url": "https://wcupagoldenrams.com/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/west-chester"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/west-chester"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 28 of 34 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 28 of 34 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -3493,10 +4687,17 @@
       "nationalRank": 7,
       "city": "Fort Lauderdale",
       "state": "FL",
-      "conference": null,
-      "mascot": null,
+      "conference": "Sunshine State Conference",
+      "mascot": "Sharks",
+      "colors": [
+        "#00529B",
+        "#000000"
+      ],
+      "colorNames": "Navy Blue & Gray",
+      "colorSource": "athletics-css",
       "enrollment": 7240,
       "acceptanceRate": 0.7321,
+      "acceptanceLabel": null,
       "estimatedNetCost": 30371,
       "sat": 1157,
       "act": 25,
@@ -3530,6 +4731,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?136215",
       "athleticsUrl": "https://nsusharks.com/sports/womens-soccer/roster",
       "instagramHandle": "nsu_wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://nsusharks.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "136215"
       },
@@ -3548,6 +4756,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://nsusharks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://nsusharks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://nsusharks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://nsusharks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/nova-southeastern"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/nova-southeastern"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3563,10 +4796,17 @@
       "nationalRank": 8,
       "city": "Hickory",
       "state": "NC",
-      "conference": null,
-      "mascot": null,
+      "conference": "South Atlantic",
+      "mascot": "Bears",
+      "colors": [
+        "#A41F35",
+        "#A41F35"
+      ],
+      "colorNames": "Red & Black",
+      "colorSource": "athletics-css",
       "enrollment": 1359,
       "acceptanceRate": 0.8459,
+      "acceptanceLabel": null,
       "estimatedNetCost": 20689,
       "sat": null,
       "act": null,
@@ -3612,6 +4852,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?198835",
       "athleticsUrl": "https://lrbears.com/sports/womens-soccer/roster",
       "instagramHandle": "lruwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://lrbears.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "198835"
       },
@@ -3630,6 +4877,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://lrbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://lrbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://lrbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://lrbears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/lenoir-rhyne"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/lenoir-rhyne"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3645,10 +4917,17 @@
       "nationalRank": 9,
       "city": "Azusa",
       "state": "CA",
-      "conference": null,
-      "mascot": null,
+      "conference": "PacWest",
+      "mascot": "Azusa Pacific Cougars",
+      "colors": [
+        "#990000",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2759,
       "acceptanceRate": 0.8843,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22212,
       "sat": 1195,
       "act": 22,
@@ -3696,7 +4975,14 @@
       "admissionsUrl": "https://www.apu.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?109785",
       "athleticsUrl": "https://athletics.apu.edu/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "apucougars",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://athletics.apu.edu/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
       "externalIds": {
         "scorecard": "109785"
       },
@@ -3715,12 +5001,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://athletics.apu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://athletics.apu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.apu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://athletics.apu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official athletics Instagram",
+          "url": "https://athletics.apu.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 19 of 27 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 27 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -3731,10 +5036,17 @@
       "nationalRank": 10,
       "city": "Saint Louis",
       "state": "MO",
-      "conference": null,
+      "conference": "GLVC",
       "mascot": null,
+      "colors": [
+        "#B5121B",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 5024,
       "acceptanceRate": 0.6267,
+      "acceptanceLabel": null,
       "estimatedNetCost": 15071,
       "sat": 1199,
       "act": 26,
@@ -3793,6 +5105,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?178420",
       "athleticsUrl": "https://umsltritons.com/sports/womens-soccer/roster",
       "instagramHandle": "umslwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://umsltritons.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "178420"
       },
@@ -3811,6 +5130,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://umsltritons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://umsltritons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://umsltritons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://umsltritons.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3828,8 +5162,12 @@
       "state": "CO",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 8697,
       "acceptanceRate": 0.9735,
+      "acceptanceLabel": null,
       "estimatedNetCost": 15788,
       "sat": 1133,
       "act": null,
@@ -3847,7 +5185,14 @@
       "admissionsUrl": "https://www.uccs.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?126580",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "uccs",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.uccs.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "126580"
       },
@@ -3861,6 +5206,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?126580"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.uccs.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3876,10 +5226,17 @@
       "nationalRank": 12,
       "city": "Philadelphia",
       "state": "PA",
-      "conference": null,
+      "conference": "CACC",
       "mascot": null,
+      "colors": [
+        "#152456",
+        "#59B7DF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 3755,
       "acceptanceRate": 0.8097,
+      "acceptanceLabel": null,
       "estimatedNetCost": 28928,
       "sat": 1243,
       "act": 28,
@@ -3925,6 +5282,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?216366",
       "athleticsUrl": "https://jeffersonrams.com/sports/womens-soccer/roster",
       "instagramHandle": "JeffersonWSOC",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://jeffersonrams.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "216366"
       },
@@ -3943,6 +5307,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://jeffersonrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://jeffersonrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://jeffersonrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://jeffersonrams.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -3958,10 +5337,17 @@
       "nationalRank": 13,
       "city": "Golden",
       "state": "CO",
-      "conference": null,
-      "mascot": null,
+      "conference": "Rocky Mountain Athletic Conference",
+      "mascot": "Orediggers",
+      "colors": [
+        "#21314D",
+        "#21314D"
+      ],
+      "colorNames": "Silver & Blue",
+      "colorSource": "athletics-css",
       "enrollment": 6155,
       "acceptanceRate": 0.6069,
+      "acceptanceLabel": null,
       "estimatedNetCost": 28690,
       "sat": 1412,
       "act": 31,
@@ -4010,6 +5396,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?126775",
       "athleticsUrl": "https://minesathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "mineswsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://minesathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "126775"
       },
@@ -4028,6 +5421,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://minesathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://minesathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://minesathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://minesathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/colorado-mines"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/colorado-mines"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4043,10 +5461,17 @@
       "nationalRank": 14,
       "city": "Salisbury",
       "state": "NC",
-      "conference": null,
-      "mascot": null,
+      "conference": "South Atlantic Conference",
+      "mascot": "Catawba Indians",
+      "colors": [
+        "#13294E",
+        "#C91235"
+      ],
+      "colorNames": "Blue & White",
+      "colorSource": "athletics-css",
       "enrollment": 1235,
       "acceptanceRate": 0.7521,
+      "acceptanceLabel": null,
       "estimatedNetCost": 17879,
       "sat": 1096,
       "act": 22,
@@ -4095,6 +5520,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?198215",
       "athleticsUrl": "https://catawbaathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "catuwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://catawbaathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "198215"
       },
@@ -4113,6 +5545,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://catawbaathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://catawbaathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://catawbaathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://catawbaathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/catawba"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/catawba"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4128,10 +5585,17 @@
       "nationalRank": 15,
       "city": "Dahlonega",
       "state": "GA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Peach Belt Conference",
+      "mascot": "Nighthawks",
+      "colors": [
+        "#00338E",
+        "#00338E"
+      ],
+      "colorNames": "Blue & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 16146,
       "acceptanceRate": 0.6794,
+      "acceptanceLabel": null,
       "estimatedNetCost": 9823,
       "sat": 1106,
       "act": 23,
@@ -4175,6 +5639,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?482680",
       "athleticsUrl": "https://ungathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "ungwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://ungathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "482680"
       },
@@ -4193,6 +5664,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://ungathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://ungathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://ungathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://ungathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/north-georgia"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/north-georgia"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4208,10 +5704,17 @@
       "nationalRank": 16,
       "city": "Mankato",
       "state": "MN",
-      "conference": null,
+      "conference": "Northern Sun",
       "mascot": null,
+      "colors": [
+        "#49306E",
+        "#FEBD11"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 11703,
       "acceptanceRate": 0.8844,
+      "acceptanceLabel": null,
       "estimatedNetCost": 19139,
       "sat": 1150,
       "act": 22,
@@ -4262,6 +5765,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?173920",
       "athleticsUrl": "https://msumavericks.com/sports/womens-soccer/roster",
       "instagramHandle": "minn.stsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://msumavericks.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "173920"
       },
@@ -4280,6 +5790,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://msumavericks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://msumavericks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://msumavericks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://msumavericks.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4295,10 +5820,17 @@
       "nationalRank": 17,
       "city": "Pensacola",
       "state": "FL",
-      "conference": null,
-      "mascot": null,
+      "conference": "Atlantic Sun Conference",
+      "mascot": "Argonauts",
+      "colors": [
+        "#00205B",
+        "#00205B"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 9330,
       "acceptanceRate": 0.5824,
+      "acceptanceLabel": null,
       "estimatedNetCost": 9364,
       "sat": 1138,
       "act": 24,
@@ -4352,6 +5884,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?138354",
       "athleticsUrl": "https://goargos.com/sports/womens-soccer/roster",
       "instagramHandle": "uwfwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://goargos.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "138354"
       },
@@ -4370,6 +5909,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://goargos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://goargos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://goargos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://goargos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://goargos.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4387,8 +5946,12 @@
       "state": "MN",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 5088,
       "acceptanceRate": 0.948,
+      "acceptanceLabel": null,
       "estimatedNetCost": 13529,
       "sat": 1092,
       "act": 21,
@@ -4407,6 +5970,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?174783",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "174783"
       },
@@ -4435,10 +6000,17 @@
       "nationalRank": 19,
       "city": "Shepherdstown",
       "state": "WV",
-      "conference": null,
-      "mascot": null,
+      "conference": "PSAC",
+      "mascot": "Rams",
+      "colors": [
+        "#011E41",
+        "#C0B460"
+      ],
+      "colorNames": "Blue & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 2344,
       "acceptanceRate": 0.9678,
+      "acceptanceLabel": null,
       "estimatedNetCost": 11363,
       "sat": 1034,
       "act": 23,
@@ -4448,13 +6020,47 @@
         "losses": 2,
         "ties": 6
       },
-      "roster": [],
-      "coaches": [],
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 5,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Bob Meals",
+          "title": "Head Women's Soccer Coach",
+          "email": "rmeals@shepherd.edu"
+        },
+        {
+          "name": "Jacob Deuel",
+          "title": "Assistant Women's Soccer Coach",
+          "email": "jdeuel@shepherd.edu"
+        }
+      ],
       "questionnaireUrl": null,
       "admissionsUrl": "https://www.shepherd.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?237792",
-      "athleticsUrl": null,
-      "instagramHandle": null,
+      "athleticsUrl": "https://shepherdrams.com/sports/womens-soccer/roster",
+      "instagramHandle": "shepherdu",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.shepherd.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "237792"
       },
@@ -4468,6 +6074,36 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?237792"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.shepherd.edu/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/shepherd"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/shepherd"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/shepherd"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://shepherdrams.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://shepherdrams.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4483,10 +6119,17 @@
       "nationalRank": 20,
       "city": "Bellingham",
       "state": "WA",
-      "conference": null,
+      "conference": "GNAC",
       "mascot": null,
+      "colors": [
+        "#00285E",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 13544,
       "acceptanceRate": 0.9325,
+      "acceptanceLabel": null,
       "estimatedNetCost": 21193,
       "sat": 1289,
       "act": 26,
@@ -4547,6 +6190,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?237011",
       "athleticsUrl": "https://wwuvikings.com/sports/womens-soccer/roster",
       "instagramHandle": "wwu_wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wwuvikings.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "237011"
       },
@@ -4565,6 +6215,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://wwuvikings.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://wwuvikings.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://wwuvikings.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wwuvikings.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4580,10 +6245,17 @@
       "nationalRank": 1,
       "city": "St. Louis",
       "state": "MO",
-      "conference": null,
+      "conference": "UAA",
       "mascot": null,
+      "colors": [
+        "#BA0C2F",
+        "#215732"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 7857,
       "acceptanceRate": 0.1206,
+      "acceptanceLabel": null,
       "estimatedNetCost": 21786,
       "sat": 1530,
       "act": 34,
@@ -4616,6 +6288,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?179867",
       "athleticsUrl": "https://washubears.com/sports/womens-soccer/roster",
       "instagramHandle": "washuwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://washubears.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "179867"
       },
@@ -4634,6 +6313,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://washubears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://washubears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://washubears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://washubears.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4649,10 +6343,17 @@
       "nationalRank": 2,
       "city": "Atlanta",
       "state": "GA",
-      "conference": null,
-      "mascot": null,
+      "conference": "UAA",
+      "mascot": "Eagles",
+      "colors": [
+        "#002D5D",
+        "#D08A00"
+      ],
+      "colorNames": "Blue & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 7298,
       "acceptanceRate": 0.1065,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22585,
       "sat": 1520,
       "act": 33,
@@ -4708,6 +6409,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?139658",
       "athleticsUrl": "https://emoryathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "emorywomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://emoryathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "139658"
       },
@@ -4726,6 +6434,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://emoryathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://emoryathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://emoryathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://emoryathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/emory"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/emory"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4741,10 +6474,17 @@
       "nationalRank": 3,
       "city": "Chicago",
       "state": "IL",
-      "conference": null,
-      "mascot": null,
+      "conference": "University Athletic Association",
+      "mascot": "Maroons",
+      "colors": [
+        "#880000",
+        "#FFFFFF"
+      ],
+      "colorNames": "Maroon & White",
+      "colorSource": "athletics-css",
       "enrollment": 7569,
       "acceptanceRate": 0.0448,
+      "acceptanceLabel": null,
       "estimatedNetCost": 14860,
       "sat": 1554,
       "act": 34,
@@ -4756,13 +6496,57 @@
         "losses": 2,
         "ties": 4
       },
-      "roster": [],
-      "coaches": [],
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 11,
+          "graduating": 5
+        },
+        {
+          "position": "ST",
+          "count": 8,
+          "graduating": 3
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Amy Howley Reifert",
+          "title": "Head Women's Soccer Coach",
+          "email": "areifert@uchicago.edu"
+        },
+        {
+          "name": "Sam Greene",
+          "title": "Assistant Women's Soccer Coach",
+          "email": "samgreene@uchicago.edu"
+        },
+        {
+          "name": "Toba Bolaji",
+          "title": "Assistant Women's Soccer Coach (Goalkeepers)",
+          "email": null
+        },
+        {
+          "name": "Josh Park",
+          "title": "Assistant Women's Soccer Coach",
+          "email": null
+        }
+      ],
       "questionnaireUrl": null,
       "admissionsUrl": "https://www.uchicago.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?144050",
-      "athleticsUrl": null,
-      "instagramHandle": null,
+      "athleticsUrl": "https://athletics.uchicago.edu/sports/womens-soccer/roster",
+      "instagramHandle": "uchicago",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.uchicago.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "144050"
       },
@@ -4776,6 +6560,36 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?144050"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.uchicago.edu/"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/chicago"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/chicago"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/chicago"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://athletics.uchicago.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.uchicago.edu/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4791,10 +6605,17 @@
       "nationalRank": 4,
       "city": "Medford",
       "state": "MA",
-      "conference": null,
-      "mascot": null,
+      "conference": "NESCAC",
+      "mascot": "Jumbos",
+      "colors": [
+        "#306DAB",
+        "#512C1D"
+      ],
+      "colorNames": "Brown & Blue",
+      "colorSource": "athletics-css",
       "enrollment": 7061,
       "acceptanceRate": 0.1149,
+      "acceptanceLabel": null,
       "estimatedNetCost": 39998,
       "sat": 1513,
       "act": 34,
@@ -4843,6 +6664,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?168148",
       "athleticsUrl": "https://gotuftsjumbos.com/sports/womens-soccer/roster",
       "instagramHandle": "tuftswsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gotuftsjumbos.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "168148"
       },
@@ -4861,6 +6689,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gotuftsjumbos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://gotuftsjumbos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://gotuftsjumbos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gotuftsjumbos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/tufts"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/tufts"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4876,10 +6729,17 @@
       "nationalRank": 5,
       "city": "Mechanicsburg",
       "state": "PA",
-      "conference": null,
-      "mascot": null,
+      "conference": "MAC Commonwealth",
+      "mascot": "Falcons",
+      "colors": [
+        "#004B85",
+        "#004B85"
+      ],
+      "colorNames": "Navy & White",
+      "colorSource": "athletics-css",
       "enrollment": 2259,
       "acceptanceRate": 0.7897,
+      "acceptanceLabel": null,
       "estimatedNetCost": 26502,
       "sat": 1236,
       "act": 27,
@@ -4938,6 +6798,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?213996",
       "athleticsUrl": "https://gomessiah.com/sports/womens-soccer/roster",
       "instagramHandle": "MessiahSports",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gomessiah.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "213996"
       },
@@ -4956,6 +6823,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://gomessiah.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://gomessiah.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://gomessiah.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gomessiah.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/messiah"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/messiah"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -4969,15 +6861,22 @@
       "division": "NCAA D3",
       "jucoDivision": null,
       "nationalRank": 6,
-      "city": null,
-      "state": null,
-      "conference": null,
-      "mascot": null,
-      "enrollment": null,
-      "acceptanceRate": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "city": "Claremont",
+      "state": "CA",
+      "conference": "SCIAC",
+      "mascot": "Sagehens",
+      "colors": [
+        "#003EAB",
+        "#FFFFFF"
+      ],
+      "colorNames": "Blue, Orange & White",
+      "colorSource": "athletics-css",
+      "enrollment": 1666,
+      "acceptanceRate": 0.0709,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 19285,
+      "sat": 1534,
+      "act": 34,
       "campusLife": [],
       "record": {
         "wins": 16,
@@ -4985,25 +6884,84 @@
         "ties": 5
       },
       "roster": [],
-      "coaches": [],
+      "coaches": [
+        {
+          "name": "Miranda Armstrong",
+          "title": "Acting Head Soccer Coach",
+          "email": "miranda.armstrong@pomona.edu"
+        },
+        {
+          "name": "Bernard Hoffrogge",
+          "title": "Assistant Soccer Coach",
+          "email": "ppsoccer@pomona.edu"
+        },
+        {
+          "name": "Jaime Acuna",
+          "title": "Assistant Coach (GK)",
+          "email": null
+        }
+      ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
-      "athleticsUrl": null,
-      "instagramHandle": null,
-      "externalIds": {},
+      "admissionsUrl": "https://www.pomona.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?121345",
+      "athleticsUrl": "https://sagehens.com/sports/womens-soccer/roster",
+      "instagramHandle": "sagehensoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://sagehens.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "121345"
+      },
       "sources": [
         {
           "field": "ranking",
           "label": "National poll",
           "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?121345"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://sagehens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://sagehens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://sagehens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://sagehens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/pomona-pitzer"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/pomona-pitzer"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Pomona-Pitzer is a joint team for two colleges, so enrollment, acceptance, and net price are left empty.",
-        "Pomona-Pitzer is a joint team for two colleges, so enrollment, acceptance, and net price are left empty.",
-        "Official athletics page was not found."
+        "Pomona-Pitzer is a joint team. Enrollment, acceptance rate, and net price are Pomona College's College Scorecard figures.",
+        "Roster page did not include position and class-year counts."
       ]
     },
     {
@@ -5014,10 +6972,17 @@
       "nationalRank": 7,
       "city": "Lexington",
       "state": "VA",
-      "conference": null,
+      "conference": "Old Dominion",
       "mascot": null,
+      "colors": [
+        "#00529B",
+        "#000000"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 1881,
       "acceptanceRate": 0.1397,
+      "acceptanceLabel": null,
       "estimatedNetCost": 23781,
       "sat": 1498,
       "act": 34,
@@ -5066,6 +7031,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?234207",
       "athleticsUrl": "https://generalssports.com/sports/womens-soccer/roster",
       "instagramHandle": "generalswsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://generalssports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "234207"
       },
@@ -5084,6 +7056,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://generalssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://generalssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://generalssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://generalssports.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5101,8 +7088,12 @@
       "state": "MA",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 4535,
       "acceptanceRate": 0.0455,
+      "acceptanceLabel": null,
       "estimatedNetCost": 20111,
       "sat": 1560,
       "act": null,
@@ -5120,7 +7111,14 @@
       "admissionsUrl": "https://web.mit.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?166683",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "mit",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://web.mit.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "166683"
       },
@@ -5134,6 +7132,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?166683"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://web.mit.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5149,10 +7152,17 @@
       "nationalRank": 9,
       "city": "Middlebury",
       "state": "VT",
-      "conference": null,
-      "mascot": null,
+      "conference": "NESCAC",
+      "mascot": "Panthers",
+      "colors": [
+        "#0D395F",
+        "#0D395F"
+      ],
+      "colorNames": "Blue & White",
+      "colorSource": "athletics-css",
       "enrollment": 2738,
       "acceptanceRate": 0.1075,
+      "acceptanceLabel": null,
       "estimatedNetCost": 31483,
       "sat": 1508,
       "act": 33,
@@ -5211,6 +7221,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?230959",
       "athleticsUrl": "https://athletics.middlebury.edu/sports/womens-soccer/roster",
       "instagramHandle": "middwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://athletics.middlebury.edu/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "230959"
       },
@@ -5229,6 +7246,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://athletics.middlebury.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://athletics.middlebury.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.middlebury.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://athletics.middlebury.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/middlebury"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/middlebury"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5244,10 +7286,17 @@
       "nationalRank": 10,
       "city": "Williamstown",
       "state": "MA",
-      "conference": null,
-      "mascot": null,
+      "conference": "New England Small College Athletic",
+      "mascot": "Ephs",
+      "colors": [
+        "#FCD205",
+        "#492872"
+      ],
+      "colorNames": "Purple/Gold",
+      "colorSource": "athletics-css",
       "enrollment": 2076,
       "acceptanceRate": 0.0825,
+      "acceptanceLabel": null,
       "estimatedNetCost": 17716,
       "sat": 1533,
       "act": null,
@@ -5257,13 +7306,47 @@
         "losses": 2,
         "ties": 5
       },
-      "roster": [],
-      "coaches": [],
-      "questionnaireUrl": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 13,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 9,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Sarah Raymond",
+          "title": "Head Coach",
+          "email": "ser3@williams.edu"
+        },
+        {
+          "name": "Natalie Harris",
+          "title": "Assistant Coach",
+          "email": "nh2@williams.edu"
+        }
+      ],
+      "questionnaireUrl": "https://questionnaires.armssoftware.com/2b4fdc7b9848",
       "admissionsUrl": "https://www.williams.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?168342",
-      "athleticsUrl": null,
-      "instagramHandle": null,
+      "athleticsUrl": "https://ephsports.williams.edu/sports/womens-soccer/roster",
+      "instagramHandle": "ephsports",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://ephsports.williams.edu/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
       "externalIds": {
         "scorecard": "168342"
       },
@@ -5277,6 +7360,36 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?168342"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/williams"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/williams"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/williams"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://ephsports.williams.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://ephsports.williams.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official Instagram",
+          "url": "https://ephsports.williams.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5294,8 +7407,12 @@
       "state": "OH",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 6437,
       "acceptanceRate": 0.3654,
+      "acceptanceLabel": null,
       "estimatedNetCost": 41190,
       "sat": 1513,
       "act": 34,
@@ -5314,6 +7431,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?201645",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "201645"
       },
@@ -5342,10 +7461,17 @@
       "nationalRank": 12,
       "city": "Fredericksburg",
       "state": "VA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Coast-To-Coast Athletic",
+      "mascot": "Eagles",
+      "colors": [
+        "#002D61",
+        "#8DC9F7"
+      ],
+      "colorNames": "Navy, Gray & White",
+      "colorSource": "athletics-css",
       "enrollment": 3566,
       "acceptanceRate": 0.7978,
+      "acceptanceLabel": null,
       "estimatedNetCost": 20667,
       "sat": 1272,
       "act": 29,
@@ -5356,12 +7482,35 @@
         "ties": 5
       },
       "roster": [],
-      "coaches": [],
+      "coaches": [
+        {
+          "name": "Scott Gerseny",
+          "title": "Head Women's Soccer Coach",
+          "email": "sgerseny@umw.edu"
+        },
+        {
+          "name": "Nina Duron",
+          "title": "Assistant Coach",
+          "email": "nduron2@umw.edu"
+        },
+        {
+          "name": "Kristina Peck",
+          "title": "Assistant Coach",
+          "email": "kpeck@umw.edu"
+        }
+      ],
       "questionnaireUrl": null,
       "admissionsUrl": "https://www.umw.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?232681",
-      "athleticsUrl": null,
-      "instagramHandle": null,
+      "athleticsUrl": "https://umweagles.com/sports/womens-soccer/roster",
+      "instagramHandle": "umwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://umweagles.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "232681"
       },
@@ -5375,6 +7524,36 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?232681"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/mary-washington"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/mary-washington"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/mary-washington"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://umweagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://umweagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official Instagram",
+          "url": "https://umweagles.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5390,10 +7569,17 @@
       "nationalRank": 13,
       "city": "Swarthmore",
       "state": "PA",
-      "conference": null,
-      "mascot": null,
+      "conference": "Centennial Conference",
+      "mascot": "Garnet",
+      "colors": [
+        "#A20B32",
+        "#A20B32"
+      ],
+      "colorNames": "Garnet, Gray & White",
+      "colorSource": "athletics-css",
       "enrollment": 1613,
       "acceptanceRate": 0.0746,
+      "acceptanceLabel": null,
       "estimatedNetCost": 23149,
       "sat": 1534,
       "act": 34,
@@ -5447,6 +7633,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?216287",
       "athleticsUrl": "https://swarthmoreathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "swatwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://swarthmoreathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "216287"
       },
@@ -5465,6 +7658,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://swarthmoreathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://swarthmoreathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://swarthmoreathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://swarthmoreathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/swarthmore"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/swarthmore"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5480,10 +7698,17 @@
       "nationalRank": 14,
       "city": "Thousand Oaks",
       "state": "CA",
-      "conference": null,
-      "mascot": null,
+      "conference": "SCIAC",
+      "mascot": "Kingsmen",
+      "colors": [
+        "#3B2360",
+        "#FFCB05"
+      ],
+      "colorNames": "Violet & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 2296,
       "acceptanceRate": 0.7567,
+      "acceptanceLabel": null,
       "estimatedNetCost": 30109,
       "sat": 1266,
       "act": 26,
@@ -5534,6 +7759,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?110413",
       "athleticsUrl": "https://clusports.com/sports/womens-soccer/roster",
       "instagramHandle": "regals_soccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://clusports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "110413"
       },
@@ -5552,6 +7784,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://clusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://clusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://clusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://clusports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/cal-lutheran"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/cal-lutheran"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5567,10 +7824,17 @@
       "nationalRank": 15,
       "city": "Baltimore",
       "state": "MD",
-      "conference": null,
-      "mascot": null,
+      "conference": "Centennial Conference",
+      "mascot": "Blue Jays",
+      "colors": [
+        "#68AEE0",
+        "#FFFFFF"
+      ],
+      "colorNames": "Hopkins Blue & Black",
+      "colorSource": "athletics-css",
       "enrollment": 5693,
       "acceptanceRate": 0.0644,
+      "acceptanceLabel": null,
       "estimatedNetCost": 18809,
       "sat": 1553,
       "act": null,
@@ -5626,6 +7890,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?162928",
       "athleticsUrl": "https://hopkinssports.com/sports/womens-soccer/roster",
       "instagramHandle": "jhuwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://hopkinssports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "162928"
       },
@@ -5644,6 +7915,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://hopkinssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://hopkinssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://hopkinssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://hopkinssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/johns-hopkins"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/johns-hopkins"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5659,10 +7955,17 @@
       "nationalRank": 16,
       "city": "Northfield",
       "state": "MN",
-      "conference": null,
-      "mascot": null,
+      "conference": "MIAC",
+      "mascot": "Knights",
+      "colors": [
+        "#0B3960",
+        "#F3B61D"
+      ],
+      "colorNames": "Maize & Blue",
+      "colorSource": "athletics-css",
       "enrollment": 2086,
       "acceptanceRate": 0.2041,
+      "acceptanceLabel": null,
       "estimatedNetCost": 25407,
       "sat": 1517,
       "act": 33,
@@ -5711,6 +8014,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?173258",
       "athleticsUrl": "https://athletics.carleton.edu/sports/womens-soccer/roster",
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "173258"
       },
@@ -5729,6 +8034,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://athletics.carleton.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://athletics.carleton.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.carleton.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/carleton"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/carleton"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5745,10 +8070,14 @@
       "nationalRank": 17,
       "city": "Grand Rapids",
       "state": "MI",
-      "conference": null,
-      "mascot": null,
+      "conference": "Michigan Intercollegiate",
+      "mascot": "Knights",
+      "colors": null,
+      "colorNames": "Maroon & Gold",
+      "colorSource": null,
       "enrollment": 3193,
       "acceptanceRate": 0.7091,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22992,
       "sat": 1233,
       "act": 27,
@@ -5804,6 +8133,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?169080",
       "athleticsUrl": "https://calvinknights.com/sports/womens-soccer/roster",
       "instagramHandle": "calvinwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://calvinknights.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "169080"
       },
@@ -5822,6 +8158,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://calvinknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://calvinknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://calvinknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/calvin"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/calvin"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5837,10 +8193,17 @@
       "nationalRank": 18,
       "city": "Glassboro",
       "state": "NJ",
-      "conference": null,
-      "mascot": null,
+      "conference": "NJAC",
+      "mascot": "Profs",
+      "colors": [
+        "#571B00",
+        "#FFCF01"
+      ],
+      "colorNames": "Brown & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 15841,
       "acceptanceRate": 0.7766,
+      "acceptanceLabel": null,
       "estimatedNetCost": 22408,
       "sat": 1212,
       "act": 27,
@@ -5889,6 +8252,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?184782",
       "athleticsUrl": "https://www.rowanathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "RowanWSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://www.rowanathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "184782"
       },
@@ -5907,6 +8277,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://www.rowanathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://www.rowanathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://www.rowanathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://www.rowanathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/rowan"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/rowan"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5922,10 +8317,17 @@
       "nationalRank": 19,
       "city": "Rochester",
       "state": "NY",
-      "conference": null,
+      "conference": "Liberty League",
       "mascot": null,
+      "colors": [
+        "#FFD82B",
+        "#001E5F"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 6331,
       "acceptanceRate": 0.4008,
+      "acceptanceLabel": null,
       "estimatedNetCost": 29278,
       "sat": 1488,
       "act": 33,
@@ -5966,6 +8368,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?195030",
       "athleticsUrl": "https://uofrathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "urwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://uofrathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "195030"
       },
@@ -5984,6 +8393,21 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://uofrathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://uofrathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://uofrathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://uofrathletics.com/sports/womens-soccer/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -5999,10 +8423,17 @@
       "nationalRank": 20,
       "city": "Dallas",
       "state": "PA",
-      "conference": null,
-      "mascot": null,
+      "conference": "MAC Freedom League",
+      "mascot": "Cougars",
+      "colors": [
+        "#0051BA",
+        "#F9D616"
+      ],
+      "colorNames": "Royal Blue & Gold",
+      "colorSource": "athletics-css",
       "enrollment": 1672,
       "acceptanceRate": 0.7093,
+      "acceptanceLabel": null,
       "estimatedNetCost": 37485,
       "sat": null,
       "act": null,
@@ -6041,6 +8472,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?214069",
       "athleticsUrl": "https://athletics.misericordia.edu/sports/womens-soccer/roster",
       "instagramHandle": "muw_soccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://athletics.misericordia.edu/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "214069"
       },
@@ -6059,6 +8497,31 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://athletics.misericordia.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://athletics.misericordia.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.misericordia.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://athletics.misericordia.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/misericordia"
+        },
+        {
+          "field": "colorNames",
+          "label": "NCAA.com school directory",
+          "url": "https://www.ncaa.com/schools/misericordia"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -6076,8 +8539,15 @@
       "state": "FL",
       "conference": null,
       "mascot": null,
+      "colors": [
+        "#0079C1",
+        "#0079C1"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 10176,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 7177,
       "sat": null,
       "act": null,
@@ -6123,6 +8593,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?133386",
       "athleticsUrl": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster",
       "instagramHandle": "dscwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "133386"
       },
@@ -6141,6 +8618,16 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -6158,8 +8645,12 @@
       "state": "AZ",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 6374,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 8983,
       "sat": null,
       "act": null,
@@ -6178,6 +8669,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?104160",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "104160"
       },
@@ -6208,8 +8701,12 @@
       "state": "TX",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 9087,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 10206,
       "sat": null,
       "act": null,
@@ -6227,7 +8724,14 @@
       "admissionsUrl": "https://tjc.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?229355",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "tjcapaches",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://tjc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "229355"
       },
@@ -6241,6 +8745,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?229355"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://tjc.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -6257,9 +8766,13 @@
       "city": "Athens",
       "state": "TX",
       "conference": null,
-      "mascot": null,
+      "mascot": "Trinity Valley Community",
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 5655,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 4092,
       "sat": null,
       "act": null,
@@ -6286,7 +8799,14 @@
       "admissionsUrl": "https://www.tvcc.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?225308",
       "athleticsUrl": "https://www.tvccsports.com/sports/wsoc/2025-26/roster",
-      "instagramHandle": null,
+      "instagramHandle": "trinityvalleycc",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.tvcc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "225308"
       },
@@ -6305,13 +8825,22 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://www.tvccsports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://www.tvccsports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.tvcc.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 13 of 28 players mapped; generic defenders were left off the meter.",
-        "No coach names were published on the fetched staff or roster page.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "No coach names were published on the fetched staff or roster page."
       ]
     },
     {
@@ -6324,8 +8853,12 @@
       "state": "UT",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 18136,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 9804,
       "sat": null,
       "act": null,
@@ -6341,7 +8874,14 @@
       "admissionsUrl": "https://www.slcc.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?230746",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "saltlakecc",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.slcc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "230746"
       },
@@ -6355,6 +8895,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?230746"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.slcc.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -6371,9 +8916,16 @@
       "city": "Cheyenne",
       "state": "WY",
       "conference": null,
-      "mascot": null,
+      "mascot": "LCCC",
+      "colors": [
+        "#272B67",
+        "#FFCD05"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2799,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 7287,
       "sat": null,
       "act": null,
@@ -6400,7 +8952,14 @@
       "admissionsUrl": "https://www.lccc.wy.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?240620",
       "athleticsUrl": "https://golccc.com/sports/wsoc/2026-27/roster",
-      "instagramHandle": null,
+      "instagramHandle": "lcccgoldeneagles",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.lccc.wy.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "240620"
       },
@@ -6419,13 +8978,27 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://golccc.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://golccc.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://golccc.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.lccc.wy.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 12 of 24 players mapped; generic defenders were left off the meter.",
-        "No coach names were published on the fetched staff or roster page.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "No coach names were published on the fetched staff or roster page."
       ]
     },
     {
@@ -6437,9 +9010,16 @@
       "city": "Rochester",
       "state": "NY",
       "conference": null,
-      "mascot": null,
+      "mascot": "Tribune",
+      "colors": [
+        "#CB9408",
+        "#CB9408"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 7623,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 6353,
       "sat": null,
       "act": null,
@@ -6461,7 +9041,14 @@
       "admissionsUrl": "https://www.monroecc.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?193326",
       "athleticsUrl": "https://mcctribunes.com/sports/wsoc/2025-26/roster",
-      "instagramHandle": null,
+      "instagramHandle": "monroeccrochester",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.monroecc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "193326"
       },
@@ -6480,13 +9067,27 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://mcctribunes.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://mcctribunes.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://mcctribunes.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.monroecc.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster page did not include position and class-year counts.",
-        "Coaches are named on the athletics site, but no staff email was published.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Coaches are named on the athletics site, but no staff email was published."
       ]
     },
     {
@@ -6499,8 +9100,15 @@
       "state": "IL",
       "conference": null,
       "mascot": null,
+      "colors": [
+        "#0033A0",
+        "#0033A0"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 2487,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 3349,
       "sat": null,
       "act": null,
@@ -6523,6 +9131,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?146603",
       "athleticsUrl": "https://www.trailblazers.lc.edu/sports/wsoc/2026-27/roster",
       "instagramHandle": "lctrailblazers.wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://www.trailblazers.lc.edu/sports/wsoc/2026-27/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "146603"
       },
@@ -6541,6 +9156,16 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://www.trailblazers.lc.edu/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://www.trailblazers.lc.edu/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://www.trailblazers.lc.edu/sports/wsoc/2026-27/roster"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -6558,8 +9183,12 @@
       "state": "TN",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 3962,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 15742,
       "sat": null,
       "act": null,
@@ -6576,6 +9205,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?221096",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "221096"
       },
@@ -6606,8 +9237,15 @@
       "state": "FL",
       "conference": null,
       "mascot": null,
+      "colors": [
+        "#003C5B",
+        "#007940"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 10490,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 6440,
       "sat": null,
       "act": null,
@@ -6642,6 +9280,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?132693",
       "athleticsUrl": "https://www.efsctitans.com/sports/wsoc/2026-27/roster",
       "instagramHandle": "efscwomensoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://www.efsctitans.com/sports/wsoc/2026-27/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "132693"
       },
@@ -6659,6 +9304,16 @@
         {
           "field": "athletics",
           "label": "Official athletics page",
+          "url": "https://www.efsctitans.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://www.efsctitans.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
           "url": "https://www.efsctitans.com/sports/wsoc/2026-27/roster"
         }
       ],
@@ -6678,8 +9333,12 @@
       "state": "AZ",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 2643,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 9197,
       "sat": null,
       "act": null,
@@ -6696,6 +9355,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?104577",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "104577"
       },
@@ -6726,8 +9387,15 @@
       "state": "KS",
       "conference": null,
       "mascot": null,
+      "colors": [
+        "#3E1C65",
+        "#3E1C65"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 5104,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 15724,
       "sat": null,
       "act": null,
@@ -6760,7 +9428,14 @@
       "admissionsUrl": "https://www.butlercc.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?154800",
       "athleticsUrl": "https://www.butlergrizzlies.com/sports/wsoc/2026-27/roster",
-      "instagramHandle": null,
+      "instagramHandle": "butlercc",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.butlercc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "154800"
       },
@@ -6779,13 +9454,22 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://www.butlergrizzlies.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://www.butlergrizzlies.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.butlercc.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 11 of 28 players mapped; generic defenders were left off the meter.",
-        "Coaches are named on the athletics site, but no staff email was published.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Coaches are named on the athletics site, but no staff email was published."
       ]
     },
     {
@@ -6796,10 +9480,17 @@
       "nationalRank": 13,
       "city": "Brenham",
       "state": "TX",
-      "conference": null,
+      "conference": "NJCAA",
       "mascot": null,
+      "colors": [
+        "#0033A0",
+        "#FFB81C"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 15535,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 10844,
       "sat": null,
       "act": null,
@@ -6831,7 +9522,14 @@
       "admissionsUrl": "https://www.blinn.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?223427",
       "athleticsUrl": "https://buccaneersports.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "BlinnCollege",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.blinn.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "223427"
       },
@@ -6850,13 +9548,27 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://buccaneersports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://buccaneersports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://buccaneersports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.blinn.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 16 of 21 players mapped; generic defenders were left off the meter.",
-        "No coach names were published on the fetched staff or roster page.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "No coach names were published on the fetched staff or roster page."
       ]
     },
     {
@@ -6865,13 +9577,17 @@
       "division": "NJCAA",
       "jucoDivision": "D1",
       "nationalRank": 14,
-      "city": null,
-      "state": null,
+      "city": "Gillette",
+      "state": "WY",
       "conference": null,
       "mascot": null,
-      "enrollment": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 1610,
       "acceptanceRate": null,
-      "estimatedNetCost": null,
+      "acceptanceLabel": "Open admission",
+      "estimatedNetCost": 9346,
       "sat": null,
       "act": null,
       "campusLife": [],
@@ -6883,23 +9599,36 @@
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.sheridan.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?240666",
       "athleticsUrl": null,
       "instagramHandle": null,
-      "externalIds": {},
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "240666"
+      },
       "sources": [
         {
           "field": "ranking",
           "label": "National poll",
           "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?240666"
+        },
+        {
+          "field": "location",
+          "label": "Official campus page",
+          "url": "https://www.gillettecollege.org/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Gillette College has no separate College Scorecard institution row, so enrollment, acceptance, and net price are left empty.",
-        "Gillette College has no separate College Scorecard institution row, so enrollment, acceptance, and net price are left empty.",
-        "Official athletics page was not found."
+        "Official athletics page was not found.",
+        "Gillette College publishes its address as Gillette, WY, and says it is part of the Northern Wyoming Community College District. Enrollment, net price, and open-admission status are that district's College Scorecard figures."
       ]
     },
     {
@@ -6911,9 +9640,16 @@
       "city": "Columbia",
       "state": "TN",
       "conference": null,
-      "mascot": null,
+      "mascot": "Lady Chargers",
+      "colors": [
+        "#00B140",
+        "#00B140"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 3897,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 4734,
       "sat": null,
       "act": null,
@@ -6936,6 +9672,13 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?219888",
       "athleticsUrl": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster",
       "instagramHandle": "CstateWsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
       "externalIds": {
         "scorecard": "219888"
       },
@@ -6953,6 +9696,21 @@
         {
           "field": "athletics",
           "label": "Official athletics page",
+          "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
           "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster"
         }
       ],
@@ -6972,8 +9730,12 @@
       "state": "IL",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 5675,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 10427,
       "sat": null,
       "act": null,
@@ -6989,7 +9751,14 @@
       "admissionsUrl": "https://www.swic.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?143215",
       "athleticsUrl": null,
-      "instagramHandle": null,
+      "instagramHandle": "swicedu",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.swic.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "143215"
       },
@@ -7003,6 +9772,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?143215"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.swic.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -7020,8 +9794,12 @@
       "state": "WA",
       "conference": null,
       "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
       "enrollment": 7364,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 11430,
       "sat": null,
       "act": null,
@@ -7040,6 +9818,8 @@
       "costUrl": "https://collegescorecard.ed.gov/school/?234669",
       "athleticsUrl": null,
       "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
       "externalIds": {
         "scorecard": "234669"
       },
@@ -7068,10 +9848,17 @@
       "nationalRank": 18,
       "city": "Bel Air",
       "state": "MD",
-      "conference": null,
+      "conference": "NJCAA",
       "mascot": null,
+      "colors": [
+        "#022D57",
+        "#007DC3"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 3696,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 9234,
       "sat": null,
       "act": null,
@@ -7119,7 +9906,14 @@
       "admissionsUrl": "https://www.harford.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?162706",
       "athleticsUrl": "https://harfordathletics.com/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "FightingOwlsHCC",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://harfordathletics.com/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
       "externalIds": {
         "scorecard": "162706"
       },
@@ -7138,12 +9932,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://harfordathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://harfordathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://harfordathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official athletics Instagram",
+          "url": "https://harfordathletics.com/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 16 of 21 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 16 of 21 players mapped; generic defenders were left off the meter."
       ]
     },
     {
@@ -7154,10 +9962,17 @@
       "nationalRank": 19,
       "city": "Twin Falls",
       "state": "ID",
-      "conference": null,
+      "conference": "Scenic West Athletic Conference",
       "mascot": null,
+      "colors": [
+        "#FBBF13",
+        "#FBBF13"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
       "enrollment": 3810,
       "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
       "estimatedNetCost": 6095,
       "sat": null,
       "act": null,
@@ -7212,7 +10027,14 @@
       "admissionsUrl": "https://www.csi.edu/",
       "costUrl": "https://collegescorecard.ed.gov/school/?142559",
       "athleticsUrl": "https://athletics.csi.edu/sports/womens-soccer/roster",
-      "instagramHandle": null,
+      "instagramHandle": "collegeofsouthernidaho",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.csi.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
       "externalIds": {
         "scorecard": "142559"
       },
@@ -7231,12 +10053,26 @@
           "field": "athletics",
           "label": "Official athletics page",
           "url": "https://athletics.csi.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://athletics.csi.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://athletics.csi.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.csi.edu/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
-        "Roster positions on the athletics site are broader than the app's spots. 12 of 25 players mapped; generic defenders were left off the meter.",
-        "No women's soccer Instagram link was labeled on the athletics page."
+        "Roster positions on the athletics site are broader than the app's spots. 12 of 25 players mapped; generic defenders were left off the meter."
       ]
     }
   ]

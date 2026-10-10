@@ -396,7 +396,13 @@ const emailPattern = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/;
 for (const program of REAL_PROGRAMS) {
   check(program.sample === false, `${program.id} should not be marked sample`);
   check(program.photoSet == null && program.coachPortrait == null, `${program.id} should not use stock photos or illustrated coaches`);
-  check(program.colorsVerified !== true, `${program.id} colors were not read off an athletics site`);
+  if (program.colorsVerified) {
+    check(
+      (program.colorSource === 'athletics-css' || program.colorSource === 'brand-guide') &&
+        program.colors.every((color) => /^#[0-9A-Fa-f]{6}$/.test(color)),
+      `${program.id} colors are marked verified without a source`,
+    );
+  }
   check(program.funFact == null && program.headCoachYears == null && program.rosterOrigin == null, `${program.id} has a fictional poster field`);
   check(Boolean(program.lastVerified && program.sources && program.sources.length > 0), `${program.id} needs a source and last-verified date`);
   check(Boolean(regionForState(program.state)), `${program.id} has an unknown state`);
@@ -411,6 +417,14 @@ for (const program of REAL_PROGRAMS) {
       /^[A-Za-z0-9._]{2,30}$/.test(program.instagramHandle) &&
         instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
       `${program.id} instagram handle is not a profile`,
+    );
+    check(
+      program.instagramKind === 'team' || program.instagramKind === 'athletics' || program.instagramKind === 'school',
+      `${program.id} instagram needs a team, athletics, or school label`,
+    );
+    check(
+      Boolean(program.instagramConfirmation?.url?.startsWith('https://') && program.instagramConfirmation.note),
+      `${program.id} instagram needs a confirmation note`,
     );
   }
   if (program.record) {
