@@ -6,6 +6,7 @@ import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
 import { leagueNameList } from './sports';
+import { REAL_PROGRAMS } from './providers/realCatalog';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
 import { DIVISIONS, POSITIONS, type PlayerProfile } from './types';
@@ -32,12 +33,12 @@ for (const program of SAMPLE_PROGRAMS) {
   check(program.coaches.length >= 2, `${program.id} needs two coaches`);
   for (const coach of program.coaches) {
     check(
-      /^[a-z0-9.]+@[a-z0-9-]+\.example\.com$/.test(coach.email),
+      coach.email != null && /^[a-z0-9.]+@[a-z0-9-]+\.example\.com$/.test(coach.email),
       `${program.id} coach email is not a fictional example.com address: ${coach.email}`,
     );
   }
   for (const url of [program.questionnaireUrl, program.admissionsUrl, program.costUrl, program.athleticsUrl]) {
-    check(url.startsWith('https://example.com/'), `${program.id} url is not example.com: ${url}`);
+    check(url != null && url.startsWith('https://example.com/'), `${program.id} url is not example.com: ${url}`);
   }
   check(program.roster.length === POSITIONS.length, `${program.id} roster is missing positions`);
   for (const spot of program.roster) {
@@ -50,25 +51,32 @@ for (const program of SAMPLE_PROGRAMS) {
   } else {
     check(program.jucoDivision === null, `${program.id} should not have a JUCO tier`);
   }
-  check(/^cm[a-z0-9]+$/.test(program.instagramHandle), `${program.id} instagram handle is not a fictional cm handle`);
   check(
-    instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
+    program.instagramHandle != null && /^cm[a-z0-9]+$/.test(program.instagramHandle),
+    `${program.id} instagram handle is not a fictional cm handle`,
+  );
+  check(
+    program.instagramHandle != null &&
+      instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
     `${program.id} instagram url is not an instagram.com profile`,
   );
-  check(program.mascot.length >= 3, `${program.id} needs a mascot`);
+  check(program.mascot != null && program.mascot.length >= 3, `${program.id} needs a mascot`);
   check(
     program.colors.length === 2 && program.colors.every((color) => /^#[0-9A-Fa-f]{6}$/.test(color)),
     `${program.id} colors should be two hex values`,
   );
-  check(program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
-  check(program.record.wins + program.record.losses + program.record.ties > 0, `${program.id} record is empty`);
-  check(program.conferenceFinish.length > 0 && program.postseason.length > 0, `${program.id} needs a season story`);
-  check(program.funFact.length > 0 && program.funFact.length <= 80, `${program.id} fun fact should stay one short line`);
-  check(program.headCoachYears >= 1 && program.headCoachYears <= 40, `${program.id} coach years look wrong`);
-  check(program.coachPortrait >= 0 && program.coachPortrait < 4, `${program.id} coach portrait index`);
-  check(program.photoSet >= 0 && program.photoSet < 4, `${program.id} photo set index`);
-  check((program.rosterOrigin.byState[program.state] ?? 0) >= 1, `${program.id} should have players from its state`);
-  check((program.rosterOrigin.byLeague.ecnl ?? 0) >= 1, `${program.id} should list ECNL players`);
+  check(program.record != null && program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
+  check(program.record != null && program.record.wins + program.record.losses + program.record.ties > 0, `${program.id} record is empty`);
+  check(
+    program.conferenceFinish != null && program.conferenceFinish.length > 0 && program.postseason != null && program.postseason.length > 0,
+    `${program.id} needs a season story`,
+  );
+  check(program.funFact != null && program.funFact.length > 0 && program.funFact.length <= 80, `${program.id} fun fact should stay one short line`);
+  check(program.headCoachYears != null && program.headCoachYears >= 1 && program.headCoachYears <= 40, `${program.id} coach years look wrong`);
+  check(program.coachPortrait != null && program.coachPortrait >= 0 && program.coachPortrait < 4, `${program.id} coach portrait index`);
+  check(program.photoSet != null && program.photoSet >= 0 && program.photoSet < 4, `${program.id} photo set index`);
+  check(program.rosterOrigin != null && (program.rosterOrigin.byState[program.state] ?? 0) >= 1, `${program.id} should have players from its state`);
+  check(program.rosterOrigin != null && (program.rosterOrigin.byLeague.ecnl ?? 0) >= 1, `${program.id} should list ECNL players`);
 }
 
 const handles = SAMPLE_PROGRAMS.map((program) => program.instagramHandle);
@@ -377,9 +385,63 @@ check(Boolean(missingParent.parentEmail), 'parent email should be required');
 const badParent = validateDraft({ ...draft, parentEmail: 'not-an-email' });
 check(Boolean(badParent.parentEmail), 'parent email should be validated');
 
+check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
+check(new Set(REAL_PROGRAMS.map((program) => program.id)).size === REAL_PROGRAMS.length, 'real program ids are not unique');
+for (const division of DIVISIONS) {
+  const count = REAL_PROGRAMS.filter((program) => program.division === division).length;
+  const minimum = division === 'NJCAA' ? 15 : 18;
+  check(count >= minimum, `${division} real count ${count} is below ${minimum}`);
+}
+const emailPattern = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/;
+for (const program of REAL_PROGRAMS) {
+  check(program.sample === false, `${program.id} should not be marked sample`);
+  check(program.photoSet == null && program.coachPortrait == null, `${program.id} should not use stock photos or illustrated coaches`);
+  check(program.colorsVerified !== true, `${program.id} colors were not read off an athletics site`);
+  check(program.funFact == null && program.headCoachYears == null && program.rosterOrigin == null, `${program.id} has a fictional poster field`);
+  check(Boolean(program.lastVerified && program.sources && program.sources.length > 0), `${program.id} needs a source and last-verified date`);
+  check(Boolean(regionForState(program.state)), `${program.id} has an unknown state`);
+  for (const coach of program.coaches) {
+    check(coach.email == null || (emailPattern.test(coach.email) && !coach.email.endsWith('.example.com')), `${program.id} coach email is not a published address`);
+  }
+  for (const url of [program.athleticsUrl, program.questionnaireUrl, program.admissionsUrl, program.costUrl]) {
+    check(url == null || url.startsWith('https://'), `${program.id} link is not https: ${url}`);
+  }
+  if (program.instagramHandle) {
+    check(
+      /^[A-Za-z0-9._]{2,30}$/.test(program.instagramHandle) &&
+        instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
+      `${program.id} instagram handle is not a profile`,
+    );
+  }
+  if (program.record) {
+    check(program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
+  }
+  for (const spot of program.roster) {
+    check(POSITIONS.includes(spot.position) && spot.graduating <= spot.count && spot.graduating >= 0, `${program.id} roster row is invalid`);
+  }
+  if (program.division === 'NJCAA') {
+    check(program.jucoDivision === 'D1' || program.jucoDivision === 'D2' || program.jucoDivision === 'D3', `${program.id} needs a JUCO tier`);
+  }
+}
+const floridaState = REAL_PROGRAMS.find((program) => program.id === 'florida-state');
+check(Boolean(floridaState && floridaState.city === 'Tallahassee' && floridaState.state === 'FL'), 'Florida State location should come from Scorecard');
+check(floridaState?.instagramHandle === 'nolesoccer', 'Florida State Instagram should be the handle on the athletics page');
+check(
+  Boolean(floridaState?.coaches.some((coach) => coach.email?.endsWith('@fsu.edu'))),
+  'Florida State should keep a published fsu.edu coach email',
+);
+const stanford = REAL_PROGRAMS.find((program) => program.id === 'stanford');
+check(stanford?.instagramHandle === 'stanfordwsoc', 'Stanford Instagram should be the handle in the women\'s soccer menu');
+check(
+  Boolean(stanford?.coaches.some((coach) => coach.email?.endsWith('@stanford.edu'))),
+  'Stanford should keep a published stanford.edu coach email',
+);
+
 if (failures.length > 0) {
   console.error(failures.join('\n'));
   process.exit(1);
 }
 
-console.log(`Sample catalog OK: ${SAMPLE_PROGRAMS.length} programs, fit score and email checks passed.`);
+console.log(
+  `Catalog OK: ${SAMPLE_PROGRAMS.length} sample programs, ${REAL_PROGRAMS.length} real programs, fit score and email checks passed.`,
+);

@@ -7,7 +7,8 @@
  * - College Scorecard (enrollment, admission rate, net price, academics)
  * - a licensed coach-contact list (name, title, email)
  *
- * Join those later on `externalIds`. Do not scrape coach emails.
+ * The real catalog joins College Scorecard with athletics pages. Coach emails
+ * are included only when the collection script read them on a public staff page.
  */
 
 export const POSITIONS = ['GK', 'CB', 'FB', 'DM', 'CM', 'W', 'ST'] as const;
@@ -223,8 +224,14 @@ export type Coach = {
   id: string;
   name: string;
   title: string;
-  /** Sample data uses *.example.com only. */
-  email: string;
+  /** Published staff-directory address. Sample rows use *.example.com. Empty when the page did not list one. */
+  email: string | null;
+};
+
+export type ProgramSource = {
+  field: string;
+  label: string;
+  url: string;
 };
 
 export type IdCamp = {
@@ -269,50 +276,59 @@ export type Program = {
   city: string;
   state: string;
   region: Region;
-  enrollment: number;
-  /** 0–1 */
-  acceptanceRate: number;
-  /** Estimated annual net cost after typical aid, in dollars. */
-  estimatedNetCost: number;
-  schoolSize: SchoolSize;
+  enrollment: number | null;
+  /** 0–1. Empty when Scorecard does not publish it. */
+  acceptanceRate: number | null;
+  /** Average net price from College Scorecard, in dollars. Sample rows use a fictional estimate. */
+  estimatedNetCost: number | null;
+  schoolSize: SchoolSize | null;
   academics: {
-    avgGpa: number;
-    avgSat: number;
-    avgAct: number;
+    avgGpa: number | null;
+    avgSat: number | null;
+    avgAct: number | null;
   };
   majors: string[];
   roster: RosterCount[];
   coaches: Coach[];
-  questionnaireUrl: string;
-  admissionsUrl: string;
-  costUrl: string;
-  athleticsUrl: string;
-  /** Fictional nickname shown on the card. */
-  mascot: string;
-  /** Primary, then accent. Used for the badge and the spot meter. */
-  colors: [string, string];
-  record: TeamRecord;
-  conferenceFinish: string;
-  postseason: string;
-  /** One short fictional line in the team snapshot. */
-  funFact: string;
-  headCoachYears: number;
-  /** Index into the shared illustrated coach portraits. */
-  coachPortrait: number;
-  /** Index into the shared campus photo sets. */
-  photoSet: number;
+  questionnaireUrl: string | null;
+  admissionsUrl: string | null;
+  costUrl: string | null;
+  athleticsUrl: string | null;
+  /** Nickname. Empty when the athletics page did not state one. */
+  mascot: string | null;
   /**
-   * Fictional Instagram handle, without @.
+   * Primary, then accent. Real schools use a neutral pair until school colors
+   * are read off the athletics site. `colorsVerified` is true only then.
+   */
+  colors: [string, string];
+  colorsVerified?: boolean;
+  record: TeamRecord | null;
+  conferenceFinish: string | null;
+  postseason: string | null;
+  /** One short line in the team snapshot. Real rows leave this empty. */
+  funFact: string | null;
+  headCoachYears: number | null;
+  /** Index into the shared illustrated coach portraits. Empty for real coaches. */
+  coachPortrait: number | null;
+  /** Index into the shared campus photo sets. Empty when the school has no licensed photos. */
+  photoSet: number | null;
+  /**
+   * Instagram handle, without @.
    * Sample rows use a `cm` prefix so the link is not a real account.
    */
-  instagramHandle: string;
-  rosterOrigin: RosterOrigin;
+  instagramHandle: string | null;
+  rosterOrigin: RosterOrigin | null;
   idCamps: IdCamp[];
   /**
    * True for the bundled fictional catalog.
    * Real providers should set this to false.
    */
   sample: boolean;
+  /** Final-poll rank for real programs. */
+  nationalRank?: number;
+  /** ISO date the public sources were fetched. */
+  lastVerified?: string;
+  sources?: ProgramSource[];
   externalIds?: {
     scorecard?: string;
     magisterial?: string;

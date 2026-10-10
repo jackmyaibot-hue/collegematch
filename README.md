@@ -2,13 +2,46 @@
 
 CollegeMatch is a free iOS and Android app for high school athletes. It works like a card deck for college programs: swipe right to save a school, left to pass, then write a short intro to a coach.
 
-Girls' soccer is the first deck, with a fictional women's college catalog. Other sports, and men's programs, are in the profile so they can be added later. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
+Girls' soccer is the first deck. The default deck is real women's programs from the most recent final national polls. Other sports, and men's programs, are in the profile so they can be added later. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
 
 The app does not charge athletes. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. Profile data stays on the phone. The app does not track athletes.
 
+## Real programs
+
+The deck loads real women's soccer programs from `mobile/src/data/real/programs.json`. About 20 schools come from each of NCAA Division I, II, and III, NAIA, and NJCAA Division I (19 teams; that poll's full final list). A school with no verified city and state is left out of the deck.
+
+Ranking sources, fetched for this catalog:
+
+| Division | Poll | Date |
+|---|---|---|
+| NCAA D1 | [United Soccer Coaches NCAA Division I Women](https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/) final poll | December 9, 2025. Records on that site's August 4, 2026 preseason poll are the final 2025 records. Baylor and BYU were tied off the printed top 25 on the preseason page; their rank and record are from the [Wikipedia table of the same December 9 poll](https://en.wikipedia.org/wiki/2025_NCAA_Division_I_women%27s_soccer_rankings). |
+| NCAA D2 | [United Soccer Coaches NCAA Division II Women](https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/), national poll 11 | December 16, 2025 |
+| NCAA D3 | [United Soccer Coaches NCAA Division III Women](https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/) final poll | December 9, 2025. Records are the final 2025 records on the August 4, 2026 preseason poll, whose previous-rank column matches that order. |
+| NAIA | NAIA Women's Soccer Coaches' postseason poll, republished in full by the [Kansas Collegiate Athletic Conference](https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx) | December 17, 2025 |
+| NJCAA | [United Soccer Coaches NJCAA Division I Women](https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/) | August 4, 2026 preseason page. It lists previous ranks 1–19 and says the records are final 2025 records. The page does not print a separate December dateline. |
+
+Enrollment, acceptance rate, average net price, SAT/ACT, and city setting come from the College Scorecard institution file dated June 10, 2026 (`https://collegescorecard.ed.gov/data/`). City campus-life tags are only the Scorecard city locales (11, 12, and 13). Coach names, titles, emails, roster counts, Instagram handles, and questionnaire links are copied from the program's official athletics site. If a fact was not on the fetched page, the field is empty and the card hides it. Each school stores the source URLs and a last-verified date. Crests are generated initials. Real school logos and photos are not bundled, so the Photos button stays hidden.
+
+Re-run the collector after each season:
+
+```bash
+python3 scripts/collect_womens_soccer.py
+```
+
+Seeds and poll notes live in `scripts/data/womens-soccer-seeds.json`. The script writes `mobile/src/data/real/programs.json` and `scripts/data/collect-report.json`. Downloaded pages are cached under `scripts/cache/`, which is gitignored.
+
+The banner reads: "Real programs. Facts come from official athletics sites and the College Scorecard. Verify them before you contact a coach."
+
 ## Sample data
 
-**The schools in the app are fictional.** Names, conferences, coaches, roster counts, costs, acceptance rates, camp dates, mascots, records, and Instagram handles are made up so the MVP can run without a live data license. Coach emails use `example.com` and will not reach anyone. Instagram handles start with `cm` (for example `cmnorthwind`) and are not real accounts. The banner in the app says the same thing. The catalog is `mobile/src/data/samplePrograms.ts` (40 programs across NCAA D1, D2, D3, NAIA, and NJCAA) plus two sponsor placeholders in `mobile/src/data/sponsored.ts`.
+A fictional catalog is still in `mobile/src/data/samplePrograms.ts` (40 programs) plus two sponsor placeholders in `mobile/src/data/sponsored.ts`. Those schools, coaches, costs, and camps are made up. Coach emails use `example.com`. Instagram handles start with `cm`. Load them with:
+
+```bash
+cd mobile
+EXPO_PUBLIC_CATALOG=sample npx expo start
+```
+
+The banner switches back to the sample warning when that variable is set.
 
 ## Run it on a phone
 
@@ -22,7 +55,7 @@ npx expo start
 
 1. Phone and computer on the same Wi-Fi.
 2. Scan the QR code: the iPhone camera will offer to open Expo Go; on Android, scan from inside Expo Go.
-3. The first screen is profile setup. After that, the deck, saved list, school page, and coach email all use the sample catalog.
+3. The first screen is profile setup. After that, the deck, saved list, school page, and coach email use the real women's soccer catalog.
 
 If the phone cannot see the dev server, stop it and run `npx expo start --tunnel`. The CLI may ask you to sign in to a free Expo account for the tunnel.
 
@@ -33,7 +66,7 @@ A desktop preview (same screens, mouse-drag to swipe) is `npm run web` from `mob
 ## What the MVP does
 
 1. **Profile.** Name, birthday, girls or boys programs (or prefer not to say), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, club coach contact, optional high school coach contact, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, the levels they want (or open to all), regions, campus size, optional campus-life vibes, net-cost budget, and a required parent email that is copied on coach emails and stays on the phone.
-2. **Deck.** Programs ranked by a fit score. Each card is a short recruiting poster: a large school crest on the school colors, division, location, enrollment, acceptance, and net cost. A Photos button (camera icon and count) opens a gallery of campus, field, team, and city pictures. Swiping inside that gallery does not pass or save the card. A spot meter shows how many players at her positions are graduating. A team snapshot has last season’s record, conference finish, postseason, and the head coach. “Could you play here?” counts players from her state and league, with the fit score and an expandable “why this fits.” Two small links open the athletics page and the team’s Instagram in the browser or the Instagram app. There is no video on the card. Pass and Save stay under the card. Visit opens the school page.
+2. **Deck.** Programs ranked by a fit score. Each card is a short recruiting poster: a large generated crest, division, location, and whatever enrollment, acceptance, and net cost the catalog actually has. A Photos button appears only when the school has a licensed photo set. The sample schools use a shared stock gallery; real schools do not, so the button stays hidden. A spot meter shows roster counts by position when the athletics site published them. A team snapshot shows the head coach and last season’s record when those were published. “Could you play here?” shows the fit score and an expandable “why this fits.” Athletics and Instagram links appear only when the catalog has a real URL or handle. There is no video on the card. Pass and Save stay under the card. Visit opens the school page.
 3. **Saved schools.** Detail page with coaches (name, title, email), questionnaire link, ID camp dates, admissions and cost info, and an athletics link.
 4. **Coach email.** A short editable intro (positions, jersey number, dominant foot, years at league level, coach references, highlight, grad year, majors, a brief honors line, and a light personal note) opens in the device mail app with `mailto`. Status per school: not contacted, emailed, replied, follow-up due, plus a reminder date.
 5. **Sponsored slots.** A “Sponsored ID camp” card can appear in the deck. It is labeled Sponsored and is not scored as a college match.
@@ -47,7 +80,7 @@ TypeScript types live in `mobile/src/data/types.ts`. The important records:
 | Type | Role |
 |---|---|
 | `PlayerProfile` | The athlete. Sport, gender, birthday, positions, primary position, and leagues. Stored only on device. |
-| `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, links, plus a fictional poster (mascot, colors, record, roster origins, Instagram handle). The sample rows are women's soccer. |
+| `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, and links. Empty fields are omitted on the card. The real rows are women's soccer. Sample rows add a fictional poster (mascot, colors, record, roster origins, Instagram handle). |
 | `Coach` | Name, title, email. |
 | `SponsoredPlacement` | A labeled sponsor card and where it sits in the deck. |
 | `SavedProgram` | Save time, outreach status, follow-up date, and the last email draft. |
@@ -61,23 +94,20 @@ Welcome backgrounds are original illustrations generated for this app and bundle
 
 Discover-card photos live in `mobile/assets/cards`. Campus, field, team, and city pictures are Unsplash stock under the [Unsplash License](https://unsplash.com/license), cropped and compressed so the schools can share one small pool. Coach portraits in that folder are original illustrations made for this app, not photographs of real coaches.
 
-Screens do not import the sample JSON directly. They use `mobile/src/data/index.ts`:
+Screens do not import a catalog file directly. They use `mobile/src/data/index.ts`:
 
-- `programCatalog` — `listPrograms()` / `getProgram()`
+- `programCatalog` — `listPrograms()` / `getProgram()`. This is the real catalog unless `EXPO_PUBLIC_CATALOG=sample`.
 - `sponsorInventory` — `listPlacements()`
 - `playerStore` and `recruitingStore` — AsyncStorage
 
-Swap those four exports when a real source exists. The UI can stay the same.
+### Where the real fields come from
 
-### Plugging in real data later
+`Program` is the merged view. `scripts/collect_womens_soccer.py` fills it from public pages:
 
-`Program` is the merged view. A composite catalog can fill it from three places:
+- **College Scorecard** — enrollment, admission rate, net price, SAT/ACT, city, state, and city locale. The unit id is stored on `Program.externalIds.scorecard`.
+- **The program's athletics site** — coach name, title, and email when the staff page or the linked bio publishes them, plus roster counts, the team Instagram handle, and a questionnaire link. The script does not guess a missing email or handle.
 
-- **Magisterial** — division, conference, roster, sport identity. Store their id on `Program.externalIds.magisterial`.
-- **College Scorecard** — enrollment, admission rate, net price, typical academics. Store their id on `Program.externalIds.scorecard`.
-- **A licensed coach-contact list** — coach name, title, and email. Do not scrape inboxes or staff directories.
-
-Keep `sample: true` off for live rows, and drop the in-app sample banner when `programCatalog.sourceId` is no longer `'sample'`.
+Keep `sample: true` off for live rows. The in-app banner follows the catalog mode.
 
 The fit score stays a pure function in `mobile/src/data/fitScore.ts`, so it can run on the phone or move to an API later.
 
@@ -111,7 +141,7 @@ Mobile profile fields line up with columns on `backend/models/Player.js` for a l
 
 ## Next steps
 
-1. **Real data.** Implement a `ProgramCatalog` that joins Magisterial, College Scorecard, and a licensed coach list. Replace the sample binding in `mobile/src/data/index.ts`.
+1. **Richer real data.** Conference, mascot, and school colors are still empty until they can be read off an athletics page without guessing. Re-run `scripts/collect_womens_soccer.py` after each final poll.
 2. **Backend and auth.** Decide what a minor’s account is allowed to store. The existing API has email, phone, and Twilio SMS verification; that needs a privacy review before the app calls it. Then point `playerStore` and `recruitingStore` at that API instead of AsyncStorage.
 3. **App Store and Play Store.** The Expo project is set up for Expo Go, not a store binary. Use EAS Build (`npx eas-cli build`) with the bundle id `com.collegematch.app`, add a privacy policy and a kids/teen data disclosure, and submit with `eas submit`. Apple and Google both require accounts, screenshots, and a review of apps used by minors.
 4. **Coach-side app.** A later app can let staff see only the players who contacted them, answer questionnaires, and post camp dates. It should be a separate client on the same program and message models, not a mode inside the player app.

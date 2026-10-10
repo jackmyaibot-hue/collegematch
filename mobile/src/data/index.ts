@@ -1,8 +1,16 @@
 /**
  * Active data bindings.
- * Swap these exports when a real catalog, sponsor feed, or account backend exists.
- * Screens import from here, not from the sample JSON.
+ * Screens import from here, not from a catalog file.
+ * Real women's soccer programs are the deck. Set EXPO_PUBLIC_CATALOG=sample
+ * to load the fictional schools instead.
  */
-export { sampleProgramCatalog as programCatalog, sampleSponsorInventory as sponsorInventory } from './providers/sampleCatalog';
-export { localPlayerStore as playerStore, localRecruitingStore as recruitingStore } from './providers/localStore';
+import { useSampleCatalog } from './catalogMode';
+import { localPlayerStore, localRecruitingStore } from './providers/localStore';
+import { realProgramCatalog } from './providers/realCatalog';
+import { sampleProgramCatalog, sampleSponsorInventory } from './providers/sampleCatalog';
+
+export const programCatalog = useSampleCatalog ? sampleProgramCatalog : realProgramCatalog;
+export const sponsorInventory = sampleSponsorInventory;
+export const playerStore = localPlayerStore;
+export const recruitingStore = localRecruitingStore;
 export type { PlayerStore, ProgramCatalog, RecruitingStore, SponsorInventory } from './providers/types';
