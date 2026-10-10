@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Image, Modal, Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { Gesture, GestureDetector, GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
-import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler';
+import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import type { ImageSourcePropType } from 'react-native';
 import { CARD_PHOTO_CAPTIONS } from './cardPhotos';
 import { AppText } from './ui';
@@ -22,28 +22,62 @@ export function PhotoGallery({
   const sheetWidth = Math.min(windowWidth, 480);
   const photoHeight = Math.max(280, Math.min(windowHeight * 0.58, 640));
   const [page, setPage] = useState(0);
-  const [failed, setFailed] = useState<Record<number, boolean>>({});
+  const [failed, setFailed] = useState(false);
   const translateY = useSharedValue(0);
+  const ready = useSharedValue(false);
+
+  useEffect(() => {
+    if (!visible) {
+      ready.value = false;
+      translateY.value = 0;
+      return;
+    }
+    setPage(0);
+    setFailed(false);
+    translateY.value = 0;
+    ready.value = false;
+    const timer = setTimeout(() => {
+      ready.value = true;
+    }, 280);
+    return () => clearTimeout(timer);
+  }, [visible, ready, translateY]);
 
   const close = useCallback(() => {
     translateY.value = 0;
     onClose();
   }, [onClose, translateY]);
 
-  const pan = Gesture.Pan()
-    .activeOffsetY(12)
-    .failOffsetX([-28, 28])
+  const turn = useCallback(
+    (delta: number) => {
+      setPage((current) => {
+        const next = current + delta;
+        if (next < 0 || next >= photos.length) return current;
+        setFailed(false);
+        return next;
+      });
+    },
+    [photos.length],
+  );
+
+  const drag = Gesture.Pan()
     .onUpdate((event) => {
-      translateY.value = Math.max(0, event.translationY);
+      if (!ready.value) return;
+      const vertical = Math.abs(event.translationY) > Math.abs(event.translationX);
+      translateY.value = vertical ? Math.max(0, event.translationY) : 0;
     })
     .onEnd((event) => {
-      if (translateY.value > 110 || event.velocityY > 900) {
-        translateY.value = withTiming(windowHeight, { duration: 180 }, (finished) => {
-          if (finished) runOnJS(close)();
-        });
+      if (!ready.value) {
+        translateY.value = 0;
         return;
       }
+      const vertical = event.translationY > 24 && Math.abs(event.translationY) > Math.abs(event.translationX);
       translateY.value = withSpring(0, { damping: 18, stiffness: 220 });
+      if (vertical && (event.translationY > 90 || event.velocityY > 800)) {
+        runOnJS(close)();
+        return;
+      }
+      if (!vertical && (event.translationX <= -36 || event.velocityX < -700)) runOnJS(turn)(1);
+      else if (!vertical && (event.translationX >= 36 || event.velocityX > 700)) runOnJS(turn)(-1);
     });
 
   const sheetStyle = useAnimatedStyle(() => ({
@@ -53,10 +87,11 @@ export function PhotoGallery({
   const caption = CARD_PHOTO_CAPTIONS[page] ?? 'Photo';
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={close} statusBarTranslucent>
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={close} statusBarTranslucent>
       <GestureHandlerRootView style={styles.root}>
         <Pressable accessibilityRole="button" accessibilityLabel="Close photos" style={styles.backdrop} onPress={close} />
-        <GestureDetector gesture={pan}>
+        <GestureDetector gesture={drag}>
+          <View style={{ width: sheetWidth }}>
           <Animated.View style={[styles.sheet, { width: sheetWidth, maxHeight: windowHeight * 0.92 }, sheetStyle]}>
             <View style={styles.handle} />
             <View style={styles.header}>
@@ -72,33 +107,21 @@ export function PhotoGallery({
                 <Ionicons name="close" size={22} color="#F7F4EE" />
               </Pressable>
             </View>
-            <ScrollView
-              horizontal
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
-              onMomentumScrollEnd={(event) => {
-                const next = Math.round(event.nativeEvent.contentOffset.x / sheetWidth);
-                setPage(Math.max(0, Math.min(photos.length - 1, next)));
-              }}
-              style={{ width: sheetWidth, height: photoHeight }}
-            >
-              {photos.map((source, index) => (
-                <View key={index} style={[styles.frame, { width: sheetWidth, height: photoHeight }]}>
-                  {failed[index] ? (
-                    <AppText variant="body" color="#F7F4EE">
-                      This photo did not load.
-                    </AppText>
-                  ) : (
-                    <Image
-                      source={source}
-                      style={{ width: sheetWidth, height: photoHeight }}
-                      resizeMode="cover"
-                      onError={() => setFailed((current) => ({ ...current, [index]: true }))}
-                    />
-                  )}
-                </View>
-              ))}
-            </ScrollView>
+            <View style={[styles.frame, { width: sheetWidth, height: photoHeight }]}>
+              {failed ? (
+                <AppText variant="body" color="#F7F4EE">
+                  This photo did not load.
+                </AppText>
+              ) : (
+                <Image
+                  key={page}
+                  source={photos[page]}
+                  style={{ width: sheetWidth, height: photoHeight }}
+                  resizeMode="cover"
+                  onError={() => setFailed(true)}
+                />
+              )}
+            </View>
             <View style={styles.dots}>
               {photos.map((_, index) => (
                 <View key={index} style={[styles.dot, index === page && styles.dotOn]} />
@@ -108,6 +131,7 @@ export function PhotoGallery({
               Swipe sideways for the next photo · swipe down to close
             </AppText>
           </Animated.View>
+          </View>
         </GestureDetector>
       </GestureHandlerRootView>
     </Modal>
@@ -115,7 +139,15 @@ export function PhotoGallery({
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' },
+  root: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
   backdrop: { ...StyleSheet.absoluteFill, backgroundColor: 'rgba(8, 14, 12, 0.55)' },
   sheet: {
     backgroundColor: '#10241C',
