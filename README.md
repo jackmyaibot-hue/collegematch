@@ -65,6 +65,16 @@ A desktop preview (same screens, mouse-drag to swipe) is `npm run web` from `mob
 
 `npm run check` verifies the sample catalog, fit score, and email builder. `npm run typecheck` runs TypeScript.
 
+## Redeploy the web app
+
+The hosted app is [https://collegematch.expo.app](https://collegematch.expo.app). From `mobile/`:
+
+```bash
+npx expo export --platform web && npx eas-cli deploy --prod
+```
+
+That export includes Add to Home Screen: `public/manifest.json` (CollegeMatch, standalone, green `#0C3B2C`), the 192 and 512 icons, `apple-touch-icon.png`, and the iOS meta tags in `public/index.html`.
+
 ## What the MVP does
 
 1. **Profile.** Name, birthday, girls or boys programs (or prefer not to say), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, club coach contact, optional high school coach contact, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, the levels they want (or open to all), regions, campus size, optional campus-life vibes, net-cost budget, and a required parent email that is copied on coach emails and stays on the phone.
