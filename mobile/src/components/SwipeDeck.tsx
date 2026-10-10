@@ -21,9 +21,17 @@ import { AppText } from './ui';
 
 type Handle = { fling: (direction: 'left' | 'right') => void };
 
-function CardFace({ item, profile }: { item: DeckCard; profile: PlayerProfile }) {
+function CardFace({
+  item,
+  profile,
+  onGalleryChange,
+}: {
+  item: DeckCard;
+  profile: PlayerProfile;
+  onGalleryChange?: (open: boolean) => void;
+}) {
   if (item.type === 'sponsored') return <SponsoredCard placement={item.placement} />;
-  return <ProgramCard program={item.program} fit={item.fit} profile={profile} />;
+  return <ProgramCard program={item.program} fit={item.fit} profile={profile} onGalleryChange={onGalleryChange} />;
 }
 
 const TopCard = forwardRef<
@@ -34,6 +42,7 @@ const TopCard = forwardRef<
   const y = useSharedValue(0);
   const intro = useSharedValue(0);
   const locked = useSharedValue(false);
+  const galleryLock = useSharedValue(false);
   const onDoneRef = useRef(onDone);
   onDoneRef.current = onDone;
 
@@ -69,13 +78,22 @@ const TopCard = forwardRef<
       Gesture.Pan()
         .activeOffsetX([-20, 20])
         .failOffsetY([-14, 14])
+        .onTouchesDown((_event, manager) => {
+          if (galleryLock.value) manager.fail();
+        })
         .onUpdate((event) => {
-          if (locked.value) return;
+          if (locked.value || galleryLock.value) return;
           x.value = event.translationX;
           y.value = event.translationY * 0.25;
         })
         .onEnd((event) => {
-          if (locked.value) return;
+          if (locked.value || galleryLock.value) {
+            if (!locked.value) {
+              x.value = withSpring(0);
+              y.value = withSpring(0);
+            }
+            return;
+          }
           const goRight = event.translationX > 110 || event.velocityX > 900;
           const goLeft = event.translationX < -110 || event.velocityX < -900;
           if (goRight || goLeft) {
@@ -90,7 +108,7 @@ const TopCard = forwardRef<
           x.value = withSpring(0);
           y.value = withSpring(0);
         }),
-    [finish, locked, x, y],
+    [finish, galleryLock, locked, x, y],
   );
 
   const cardStyle = useAnimatedStyle(() => ({
@@ -114,7 +132,13 @@ const TopCard = forwardRef<
   return (
     <GestureDetector gesture={pan}>
       <Animated.View style={[styles.fill, cardStyle]}>
-        <CardFace item={item} profile={profile} />
+        <CardFace
+          item={item}
+          profile={profile}
+          onGalleryChange={(open) => {
+            galleryLock.value = open;
+          }}
+        />
         <Animated.View style={[styles.stamp, styles.saveStamp, saveStyle]}>
           <AppText variant="headline" color={colors.green} style={styles.stampText}>
             {saveLabel}

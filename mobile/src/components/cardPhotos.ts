@@ -41,6 +41,8 @@ const COACHES: ImageSourcePropType[] = [
   require('../../assets/cards/coach-4.jpg'),
 ];
 
+export const CARD_PHOTO_CAPTIONS = ['Campus', 'Field', 'Team', 'City'] as const;
+
 /** Campus, field, team, then city. Neighboring sets do not repeat the same frame. */
 export function cardPhotos(photoSet: number): ImageSourcePropType[] {
   const index = ((photoSet % 4) + 4) % 4;

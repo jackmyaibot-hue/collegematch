@@ -13,21 +13,23 @@ import { openExternal } from '../lib/links';
 import { colors, divisionTone, fitTone, radius } from '../theme';
 import { cardPhotos, coachPortrait } from './cardPhotos';
 import { FitBars } from './FitBars';
+import { PhotoGallery } from './PhotoGallery';
 import { AppText, Pill } from './ui';
 
 export function ProgramCard({
   program,
   fit,
   profile,
+  onGalleryChange,
 }: {
   program: Program;
   fit: FitResult;
   profile: PlayerProfile;
+  onGalleryChange?: (open: boolean) => void;
 }) {
   const photos = cardPhotos(program.photoSet);
-  const [photo, setPhoto] = useState(0);
+  const [galleryOpen, setGalleryOpen] = useState(false);
   const [whyOpen, setWhyOpen] = useState(false);
-  const [heroWidth, setHeroWidth] = useState(320);
   const division = divisionTone(program.division);
   const tone = fitTone(fit.total);
   const [primary, accent] = program.colors;
@@ -36,51 +38,24 @@ export function ProgramCard({
   const fromHome = playersFromState(program.rosterOrigin, profile.homeState);
   const fromLeagues = playersFromLeagues(program.rosterOrigin, profile.leagues);
   const leagueLabel = leagueCaption(profile);
+  const mark = monogram(program.schoolName);
 
-  const showPhoto = (next: number) => {
-    const count = photos.length;
-    setPhoto(((next % count) + count) % count);
+  const setGallery = (open: boolean) => {
+    setGalleryOpen(open);
+    onGalleryChange?.(open);
   };
 
   return (
     <View style={styles.card} accessibilityLabel={`${program.schoolName}, fit ${fit.total}, ${program.division}`}>
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} nestedScrollEnabled>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={`Photo ${photo + 1} of ${photos.length}. Tap the right side for the next photo.`}
-          onLayout={(event) => setHeroWidth(event.nativeEvent.layout.width)}
-          onPress={(event) => {
-            const next = event.nativeEvent.locationX < heroWidth / 2 ? photo - 1 : photo + 1;
-            showPhoto(next);
-          }}
-          style={styles.hero}
-        >
-          <Image source={photos[photo]} style={styles.heroImage} resizeMode="cover" />
-          <View pointerEvents="none" style={styles.shade}>
-            <View style={styles.shadeClear} />
-            <View style={styles.shadeMid} />
-            <View style={styles.shadeDeep} />
-          </View>
-          <View pointerEvents="none" style={styles.heroTop}>
-            <View style={[styles.badge, { backgroundColor: primary, borderColor: accent }]}>
-              <AppText variant="label" color="#F7F4EE" style={styles.badgeText}>
-                {monogram(program.schoolName)}
-              </AppText>
-            </View>
-            <View style={[styles.fit, { backgroundColor: tone.bg }]}>
-              <AppText variant="label" color={tone.fg} style={styles.fitLabel}>
-                Fit
-              </AppText>
-              <AppText variant="headline" color={tone.fg} style={styles.fitScore}>
-                {fit.total}
-              </AppText>
-            </View>
-          </View>
-          <View pointerEvents="none" style={styles.heroCopy}>
-            <View style={styles.dots}>
-              {photos.map((_, index) => (
-                <View key={index} style={[styles.dot, index === photo && styles.dotOn]} />
-              ))}
+        <View style={[styles.hero, { backgroundColor: primary }]}>
+          <View style={styles.crestBlock}>
+            <View style={[styles.seal, { borderColor: accent }]}>
+              <View style={styles.sealFace}>
+                <AppText variant="title" color={primary} style={styles.sealMark}>
+                  {mark}
+                </AppText>
+              </View>
             </View>
             <AppText variant="label" color={accent} style={styles.mascot}>
               {program.mascot}
@@ -92,7 +67,28 @@ export function ProgramCard({
               {program.city}, {program.state}
             </AppText>
           </View>
-        </Pressable>
+          <View style={styles.heroTop} pointerEvents="box-none">
+            <View style={[styles.fit, { backgroundColor: tone.bg }]}>
+              <AppText variant="label" color={tone.fg} style={styles.fitLabel}>
+                Fit
+              </AppText>
+              <AppText variant="headline" color={tone.fg} style={styles.fitScore}>
+                {fit.total}
+              </AppText>
+            </View>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={`Photos, ${photos.length}`}
+              onPress={() => setGallery(true)}
+              style={({ pressed }) => [styles.photosChip, pressed && { opacity: 0.85 }]}
+            >
+              <Ionicons name="camera" size={15} color={colors.ink} />
+              <AppText variant="caption" color={colors.ink} style={styles.photosCount}>
+                {photos.length}
+              </AppText>
+            </Pressable>
+          </View>
+        </View>
 
         <View style={styles.body}>
           <View style={styles.metaRow}>
@@ -192,6 +188,7 @@ export function ProgramCard({
           </AppText>
         </Pressable>
       </View>
+      <PhotoGallery visible={galleryOpen} photos={photos} schoolName={program.schoolName} onClose={() => setGallery(false)} />
     </View>
   );
 }
@@ -285,12 +282,26 @@ const styles = StyleSheet.create({
   },
   scroll: { flex: 1 },
   scrollContent: { paddingBottom: 8 },
-  hero: { height: 168, backgroundColor: colors.greenDark, overflow: 'hidden' },
-  heroImage: { ...StyleSheet.absoluteFill },
-  shade: { ...StyleSheet.absoluteFill },
-  shadeClear: { flex: 1 },
-  shadeMid: { height: 22, backgroundColor: 'rgba(8, 14, 12, 0.28)' },
-  shadeDeep: { height: 78, backgroundColor: 'rgba(8, 14, 12, 0.78)' },
+  hero: { minHeight: 196, paddingTop: 44, paddingBottom: 14, paddingHorizontal: 16 },
+  crestBlock: { alignItems: 'center', gap: 2 },
+  seal: {
+    width: 92,
+    height: 92,
+    borderRadius: 46,
+    borderWidth: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 6,
+  },
+  sealFace: {
+    width: 74,
+    height: 74,
+    borderRadius: 37,
+    backgroundColor: '#F7F4EE',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sealMark: { fontSize: 30, lineHeight: 34 },
   heroTop: {
     position: 'absolute',
     top: 12,
@@ -300,15 +311,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
-  badge: {
-    width: 46,
-    height: 46,
-    borderRadius: 23,
-    borderWidth: 2,
+  photosChip: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    gap: 5,
+    backgroundColor: '#F7F4EE',
+    borderRadius: radius.pill,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
   },
-  badgeText: { marginBottom: 0, letterSpacing: 0.4 },
+  photosCount: { fontFamily: 'Outfit_700Bold', fontSize: 14, lineHeight: 18 },
   fit: {
     minWidth: 52,
     borderRadius: 16,
@@ -318,12 +330,8 @@ const styles = StyleSheet.create({
   },
   fitLabel: { marginBottom: 0, fontSize: 10 },
   fitScore: { fontSize: 22, lineHeight: 26 },
-  heroCopy: { position: 'absolute', left: 14, right: 14, bottom: 10, gap: 1 },
-  dots: { flexDirection: 'row', gap: 5, marginBottom: 6 },
-  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: 'rgba(247, 244, 238, 0.45)' },
-  dotOn: { width: 16, backgroundColor: '#F7F4EE' },
   mascot: { marginBottom: 0, letterSpacing: 1.1, textTransform: 'uppercase', fontSize: 11 },
-  name: { fontSize: 24, lineHeight: 28 },
+  name: { fontSize: 22, lineHeight: 26, textAlign: 'center' },
   body: { paddingHorizontal: 14, paddingTop: 10, gap: 8 },
   metaRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   conference: { flex: 1 },
