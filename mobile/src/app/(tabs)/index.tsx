@@ -74,7 +74,7 @@ export default function DiscoverScreen() {
         <View style={styles.empty}>
           {programs.some((program) => programMatchesAthlete(program, profile) && wantsLevel(profile, program)) ? (
             <>
-              <AppText variant="title">You’re through the sample deck.</AppText>
+              <AppText variant="title">You’re through the deck.</AppText>
               <AppText variant="body">
                 Every program is saved or passed. Saved schools are ready for a coach email.
               </AppText>
@@ -84,7 +84,7 @@ export default function DiscoverScreen() {
             <>
               <AppText variant="title">No schools at those levels.</AppText>
               <AppText variant="body">
-                The sample deck doesn't have a program for every level you picked. Add a level, or choose Open to all, on your profile.
+                This deck doesn't have a program for every level you picked. Add a level, or choose Open to all, on your profile.
               </AppText>
             </>
           )}

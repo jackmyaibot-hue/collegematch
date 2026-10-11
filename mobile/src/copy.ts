@@ -6,3 +6,6 @@ export const PRIVACY_LINE =
 
 export const SAMPLE_LINE =
   'Sample programs only. Names, coaches, costs, and camps are fictional. Emails end in example.com.';
+
+export const REAL_LINE =
+  'Real programs. Facts come from official athletics sites and the College Scorecard. Verify them before you contact a coach.';

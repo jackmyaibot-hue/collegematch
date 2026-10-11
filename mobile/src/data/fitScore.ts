@@ -87,7 +87,8 @@ const SIZE_ORDER: SchoolSize[] = ['small', 'medium', 'large'];
 export type FitFactor = {
   key: FitFactorKey;
   label: string;
-  score: number;
+  /** Null when the program does not publish the facts this factor needs. */
+  score: number | null;
   weight: number;
   detail: string;
 };
@@ -97,8 +98,8 @@ export type FitResult = {
   factors: FitFactor[];
   /** Highest-scoring factor, written as one sentence for the card. */
   why: string;
-  rosterPosition: Position;
-  rosterSpot: RosterCount;
+  rosterPosition: Position | null;
+  rosterSpot: RosterCount | null;
 };
 
 function clamp(value: number, min: number, max: number): number {
@@ -114,14 +115,18 @@ export function playerLevel(profile: PlayerProfile): number {
   return clamp(strongestLeagueLevel(profile.leagues), 1.2, 5.2);
 }
 
-function academicsScore(profile: PlayerProfile, program: Program): number {
-  const parts = [clamp(88 + (profile.gpa - program.academics.avgGpa) * 40, 5, 100)];
-  if (profile.sat != null) {
+function academicsScore(profile: PlayerProfile, program: Program): number | null {
+  const parts: number[] = [];
+  if (program.academics.avgGpa != null) {
+    parts.push(clamp(88 + (profile.gpa - program.academics.avgGpa) * 40, 5, 100));
+  }
+  if (profile.sat != null && program.academics.avgSat != null) {
     parts.push(clamp(88 + (profile.sat - program.academics.avgSat) / 8, 5, 100));
   }
-  if (profile.act != null) {
+  if (profile.act != null && program.academics.avgAct != null) {
     parts.push(clamp(88 + (profile.act - program.academics.avgAct) * 6, 5, 100));
   }
+  if (parts.length === 0) return null;
   const average = parts.reduce((sum, part) => sum + part, 0) / parts.length;
   return roundScore(average);
 }
@@ -171,7 +176,8 @@ function regionScore(profile: PlayerProfile, program: Program): number {
   return adjacent ? 58 : 22;
 }
 
-function sizeScore(profile: PlayerProfile, program: Program): number {
+function sizeScore(profile: PlayerProfile, program: Program): number | null {
+  if (program.schoolSize == null) return null;
   if (profile.schoolSizePreference === 'any') return 82;
   if (profile.schoolSizePreference === program.schoolSize) return 100;
   const wanted = SIZE_ORDER.indexOf(profile.schoolSizePreference);
@@ -179,9 +185,10 @@ function sizeScore(profile: PlayerProfile, program: Program): number {
   return Math.abs(wanted - actual) === 1 ? 55 : 25;
 }
 
-function costScore(profile: PlayerProfile, program: Program): number {
+function costScore(profile: PlayerProfile, program: Program): number | null {
   const { min, max } = profile.budget;
   const cost = program.estimatedNetCost;
+  if (cost == null) return null;
   const wide = max - min >= 50000;
   if (cost <= max && cost >= min) {
     if (wide) return 78;
@@ -194,7 +201,10 @@ function costScore(profile: PlayerProfile, program: Program): number {
   return roundScore(100 - over * 140);
 }
 
-function rosterMatch(profile: PlayerProfile, program: Program): { score: number; position: Position; spot: RosterCount } {
+function rosterMatch(
+  profile: PlayerProfile,
+  program: Program,
+): { score: number; position: Position; spot: RosterCount } | null {
   let best: { score: number; position: Position; spot: RosterCount } | null = null;
   for (const position of positionsInDisplayOrder(profile.positions, profile.primaryPosition)) {
     const spot = program.roster.find((row) => row.position === position);
@@ -206,10 +216,6 @@ function rosterMatch(profile: PlayerProfile, program: Program): { score: number;
     const rounded = roundScore(score);
     if (!best || rounded > best.score) best = { score: rounded, position, spot };
   }
-  if (!best) {
-    const spot = program.roster[0];
-    return { score: 0, position: spot.position, spot };
-  }
   return best;
 }
 
@@ -219,10 +225,10 @@ function leagueName(profile: PlayerProfile): string {
 
 function factorDetail(
   key: FitFactorKey,
-  score: number,
+  score: number | null,
   profile: PlayerProfile,
   program: Program,
-  roster: { position: Position; spot: RosterCount },
+  roster: { position: Position; spot: RosterCount } | null,
   playerHigher: boolean,
   chosenLevel: boolean,
 ): string {
@@ -230,6 +236,7 @@ function factorDetail(
   const home = program.state === profile.homeState;
   switch (key) {
     case 'roster':
+      if (!roster) return 'Roster counts are not published, so this factor was left out of the score.';
       if (roster.spot.graduating === 0) {
         return `No ${POSITION_PLURAL[roster.position]} are listed as graduating, so roster need is low.`;
       }
@@ -241,6 +248,9 @@ function factorDetail(
       if (home) return `${program.city} is in your home state.`;
       return `${program.city}, ${program.state} is outside the regions you picked.`;
     case 'cost':
+      if (program.estimatedNetCost == null) {
+        return 'Average net price is not published, so this factor was left out of the score.';
+      }
       if (profile.budget.max - profile.budget.min >= 50000) {
         return `Estimated net cost is ${formatMoney(program.estimatedNetCost)}. Your budget is still flexible.`;
       }
@@ -249,12 +259,21 @@ function factorDetail(
       }
       return `Estimated net cost is ${formatMoney(program.estimatedNetCost)}, above the budget you set.`;
     case 'academics':
+      if (score == null || program.academics.avgGpa == null) {
+        if (program.academics.avgSat != null || program.academics.avgAct != null) {
+          return 'Compared with the test-score average College Scorecard publishes.';
+        }
+        return 'Academic averages are not published, so this factor was left out of the score.';
+      }
       if (score >= 75) {
         return `Your GPA is in range of their typical admits (about ${program.academics.avgGpa.toFixed(1)}).`;
       }
       return `Academics are a stretch versus their typical GPA of ${program.academics.avgGpa.toFixed(1)}.`;
     case 'level': {
       const name = LEVEL_LABEL[programLevel(program)];
+      if (score == null) {
+        return 'This level was left out of the score.';
+      }
       if (chosenLevel && score >= 75) {
         return `${name} is a level you want, and it lines up with ${leagueName(profile)}.`;
       }
@@ -267,6 +286,9 @@ function factorDetail(
       return `${name} looks like a reach from ${leagueName(profile)}.`;
     }
     case 'size':
+      if (program.enrollment == null || program.schoolSize == null || score == null) {
+        return 'Enrollment is not published, so this factor was left out of the score.';
+      }
       if (score >= 80) {
         return `${program.enrollment.toLocaleString('en-US')} students matches the campus size you want.`;
       }
@@ -283,13 +305,13 @@ export function scoreProgram(profile: PlayerProfile, program: Program): FitResul
   const size = sizeScore(profile, program);
   const cost = costScore(profile, program);
   const roster = rosterMatch(profile, program);
-  const scores: Record<FitFactorKey, number> = {
+  const scores: Record<FitFactorKey, number | null> = {
     academics,
     level: level.score,
     region,
     size,
     cost,
-    roster: roster.score,
+    roster: roster?.score ?? null,
   };
 
   const factors: FitFactor[] = FIT_FACTORS.map((factor) => ({
@@ -301,19 +323,25 @@ export function scoreProgram(profile: PlayerProfile, program: Program): FitResul
   }));
 
   const ranked = [...factors].sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
+    const left = a.score ?? -1;
+    const right = b.score ?? -1;
+    if (right !== left) return right - left;
     return FIT_FACTORS.findIndex((factor) => factor.key === a.key) -
       FIT_FACTORS.findIndex((factor) => factor.key === b.key);
   });
 
   const life = matchingCampusLife(profile, program);
   const lifeBump = life.length === 0 ? 0 : Math.min(4, 2 + life.length);
+  const weight = factors.reduce((sum, factor) => sum + (factor.score == null ? 0 : WEIGHT[factor.key]), 0);
   const total = roundScore(
-    factors.reduce((sum, factor) => sum + factor.score * WEIGHT[factor.key], 0) + lifeBump,
+    (weight === 0
+      ? 0
+      : factors.reduce((sum, factor) => sum + (factor.score == null ? 0 : factor.score * WEIGHT[factor.key]), 0) /
+        weight) + lifeBump,
   );
 
   const lead = ranked[0];
-  const baseWhy = lead.score < 55 ? `Mixed fit. ${lead.detail}` : lead.detail;
+  const baseWhy = lead.score != null && lead.score < 55 ? `Mixed fit. ${lead.detail}` : lead.detail;
   const note = campusLifeNote(profile, program);
   const why = note ? `${baseWhy} ${note}` : baseWhy;
 
@@ -321,12 +349,13 @@ export function scoreProgram(profile: PlayerProfile, program: Program): FitResul
     total,
     factors,
     why,
-    rosterPosition: roster.position,
-    rosterSpot: roster.spot,
+    rosterPosition: roster?.position ?? null,
+    rosterSpot: roster?.spot ?? null,
   };
 }
 
 export function costCaption(profile: PlayerProfile, program: Program): string {
+  if (program.estimatedNetCost == null) return '';
   if (profile.budget.max - profile.budget.min >= 50000) return 'Flexible budget';
   if (program.estimatedNetCost <= profile.budget.max) return 'In budget';
   return 'Over budget';

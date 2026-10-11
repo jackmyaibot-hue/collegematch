@@ -7,7 +7,7 @@ import { FitBars } from '../../components/FitBars';
 import { AppText, Button, Pill, SampleBanner, StatusPill } from '../../components/ui';
 import { offersMajor, scoreProgram } from '../../data/fitScore';
 import { addDays, effectiveStatus, formatEnrollment, formatLongDate, formatMoney, formatPercent, isoToday, isIsoDate } from '../../data/format';
-import { instagramProfileUrl, recordLine } from '../../data/poster';
+import { instagramLinkLabel, instagramProfileUrl, recordLine } from '../../data/poster';
 import { OUTREACH_STATUSES, POSITION_LABEL, STATUS_LABEL, type OutreachStatus } from '../../data/types';
 import { openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
@@ -28,7 +28,7 @@ export default function SchoolScreen() {
   if (!profile || !program) {
     return (
       <View style={styles.missing}>
-        <AppText variant="title">That school is not in the sample catalog.</AppText>
+        <AppText variant="title">That school is not in the catalog.</AppText>
         <Button label="Back" kind="ghost" onPress={() => router.back()} />
       </View>
     );
@@ -74,11 +74,13 @@ export default function SchoolScreen() {
           {program.schoolName}
         </AppText>
         <AppText variant="body" color="#D5E6DC">
-          {program.mascot} · {program.city}, {program.state}
+          {[program.mascot, `${program.city}, ${program.state}`].filter(Boolean).join(' · ')}
         </AppText>
-        <AppText variant="caption" color="#D5E6DC">
-          {recordLine(program.record)} · {program.conferenceFinish}
-        </AppText>
+        {recordLine(program.record) || program.conferenceFinish ? (
+          <AppText variant="caption" color="#D5E6DC">
+            {[recordLine(program.record), program.conferenceFinish].filter(Boolean).join(' · ')}
+          </AppText>
+        ) : null}
       </View>
 
       <View style={styles.body}>
@@ -104,18 +106,24 @@ export default function SchoolScreen() {
 
         <AppText variant="headline">Campus and cost</AppText>
         <View style={styles.grid}>
-          <Fact label="Enrollment" value={formatEnrollment(program.enrollment)} />
-          <Fact label="Acceptance" value={formatPercent(program.acceptanceRate)} />
-          <Fact label="Est. net cost" value={formatMoney(program.estimatedNetCost)} />
-          <Fact label="Typical GPA" value={program.academics.avgGpa.toFixed(1)} />
-          <Fact label="Typical SAT" value={String(program.academics.avgSat)} />
-          <Fact label="Typical ACT" value={String(program.academics.avgAct)} />
+          {program.enrollment != null ? <Fact label="Enrollment" value={formatEnrollment(program.enrollment)} /> : null}
+          {program.acceptanceRate != null ? (
+            <Fact label="Acceptance" value={formatPercent(program.acceptanceRate)} />
+          ) : program.acceptanceLabel ? (
+            <Fact label="Acceptance" value={program.acceptanceLabel} />
+          ) : null}
+          {program.estimatedNetCost != null ? <Fact label="Est. net cost" value={formatMoney(program.estimatedNetCost)} /> : null}
+          {program.academics.avgGpa != null ? <Fact label="Typical GPA" value={program.academics.avgGpa.toFixed(1)} /> : null}
+          {program.academics.avgSat != null ? <Fact label="Typical SAT" value={String(program.academics.avgSat)} /> : null}
+          {program.academics.avgAct != null ? <Fact label="Typical ACT" value={String(program.academics.avgAct)} /> : null}
         </View>
         <AppText variant="caption">
-          Net cost is a fictional estimate of what a student might pay after aid, not a bill.
+          {program.sample
+            ? 'Net cost is a fictional estimate of what a student might pay after aid, not a bill.'
+            : 'Average net price is the College Scorecard figure, not a bill. Fields stay blank when a source did not publish them.'}
         </AppText>
 
-        <AppText variant="headline">Roster at your positions</AppText>
+        {program.roster.length > 0 ? <AppText variant="headline">Roster at your positions</AppText> : null}
         {profile.positions.map((position) => {
           const spot = program.roster.find((row) => row.position === position);
           if (!spot) return null;
@@ -134,35 +142,57 @@ export default function SchoolScreen() {
         })}
 
         <AppText variant="headline">Coaching staff</AppText>
+        {program.coaches.length === 0 ? (
+          <AppText variant="caption">No coaches were listed on the athletics page we checked.</AppText>
+        ) : null}
         {program.coaches.map((coach) => (
           <View key={coach.id} style={styles.coach}>
             <View style={styles.coachCopy}>
               <AppText variant="headline">{coach.name}</AppText>
               <AppText variant="caption">{coach.title}</AppText>
-              <AppText variant="caption">{coach.email}</AppText>
+              {coach.email ? <AppText variant="caption">{coach.email}</AppText> : <AppText variant="caption">No email published</AppText>}
             </View>
-            <Button
-              label="Write intro"
-              onPress={() =>
-                router.push({ pathname: '/outreach/[id]', params: { id: program.id, coach: coach.id } })
-              }
-            />
+            {coach.email ? (
+              <Button
+                label="Write intro"
+                onPress={() =>
+                  router.push({ pathname: '/outreach/[id]', params: { id: program.id, coach: coach.id } })
+                }
+              />
+            ) : null}
           </View>
         ))}
 
         <AppText variant="headline">Links</AppText>
-        <Button label="Recruiting questionnaire" kind="ghost" icon="open-outline" onPress={() => openExternal(program.questionnaireUrl)} />
-        <Button label="Admissions" kind="ghost" icon="open-outline" onPress={() => openExternal(program.admissionsUrl)} />
-        <Button label="Cost and aid" kind="ghost" icon="open-outline" onPress={() => openExternal(program.costUrl)} />
-        <Button label="Athletics site" kind="ghost" icon="open-outline" onPress={() => openExternal(program.athleticsUrl)} />
-        <Button
-          label={`Instagram @${program.instagramHandle}`}
-          kind="ghost"
-          icon="logo-instagram"
-          onPress={() => openExternal(instagramProfileUrl(program.instagramHandle))}
-        />
+        {program.questionnaireUrl ? (
+          <Button label="Recruiting questionnaire" kind="ghost" icon="open-outline" onPress={() => openExternal(program.questionnaireUrl!)} />
+        ) : null}
+        {program.admissionsUrl ? (
+          <Button label="Admissions" kind="ghost" icon="open-outline" onPress={() => openExternal(program.admissionsUrl!)} />
+        ) : null}
+        {program.costUrl ? (
+          <Button label="Cost and aid" kind="ghost" icon="open-outline" onPress={() => openExternal(program.costUrl!)} />
+        ) : null}
+        {program.athleticsUrl ? (
+          <Button label="Athletics site" kind="ghost" icon="open-outline" onPress={() => openExternal(program.athleticsUrl!)} />
+        ) : null}
+        {program.instagramHandle ? (
+          <Button
+            label={
+              program.instagramKind
+                ? `${instagramLinkLabel(program.instagramKind)} @${program.instagramHandle}`
+                : `Instagram @${program.instagramHandle}`
+            }
+            kind="ghost"
+            icon="logo-instagram"
+            onPress={() => openExternal(instagramProfileUrl(program.instagramHandle!))}
+          />
+        ) : null}
+        {program.lastVerified ? (
+          <AppText variant="caption">Sources last checked {formatLongDate(program.lastVerified)}.</AppText>
+        ) : null}
 
-        <AppText variant="headline">ID camps</AppText>
+        {program.idCamps.length > 0 ? <AppText variant="headline">ID camps</AppText> : null}
         {program.idCamps.map((camp) => {
           const upcoming = camp.date >= isoToday();
           return (

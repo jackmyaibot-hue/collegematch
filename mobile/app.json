@@ -2,6 +2,7 @@
   "expo": {
     "name": "CollegeMatch",
     "slug": "collegematch",
+    "owner": "jack.myaibot",
     "scheme": "collegematch",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +24,20 @@
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "CollegeMatch",
+      "shortName": "CollegeMatch",
+      "themeColor": "#0C3B2C",
+      "backgroundColor": "#F3F0E8",
+      "display": "standalone",
+      "startUrl": "/",
+      "scope": "/",
+      "barStyle": "default"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "40f835a6-bb9c-49be-80ce-9130f9b72f6f"
+      }
     },
     "plugins": [
       "expo-router",

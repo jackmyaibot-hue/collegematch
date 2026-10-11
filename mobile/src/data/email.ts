@@ -233,7 +233,7 @@ export function buildIntroEmail(
   return {
     subject,
     body,
-    to: coach.email,
+    to: coach.email ?? '',
     cc: profile.parentEmail || null,
   };
 }

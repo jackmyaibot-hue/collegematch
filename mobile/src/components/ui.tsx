@@ -12,7 +12,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { SAMPLE_LINE } from '../copy';
+import { REAL_LINE, SAMPLE_LINE } from '../copy';
+import { useSampleCatalog } from '../data/catalogMode';
 import { STATUS_LABEL, type OutreachStatus } from '../data/types';
 import { colors, radius, statusTone } from '../theme';
 
@@ -209,7 +210,7 @@ export function SampleBanner({ light = false }: { light?: boolean }) {
   return (
     <View style={[styles.banner, light && styles.bannerLight]}>
       <AppText variant="caption" color={light ? '#E7F3EC' : colors.sponsoredInk}>
-        {SAMPLE_LINE}
+        {useSampleCatalog ? SAMPLE_LINE : REAL_LINE}
       </AppText>
     </View>
   );

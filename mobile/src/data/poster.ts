@@ -11,7 +11,16 @@ export function instagramProfileUrl(handle: string): string {
   return `https://www.instagram.com/${clean}/`;
 }
 
-export function recordLine(record: TeamRecord): string {
+/** Short button label for a confirmed official account. */
+export function instagramLinkLabel(kind: 'team' | 'athletics' | 'school' | null | undefined): string {
+  if (kind === 'team') return 'Team IG';
+  if (kind === 'athletics') return 'Athletics IG';
+  if (kind === 'school') return 'School IG';
+  return 'Instagram';
+}
+
+export function recordLine(record: TeamRecord | null): string {
+  if (!record) return '';
   return `${record.wins}\u2013${record.losses}\u2013${record.ties}`;
 }
 
@@ -83,10 +92,12 @@ export function rosterOrigin(homeState: string, index: number): RosterOrigin {
   return { byState, byLeague };
 }
 
-export function playersFromState(origin: RosterOrigin, state: string): number {
+export function playersFromState(origin: RosterOrigin | null, state: string): number {
+  if (!origin) return 0;
   return origin.byState[state] ?? 0;
 }
 
-export function playersFromLeagues(origin: RosterOrigin, leagues: LeagueId[]): number {
+export function playersFromLeagues(origin: RosterOrigin | null, leagues: LeagueId[]): number {
+  if (!origin) return 0;
   return leagues.reduce((sum, id) => sum + (origin.byLeague[id] ?? 0), 0);
 }

@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { costCaption } from '../data/fitScore';
 import type { FitResult } from '../data/fitScore';
 import { formatEnrollment, formatMoney, formatPercent } from '../data/format';
-import { instagramProfileUrl, playersFromLeagues, playersFromState, recordLine } from '../data/poster';
+import { instagramLinkLabel, instagramProfileUrl, playersFromLeagues, playersFromState, recordLine } from '../data/poster';
 import { stateName } from '../data/regions';
 import { leagueById, positionsInDisplayOrder } from '../data/sports';
 import { POSITION_LABEL, type PlayerProfile, type Position, type Program, type RosterCount } from '../data/types';
@@ -27,7 +27,7 @@ export function ProgramCard({
   profile: PlayerProfile;
   onGalleryChange?: (open: boolean) => void;
 }) {
-  const photos = cardPhotos(program.photoSet);
+  const photos = program.photoSet == null ? [] : cardPhotos(program.photoSet);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [whyOpen, setWhyOpen] = useState(false);
   const division = divisionTone(program.division);
@@ -57,9 +57,11 @@ export function ProgramCard({
                 </AppText>
               </View>
             </View>
-            <AppText variant="label" color={accent} style={styles.mascot}>
-              {program.mascot}
-            </AppText>
+            {program.mascot ? (
+              <AppText variant="label" color={accent} style={styles.mascot}>
+                {program.mascot}
+              </AppText>
+            ) : null}
             <AppText variant="title" color="#F7F4EE" numberOfLines={2} style={styles.name}>
               {program.schoolName}
             </AppText>
@@ -76,70 +78,96 @@ export function ProgramCard({
                 {fit.total}
               </AppText>
             </View>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={`Photos, ${photos.length}`}
-              onPress={() => setGallery(true)}
-              style={({ pressed }) => [styles.photosChip, pressed && { opacity: 0.85 }]}
-            >
-              <Ionicons name="camera" size={15} color={colors.ink} />
-              <AppText variant="caption" color={colors.ink} style={styles.photosCount}>
-                {photos.length}
-              </AppText>
-            </Pressable>
+            {photos.length > 0 ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={`Photos, ${photos.length}`}
+                onPress={() => setGallery(true)}
+                style={({ pressed }) => [styles.photosChip, pressed && { opacity: 0.85 }]}
+              >
+                <Ionicons name="camera" size={15} color={colors.ink} />
+                <AppText variant="caption" color={colors.ink} style={styles.photosCount}>
+                  {photos.length}
+                </AppText>
+              </Pressable>
+            ) : null}
           </View>
         </View>
 
         <View style={styles.body}>
           <View style={styles.metaRow}>
             <Pill label={program.division} bg={division.bg} fg={division.fg} />
-            <AppText variant="caption" numberOfLines={1} style={styles.conference}>
-              {program.conference}
-            </AppText>
+            {program.conference ? (
+              <AppText variant="caption" numberOfLines={1} style={styles.conference}>
+                {program.conference}
+              </AppText>
+            ) : null}
           </View>
 
-          <View style={styles.metrics}>
-            <Metric label="Enrollment" value={formatEnrollment(program.enrollment)} />
-            <Metric label="Acceptance" value={formatPercent(program.acceptanceRate)} />
-            <Metric label="Net cost" value={formatMoney(program.estimatedNetCost)} hint={costCaption(profile, program)} />
-          </View>
-
-          <View style={styles.block}>
-            <AppText variant="label" color={colors.ink} style={styles.blockLabel}>
-              Your spot
-            </AppText>
-            {spots.map((spot) => (
-              <SpotMeter key={spot.position} spot={spot} color={primary} />
-            ))}
-          </View>
-
-          <View style={[styles.snapshot, { borderLeftColor: accent }]}>
-            <View style={styles.coachRow}>
-              <Image source={coachPortrait(program.coachPortrait)} style={styles.coachPhoto} />
-              <View style={styles.coachCopy}>
-                <AppText variant="headline" numberOfLines={1} style={styles.coachName}>
-                  {headCoach?.name ?? 'Head coach'}
-                </AppText>
-                <AppText variant="caption" numberOfLines={1}>
-                  Head coach · {program.headCoachYears} {program.headCoachYears === 1 ? 'year' : 'years'}
-                </AppText>
-              </View>
+          {program.enrollment != null || program.acceptanceRate != null || program.estimatedNetCost != null ? (
+            <View style={styles.metrics}>
+              {program.enrollment != null ? <Metric label="Enrollment" value={formatEnrollment(program.enrollment)} /> : null}
+              {program.acceptanceRate != null ? (
+                <Metric label="Acceptance" value={formatPercent(program.acceptanceRate)} />
+              ) : program.acceptanceLabel ? (
+                <Metric label="Acceptance" value={program.acceptanceLabel} />
+              ) : null}
+              {program.estimatedNetCost != null ? (
+                <Metric label="Net cost" value={formatMoney(program.estimatedNetCost)} hint={costCaption(profile, program)} />
+              ) : null}
             </View>
-            <AppText variant="caption" color={colors.ink} numberOfLines={2} style={styles.record}>
-              {recordLine(program.record)} · {program.conferenceFinish} · {program.postseason}
-            </AppText>
-            <AppText variant="caption" numberOfLines={1}>
-              {program.funFact}
-            </AppText>
-          </View>
+          ) : null}
+
+          {spots.length > 0 ? (
+            <View style={styles.block}>
+              <AppText variant="label" color={colors.ink} style={styles.blockLabel}>
+                Your spot
+              </AppText>
+              {spots.map((spot) => (
+                <SpotMeter key={spot.position} spot={spot} color={primary} />
+              ))}
+            </View>
+          ) : null}
+
+          {headCoach || program.record || program.funFact ? (
+            <View style={[styles.snapshot, { borderLeftColor: accent }]}>
+              {headCoach ? (
+                <View style={styles.coachRow}>
+                  {program.coachPortrait != null ? (
+                    <Image source={coachPortrait(program.coachPortrait)} style={styles.coachPhoto} />
+                  ) : null}
+                  <View style={styles.coachCopy}>
+                    <AppText variant="headline" numberOfLines={1} style={styles.coachName}>
+                      {headCoach.name}
+                    </AppText>
+                    <AppText variant="caption" numberOfLines={1}>
+                      {coachLine(headCoach.title, program.headCoachYears)}
+                    </AppText>
+                  </View>
+                </View>
+              ) : null}
+              {seasonLine(program) ? (
+                <AppText variant="caption" color={colors.ink} numberOfLines={2} style={styles.record}>
+                  {seasonLine(program)}
+                </AppText>
+              ) : null}
+              {program.funFact ? (
+                <AppText variant="caption" numberOfLines={1}>
+                  {program.funFact}
+                </AppText>
+              ) : null}
+            </View>
+          ) : null}
 
           <View style={styles.block}>
             <AppText variant="label" color={colors.ink} style={styles.blockLabel}>
               Could you play here?
             </AppText>
             <View style={styles.trio}>
-              <TrioStat value={String(fromHome)} label={`from ${stateName(profile.homeState)}`} />
-              <TrioStat value={String(fromLeagues)} label={leagueLabel} />
+              {program.rosterOrigin ? (
+                <TrioStat value={String(fromHome)} label={`from ${stateName(profile.homeState)}`} />
+              ) : null}
+              {program.rosterOrigin ? <TrioStat value={String(fromLeagues)} label={leagueLabel} /> : null}
               <TrioStat value={String(fit.total)} label="fit" />
             </View>
             <Pressable
@@ -164,33 +192,48 @@ export function ProgramCard({
           </View>
         </View>
       </ScrollView>
-      <View style={styles.links}>
-        <Pressable
-          accessibilityRole="link"
-          accessibilityLabel="Athletics webpage"
-          onPress={() => openExternal(program.athleticsUrl)}
-          style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
-        >
-          <Ionicons name="globe-outline" size={14} color={colors.ink} />
-          <AppText variant="caption" color={colors.ink} style={styles.linkText}>
-            Athletics
-          </AppText>
-        </Pressable>
-        <Pressable
-          accessibilityRole="link"
-          accessibilityLabel={`Instagram @${program.instagramHandle}`}
-          onPress={() => openExternal(instagramProfileUrl(program.instagramHandle))}
-          style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
-        >
-          <Ionicons name="logo-instagram" size={14} color={colors.ink} />
-          <AppText variant="caption" color={colors.ink} numberOfLines={1} style={styles.linkText}>
-            @{program.instagramHandle}
-          </AppText>
-        </Pressable>
-      </View>
+      {program.athleticsUrl || program.instagramHandle ? (
+        <View style={styles.links}>
+          {program.athleticsUrl ? (
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Athletics webpage"
+              onPress={() => openExternal(program.athleticsUrl!)}
+              style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
+            >
+              <Ionicons name="globe-outline" size={14} color={colors.ink} />
+              <AppText variant="caption" color={colors.ink} style={styles.linkText}>
+                Athletics
+              </AppText>
+            </Pressable>
+          ) : null}
+          {program.instagramHandle ? (
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel={`${instagramLinkLabel(program.instagramKind)} @${program.instagramHandle}`}
+              onPress={() => openExternal(instagramProfileUrl(program.instagramHandle!))}
+              style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
+            >
+              <Ionicons name="logo-instagram" size={14} color={colors.ink} />
+              <AppText variant="caption" color={colors.ink} numberOfLines={1} style={styles.linkText}>
+                {program.instagramKind ? instagramLinkLabel(program.instagramKind) : `@${program.instagramHandle}`}
+              </AppText>
+            </Pressable>
+          ) : null}
+        </View>
+      ) : null}
       <PhotoGallery visible={galleryOpen} photos={photos} schoolName={program.schoolName} onClose={() => setGallery(false)} />
     </View>
   );
+}
+
+function coachLine(title: string, years: number | null): string {
+  if (years == null) return title;
+  return `${title} · ${years} ${years === 1 ? 'year' : 'years'}`;
+}
+
+function seasonLine(program: Program): string {
+  return [recordLine(program.record), program.conferenceFinish, program.postseason].filter(Boolean).join(' · ');
 }
 
 function spotRows(program: Program, profile: PlayerProfile): RosterCount[] {
@@ -228,7 +271,7 @@ function Metric({ label, value, hint }: { label: string; value: string; hint?: s
       <AppText variant="label" style={styles.metricLabel}>
         {label}
       </AppText>
-      <AppText variant="headline" numberOfLines={1} style={styles.metricValue}>
+      <AppText variant="headline" numberOfLines={2} style={styles.metricValue}>
         {value}
       </AppText>
       {hint ? (
