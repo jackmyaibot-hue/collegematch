@@ -1,7 +1,7 @@
 import { buildDeck } from './deck';
 import { buildIntroEmail, mailtoUrl } from './email';
-import { effectiveStatus, emptyRecruiting } from './format';
-import { FIT_FACTORS, scoreProgram } from './fitScore';
+import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
+import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
@@ -112,6 +112,7 @@ const strong: PlayerProfile = {
   },
   highlightVideoUrl: 'https://video.example.com/maya-chen',
   gpa: 3.6,
+  gpaWeighted: false,
   sat: 1200,
   act: null,
   homeState: 'OR',
@@ -291,6 +292,7 @@ const draft: ProfileDraft = {
   highSchoolCoachPhone: '',
   highlightVideoUrl: 'https://video.example.com/maya',
   gpa: '3.6',
+  gpaWeighted: false,
   sat: '',
   act: '',
   homeState: 'OR',
@@ -354,6 +356,34 @@ if (northwind) {
   check(!namedEmail.body.toLowerCase().includes('club coach'), 'email should omit the club coach when that contact is empty');
 }
 check(profile.sat === null, 'blank SAT should be null');
+check(profile.gpaWeighted === false, 'GPA should default to unweighted');
+const weightedDraft: ProfileDraft = { ...draft, gpa: '4.3', gpaWeighted: true };
+check(Object.keys(validateDraft(weightedDraft)).length === 0, `weighted GPA 4.3 should be valid: ${JSON.stringify(validateDraft(weightedDraft))}`);
+check(Object.keys(validateDraft({ ...draft, gpa: '6' })).length === 0, 'GPA 6.0 should be valid');
+check(Boolean(validateDraft({ ...draft, gpa: '6.01' }).gpa), 'GPA above 6.0 should be rejected');
+check(Boolean(validateDraft({ ...draft, gpa: '3.555' }).gpa), 'GPA with more than two decimals should be rejected');
+check(formatGpa(4.3, true) === '4.3 weighted', 'weighted GPA should read 4.3 weighted');
+if (northwind) {
+  const weightedProfile = profileFromDraft(weightedDraft, 'player-gpa');
+  const weightedEmail = buildIntroEmail(weightedProfile, northwind, northwind.coaches[0], '2026-10-09');
+  check(weightedEmail.body.includes('GPA: 4.3 weighted'), 'coach email should show a weighted GPA');
+  const outside = buildIntroEmail(
+    { ...strong, positions: ['OB'], primaryPosition: 'OB' },
+    northwind,
+    northwind.coaches[0],
+    '2026-10-09',
+  );
+  check(outside.body.toLowerCase().includes('outside back'), 'email should name Outside Back');
+  check(!/fullback/i.test(outside.body) && outside.subject.includes('OB'), 'email should use OB, not Fullback');
+  const unweightedFour = scoreProgram({ ...strong, gpa: 4, gpaWeighted: false }, northwind);
+  const weightedHigh = scoreProgram({ ...strong, gpa: 4.3, gpaWeighted: true }, northwind);
+  const unweightedAcademics = unweightedFour.factors.find((factor) => factor.key === 'academics')?.score ?? -1;
+  const weightedAcademics = weightedHigh.factors.find((factor) => factor.key === 'academics')?.score ?? -1;
+  check(
+    weightedAcademics >= unweightedAcademics && comparableGpa(4.3, true) === 4,
+    'a weighted GPA from 4.0 to 5.0 should compare as a 4.0, not a penalty',
+  );
+}
 check(profile.leagues.includes('ecnl') && profile.leagues.includes('ga'), 'both leagues should be kept');
 check(profile.primaryPosition === 'CB', 'primary position should be kept');
 check(

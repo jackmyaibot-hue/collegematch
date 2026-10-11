@@ -47,18 +47,24 @@ type RawProgram = {
   lastVerified?: string;
 };
 
-const POSITIONS = new Set<Position>(['GK', 'CB', 'FB', 'DM', 'CM', 'W', 'ST']);
+const POSITIONS = new Set<Position>(['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST']);
 const DIVISIONS = new Set<Division>(['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA']);
 const JUCO = new Set<JucoDivision>(['D1', 'D2', 'D3']);
+
+function asPosition(value: string): Position | null {
+  const code = value === 'FB' ? 'OB' : value;
+  return POSITIONS.has(code as Position) ? (code as Position) : null;
+}
 
 function rosterRows(rows: RawRoster[] | undefined): RosterCount[] {
   if (!rows) return [];
   return rows.flatMap((row) => {
-    if (!row.position || !POSITIONS.has(row.position as Position)) return [];
+    const position = row.position ? asPosition(row.position) : null;
+    if (!position) return [];
     const count = row.count ?? 0;
     const graduating = row.graduating ?? 0;
     if (count < 1 || graduating < 0 || graduating > count) return [];
-    return [{ position: row.position as Position, count, graduating }];
+    return [{ position, count, graduating }];
   });
 }
 

@@ -454,8 +454,17 @@ export function AcademicFields({
         keyboardType="decimal-pad"
         placeholder="3.5"
         error={errors.gpa}
-        hint="4.0 scale. Unweighted is fine."
+        hint="0 to 6.0, up to two decimals. Weighted GPAs can go above 4.0, up to 5.0 or 6.0 at some schools."
       />
+      <AppText variant="label">GPA scale</AppText>
+      <Wrap>
+        <Chip
+          label="Unweighted"
+          selected={!draft.gpaWeighted}
+          onPress={() => onChange({ gpaWeighted: false })}
+        />
+        <Chip label="Weighted" selected={draft.gpaWeighted} onPress={() => onChange({ gpaWeighted: true })} />
+      </Wrap>
       <TextField
         label="SAT"
         value={draft.sat}

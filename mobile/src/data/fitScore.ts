@@ -115,10 +115,22 @@ export function playerLevel(profile: PlayerProfile): number {
   return clamp(strongestLeagueLevel(profile.leagues), 1.2, 5.2);
 }
 
+/**
+ * School averages are on a 4.0 scale. A weighted GPA from 4.0 to 5.0 is treated
+ * as a 4.0 so it is not scored as a stretch and is not pulled back under 4.0.
+ * Above 5.0, where some schools use a 6.0 scale, adds a small amount.
+ */
+export function comparableGpa(gpa: number, weighted: boolean): number {
+  if (!weighted || gpa <= 4) return gpa;
+  if (gpa <= 5) return 4;
+  return Math.min(4.5, 4 + (gpa - 5) * 0.5);
+}
+
 function academicsScore(profile: PlayerProfile, program: Program): number | null {
   const parts: number[] = [];
   if (program.academics.avgGpa != null) {
-    parts.push(clamp(88 + (profile.gpa - program.academics.avgGpa) * 40, 5, 100));
+    const gpa = comparableGpa(profile.gpa, profile.gpaWeighted);
+    parts.push(clamp(88 + (gpa - program.academics.avgGpa) * 40, 5, 100));
   }
   if (profile.sat != null && program.academics.avgSat != null) {
     parts.push(clamp(88 + (profile.sat - program.academics.avgSat) / 8, 5, 100));

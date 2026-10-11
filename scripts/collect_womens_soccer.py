@@ -57,7 +57,7 @@ USER_AGENT = (
 )
 FETCH_LOCK = threading.Lock()
 
-POSITIONS = ("GK", "CB", "FB", "DM", "CM", "W", "ST")
+POSITIONS = ("GK", "CB", "OB", "DM", "CM", "W", "ST")
 REVIVERS = {
     "Reactive",
     "ShallowReactive",
@@ -297,14 +297,24 @@ def find_roster_block(node: object) -> dict | None:
 
 
 def map_position(short: str | None, long: str | None) -> str | None:
-    text = (long or "").split("/")[0].strip().lower()
+    text = (long or "").split("/")[0].strip().lower().replace("-", " ")
     code = (short or "").split("/")[0].strip().upper()
     if "goalkeeper" in text or code in {"GK", "G"}:
         return "GK"
     if "center back" in text or "centre back" in text or code == "CB":
         return "CB"
-    if any(word in text for word in ("fullback", "outside back", "wing back", "wingback")) or code in {"FB", "WB", "OB"}:
-        return "FB"
+    outside = (
+        "fullback" in text
+        or "full back" in text
+        or "outside back" in text
+        or "wingback" in text
+        or "wing back" in text
+        or "left back" in text
+        or "right back" in text
+        or code in {"FB", "LB", "RB", "OB", "WB"}
+    )
+    if outside:
+        return "OB"
     if "defensive mid" in text or code in {"DM", "CDM"}:
         return "DM"
     if "winger" in text or text == "wing" or code == "W":

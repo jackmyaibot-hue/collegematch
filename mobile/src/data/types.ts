@@ -11,7 +11,7 @@
  * are included only when the collection script read them on a public staff page.
  */
 
-export const POSITIONS = ['GK', 'CB', 'FB', 'DM', 'CM', 'W', 'ST'] as const;
+export const POSITIONS = ['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST'] as const;
 export type Position = (typeof POSITIONS)[number];
 
 export const DIVISIONS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA'] as const;
@@ -188,8 +188,10 @@ export type PlayerProfile = {
   leagues: LeagueId[];
   stats: PlayerStats;
   highlightVideoUrl: string;
-  /** 4.0 scale. */
+  /** 0 to 6.0. Weighted scales can sit above 4.0. */
   gpa: number;
+  /** True when `gpa` includes honors or AP weighting. Defaults to unweighted. */
+  gpaWeighted: boolean;
   sat: number | null;
   act: number | null;
   /** USPS abbreviation, including DC. */
@@ -385,7 +387,7 @@ export type RecruitingState = {
 export const POSITION_LABEL: Record<Position, string> = {
   GK: 'Goalkeeper',
   CB: 'Center back',
-  FB: 'Fullback',
+  OB: 'Outside Back',
   DM: 'Defensive mid',
   CM: 'Center mid',
   W: 'Winger',
@@ -395,7 +397,7 @@ export const POSITION_LABEL: Record<Position, string> = {
 export const POSITION_PLURAL: Record<Position, string> = {
   GK: 'goalkeepers',
   CB: 'center backs',
-  FB: 'fullbacks',
+  OB: 'outside backs',
   DM: 'defensive mids',
   CM: 'center mids',
   W: 'wingers',

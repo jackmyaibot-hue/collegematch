@@ -98,7 +98,7 @@ TypeScript types live in `mobile/src/data/types.ts`. The important records:
 | `SavedProgram` | Save time, outreach status, follow-up date, and the last email draft. |
 | `RecruitingState` | Saved programs, passes, and sponsor saves or dismissals. |
 
-Soccer positions are `GK`, `CB`, `FB`, `DM`, `CM`, `W`, and `ST`. Other sports keep an empty position and league list in `mobile/src/data/sports.ts` until they have a catalog. Divisions are `NCAA D1`, `NCAA D2`, `NCAA D3`, `NAIA`, and `NJCAA`.
+Soccer positions are `GK`, `CB`, `OB` (Outside Back), `DM`, `CM`, `W`, and `ST`. Roster labels FB, LB, RB, OB, Outside Back, and Wingback count as Outside Back. Other sports keep an empty position and league list in `mobile/src/data/sports.ts` until they have a catalog. Divisions are `NCAA D1`, `NCAA D2`, `NCAA D3`, `NAIA`, and `NJCAA`.
 
 Girls maps to women's programs and boys maps to men's. Prefer not to say does not filter by side. A sport and side with no programs shows a coming-soon screen.
 

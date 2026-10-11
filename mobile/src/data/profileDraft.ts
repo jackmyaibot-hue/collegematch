@@ -55,6 +55,8 @@ export type ProfileDraft = {
   highSchoolCoachPhone: string;
   highlightVideoUrl: string;
   gpa: string;
+  /** False is unweighted, the default. */
+  gpaWeighted: boolean;
   sat: string;
   act: string;
   homeState: string;
@@ -108,6 +110,7 @@ export function emptyDraft(): ProfileDraft {
     highSchoolCoachPhone: '',
     highlightVideoUrl: '',
     gpa: '',
+    gpaWeighted: false,
     sat: '',
     act: '',
     homeState: '',
@@ -159,6 +162,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     highSchoolCoachPhone: profile.stats.highSchoolCoach?.phone ?? '',
     highlightVideoUrl: profile.highlightVideoUrl,
     gpa: String(profile.gpa),
+    gpaWeighted: profile.gpaWeighted === true,
     sat: profile.sat == null ? '' : String(profile.sat),
     act: profile.act == null ? '' : String(profile.act),
     homeState: profile.homeState,
@@ -279,9 +283,10 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
     errors.highlightVideoUrl = 'Start the link with http:// or https://, or leave it blank.';
   }
 
-  const gpa = Number(draft.gpa);
-  if (draft.gpa.trim() === '' || !Number.isFinite(gpa) || gpa < 0 || gpa > 4) {
-    errors.gpa = 'Enter a GPA from 0.0 to 4.0.';
+  const gpaText = draft.gpa.trim();
+  const gpa = Number(gpaText);
+  if (!/^\d{1,2}(\.\d{1,2})?$/.test(gpaText) || !Number.isFinite(gpa) || gpa < 0 || gpa > 6) {
+    errors.gpa = 'Enter a GPA from 0 to 6.0, with up to two decimals.';
   }
   if (draft.sat.trim() !== '') {
     const sat = parseIntField(draft.sat);
@@ -368,6 +373,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     },
     highlightVideoUrl: draft.highlightVideoUrl.trim(),
     gpa: Math.round(Number(draft.gpa) * 100) / 100,
+    gpaWeighted: draft.gpaWeighted,
     sat: draft.sat.trim() === '' ? null : Number(draft.sat),
     act: draft.act.trim() === '' ? null : Number(draft.act),
     homeState: draft.homeState,

@@ -1,5 +1,5 @@
 import { matchingCampusLife } from './fitScore';
-import { formatLongDate, isoToday, joinLabels } from './format';
+import { formatGpa, formatLongDate, isoToday, joinLabels } from './format';
 import { stateName } from './regions';
 import { dominantSidePhrase, leagueShortList, positionsInDisplayOrder, programSidePhrase } from './sports';
 import {
@@ -214,7 +214,7 @@ export function buildIntroEmail(
     '',
     coaches,
     film,
-    `GPA: ${profile.gpa.toFixed(2)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
+    `GPA: ${formatGpa(profile.gpa, profile.gpaWeighted)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
     honorsSentence(profile.honors) ?? '',
     personalSentence(profile) ?? '',
     '',

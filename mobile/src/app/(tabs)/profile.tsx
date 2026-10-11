@@ -13,7 +13,7 @@ import {
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { PRIVACY_LINE } from '../../copy';
 import { FIT_FACTORS } from '../../data/fitScore';
-import { formatLongDate, joinLabels } from '../../data/format';
+import { formatGpa, formatLongDate, joinLabels } from '../../data/format';
 import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
 import { dominantSideDisplay, GENDER_LABEL, leagueNameList, positionSlash, SPORT_LABEL } from '../../data/sports';
 import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
@@ -121,7 +121,7 @@ export default function ProfileScreen() {
             <Row label="Club coach" value={contactSummary(profile.stats.clubCoach)} />
             <Row label="High school coach" value={contactSummary(profile.stats.highSchoolCoach)} />
             <Row label="Leagues" value={leagueNameList(profile.leagues)} />
-            <Row label="GPA" value={profile.gpa.toFixed(2)} />
+            <Row label="GPA" value={formatGpa(profile.gpa, profile.gpaWeighted)} />
             <Row label="Tests" value={tests(profile.sat, profile.act)} />
             <Row label="Majors" value={joinLabels(profile.intendedMajors)} />
             <Row label="Honors" value={honorSummary(profile)} />

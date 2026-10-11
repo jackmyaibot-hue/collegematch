@@ -16,7 +16,7 @@ import {
 } from '../components/ProfileFields';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
-import { joinLabels } from '../data/format';
+import { formatGpa, joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
 import { stateName } from '../data/regions';
 import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
@@ -309,7 +309,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />
         <Line label="High school coach" value={hs || 'Not added'} />
         <Line label="Highlight" value={draft.highlightVideoUrl || 'Not added'} />
-        <Line label="GPA" value={draft.gpa} />
+        <Line label="GPA" value={draft.gpa.trim() ? formatGpa(Number(draft.gpa), draft.gpaWeighted) : ''} />
         <Line label="Majors" value={joinLabels(majorsFromDraft(draft))} />
         <Line label="Honors" value={honorLine(draft)} />
         <Line label="Proud of" value={draft.proudOf.trim() || 'Not added'} />
