@@ -44,7 +44,7 @@ type SchoolSeed = {
 const BASE_COUNT: Record<Position, number> = {
   GK: 3,
   CB: 6,
-  FB: 4,
+  OB: 4,
   DM: 3,
   CM: 5,
   W: 4,
@@ -298,7 +298,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Camila Reyes', 'Head Coach'],
       ['Harper Quinn', 'Assistant Coach'],
     ],
-    hot: ['ST', 'FB'],
+    hot: ['ST', 'OB'],
   },
   {
     id: 'redbird-state',
@@ -358,7 +358,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Aisha Rahman', 'Head Coach'],
       ['Grace Holloway', 'Associate Head Coach'],
     ],
-    hot: ['FB', 'CM'],
+    hot: ['OB', 'CM'],
   },
   {
     id: 'goldfinch',
@@ -418,7 +418,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Leila Haddad', 'Head Coach'],
       ['Samira Cole', 'Assistant Coach'],
     ],
-    hot: ['DM', 'FB'],
+    hot: ['DM', 'OB'],
   },
   {
     id: 'sunridge',
@@ -478,7 +478,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Tessa Brooks', 'Head Coach'],
       ['Imani Blake', 'Assistant Coach'],
     ],
-    hot: ['FB', 'W'],
+    hot: ['OB', 'W'],
   },
   {
     id: 'whitecap',
@@ -558,7 +558,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Valentina Cruz', 'Head Coach'],
       ['Paige Moreau', 'Assistant Coach'],
     ],
-    hot: ['W', 'FB'],
+    hot: ['W', 'OB'],
   },
   {
     id: 'stonebridge',
@@ -618,7 +618,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Beatrix Lang', 'Head Coach'],
       ['Ophelia Grant', 'Assistant Coach'],
     ],
-    hot: ['CM', 'FB'],
+    hot: ['CM', 'OB'],
   },
   {
     id: 'lantern',
@@ -678,7 +678,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Cora Blake', 'Head Coach'],
       ['Laila Haddad', 'Assistant Coach'],
     ],
-    hot: ['FB', 'CM'],
+    hot: ['OB', 'CM'],
   },
   {
     id: 'sable-hill',
@@ -738,7 +738,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Adele March', 'Head Coach'],
       ['Nkechi Okafor', 'Goalkeeper Coach'],
     ],
-    hot: ['GK', 'FB'],
+    hot: ['GK', 'OB'],
   },
   {
     id: 'glasslake',
@@ -818,7 +818,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Quinn Alvarez', 'Head Coach'],
       ['Marisol Vega', 'Assistant Coach'],
     ],
-    hot: ['ST', 'FB'],
+    hot: ['ST', 'OB'],
   },
   {
     id: 'riverknot',
@@ -858,7 +858,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Brynn Callahan', 'Head Coach'],
       ['Amelie Dubois', 'Assistant Coach'],
     ],
-    hot: ['FB', 'W'],
+    hot: ['OB', 'W'],
   },
   {
     id: 'orchard-state',
@@ -958,7 +958,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Avery Quinn', 'Head Coach'],
       ['Rosa Delgado', 'Assistant Coach'],
     ],
-    hot: ['CM', 'FB'],
+    hot: ['CM', 'OB'],
   },
   {
     id: 'valleyford',
@@ -998,7 +998,7 @@ const SCHOOLS: SchoolSeed[] = [
       ['Emery Walsh', 'Head Coach'],
       ['Fatima Diallo', 'Assistant Coach'],
     ],
-    hot: ['FB', 'W'],
+    hot: ['OB', 'W'],
   },
   {
     id: 'harborline',

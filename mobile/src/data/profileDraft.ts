@@ -55,6 +55,8 @@ export type ProfileDraft = {
   highSchoolCoachPhone: string;
   highlightVideoUrl: string;
   gpa: string;
+  /** False is unweighted, the default. */
+  gpaWeighted: boolean;
   sat: string;
   act: string;
   homeState: string;
@@ -108,6 +110,7 @@ export function emptyDraft(): ProfileDraft {
     highSchoolCoachPhone: '',
     highlightVideoUrl: '',
     gpa: '',
+    gpaWeighted: false,
     sat: '',
     act: '',
     homeState: '',
@@ -159,6 +162,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     highSchoolCoachPhone: profile.stats.highSchoolCoach?.phone ?? '',
     highlightVideoUrl: profile.highlightVideoUrl,
     gpa: String(profile.gpa),
+    gpaWeighted: profile.gpaWeighted === true,
     sat: profile.sat == null ? '' : String(profile.sat),
     act: profile.act == null ? '' : String(profile.act),
     homeState: profile.homeState,
@@ -233,18 +237,11 @@ function applyContactErrors(
   errors: FieldErrors,
   prefix: 'clubCoach' | 'highSchoolCoach',
   draft: ProfileDraft,
-  required: boolean,
 ) {
-  const name = draft[`${prefix}Name`];
   const email = draft[`${prefix}Email`];
   const phone = draft[`${prefix}Phone`];
-  const started = name.trim() !== '' || email.trim() !== '' || phone.trim() !== '';
-  if (!required && !started) return;
-  if (name.trim().length < 2) errors[`${prefix}Name`] = 'Add their name.';
-  if (!email.trim()) errors[`${prefix}Email`] = 'Add their email.';
-  else if (!validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
-  if (required && !phone.trim()) errors[`${prefix}Phone`] = 'Add their phone number.';
-  else if (phone.trim() && !validPhone(phone)) {
+  if (email.trim() && !validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
+  if (phone.trim() && !validPhone(phone)) {
     errors[`${prefix}Phone`] = 'Use a phone number with at least 7 digits.';
   }
 }
@@ -278,17 +275,18 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
-  applyContactErrors(errors, 'clubCoach', draft, true);
-  applyContactErrors(errors, 'highSchoolCoach', draft, false);
+  applyContactErrors(errors, 'clubCoach', draft);
+  applyContactErrors(errors, 'highSchoolCoach', draft);
 
   const highlight = draft.highlightVideoUrl.trim();
   if (highlight && !/^https?:\/\//i.test(highlight)) {
     errors.highlightVideoUrl = 'Start the link with http:// or https://, or leave it blank.';
   }
 
-  const gpa = Number(draft.gpa);
-  if (draft.gpa.trim() === '' || !Number.isFinite(gpa) || gpa < 0 || gpa > 4) {
-    errors.gpa = 'Enter a GPA from 0.0 to 4.0.';
+  const gpaText = draft.gpa.trim();
+  const gpa = Number(gpaText);
+  if (!/^\d{1,2}(\.\d{1,2})?$/.test(gpaText) || !Number.isFinite(gpa) || gpa < 0 || gpa > 6) {
+    errors.gpa = 'Enter a GPA from 0 to 6.0, with up to two decimals.';
   }
   if (draft.sat.trim() !== '') {
     const sat = parseIntField(draft.sat);
@@ -375,6 +373,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     },
     highlightVideoUrl: draft.highlightVideoUrl.trim(),
     gpa: Math.round(Number(draft.gpa) * 100) / 100,
+    gpaWeighted: draft.gpaWeighted,
     sat: draft.sat.trim() === '' ? null : Number(draft.sat),
     act: draft.act.trim() === '' ? null : Number(draft.act),
     homeState: draft.homeState,

@@ -19,6 +19,15 @@ export function formatPercent(rate: number): string {
   return `${Math.round(rate * 100)}%`;
 }
 
+/** "4.3" or "4.3 weighted". Trailing zeros after the decimal are dropped. */
+export function formatGpa(gpa: number, weighted = false): string {
+  const rounded = Math.round(gpa * 100) / 100;
+  const [whole, frac = ''] = rounded.toFixed(2).split('.');
+  const trimmed = frac.replace(/0+$/, '');
+  const number = trimmed ? `${whole}.${trimmed}` : whole;
+  return weighted ? `${number} weighted` : number;
+}
+
 export function formatEnrollment(count: number): string {
   return count.toLocaleString('en-US');
 }

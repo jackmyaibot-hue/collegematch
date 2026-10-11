@@ -5,6 +5,7 @@ import {
   CAMPUS_LIFE,
   LEAGUE_IDS,
   LEVEL_PREFS,
+  POSITIONS,
   SPORTS,
   type AthleteGender,
   type DominantSide,
@@ -134,14 +135,24 @@ function readMajors(raw: PlayerProfile & { intendedMajor?: string }): string[] {
   return [];
 }
 
+function readPositions(value: unknown): Position[] {
+  if (!Array.isArray(value)) return ['CB'];
+  const mapped = value.map((item) => (item === 'FB' ? 'OB' : item));
+  const positions = mapped.filter(
+    (item): item is Position => typeof item === 'string' && (POSITIONS as readonly string[]).includes(item),
+  );
+  return positions.length > 0 ? positions : ['CB'];
+}
+
 /** Older profiles stored one league string and no sport, birthday, or gender. */
 function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?: string }): PlayerProfile {
   const legacy = raw.league;
   const fromLegacy: LeagueId[] =
     legacy === 'ECNL' ? ['ecnl'] : legacy === 'Girls Academy' ? ['ga'] : legacy === 'other' ? ['other'] : [];
   const leagues = Array.isArray(raw.leagues) ? raw.leagues.filter(isLeagueId) : fromLegacy;
-  const positions = Array.isArray(raw.positions) && raw.positions.length > 0 ? raw.positions : (['CB'] as Position[]);
-  const primary = positions.includes(raw.primaryPosition) ? raw.primaryPosition : positions[0];
+  const positions = readPositions(raw.positions);
+  const storedPrimary = String(raw.primaryPosition) === 'FB' ? 'OB' : raw.primaryPosition;
+  const primary = positions.includes(storedPrimary) ? storedPrimary : positions[0];
   return {
     ...raw,
     sport: isSport(raw.sport) ? raw.sport : 'soccer',
@@ -150,6 +161,7 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
     leagues: leagues.length > 0 ? leagues : ['other'],
     positions,
     primaryPosition: primary,
+    gpaWeighted: raw.gpaWeighted === true,
     stats: readStats(raw),
     intendedMajors: readMajors(raw),
     honors: readHonors(raw.honors),
