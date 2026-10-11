@@ -325,6 +325,34 @@ check(profile.stats.jerseyNumber === 4, 'jersey number should be kept');
 check(profile.stats.yearsAtLevel === 3, 'years at league level should be kept');
 check(profile.stats.clubCoach.email === 'jordan@club.example.com', 'club coach email should be kept');
 check(profile.stats.highSchoolCoach.name === '', 'blank high school coach should stay blank');
+
+const noCoaches: ProfileDraft = {
+  ...draft,
+  clubCoachName: '',
+  clubCoachEmail: '',
+  clubCoachPhone: '',
+  highSchoolCoachName: '',
+  highSchoolCoachEmail: '',
+  highSchoolCoachPhone: '',
+};
+check(Object.keys(validateDraft(noCoaches)).length === 0, `coach step should allow every field to stay blank: ${JSON.stringify(validateDraft(noCoaches))}`);
+const nameOnly: ProfileDraft = { ...noCoaches, highSchoolCoachName: 'Pat Nguyen' };
+check(
+  validateDraft(nameOnly).highSchoolCoachEmail == null && validateDraft(nameOnly).highSchoolCoachName == null,
+  'a high school coach name should not require an email',
+);
+check(Boolean(validateDraft({ ...noCoaches, clubCoachEmail: 'not-an-email' }).clubCoachEmail), 'a filled-in coach email should be checked');
+check(Boolean(validateDraft({ ...noCoaches, clubCoachPhone: '12' }).clubCoachPhone), 'a filled-in coach phone should be checked');
+check(!validateDraft({ ...noCoaches, clubCoachEmail: 'coach@club.example.com' }).clubCoachEmail, 'a real-looking coach email should pass');
+if (northwind) {
+  const skipped = profileFromDraft(noCoaches, 'player-skip');
+  const skippedEmail = buildIntroEmail(skipped, northwind, northwind.coaches[0], '2026-10-09');
+  check(!/club coach|high school coach/i.test(skippedEmail.body), 'email should omit coach references when none were added');
+  const namedOnly = profileFromDraft(nameOnly, 'player-hs');
+  const namedEmail = buildIntroEmail(namedOnly, northwind, northwind.coaches[0], '2026-10-09');
+  check(namedEmail.body.includes('My high school coach is Pat Nguyen.'), 'email should name a coach who has no email');
+  check(!namedEmail.body.toLowerCase().includes('club coach'), 'email should omit the club coach when that contact is empty');
+}
 check(profile.sat === null, 'blank SAT should be null');
 check(profile.leagues.includes('ecnl') && profile.leagues.includes('ga'), 'both leagues should be kept');
 check(profile.primaryPosition === 'CB', 'primary position should be kept');

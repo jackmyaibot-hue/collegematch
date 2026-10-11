@@ -320,23 +320,31 @@ export function CoachFields({
   draft,
   onChange,
   errors,
+  showLaterNote = false,
 }: {
   draft: ProfileDraft;
   onChange: (patch: Partial<ProfileDraft>) => void;
   errors: FieldErrors;
+  /** Onboarding only. Profile edit is already the place to add them later. */
+  showLaterNote?: boolean;
 }) {
   return (
     <View>
       <AppText variant="body" style={styles.help}>
-        College coaches often call the people who coach you now.
+        Optional. Add a club coach, a high school coach, or leave both blank.
       </AppText>
+      {showLaterNote ? (
+        <AppText variant="caption" style={styles.help}>
+          You can add this later from Profile.
+        </AppText>
+      ) : null}
       <AppText variant="label">Club coach</AppText>
       <TextField
         label="Name"
         value={draft.clubCoachName}
         onChangeText={(clubCoachName) => onChange({ clubCoachName })}
         autoCapitalize="words"
-        placeholder="Jordan Lee"
+        placeholder="Optional"
         error={errors.clubCoachName}
       />
       <TextField
@@ -346,7 +354,7 @@ export function CoachFields({
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="email-address"
-        placeholder="coach@club.example.com"
+        placeholder="Optional"
         error={errors.clubCoachEmail}
       />
       <TextField
@@ -354,14 +362,11 @@ export function CoachFields({
         value={draft.clubCoachPhone}
         onChangeText={(clubCoachPhone) => onChange({ clubCoachPhone })}
         keyboardType="phone-pad"
-        placeholder="503-555-0142"
+        placeholder="Optional"
         error={errors.clubCoachPhone}
       />
       <AppText variant="label" style={styles.section}>
         High school coach
-      </AppText>
-      <AppText variant="caption" style={styles.help}>
-        Optional if you only play club.
       </AppText>
       <TextField
         label="Name"

@@ -233,18 +233,11 @@ function applyContactErrors(
   errors: FieldErrors,
   prefix: 'clubCoach' | 'highSchoolCoach',
   draft: ProfileDraft,
-  required: boolean,
 ) {
-  const name = draft[`${prefix}Name`];
   const email = draft[`${prefix}Email`];
   const phone = draft[`${prefix}Phone`];
-  const started = name.trim() !== '' || email.trim() !== '' || phone.trim() !== '';
-  if (!required && !started) return;
-  if (name.trim().length < 2) errors[`${prefix}Name`] = 'Add their name.';
-  if (!email.trim()) errors[`${prefix}Email`] = 'Add their email.';
-  else if (!validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
-  if (required && !phone.trim()) errors[`${prefix}Phone`] = 'Add their phone number.';
-  else if (phone.trim() && !validPhone(phone)) {
+  if (email.trim() && !validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
+  if (phone.trim() && !validPhone(phone)) {
     errors[`${prefix}Phone`] = 'Use a phone number with at least 7 digits.';
   }
 }
@@ -278,8 +271,8 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
-  applyContactErrors(errors, 'clubCoach', draft, true);
-  applyContactErrors(errors, 'highSchoolCoach', draft, false);
+  applyContactErrors(errors, 'clubCoach', draft);
+  applyContactErrors(errors, 'highSchoolCoach', draft);
 
   const highlight = draft.highlightVideoUrl.trim();
   if (highlight && !/^https?:\/\//i.test(highlight)) {

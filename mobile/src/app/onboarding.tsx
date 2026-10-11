@@ -232,7 +232,10 @@ export default function OnboardingScreen() {
       <Screen
         scroll
         footer={
-          <Button label={step === 'review' ? 'Show my matches' : 'Continue'} onPress={forward} />
+          <View style={step === 'coaches' ? styles.footerStack : undefined}>
+            <Button label={step === 'review' ? 'Show my matches' : 'Continue'} onPress={forward} />
+            {step === 'coaches' ? <Button label="Skip for now" kind="ghost" onPress={forward} /> : null}
+          </View>
         }
       >
         <View style={[styles.stepHead, toolsClearance ? { paddingRight: toolsClearance } : null]}>
@@ -269,7 +272,9 @@ export default function OnboardingScreen() {
             ) : null}
             {step === 'soccer' ? <SoccerFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'game' ? <GameFields draft={draft} onChange={patch} errors={errors} /> : null}
-            {step === 'coaches' ? <CoachFields draft={draft} onChange={patch} errors={errors} /> : null}
+            {step === 'coaches' ? (
+              <CoachFields draft={draft} onChange={patch} errors={errors} showLaterNote />
+            ) : null}
             {step === 'academics' ? <AcademicFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'about' ? <AboutFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'preferences' ? <PreferenceFields draft={draft} onChange={patch} errors={errors} /> : null}
@@ -301,7 +306,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
         <Line label="Years at level" value={draft.yearsAtLevel} />
-        <Line label="Club coach" value={draft.clubCoachName} />
+        <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />
         <Line label="High school coach" value={hs || 'Not added'} />
         <Line label="Highlight" value={draft.highlightVideoUrl || 'Not added'} />
         <Line label="GPA" value={draft.gpa} />
@@ -400,6 +405,7 @@ const styles = StyleSheet.create({
   stepHead: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 },
   progress: { flex: 1 },
   stepTitle: { marginBottom: 18 },
+  footerStack: { gap: 4 },
   reviewLead: { marginTop: 8, marginBottom: 16 },
   reviewCard: {
     backgroundColor: colors.white,
