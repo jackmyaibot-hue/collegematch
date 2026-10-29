@@ -5,6 +5,7 @@ import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildIntroEmail, mailtoUrl } from '../../data/email';
+import { trackUsage } from '../../data/usage';
 import { addDays, isoToday } from '../../data/format';
 import { openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
@@ -26,7 +27,7 @@ export default function OutreachScreen() {
   const coach = program?.coaches.find((item) => item.id === coachId) ?? program?.coaches[0];
 
   const generated = useMemo(() => {
-    if (!profile || !program || !coach) return null;
+    if (!profile || !program || !coach?.email) return null;
     return buildIntroEmail(profile, program, coach);
   }, [profile, program, coach]);
 
@@ -38,7 +39,7 @@ export default function OutreachScreen() {
   if (!profile || !program || !coach || !generated) {
     return (
       <View style={styles.missing}>
-        <AppText variant="title">This intro needs a saved sample school.</AppText>
+        <AppText variant="title">This intro needs a school with a published coach email.</AppText>
         <Button label="Back" onPress={() => router.back()} />
       </View>
     );
@@ -56,11 +57,13 @@ export default function OutreachScreen() {
   }
 
   async function send() {
-    const email = { subject: subject.trim(), body: body.trim(), to: coach!.email, cc: profile!.parentEmail || null };
+    if (!coach?.email) return;
+    const email = { subject: subject.trim(), body: body.trim(), to: coach.email, cc: profile!.parentEmail || null };
     if (!email.subject || !email.body) {
       setNote('Add a subject and a message before opening mail.');
       return;
     }
+    trackUsage('email');
     const opened = await openExternal(mailtoUrl(email));
     if (saved?.status === 'replied') {
       await setOutreach(program!.id, { coachId: coach!.id, subject: email.subject, body: email.body });
@@ -97,7 +100,9 @@ export default function OutreachScreen() {
       <SampleBanner />
       <View style={styles.warning}>
         <AppText variant="caption" color={colors.sponsoredInk}>
-          Sample coach address ({coach.email}). It will not reach a real person.
+          {program.sample
+            ? `Sample coach address (${coach.email}). It will not reach a real person.`
+            : `Published staff address (${coach.email}). Check it on the athletics site before you send.`}
         </AppText>
       </View>
       <AppText variant="label">Coach</AppText>

@@ -93,9 +93,9 @@ export function IdentityFields({
         error={errors.birthdate}
         hint="Stays on this phone. Used so programs match your class."
       />
-      <AppText variant="label">Girls or boys programs</AppText>
+      <AppText variant="label">Gender</AppText>
       <AppText variant="caption" style={styles.help}>
-        Girls matches women's programs. Boys matches men's. Prefer not to say shows both.
+        Required. Female matches women's programs. Male matches men's programs.
       </AppText>
       <Wrap>
         {GENDER_OPTIONS.map((option) => (
@@ -320,23 +320,31 @@ export function CoachFields({
   draft,
   onChange,
   errors,
+  showLaterNote = false,
 }: {
   draft: ProfileDraft;
   onChange: (patch: Partial<ProfileDraft>) => void;
   errors: FieldErrors;
+  /** Onboarding only. Profile edit is already the place to add them later. */
+  showLaterNote?: boolean;
 }) {
   return (
     <View>
       <AppText variant="body" style={styles.help}>
-        College coaches often call the people who coach you now.
+        Optional. Add a club coach, a high school coach, or leave both blank.
       </AppText>
+      {showLaterNote ? (
+        <AppText variant="caption" style={styles.help}>
+          You can add this later from Profile.
+        </AppText>
+      ) : null}
       <AppText variant="label">Club coach</AppText>
       <TextField
         label="Name"
         value={draft.clubCoachName}
         onChangeText={(clubCoachName) => onChange({ clubCoachName })}
         autoCapitalize="words"
-        placeholder="Jordan Lee"
+        placeholder="Optional"
         error={errors.clubCoachName}
       />
       <TextField
@@ -346,7 +354,7 @@ export function CoachFields({
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="email-address"
-        placeholder="coach@club.example.com"
+        placeholder="Optional"
         error={errors.clubCoachEmail}
       />
       <TextField
@@ -354,14 +362,11 @@ export function CoachFields({
         value={draft.clubCoachPhone}
         onChangeText={(clubCoachPhone) => onChange({ clubCoachPhone })}
         keyboardType="phone-pad"
-        placeholder="503-555-0142"
+        placeholder="Optional"
         error={errors.clubCoachPhone}
       />
       <AppText variant="label" style={styles.section}>
         High school coach
-      </AppText>
-      <AppText variant="caption" style={styles.help}>
-        Optional if you only play club.
       </AppText>
       <TextField
         label="Name"
@@ -449,8 +454,17 @@ export function AcademicFields({
         keyboardType="decimal-pad"
         placeholder="3.5"
         error={errors.gpa}
-        hint="4.0 scale. Unweighted is fine."
+        hint="0 to 6.0, up to two decimals. Weighted GPAs can go above 4.0, up to 5.0 or 6.0 at some schools."
       />
+      <AppText variant="label">GPA scale</AppText>
+      <Wrap>
+        <Chip
+          label="Unweighted"
+          selected={!draft.gpaWeighted}
+          onPress={() => onChange({ gpaWeighted: false })}
+        />
+        <Chip label="Weighted" selected={draft.gpaWeighted} onPress={() => onChange({ gpaWeighted: true })} />
+      </Wrap>
       <TextField
         label="SAT"
         value={draft.sat}

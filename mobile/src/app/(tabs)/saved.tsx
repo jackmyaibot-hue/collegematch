@@ -40,7 +40,7 @@ export default function SavedScreen() {
       {!hasCatalog ? (
         <ComingSoon
           sport={profile.sport}
-          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'girls' })}
+          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'female' })}
         />
       ) : saved.length === 0 ? (
         <View style={styles.empty}>

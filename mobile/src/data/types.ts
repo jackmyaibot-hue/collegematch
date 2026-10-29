@@ -7,10 +7,11 @@
  * - College Scorecard (enrollment, admission rate, net price, academics)
  * - a licensed coach-contact list (name, title, email)
  *
- * Join those later on `externalIds`. Do not scrape coach emails.
+ * The real catalog joins College Scorecard with athletics pages. Coach emails
+ * are included only when the collection script read them on a public staff page.
  */
 
-export const POSITIONS = ['GK', 'CB', 'FB', 'DM', 'CM', 'W', 'ST'] as const;
+export const POSITIONS = ['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST'] as const;
 export type Position = (typeof POSITIONS)[number];
 
 export const DIVISIONS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA'] as const;
@@ -86,10 +87,10 @@ export const SPORTS = [
 ] as const;
 export type Sport = (typeof SPORTS)[number];
 
-export const ATHLETE_GENDERS = ['girls', 'boys', 'unspecified'] as const;
+export const ATHLETE_GENDERS = ['female', 'male'] as const;
 export type AthleteGender = (typeof ATHLETE_GENDERS)[number];
 
-/** College program side. Girls maps to women, boys maps to men. */
+/** College program side. Female maps to women, Male maps to men. */
 export const PROGRAM_SIDES = ['women', 'men'] as const;
 export type ProgramSide = (typeof PROGRAM_SIDES)[number];
 
@@ -176,7 +177,8 @@ export type PlayerProfile = {
   name: string;
   /** YYYY-MM-DD */
   birthdate: string;
-  gender: AthleteGender;
+  /** Null only while an older "prefer not to say" profile still needs a choice. */
+  gender: AthleteGender | null;
   sport: Sport;
   gradYear: number;
   positions: Position[];
@@ -187,8 +189,10 @@ export type PlayerProfile = {
   leagues: LeagueId[];
   stats: PlayerStats;
   highlightVideoUrl: string;
-  /** 4.0 scale. */
+  /** 0 to 6.0. Weighted scales can sit above 4.0. */
   gpa: number;
+  /** True when `gpa` includes honors or AP weighting. Defaults to unweighted. */
+  gpaWeighted: boolean;
   sat: number | null;
   act: number | null;
   /** USPS abbreviation, including DC. */
@@ -223,8 +227,14 @@ export type Coach = {
   id: string;
   name: string;
   title: string;
-  /** Sample data uses *.example.com only. */
-  email: string;
+  /** Published staff-directory address. Sample rows use *.example.com. Empty when the page did not list one. */
+  email: string | null;
+};
+
+export type ProgramSource = {
+  field: string;
+  label: string;
+  url: string;
 };
 
 export type IdCamp = {
@@ -269,50 +279,71 @@ export type Program = {
   city: string;
   state: string;
   region: Region;
-  enrollment: number;
-  /** 0–1 */
-  acceptanceRate: number;
-  /** Estimated annual net cost after typical aid, in dollars. */
-  estimatedNetCost: number;
-  schoolSize: SchoolSize;
+  enrollment: number | null;
+  /** 0–1. Empty when Scorecard does not publish a rate. */
+  acceptanceRate: number | null;
+  /** Set when Scorecard marks the school open admission and publishes no rate. */
+  acceptanceLabel?: string | null;
+  /** Average net price from College Scorecard, in dollars. Sample rows use a fictional estimate. */
+  estimatedNetCost: number | null;
+  schoolSize: SchoolSize | null;
   academics: {
-    avgGpa: number;
-    avgSat: number;
-    avgAct: number;
+    avgGpa: number | null;
+    avgSat: number | null;
+    avgAct: number | null;
   };
   majors: string[];
   roster: RosterCount[];
   coaches: Coach[];
-  questionnaireUrl: string;
-  admissionsUrl: string;
-  costUrl: string;
-  athleticsUrl: string;
-  /** Fictional nickname shown on the card. */
-  mascot: string;
-  /** Primary, then accent. Used for the badge and the spot meter. */
-  colors: [string, string];
-  record: TeamRecord;
-  conferenceFinish: string;
-  postseason: string;
-  /** One short fictional line in the team snapshot. */
-  funFact: string;
-  headCoachYears: number;
-  /** Index into the shared illustrated coach portraits. */
-  coachPortrait: number;
-  /** Index into the shared campus photo sets. */
-  photoSet: number;
+  questionnaireUrl: string | null;
+  admissionsUrl: string | null;
+  costUrl: string | null;
+  athleticsUrl: string | null;
+  /** Nickname. Empty when the athletics page did not state one. */
+  mascot: string | null;
   /**
-   * Fictional Instagram handle, without @.
+   * Primary, then accent. Real schools use a neutral pair until school colors
+   * are read off the athletics site. `colorsVerified` is true only then.
+   */
+  colors: [string, string];
+  /**
+   * `brand-guide` when hex values came from the school's identity page.
+   * `athletics-css` when they came from the athletics site theme.
+   */
+  colorSource?: 'brand-guide' | 'athletics-css' | null;
+  /** Color names from a directory or brand page, when that page printed them. */
+  colorNames?: string | null;
+  colorsVerified?: boolean;
+  record: TeamRecord | null;
+  conferenceFinish: string | null;
+  postseason: string | null;
+  /** One short line in the team snapshot. Real rows leave this empty. */
+  funFact: string | null;
+  headCoachYears: number | null;
+  /** Index into the shared illustrated coach portraits. Empty for real coaches. */
+  coachPortrait: number | null;
+  /** Index into the shared campus photo sets. Empty when the school has no licensed photos. */
+  photoSet: number | null;
+  /**
+   * Instagram handle, without @.
    * Sample rows use a `cm` prefix so the link is not a real account.
    */
-  instagramHandle: string;
-  rosterOrigin: RosterOrigin;
+  instagramHandle: string | null;
+  /** Which official account the handle is, when it was confirmed. */
+  instagramKind?: 'team' | 'athletics' | 'school' | null;
+  instagramConfirmation?: { method: string; kind?: string; url: string; note: string } | null;
+  rosterOrigin: RosterOrigin | null;
   idCamps: IdCamp[];
   /**
    * True for the bundled fictional catalog.
    * Real providers should set this to false.
    */
   sample: boolean;
+  /** Final-poll rank for real programs. */
+  nationalRank?: number;
+  /** ISO date the public sources were fetched. */
+  lastVerified?: string;
+  sources?: ProgramSource[];
   externalIds?: {
     scorecard?: string;
     magisterial?: string;
@@ -357,7 +388,7 @@ export type RecruitingState = {
 export const POSITION_LABEL: Record<Position, string> = {
   GK: 'Goalkeeper',
   CB: 'Center back',
-  FB: 'Fullback',
+  OB: 'Outside Back',
   DM: 'Defensive mid',
   CM: 'Center mid',
   W: 'Winger',
@@ -367,7 +398,7 @@ export const POSITION_LABEL: Record<Position, string> = {
 export const POSITION_PLURAL: Record<Position, string> = {
   GK: 'goalkeepers',
   CB: 'center backs',
-  FB: 'fullbacks',
+  OB: 'outside backs',
   DM: 'defensive mids',
   CM: 'center mids',
   W: 'wingers',

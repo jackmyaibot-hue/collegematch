@@ -1,10 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { emptyRecruiting, isIsoDate } from '../format';
+import { migrateGender } from '../sports';
 import {
-  ATHLETE_GENDERS,
   CAMPUS_LIFE,
   LEAGUE_IDS,
   LEVEL_PREFS,
+  POSITIONS,
   SPORTS,
   type AthleteGender,
   type DominantSide,
@@ -36,10 +37,6 @@ async function readJson<T>(key: string): Promise<T | null> {
 
 function isSport(value: unknown): value is Sport {
   return typeof value === 'string' && (SPORTS as readonly string[]).includes(value);
-}
-
-function isGender(value: unknown): value is AthleteGender {
-  return typeof value === 'string' && (ATHLETE_GENDERS as readonly string[]).includes(value);
 }
 
 function isLeagueId(value: unknown): value is LeagueId {
@@ -134,22 +131,38 @@ function readMajors(raw: PlayerProfile & { intendedMajor?: string }): string[] {
   return [];
 }
 
+function readGender(raw: object, hadField: boolean): AthleteGender | null {
+  if (!hadField) return 'female';
+  return migrateGender((raw as { gender?: unknown }).gender);
+}
+
+function readPositions(value: unknown): Position[] {
+  if (!Array.isArray(value)) return ['CB'];
+  const mapped = value.map((item) => (item === 'FB' ? 'OB' : item));
+  const positions = mapped.filter(
+    (item): item is Position => typeof item === 'string' && (POSITIONS as readonly string[]).includes(item),
+  );
+  return positions.length > 0 ? positions : ['CB'];
+}
+
 /** Older profiles stored one league string and no sport, birthday, or gender. */
 function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?: string }): PlayerProfile {
   const legacy = raw.league;
   const fromLegacy: LeagueId[] =
     legacy === 'ECNL' ? ['ecnl'] : legacy === 'Girls Academy' ? ['ga'] : legacy === 'other' ? ['other'] : [];
   const leagues = Array.isArray(raw.leagues) ? raw.leagues.filter(isLeagueId) : fromLegacy;
-  const positions = Array.isArray(raw.positions) && raw.positions.length > 0 ? raw.positions : (['CB'] as Position[]);
-  const primary = positions.includes(raw.primaryPosition) ? raw.primaryPosition : positions[0];
+  const positions = readPositions(raw.positions);
+  const storedPrimary = String(raw.primaryPosition) === 'FB' ? 'OB' : raw.primaryPosition;
+  const primary = positions.includes(storedPrimary) ? storedPrimary : positions[0];
   return {
     ...raw,
     sport: isSport(raw.sport) ? raw.sport : 'soccer',
-    gender: isGender(raw.gender) ? raw.gender : 'girls',
+    gender: readGender(raw, 'gender' in raw),
     birthdate: isIsoDate(raw.birthdate) ? raw.birthdate : '2010-06-15',
     leagues: leagues.length > 0 ? leagues : ['other'],
     positions,
     primaryPosition: primary,
+    gpaWeighted: raw.gpaWeighted === true,
     stats: readStats(raw),
     intendedMajors: readMajors(raw),
     honors: readHonors(raw.honors),
@@ -163,8 +176,13 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
 
 export const localPlayerStore: PlayerStore = {
   async load() {
-    const stored = await readJson<PlayerProfile & { league?: string }>(PROFILE_KEY);
-    return stored ? normalizeProfile(stored) : null;
+    const stored = await readJson<PlayerProfile & { league?: string; gender?: unknown }>(PROFILE_KEY);
+    if (!stored) return null;
+    const profile = normalizeProfile(stored);
+    if (profile.gender && stored.gender !== profile.gender) {
+      await AsyncStorage.setItem(PROFILE_KEY, JSON.stringify({ ...stored, gender: profile.gender }));
+    }
+    return profile;
   },
   async save(profile) {
     await AsyncStorage.setItem(PROFILE_KEY, JSON.stringify(profile));

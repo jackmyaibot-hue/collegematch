@@ -16,8 +16,9 @@ import {
 } from '../components/ProfileFields';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
-import { joinLabels } from '../data/format';
+import { formatGpa, joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
+import { trackProfileCompleted } from '../data/usage';
 import { stateName } from '../data/regions';
 import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
 import {
@@ -144,7 +145,9 @@ export default function OnboardingScreen() {
         if (next) setStep(next);
         return;
       }
-      await saveProfile(profileFromDraft(draft));
+      const profile = profileFromDraft(draft);
+      await saveProfile(profile);
+      trackProfileCompleted(profile.sport, profile.openToAllLevels ? ['open'] : profile.levels);
       router.replace('/(tabs)');
       return;
     }
@@ -211,12 +214,12 @@ export default function OnboardingScreen() {
         <ComingSoon
           sport={draft.sport}
           detail={
-            draft.gender === 'boys' && draft.sport === 'soccer'
+            draft.gender === 'male' && draft.sport === 'soccer'
               ? "Men's soccer is coming soon. We'll let you know when those programs are ready to swipe."
               : undefined
           }
           onTrySoccer={() => {
-            setDraft((current) => ({ ...current, sport: 'soccer', gender: 'girls' }));
+            setDraft((current) => ({ ...current, sport: 'soccer', gender: 'female' }));
             setStep('you');
           }}
         />
@@ -232,7 +235,10 @@ export default function OnboardingScreen() {
       <Screen
         scroll
         footer={
-          <Button label={step === 'review' ? 'Show my matches' : 'Continue'} onPress={forward} />
+          <View style={step === 'coaches' ? styles.footerStack : undefined}>
+            <Button label={step === 'review' ? 'Show my matches' : 'Continue'} onPress={forward} />
+            {step === 'coaches' ? <Button label="Skip for now" kind="ghost" onPress={forward} /> : null}
+          </View>
         }
       >
         <View style={[styles.stepHead, toolsClearance ? { paddingRight: toolsClearance } : null]}>
@@ -269,7 +275,9 @@ export default function OnboardingScreen() {
             ) : null}
             {step === 'soccer' ? <SoccerFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'game' ? <GameFields draft={draft} onChange={patch} errors={errors} /> : null}
-            {step === 'coaches' ? <CoachFields draft={draft} onChange={patch} errors={errors} /> : null}
+            {step === 'coaches' ? (
+              <CoachFields draft={draft} onChange={patch} errors={errors} showLaterNote />
+            ) : null}
             {step === 'academics' ? <AcademicFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'about' ? <AboutFields draft={draft} onChange={patch} errors={errors} /> : null}
             {step === 'preferences' ? <PreferenceFields draft={draft} onChange={patch} errors={errors} /> : null}
@@ -292,7 +300,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
       <View style={styles.reviewCard}>
         <Line label="Name" value={`${draft.name} · ${draft.gradYear}`} />
         <Line label="Birthday" value={draft.birthdate} />
-        <Line label="Programs" value={draft.gender ? GENDER_LABEL[draft.gender] : ''} />
+        <Line label="Gender" value={draft.gender ? GENDER_LABEL[draft.gender] : ''} />
         <Line label="Sport" value={draft.sport ? SPORT_LABEL[draft.sport] : ''} />
         <Line label="From" value={stateName(draft.homeState)} />
         <Line label="Positions" value={positionSlash(draft.positions, draft.primaryPosition)} />
@@ -301,10 +309,10 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
         <Line label="Years at level" value={draft.yearsAtLevel} />
-        <Line label="Club coach" value={draft.clubCoachName} />
+        <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />
         <Line label="High school coach" value={hs || 'Not added'} />
         <Line label="Highlight" value={draft.highlightVideoUrl || 'Not added'} />
-        <Line label="GPA" value={draft.gpa} />
+        <Line label="GPA" value={draft.gpa.trim() ? formatGpa(Number(draft.gpa), draft.gpaWeighted) : ''} />
         <Line label="Majors" value={joinLabels(majorsFromDraft(draft))} />
         <Line label="Honors" value={honorLine(draft)} />
         <Line label="Proud of" value={draft.proudOf.trim() || 'Not added'} />
@@ -400,6 +408,7 @@ const styles = StyleSheet.create({
   stepHead: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 18 },
   progress: { flex: 1 },
   stepTitle: { marginBottom: 18 },
+  footerStack: { gap: 4 },
   reviewLead: { marginTop: 8, marginBottom: 16 },
   reviewCard: {
     backgroundColor: colors.white,

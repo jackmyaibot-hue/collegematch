@@ -21,8 +21,8 @@ export function ComingSoon({
         {detail ??
           `We'll let you know when ${name.toLowerCase()} programs are ready for ${PLAYMAKERS} to swipe. Your pick stays on this phone.`}
       </AppText>
-      <AppText variant="body">Girls' soccer is open now if you want to start.</AppText>
-      {onTrySoccer ? <Button label="Try girls' soccer" onPress={onTrySoccer} /> : null}
+      <AppText variant="body">Women's soccer is open now if you want to start.</AppText>
+      {onTrySoccer ? <Button label="Try women's soccer" onPress={onTrySoccer} /> : null}
     </View>
   );
 }
