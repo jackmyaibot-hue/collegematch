@@ -5,6 +5,7 @@ import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildIntroEmail, mailtoUrl } from '../../data/email';
+import { trackUsage } from '../../data/usage';
 import { addDays, isoToday } from '../../data/format';
 import { openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
@@ -62,6 +63,7 @@ export default function OutreachScreen() {
       setNote('Add a subject and a message before opening mail.');
       return;
     }
+    trackUsage('email');
     const opened = await openExternal(mailtoUrl(email));
     if (saved?.status === 'replied') {
       await setOutreach(program!.id, { coachId: coach!.id, subject: email.subject, body: email.body });

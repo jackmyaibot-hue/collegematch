@@ -2,7 +2,7 @@
 export const PLAYMAKERS = 'playmakers';
 
 export const PRIVACY_LINE =
-  'Free for playmakers. Your info stays on this phone — super secure, no tracking.';
+  'Free for playmakers. Your name, email, and profile stay on this phone. We count anonymous usage, such as opens and swipes, and we never collect personal info.';
 
 export const SAMPLE_LINE =
   'Sample programs only. Names, coaches, costs, and camps are fictional. Emails end in example.com.';

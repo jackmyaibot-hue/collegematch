@@ -7,6 +7,7 @@ import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDra
 import { regionForState } from './regions';
 import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
+import { applyUsage, emptyUsage, parseUsage, passwordsMatch, usageReport } from '../server/usage';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
 import { DIVISIONS, POSITIONS, type PlayerProfile } from './types';
@@ -516,6 +517,33 @@ check(
   Boolean(stanford?.coaches.some((coach) => coach.email?.endsWith('@stanford.edu'))),
   'Stanford should keep a published stanford.edu coach email',
 );
+
+const install = '11111111-1111-4111-8111-111111111111';
+const other = '22222222-2222-4222-8222-222222222222';
+const parsed = parseUsage({
+  id: install,
+  name: 'profile',
+  sport: 'soccer',
+  levels: ['NCAA D1', 'open'],
+  email: 'maya@example.com',
+  athlete: 'Maya Chen',
+});
+check(parsed?.sport === 'soccer' && parsed.levels.join(',') === 'NCAA D1,open', 'usage profile event should keep sport and level');
+check(!JSON.stringify(parsed).includes('maya@example.com') && !JSON.stringify(parsed).includes('Maya'), 'usage events should drop personal fields');
+check(parseUsage({ id: 'not-a-uuid', name: 'open' }) == null, 'usage events need a random install id');
+check(parseUsage({ id: install, name: 'location' }) == null, 'unknown usage events should be rejected');
+let usage = emptyUsage();
+usage = applyUsage(usage, { id: install, name: 'open', sport: null, levels: [] }, '2026-10-29');
+usage = applyUsage(usage, { id: install, name: 'open', sport: null, levels: [] }, '2026-10-29');
+usage = applyUsage(usage, { id: other, name: 'open', sport: null, levels: [] }, '2026-10-28');
+if (parsed) {
+  usage = applyUsage(usage, parsed, '2026-10-29');
+  usage = applyUsage(usage, parsed, '2026-10-29');
+}
+const report = usageReport(usage, '2026-10-29');
+check(report.totals.open === 3 && report.active.day === 1 && report.active.week === 2, 'opens count every time and people count once a day');
+check(report.totals.profile === 1 && report.sports.soccer === 1 && report.levels['NCAA D1'] === 1, 'a profile should count once, with sport and level totals');
+check(passwordsMatch('correct horse', 'correct horse') && !passwordsMatch('correct horse', 'wrong'), 'stats password should match exactly');
 
 if (failures.length > 0) {
   console.error(failures.join('\n'));

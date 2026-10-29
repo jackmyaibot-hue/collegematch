@@ -4,7 +4,7 @@ CollegeMatch is a free iOS and Android app for high school athletes. It works li
 
 Girls' soccer is the first deck. The default deck is real women's programs from the most recent final national polls. Other sports, and men's programs, are in the profile so they can be added later. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
 
-The app does not charge athletes. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. Profile data stays on the phone. The app does not track athletes.
+The app does not charge athletes. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. Profile data stays on the phone. Anonymous usage counts (opens, swipes, saves) are stored without names, emails, or profiles.
 
 ## Real programs
 
@@ -73,7 +73,9 @@ The hosted app is [https://collegematch.expo.app](https://collegematch.expo.app)
 npx expo export --platform web && npx eas-cli deploy --prod
 ```
 
-That export includes Add to Home Screen: `public/manifest.json` (CollegeMatch, standalone, green `#0C3B2C`), the 192 and 512 icons, `apple-touch-icon.png`, and the iOS meta tags in `public/index.html`.
+That export includes Add to Home Screen: `public/manifest.json` (CollegeMatch, standalone, green `#0C3B2C`), the 192 and 512 icons, `apple-touch-icon.png`, and the iOS meta tags in `src/app/+html.tsx`.
+
+The app also exports server routes (`web.output` is `server`). `/api/usage` accepts anonymous counts, and `/stats` shows them after a password. Counts are not stored until the production environment has `STATS_PASSWORD`, `UPSTASH_REDIS_REST_URL`, and `UPSTASH_REDIS_REST_TOKEN`. Those are not in this repo. Create a free Upstash Redis database, choose a long stats password, and add the three values as production environment variables on the Expo project before the next deploy. `eas deploy` only receives them when the production environment is selected.
 
 ## What the MVP does
 
@@ -138,7 +140,9 @@ The score is 0–100, a weighted average of six 0–100 pieces. The card sentenc
 
 ## Privacy
 
-Most athletes are minors. The MVP does not create accounts and does not send the profile to a server. It does not track anyone. The optional parent email is stored on the device and added as a Cc when a coach draft opens. Reset from the profile tab erases the local profile and the deck.
+Most athletes are minors. The app does not create accounts and does not send the profile to a server. The optional parent email stays on the device and is added as a Cc when a coach draft opens. Reset from the profile tab erases the local profile and the deck.
+
+Anonymous usage counts go to this app's own `/api/usage` route. The phone keeps a random install id so a person is counted once per day. The server stores that id only inside daily sets that expire after 40 days, plus totals for opens, completed profiles, swipes, saved schools, and drafted coach emails. Sport and level are added as totals when a profile is completed. Names, emails, birthdays, and IP addresses are not sent or stored. There is no ad SDK and no third-party tracker. `/stats` is password-protected and is not linked from the athlete screens.
 
 ## Repo layout
 

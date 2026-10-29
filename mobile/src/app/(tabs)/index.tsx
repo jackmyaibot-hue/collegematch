@@ -5,6 +5,7 @@ import { ComingSoon } from '../../components/ComingSoon';
 import { SwipeDeck } from '../../components/SwipeDeck';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildDeck, type DeckCard } from '../../data/deck';
+import { trackUsage } from '../../data/usage';
 import { programMatchesAthlete, SPORT_LABEL, wantsLevel } from '../../data/sports';
 import { useAppState } from '../../state/AppState';
 import { colors } from '../../theme';
@@ -43,6 +44,7 @@ export default function DiscoverScreen() {
       else await dismissSponsor(item.placement.id);
       return;
     }
+    trackUsage('swipe');
     if (direction === 'right') await saveProgram(item.program.id);
     else await passProgram(item.program.id);
   }

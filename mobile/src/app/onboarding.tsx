@@ -18,6 +18,7 @@ import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
 import { formatGpa, joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
+import { trackProfileCompleted } from '../data/usage';
 import { stateName } from '../data/regions';
 import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
 import {
@@ -144,7 +145,9 @@ export default function OnboardingScreen() {
         if (next) setStep(next);
         return;
       }
-      await saveProfile(profileFromDraft(draft));
+      const profile = profileFromDraft(draft);
+      await saveProfile(profile);
+      trackProfileCompleted(profile.sport, profile.openToAllLevels ? ['open'] : profile.levels);
       router.replace('/(tabs)');
       return;
     }
