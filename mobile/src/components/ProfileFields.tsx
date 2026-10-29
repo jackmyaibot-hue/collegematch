@@ -93,9 +93,9 @@ export function IdentityFields({
         error={errors.birthdate}
         hint="Stays on this phone. Used so programs match your class."
       />
-      <AppText variant="label">Girls or boys programs</AppText>
+      <AppText variant="label">Gender</AppText>
       <AppText variant="caption" style={styles.help}>
-        Girls matches women's programs. Boys matches men's. Prefer not to say shows both.
+        Required. Female matches women's programs. Male matches men's programs.
       </AppText>
       <Wrap>
         {GENDER_OPTIONS.map((option) => (

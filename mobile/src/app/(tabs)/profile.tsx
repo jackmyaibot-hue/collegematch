@@ -112,7 +112,7 @@ export default function ProfileScreen() {
         ) : (
           <View style={styles.summary}>
             <Row label="Birthday" value={formatLongDate(profile.birthdate)} />
-            <Row label="Programs" value={GENDER_LABEL[profile.gender]} />
+            <Row label="Gender" value={profile.gender ? GENDER_LABEL[profile.gender] : 'Choose Female or Male'} />
             <Row label="Sport" value={SPORT_LABEL[profile.sport]} />
             <Row label="Positions" value={positionSlash(profile.positions, profile.primaryPosition)} />
             <Row label="Foot" value={dominantSideDisplay(profile.sport, profile.stats.dominantSide) || 'Not added'} />

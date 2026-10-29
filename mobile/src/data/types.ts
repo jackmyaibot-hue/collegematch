@@ -87,10 +87,10 @@ export const SPORTS = [
 ] as const;
 export type Sport = (typeof SPORTS)[number];
 
-export const ATHLETE_GENDERS = ['girls', 'boys', 'unspecified'] as const;
+export const ATHLETE_GENDERS = ['female', 'male'] as const;
 export type AthleteGender = (typeof ATHLETE_GENDERS)[number];
 
-/** College program side. Girls maps to women, boys maps to men. */
+/** College program side. Female maps to women, Male maps to men. */
 export const PROGRAM_SIDES = ['women', 'men'] as const;
 export type ProgramSide = (typeof PROGRAM_SIDES)[number];
 
@@ -177,7 +177,8 @@ export type PlayerProfile = {
   name: string;
   /** YYYY-MM-DD */
   birthdate: string;
-  gender: AthleteGender;
+  /** Null only while an older "prefer not to say" profile still needs a choice. */
+  gender: AthleteGender | null;
   sport: Sport;
   gradYear: number;
   positions: Position[];

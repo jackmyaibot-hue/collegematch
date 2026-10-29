@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { emptyRecruiting, isIsoDate } from '../format';
+import { migrateGender } from '../sports';
 import {
-  ATHLETE_GENDERS,
   CAMPUS_LIFE,
   LEAGUE_IDS,
   LEVEL_PREFS,
@@ -37,10 +37,6 @@ async function readJson<T>(key: string): Promise<T | null> {
 
 function isSport(value: unknown): value is Sport {
   return typeof value === 'string' && (SPORTS as readonly string[]).includes(value);
-}
-
-function isGender(value: unknown): value is AthleteGender {
-  return typeof value === 'string' && (ATHLETE_GENDERS as readonly string[]).includes(value);
 }
 
 function isLeagueId(value: unknown): value is LeagueId {
@@ -135,6 +131,11 @@ function readMajors(raw: PlayerProfile & { intendedMajor?: string }): string[] {
   return [];
 }
 
+function readGender(raw: object, hadField: boolean): AthleteGender | null {
+  if (!hadField) return 'female';
+  return migrateGender((raw as { gender?: unknown }).gender);
+}
+
 function readPositions(value: unknown): Position[] {
   if (!Array.isArray(value)) return ['CB'];
   const mapped = value.map((item) => (item === 'FB' ? 'OB' : item));
@@ -156,7 +157,7 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
   return {
     ...raw,
     sport: isSport(raw.sport) ? raw.sport : 'soccer',
-    gender: isGender(raw.gender) ? raw.gender : 'girls',
+    gender: readGender(raw, 'gender' in raw),
     birthdate: isIsoDate(raw.birthdate) ? raw.birthdate : '2010-06-15',
     leagues: leagues.length > 0 ? leagues : ['other'],
     positions,
@@ -175,8 +176,13 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
 
 export const localPlayerStore: PlayerStore = {
   async load() {
-    const stored = await readJson<PlayerProfile & { league?: string }>(PROFILE_KEY);
-    return stored ? normalizeProfile(stored) : null;
+    const stored = await readJson<PlayerProfile & { league?: string; gender?: unknown }>(PROFILE_KEY);
+    if (!stored) return null;
+    const profile = normalizeProfile(stored);
+    if (profile.gender && stored.gender !== profile.gender) {
+      await AsyncStorage.setItem(PROFILE_KEY, JSON.stringify({ ...stored, gender: profile.gender }));
+    }
+    return profile;
   },
   async save(profile) {
     await AsyncStorage.setItem(PROFILE_KEY, JSON.stringify(profile));

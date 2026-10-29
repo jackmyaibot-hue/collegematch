@@ -211,12 +211,12 @@ export default function OnboardingScreen() {
         <ComingSoon
           sport={draft.sport}
           detail={
-            draft.gender === 'boys' && draft.sport === 'soccer'
+            draft.gender === 'male' && draft.sport === 'soccer'
               ? "Men's soccer is coming soon. We'll let you know when those programs are ready to swipe."
               : undefined
           }
           onTrySoccer={() => {
-            setDraft((current) => ({ ...current, sport: 'soccer', gender: 'girls' }));
+            setDraft((current) => ({ ...current, sport: 'soccer', gender: 'female' }));
             setStep('you');
           }}
         />
@@ -297,7 +297,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
       <View style={styles.reviewCard}>
         <Line label="Name" value={`${draft.name} · ${draft.gradYear}`} />
         <Line label="Birthday" value={draft.birthdate} />
-        <Line label="Programs" value={draft.gender ? GENDER_LABEL[draft.gender] : ''} />
+        <Line label="Gender" value={draft.gender ? GENDER_LABEL[draft.gender] : ''} />
         <Line label="Sport" value={draft.sport ? SPORT_LABEL[draft.sport] : ''} />
         <Line label="From" value={stateName(draft.homeState)} />
         <Line label="Positions" value={positionSlash(draft.positions, draft.primaryPosition)} />

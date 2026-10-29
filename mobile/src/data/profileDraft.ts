@@ -253,7 +253,7 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   else if (draft.birthdate < BIRTHDATE_MIN || draft.birthdate > BIRTHDATE_MAX) {
     errors.birthdate = 'Use a birthday that fits a high school athlete.';
   }
-  if (!draft.gender) errors.gender = 'Pick Girls, Boys, or Prefer not to say.';
+  if (!draft.gender) errors.gender = 'Pick Female or Male.';
   if (!draft.sport) errors.sport = 'Pick your sport.';
   if (!draft.gradYear) errors.gradYear = 'Pick your grad year.';
   if (draft.positions.length === 0) errors.positions = 'Pick at least one position.';

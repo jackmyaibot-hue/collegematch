@@ -31,7 +31,7 @@ export default function DiscoverScreen() {
         <ComingSoon
           sport={profile.sport}
           detail={`${SPORT_LABEL[profile.sport]} programs that match your profile are coming soon. We'll let you know when you can swipe them.`}
-          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'girls' })}
+          onTrySoccer={() => saveProfile({ ...profile, sport: 'soccer', gender: 'female' })}
         />
       </View>
     );

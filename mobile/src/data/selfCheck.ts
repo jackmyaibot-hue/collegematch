@@ -5,7 +5,7 @@ import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
-import { leagueNameList } from './sports';
+import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
@@ -96,7 +96,7 @@ const strong: PlayerProfile = {
   id: 'test-strong',
   name: 'Maya Chen',
   birthdate: '2010-04-12',
-  gender: 'girls',
+  gender: 'female',
   sport: 'soccer',
   gradYear: 2028,
   positions: ['CB'],
@@ -274,7 +274,7 @@ check(replied === 'replied', 'replied should not flip back to follow-up due');
 const draft: ProfileDraft = {
   name: 'Maya Chen',
   birthdate: '2010-04-12',
-  gender: 'girls',
+  gender: 'female',
   sport: 'soccer',
   gradYear: 2028,
   positions: ['CB', 'GK'],
@@ -410,13 +410,21 @@ if (northwind) {
   check(multiEmail.body.includes('ECNL') && multiEmail.body.includes('GA'), 'email should name every selected league');
   check(multiEmail.subject.startsWith('2028 ST/CB'), 'primary position should lead the subject');
 }
-const boysDeck = buildDeck(
+const maleDeck = buildDeck(
   SAMPLE_PROGRAMS,
-  { ...strong, gender: 'boys' },
+  { ...strong, gender: 'male' },
   emptyRecruiting(),
   SAMPLE_SPONSORS,
 );
-check(boysDeck.length === 0, 'boys soccer should not show the women\'s sample deck');
+check(maleDeck.length === 0, 'male soccer should not show the women\'s sample deck');
+check(migrateGender('girls') === 'female' && migrateGender('women') === 'female', 'girls and women should become Female');
+check(migrateGender('boys') === 'male' && migrateGender('men') === 'male', 'boys and men should become Male');
+check(migrateGender('unspecified') === null && migrateGender('Prefer not to say') === null, 'prefer not to say should ask for a choice');
+if (northwind) {
+  check(programMatchesAthlete(northwind, { sport: 'soccer', gender: 'female' }), 'Female should match a women\'s program');
+  check(!programMatchesAthlete(northwind, { sport: 'soccer', gender: 'male' }), 'Male should not match a women\'s program');
+  check(!programMatchesAthlete(northwind, { sport: 'soccer', gender: null }), 'a missing gender should not match a program');
+}
 check(SAMPLE_PROGRAMS.every((program) => program.sport === 'soccer' && program.side === 'women'), 'sample programs should be women\'s soccer');
 
 const naiaDeck = buildDeck(
