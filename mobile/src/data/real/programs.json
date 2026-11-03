@@ -4590,7 +4590,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Tempe",
       "state": "AZ",
       "conference": "Big 12",
       "mascot": "Sun Devils",
@@ -4635,14 +4635,19 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/arizona-st"
+        },
+        {
+          "field": "location",
+          "label": "Official ASU contact page, primary address",
+          "url": "https://www.asu.edu/about/contact"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Ambiguous Scorecard match for Arizona State University: Arizona State University Campus Immersion (Tempe, AZ), Arizona State University Digital Immersion (Scottsdale, AZ), Arizona State University-West Valley (Glendale, AZ), Arizona State University-Polytechnic (Mesa, AZ), Arizona State University-Downtown Phoenix (Phoenix, AZ), Arizona State University - Tucson (Tucson, AZ).",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "City is Tempe, the primary address on asu.edu/about/contact. Scorecard lists several Arizona State campuses, so enrollment and acceptance stay blank."
       ]
     },
     {
@@ -8245,7 +8250,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Fort Collins",
       "state": "CO",
       "conference": "Pac-12 Conference",
       "mascot": null,
@@ -8317,6 +8322,11 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "location",
+          "label": "Official athletics site footer address",
+          "url": "https://csurams.com/"
         }
       ],
       "lastVerified": "2026-11-03",
@@ -8324,8 +8334,8 @@
         "Ambiguous Scorecard match for Colorado State University: Colorado State University-Fort Collins (Fort Collins, CO), Colorado State University Pueblo (Pueblo, CO), Colorado State University Global (Denver, CO).",
         "Roster positions on the athletics site are broader than the app's spots. 24 of 28 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "City is Fort Collins, the address on the athletics site. Scorecard also lists Pueblo and Global campuses, so enrollment and acceptance stay blank."
       ]
     },
     {
@@ -8334,7 +8344,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "New York",
       "state": "NY",
       "conference": "The Ivy League",
       "mascot": null,
@@ -8369,14 +8379,19 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "location",
+          "label": "Official athletics site, City of New York",
+          "url": "https://gocolumbialions.com/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "No Scorecard row for Columbia University-Barnard College.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "City is New York. The athletics site says Columbia Athletics is in the City of New York. Scorecard has no row under the NCAA directory name, so enrollment and acceptance stay blank."
       ]
     },
     {
