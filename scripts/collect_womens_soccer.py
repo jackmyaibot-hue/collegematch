@@ -1527,9 +1527,11 @@ def main() -> None:
             by_id[program["id"]] = program
         programs = list(by_id.values())
     programs.sort(key=program_sort_key)
-    before = coverage(json.loads(OUT_PATH.read_text())["programs"]) if OUT_PATH.exists() and not args.only else None
-    if args.only and OUT_PATH.exists():
-        before = None
+    previous_report = json.loads(REPORT_PATH.read_text()) if REPORT_PATH.exists() else {}
+    if args.only:
+        before = previous_report.get("before")
+    else:
+        before = coverage(json.loads(OUT_PATH.read_text())["programs"]) if OUT_PATH.exists() else None
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "lastVerified": LAST_VERIFIED,
@@ -1539,7 +1541,12 @@ def main() -> None:
         "programs": programs,
     }
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n")
-    REPORT_PATH.write_text(json.dumps(summarize(programs, document["polls"], before), indent=2) + "\n")
+    report = summarize(programs, document["polls"], before)
+    if args.only:
+        for key in ("batch1", "batches"):
+            if key in previous_report and key not in report:
+                report[key] = previous_report[key]
+    REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n")
     print(f"Wrote {len(programs)} programs to {OUT_PATH}")
 
 

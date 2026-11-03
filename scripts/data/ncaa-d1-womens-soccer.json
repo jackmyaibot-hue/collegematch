@@ -4,7 +4,7 @@
   "fetched": "2026-11-03",
   "note": "Official NCAA directory of Division I institutions that sponsor women's soccer. status done means the school is in mobile/src/data/real/programs.json. Batch 1 added the first 70 pending schools in alphabetical order on 2026-11-03. Arizona State, Colorado State, and Columbia are stored but have no Scorecard city, so they stay out of the deck.",
   "count": 349,
-  "done": 160,
+  "done": 230,
   "schools": [
     {
       "name": "Abilene Christian University",
@@ -1335,8 +1335,8 @@
       "state": "OH",
       "athleticsUrl": "https://www.ohiobobcats.com",
       "ncaaOrgId": 519,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "ohio",
+      "status": "done"
     },
     {
       "name": "Oklahoma State University",
@@ -1344,8 +1344,8 @@
       "state": "OK",
       "athleticsUrl": "https://www.okstate.com",
       "ncaaOrgId": 521,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "oklahoma-state",
+      "status": "done"
     },
     {
       "name": "Old Dominion University",
@@ -1353,8 +1353,8 @@
       "state": "VA",
       "athleticsUrl": "https://www.odusports.com",
       "ncaaOrgId": 523,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "old-dominion",
+      "status": "done"
     },
     {
       "name": "Oral Roberts University",
@@ -1362,8 +1362,8 @@
       "state": "OK",
       "athleticsUrl": "https://www.oruathletics.com",
       "ncaaOrgId": 527,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "oral-roberts",
+      "status": "done"
     },
     {
       "name": "Oregon State University",
@@ -1371,8 +1371,8 @@
       "state": "OR",
       "athleticsUrl": "https://osubeavers.com",
       "ncaaOrgId": 528,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "oregon-state",
+      "status": "done"
     },
     {
       "name": "Pennsylvania State University",
@@ -1380,8 +1380,8 @@
       "state": "PA",
       "athleticsUrl": "https://goPSUsports.com",
       "ncaaOrgId": 539,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "pennsylvania-state",
+      "status": "done"
     },
     {
       "name": "Pepperdine University",
@@ -1389,8 +1389,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.pepperdinewaves.com",
       "ncaaOrgId": 541,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "pepperdine",
+      "status": "done"
     },
     {
       "name": "Portland State University",
@@ -1398,8 +1398,8 @@
       "state": "OR",
       "athleticsUrl": "https://goviks.com",
       "ncaaOrgId": 550,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "portland-state",
+      "status": "done"
     },
     {
       "name": "Prairie View A&M University",
@@ -1407,8 +1407,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.pvpanthers.com",
       "ncaaOrgId": 553,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "prairie-view-a-m",
+      "status": "done"
     },
     {
       "name": "Presbyterian College",
@@ -1416,8 +1416,8 @@
       "state": "SC",
       "athleticsUrl": "https://gobluehose.com",
       "ncaaOrgId": 1320,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "presbyterian",
+      "status": "done"
     },
     {
       "name": "Princeton University",
@@ -1425,8 +1425,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.goprincetontigers.com",
       "ncaaOrgId": 554,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "princeton",
+      "status": "done"
     },
     {
       "name": "Providence College",
@@ -1434,8 +1434,8 @@
       "state": "RI",
       "athleticsUrl": "https://www.friars.com",
       "ncaaOrgId": 556,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "providence",
+      "status": "done"
     },
     {
       "name": "Purdue University",
@@ -1443,8 +1443,8 @@
       "state": "IN",
       "athleticsUrl": "https://purduesports.com",
       "ncaaOrgId": 559,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "purdue",
+      "status": "done"
     },
     {
       "name": "Purdue University Fort Wayne",
@@ -1452,8 +1452,8 @@
       "state": "IN",
       "athleticsUrl": "https://www.gomastodons.com",
       "ncaaOrgId": 308,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "purdue-fort-wayne",
+      "status": "done"
     },
     {
       "name": "Queens University of Charlotte",
@@ -1461,8 +1461,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.queensathletics.com",
       "ncaaOrgId": 11504,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "queens-charlotte",
+      "status": "done"
     },
     {
       "name": "Quinnipiac University",
@@ -1470,8 +1470,8 @@
       "state": "CT",
       "athleticsUrl": "https://www.gobobcats.com",
       "ncaaOrgId": 562,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "quinnipiac",
+      "status": "done"
     },
     {
       "name": "Radford University",
@@ -1479,8 +1479,8 @@
       "state": "VA",
       "athleticsUrl": "https://www.radfordathletics.com",
       "ncaaOrgId": 563,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "radford",
+      "status": "done"
     },
     {
       "name": "Rice University",
@@ -1488,8 +1488,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.riceowls.com",
       "ncaaOrgId": 574,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "rice",
+      "status": "done"
     },
     {
       "name": "Rider University",
@@ -1497,8 +1497,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.gobroncs.com",
       "ncaaOrgId": 576,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "rider",
+      "status": "done"
     },
     {
       "name": "Robert Morris University",
@@ -1506,8 +1506,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.rmucolonials.com",
       "ncaaOrgId": 579,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "robert-morris",
+      "status": "done"
     },
     {
       "name": "Rutgers, The State University of New Jersey, New Brunswick",
@@ -1515,8 +1515,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.scarletknights.com",
       "ncaaOrgId": 587,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "rutgers-state-new-jersey-new-brunswick",
+      "status": "done"
     },
     {
       "name": "Sacred Heart University",
@@ -1524,8 +1524,8 @@
       "state": "CT",
       "athleticsUrl": "https://sacredheartpioneers.com",
       "ncaaOrgId": 590,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "sacred-heart",
+      "status": "done"
     },
     {
       "name": "Saint Joseph's University",
@@ -1533,8 +1533,8 @@
       "state": "PA",
       "athleticsUrl": "https://sjuhawks.com",
       "ncaaOrgId": 606,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-joseph-s",
+      "status": "done"
     },
     {
       "name": "Saint Louis University",
@@ -1542,8 +1542,8 @@
       "state": "MO",
       "athleticsUrl": "https://www.slubillikens.com",
       "ncaaOrgId": 609,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-louis",
+      "status": "done"
     },
     {
       "name": "Saint Mary's College of California",
@@ -1551,8 +1551,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.SMCGaels.com",
       "ncaaOrgId": 610,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-mary-s-california",
+      "status": "done"
     },
     {
       "name": "Saint Peter's University",
@@ -1560,8 +1560,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.saintpeterspeacocks.com",
       "ncaaOrgId": 617,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-peter-s",
+      "status": "done"
     },
     {
       "name": "Sam Houston State University",
@@ -1569,8 +1569,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.gobearkats.com",
       "ncaaOrgId": 624,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "sam-houston-state",
+      "status": "done"
     },
     {
       "name": "Samford University",
@@ -1578,8 +1578,8 @@
       "state": "AL",
       "athleticsUrl": "https://samfordsports.com",
       "ncaaOrgId": 625,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "samford",
+      "status": "done"
     },
     {
       "name": "San Diego State University",
@@ -1587,8 +1587,8 @@
       "state": "CA",
       "athleticsUrl": "https://goaztecs.com",
       "ncaaOrgId": 626,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "san-diego-state",
+      "status": "done"
     },
     {
       "name": "San Jose State University",
@@ -1596,8 +1596,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.sjsuspartans.com",
       "ncaaOrgId": 630,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "san-jose-state",
+      "status": "done"
     },
     {
       "name": "Santa Clara University",
@@ -1605,8 +1605,8 @@
       "state": "CA",
       "athleticsUrl": "https://santaclarabroncos.com",
       "ncaaOrgId": 631,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "santa-clara",
+      "status": "done"
     },
     {
       "name": "Seattle University",
@@ -1614,8 +1614,8 @@
       "state": "WA",
       "athleticsUrl": "https://goseattleu.com",
       "ncaaOrgId": 1356,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "seattle",
+      "status": "done"
     },
     {
       "name": "Seton Hall University",
@@ -1623,8 +1623,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.shupirates.com",
       "ncaaOrgId": 635,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "seton-hall",
+      "status": "done"
     },
     {
       "name": "Siena University",
@@ -1632,8 +1632,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.sienasaints.com",
       "ncaaOrgId": 639,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "siena",
+      "status": "done"
     },
     {
       "name": "South Carolina State University",
@@ -1641,8 +1641,8 @@
       "state": "SC",
       "athleticsUrl": "https://www.scsuathletics.com/index.aspx",
       "ncaaOrgId": 647,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "south-carolina-state",
+      "status": "done"
     },
     {
       "name": "South Dakota State University",
@@ -1650,8 +1650,8 @@
       "state": "SD",
       "athleticsUrl": "https://www.gojacks.com",
       "ncaaOrgId": 649,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "south-dakota-state",
+      "status": "done"
     },
     {
       "name": "Southeast Missouri State University",
@@ -1659,8 +1659,8 @@
       "state": "MO",
       "athleticsUrl": "https://www.semoredhawks.com",
       "ncaaOrgId": 654,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southeast-missouri-state",
+      "status": "done"
     },
     {
       "name": "Southeastern Louisiana University",
@@ -1668,8 +1668,8 @@
       "state": "LA",
       "athleticsUrl": "https://www.lionsports.net",
       "ncaaOrgId": 655,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southeastern-louisiana",
+      "status": "done"
     },
     {
       "name": "Southern Illinois University at Carbondale",
@@ -1677,8 +1677,8 @@
       "state": "IL",
       "athleticsUrl": "https://www.siusalukis.com",
       "ncaaOrgId": 659,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-illinois-carbondale",
+      "status": "done"
     },
     {
       "name": "Southern Illinois University Edwardsville",
@@ -1686,8 +1686,8 @@
       "state": "IL",
       "athleticsUrl": "https://www.siuecougars.com",
       "ncaaOrgId": 660,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-illinois-edwardsville",
+      "status": "done"
     },
     {
       "name": "Southern Methodist University",
@@ -1695,8 +1695,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.smumustangs.com",
       "ncaaOrgId": 663,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-methodist",
+      "status": "done"
     },
     {
       "name": "Southern University, Baton Rouge",
@@ -1704,8 +1704,8 @@
       "state": "LA",
       "athleticsUrl": "https://www.gojagsports.com",
       "ncaaOrgId": 665,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-baton-rouge",
+      "status": "done"
     },
     {
       "name": "Southern Utah University",
@@ -1713,8 +1713,8 @@
       "state": "UT",
       "athleticsUrl": "https://www.suutbirds.com",
       "ncaaOrgId": 667,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-utah",
+      "status": "done"
     },
     {
       "name": "St. Bonaventure University",
@@ -1722,8 +1722,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.gobonnies.com",
       "ncaaOrgId": 596,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-bonaventure",
+      "status": "done"
     },
     {
       "name": "St. John's University (New York)",
@@ -1731,8 +1731,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.redstormsports.com",
       "ncaaOrgId": 603,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "saint-john-s-new-york",
+      "status": "done"
     },
     {
       "name": "Stanford University",
@@ -1749,8 +1749,8 @@
       "state": "TX",
       "athleticsUrl": "https://SFAjacks.com",
       "ncaaOrgId": 676,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "stephen-f-austin-state",
+      "status": "done"
     },
     {
       "name": "Stetson University",
@@ -1758,8 +1758,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.gohatters.com",
       "ncaaOrgId": 678,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "stetson",
+      "status": "done"
     },
     {
       "name": "Stonehill College",
@@ -1767,8 +1767,8 @@
       "state": "MA",
       "athleticsUrl": "https://www.stonehillskyhawks.com",
       "ncaaOrgId": 682,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "stonehill",
+      "status": "done"
     },
     {
       "name": "Stony Brook University",
@@ -1776,8 +1776,8 @@
       "state": "NY",
       "athleticsUrl": "https://stonybrookathletics.com",
       "ncaaOrgId": 683,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "stony-brook",
+      "status": "done"
     },
     {
       "name": "Syracuse University",
@@ -1785,8 +1785,8 @@
       "state": "NY",
       "athleticsUrl": "https://cuse.com",
       "ncaaOrgId": 688,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "syracuse",
+      "status": "done"
     },
     {
       "name": "Tarleton State University",
@@ -1794,8 +1794,8 @@
       "state": "TX",
       "athleticsUrl": "https://tarletonsports.com",
       "ncaaOrgId": 1395,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "tarleton-state",
+      "status": "done"
     },
     {
       "name": "Temple University",
@@ -1803,8 +1803,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.owlsports.com",
       "ncaaOrgId": 690,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "temple",
+      "status": "done"
     },
     {
       "name": "Tennessee Technological University",
@@ -1812,8 +1812,8 @@
       "state": "TN",
       "athleticsUrl": "https://www.TTUsports.com",
       "ncaaOrgId": 692,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "tennessee-technological",
+      "status": "done"
     },
     {
       "name": "Texas A&M University, College Station",
@@ -1821,8 +1821,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.12thman.com",
       "ncaaOrgId": 697,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-a-m-station",
+      "status": "done"
     },
     {
       "name": "Texas A&M University-Corpus Christi",
@@ -1830,8 +1830,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.goislanders.com",
       "ncaaOrgId": 26172,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-a-m-corpus-christi",
+      "status": "done"
     },
     {
       "name": "Texas Christian University",
@@ -1848,8 +1848,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.tsusports.com",
       "ncaaOrgId": 699,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-southern",
+      "status": "done"
     },
     {
       "name": "Texas State University",
@@ -1857,8 +1857,8 @@
       "state": "TX",
       "athleticsUrl": "https://txstatebobcats.com",
       "ncaaOrgId": 670,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-state",
+      "status": "done"
     },
     {
       "name": "Texas Tech University",
@@ -1866,8 +1866,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.texastech.com",
       "ncaaOrgId": 700,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-tech",
+      "status": "done"
     },
     {
       "name": "The Citadel",
@@ -1875,8 +1875,8 @@
       "state": "SC",
       "athleticsUrl": "https://www.citadelsports.com",
       "ncaaOrgId": 141,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "citadel",
+      "status": "done"
     },
     {
       "name": "The Ohio State University",
@@ -1893,8 +1893,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.charlotte49ers.com",
       "ncaaOrgId": 458,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-carolina-charlotte",
+      "status": "done"
     },
     {
       "name": "The University of North Carolina at Greensboro",
@@ -1902,8 +1902,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.uncgspartans.com",
       "ncaaOrgId": 459,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-carolina-greensboro",
+      "status": "done"
     },
     {
       "name": "The University of Southern Mississippi",
@@ -1911,8 +1911,8 @@
       "state": "MS",
       "athleticsUrl": "https://www.southernmiss.com",
       "ncaaOrgId": 664,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "southern-mississippi",
+      "status": "done"
     },
     {
       "name": "The University of Texas Rio Grande Valley",
@@ -1920,8 +1920,8 @@
       "state": "TX",
       "athleticsUrl": "https://goutrgv.com",
       "ncaaOrgId": 536,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "texas-rio-grande-valley",
+      "status": "done"
     },
     {
       "name": "The University of Tulsa",
@@ -1929,8 +1929,8 @@
       "state": "OK",
       "athleticsUrl": "https://www.tulsahurricane.com",
       "ncaaOrgId": 719,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "tulsa",
+      "status": "done"
     },
     {
       "name": "Towson University",
@@ -1938,8 +1938,8 @@
       "state": "MD",
       "athleticsUrl": "https://www.towsontigers.com",
       "ncaaOrgId": 711,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "towson",
+      "status": "done"
     },
     {
       "name": "Troy University",
@@ -1947,8 +1947,8 @@
       "state": "AL",
       "athleticsUrl": "https://troytrojans.com",
       "ncaaOrgId": 716,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "troy",
+      "status": "done"
     },
     {
       "name": "U.S. Air Force Academy",
@@ -1956,8 +1956,8 @@
       "state": "CO",
       "athleticsUrl": "https://www.goairforcefalcons.com",
       "ncaaOrgId": 721,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "u-s-air-force-academy",
+      "status": "done"
     },
     {
       "name": "U.S. Military Academy",
@@ -1965,8 +1965,8 @@
       "state": "NY",
       "athleticsUrl": "https://goarmywestpoint.com/index.aspx",
       "ncaaOrgId": 725,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "u-s-military-academy",
+      "status": "done"
     },
     {
       "name": "U.S. Naval Academy",
@@ -1974,8 +1974,8 @@
       "state": "MD",
       "athleticsUrl": "https://www.navysports.com",
       "ncaaOrgId": 726,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "u-s-naval-academy",
+      "status": "done"
     },
     {
       "name": "University at Albany",
@@ -1983,8 +1983,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.ualbanysports.com",
       "ncaaOrgId": 14,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "albany",
+      "status": "done"
     },
     {
       "name": "University at Buffalo, the State University of New York",
@@ -3149,5 +3149,5 @@
     }
   ],
   "queued": 0,
-  "pending": 189
+  "pending": 119
 }
