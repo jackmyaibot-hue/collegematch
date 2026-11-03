@@ -1154,8 +1154,8 @@ def presto_players(html: str) -> list[dict]:
         position_match = re.search(r'data-field="position"[\s\S]*?</td>', row, flags=re.I)
         year_match = re.search(r'data-field="year"[\s\S]*?</td>', row, flags=re.I)
         if not position_match or not year_match:
-            position_match = re.search(r">\s*Pos\.:\s*</span>\s*([^<]+)", row, flags=re.I)
-            year_match = re.search(r">\s*(?:Cl|Yr)\.:\s*</span>\s*([^<]+)", row, flags=re.I)
+            position_match = re.search(r">\s*(?:Pos\.|Position):\s*</span>\s*([^<]+)", row, flags=re.I)
+            year_match = re.search(r">\s*(?:Cl\.|Yr\.|Class):\s*</span>\s*([^<]+)", row, flags=re.I)
         if not position_match or not year_match:
             continue
         if "data-field" in position_match.group(0):
