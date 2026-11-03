@@ -36553,7 +36553,7 @@
       "nationalRank": 11,
       "city": "Colorado Springs",
       "state": "CO",
-      "conference": null,
+      "conference": "Rocky Mountain Athletic Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
@@ -36590,6 +36590,11 @@
         "scorecard": "126580"
       },
       "sources": [
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=II&sportCode=WSO&type=12"
+        },
         {
           "field": "ranking",
           "label": "National poll",
@@ -37337,7 +37342,7 @@
       "nationalRank": 18,
       "city": "Saint Cloud",
       "state": "MN",
-      "conference": null,
+      "conference": "Northern Sun Intercollegiate Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
@@ -37369,6 +37374,11 @@
         "scorecard": "174783"
       },
       "sources": [
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=II&sportCode=WSO&type=12"
+        },
         {
           "field": "ranking",
           "label": "National poll",
