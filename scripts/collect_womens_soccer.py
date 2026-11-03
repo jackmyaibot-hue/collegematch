@@ -423,7 +423,7 @@ def extract_handle(raw: str) -> str | None:
     handle = parts[0].strip().lstrip("@")
     if handle.lower() in INSTAGRAM_SKIP or handle.lower() in {"api", "embed", "www", "static", "assets"}:
         return None
-    if "instagram" in handle.lower() or re.search(r"\.(js|css|png|jpe?g|svg|gif|json|html)$", handle, re.I):
+    if "instagram" in handle.lower() or re.search(r"\.(js|css|png|jpe?g|svg|gif|json|html|edu|com|org)$", handle, re.I):
         return None
     if not re.fullmatch(r"[A-Za-z0-9._]{2,30}", handle):
         return None

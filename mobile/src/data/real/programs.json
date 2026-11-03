@@ -30642,6 +30642,4541 @@
       ]
     },
     {
+      "id": "san-francisco",
+      "schoolName": "University of San Francisco",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "San Francisco",
+      "state": "CA",
+      "conference": "West Coast Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 5287,
+      "acceptanceRate": 0.6171,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 41431,
+      "sat": 1295,
+      "act": 29,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 8,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Alexis Mata",
+          "title": "Interim Head Coach",
+          "email": "amata4@usfca.edu"
+        },
+        {
+          "name": "Yvan Trevino",
+          "title": "Assistant Coach",
+          "email": "ytrevino@usfca.edu"
+        },
+        {
+          "name": "Jason Brown",
+          "title": "Assistant Coach",
+          "email": "jbrown38@usfca.edu"
+        },
+        {
+          "name": "Kieran Marshall",
+          "title": "Assistant Coach",
+          "email": "kmarshall6@usfca.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usfca.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?122612",
+      "athleticsUrl": "https://usfdons.com/sports/womens-soccer/roster",
+      "instagramHandle": "usfdonswsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://usfdons.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "122612"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?122612"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://usfdons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://usfdons.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "south-alabama",
+      "schoolName": "University of South Alabama",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Mobile",
+      "state": "AL",
+      "conference": "Sun Belt Conference",
+      "mascot": null,
+      "colors": [
+        "#C41E3A",
+        "#13213C"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 8879,
+      "acceptanceRate": 0.7096,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 17648,
+      "sat": 1147,
+      "act": 23,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 6,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 3
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Chris Hennessey",
+          "title": "Head Coach",
+          "email": null
+        },
+        {
+          "name": "Luidgi Beauzile",
+          "title": "Associate Head Coach",
+          "email": null
+        },
+        {
+          "name": "Kate Dirkse",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.southalabama.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?102094",
+      "athleticsUrl": "https://usajaguars.com/sports/womens-soccer/roster",
+      "instagramHandle": "southalabamasoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://usajaguars.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "102094"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?102094"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://usajaguars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://usajaguars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://usajaguars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://usajaguars.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 17 of 28 players mapped; generic defenders were left off the meter.",
+        "Coaches are named on the athletics site, but no staff email was published.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "south-carolina-upstate",
+      "schoolName": "University of South Carolina Upstate",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Spartanburg",
+      "state": "SC",
+      "conference": "Big South Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 4038,
+      "acceptanceRate": 0.6726,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 13557,
+      "sat": 1099,
+      "act": 21,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 2,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Sam Odell",
+          "title": "Head Coach",
+          "email": "SO25@uscupstate.edu"
+        },
+        {
+          "name": "Patrick Grey",
+          "title": "Associate Head Coach",
+          "email": "PGREY@uscupstate.edu"
+        },
+        {
+          "name": "JP Navarro",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": "https://questionnaires.armssoftware.com/75f92081a4ba",
+      "admissionsUrl": "https://www.uscupstate.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?218742",
+      "athleticsUrl": "https://upstatespartans.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "upstatewsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://upstatespartans.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "218742"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?218742"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://upstatespartans.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://upstatespartans.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "south-carolina-columbia",
+      "schoolName": "University of South Carolina, Columbia",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Columbia",
+      "state": "SC",
+      "conference": "Southeastern Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 29820,
+      "acceptanceRate": 0.6015,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 22811,
+      "sat": 1297,
+      "act": 29,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.sc.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?218663",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "218663"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?218663"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "south-dakota",
+      "schoolName": "University of South Dakota",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Vermillion",
+      "state": "SD",
+      "conference": "The Summit League",
+      "mascot": null,
+      "colors": [
+        "#D21533",
+        "#D21533"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 5439,
+      "acceptanceRate": 0.9878,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 19858,
+      "sat": 1125,
+      "act": 22,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 6,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Michael Thomas",
+          "title": "Head Coach",
+          "email": null
+        },
+        {
+          "name": "Alyssa Granno",
+          "title": "Assistant Coach",
+          "email": null
+        },
+        {
+          "name": "Daniel Brizard",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usd.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?219471",
+      "athleticsUrl": "https://goyotes.com/sports/womens-soccer/roster",
+      "instagramHandle": "sdcoyotessoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://goyotes.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "219471"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?219471"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://goyotes.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://goyotes.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://goyotes.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://goyotes.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 29 players mapped; generic defenders were left off the meter.",
+        "Coaches are named on the athletics site, but no staff email was published.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "south-florida",
+      "schoolName": "University of South Florida",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Tampa",
+      "state": "FL",
+      "conference": "American Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 37207,
+      "acceptanceRate": 0.4319,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 9812,
+      "sat": 1227,
+      "act": 27,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usf.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?137351",
+      "athleticsUrl": null,
+      "instagramHandle": "usouthflorida",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.usf.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "137351"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?137351"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.usf.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "southern-california",
+      "schoolName": "University of Southern California",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Los Angeles",
+      "state": "CA",
+      "conference": "Big Ten Conference",
+      "mascot": null,
+      "colors": [
+        "#ED071B",
+        "#000000"
+      ],
+      "colorNames": "White, Black, Red",
+      "colorSource": "brand-guide",
+      "enrollment": 20443,
+      "acceptanceRate": 0.0981,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 32740,
+      "sat": 1495,
+      "act": 34,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usc.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?123961",
+      "athleticsUrl": null,
+      "instagramHandle": "uscedu",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.usc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "123961"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?123961"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "colors",
+          "label": "Official brand or identity page",
+          "url": "https://usctrojans.com/"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.usc.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "southern-indiana",
+      "schoolName": "University of Southern Indiana",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Evansville",
+      "state": "IN",
+      "conference": "Ohio Valley Conference",
+      "mascot": null,
+      "colors": [
+        "#002856",
+        "#CF102D"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 5292,
+      "acceptanceRate": 0.9581,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 12923,
+      "sat": 1141,
+      "act": 24,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 7,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 11,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Eric Schoenstein",
+          "title": "Women's Soccer Head Coach",
+          "email": "emschoenst@usi.edu"
+        },
+        {
+          "name": "Carly Dean",
+          "title": "Women's Soccer Assistant Coach",
+          "email": "cdean1@usi.edu"
+        },
+        {
+          "name": "Skylar Brant",
+          "title": "Women's Soccer Graduate Assistant Coach",
+          "email": "sbrant@usi.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usi.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?151306",
+      "athleticsUrl": "https://usiscreamingeagles.com/sports/womens-soccer/roster",
+      "instagramHandle": "USI_wsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://usiscreamingeagles.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "151306"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?151306"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://usiscreamingeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://usiscreamingeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://usiscreamingeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://usiscreamingeagles.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 21 of 31 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "saint-thomas-minnesota",
+      "schoolName": "University of St. Thomas (Minnesota)",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Saint Paul",
+      "state": "MN",
+      "conference": "The Summit League",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 6245,
+      "acceptanceRate": 0.8536,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 29155,
+      "sat": 1296,
+      "act": 25,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.stthomas.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?174914",
+      "athleticsUrl": null,
+      "instagramHandle": "uofstthomasmn",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.stthomas.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "174914"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?174914"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.stthomas.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "tennessee-chattanooga",
+      "schoolName": "University of Tennessee at Chattanooga",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": null,
+      "state": "TN",
+      "conference": "Southern Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": null,
+      "acceptanceRate": null,
+      "acceptanceLabel": null,
+      "estimatedNetCost": null,
+      "sat": null,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 10,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 5,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Gavin McKinney",
+          "title": "Head Coach",
+          "email": "Mocssoccer@utc.edu"
+        },
+        {
+          "name": "Josie Rix",
+          "title": "Assistant Coach",
+          "email": "Josie-rix@utc.edu"
+        },
+        {
+          "name": "Zoey Mize",
+          "title": "Assistant Coach",
+          "email": null
+        },
+        {
+          "name": "Katie Wright",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": null,
+      "costUrl": null,
+      "athleticsUrl": "https://gomocs.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "GoMocsWSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gomocs.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {},
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://gomocs.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gomocs.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "No Scorecard row for University of Tennessee at Chattanooga.",
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter.",
+        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "tennessee-martin",
+      "schoolName": "University of Tennessee at Martin",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": null,
+      "state": "TN",
+      "conference": "Ohio Valley Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": null,
+      "acceptanceRate": null,
+      "acceptanceLabel": null,
+      "estimatedNetCost": null,
+      "sat": null,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": null,
+      "costUrl": null,
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {},
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "No Scorecard row for University of Tennessee at Martin.",
+        "Official athletics page was not found.",
+        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "tennessee-knoxville",
+      "schoolName": "University of Tennessee, Knoxville",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Knoxville",
+      "state": "TN",
+      "conference": "Southeastern Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 30418,
+      "acceptanceRate": 0.416,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 18976,
+      "sat": 1311,
+      "act": 28,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.utk.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?221759",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "221759"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?221759"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "texas-austin",
+      "schoolName": "University of Texas at Austin",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Austin",
+      "state": "TX",
+      "conference": "Southeastern Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 42855,
+      "acceptanceRate": 0.2664,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 19857,
+      "sat": 1395,
+      "act": 30,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.utexas.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?228778",
+      "athleticsUrl": null,
+      "instagramHandle": "utaustintx",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.utexas.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "228778"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?228778"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.utexas.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "texas-el-paso",
+      "schoolName": "University of Texas at El Paso",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "El Paso",
+      "state": "TX",
+      "conference": "Mountain West Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 21005,
+      "acceptanceRate": 0.9992,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 9403,
+      "sat": 962,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.utep.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?228796",
+      "athleticsUrl": null,
+      "instagramHandle": "utep_miners",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.utep.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "228796"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?228796"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.utep.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "texas-san-antonio",
+      "schoolName": "University of Texas at San Antonio",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "San Antonio",
+      "state": "TX",
+      "conference": "American Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 30580,
+      "acceptanceRate": 0.8679,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 10836,
+      "sat": 1105,
+      "act": 22,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.utsa.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?229027",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "229027"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?229027"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "toledo",
+      "schoolName": "University of Toledo",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Toledo",
+      "state": "OH",
+      "conference": "Mid-American Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 9770,
+      "acceptanceRate": 0.9202,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 17249,
+      "sat": 1235,
+      "act": 25,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 9,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Mark Batman",
+          "title": "Head Women's Soccer Coach",
+          "email": "mark.batman@utoledo.edu"
+        },
+        {
+          "name": "Cliff Brandmier",
+          "title": "Associate Head Women's Soccer Coach",
+          "email": "cliff.brandmier@utoledo.edu"
+        },
+        {
+          "name": "Sam Turner",
+          "title": "Asst. Women's Soccer Coach",
+          "email": "samantha.tiongson@utoledo.edu"
+        }
+      ],
+      "questionnaireUrl": "https://questionnaires.armssoftware.com/cd7864868faa",
+      "admissionsUrl": "https://www.utoledo.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?206084",
+      "athleticsUrl": "https://utrockets.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "Toledosoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://utrockets.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "206084"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?206084"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://utrockets.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://utrockets.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 32 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "utah",
+      "schoolName": "University of Utah",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Salt Lake City",
+      "state": "UT",
+      "conference": "Big 12 Conference",
+      "mascot": null,
+      "colors": [
+        "#CF2E2E",
+        "#000000"
+      ],
+      "colorNames": "Black, White, Red, Orange",
+      "colorSource": "brand-guide",
+      "enrollment": 27264,
+      "acceptanceRate": 0.8598,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 16200,
+      "sat": 1257,
+      "act": 26,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.utah.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?230764",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "230764"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?230764"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "colors",
+          "label": "Official brand or identity page",
+          "url": "https://brand.utah.edu/communications/social-media-directory/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "vermont",
+      "schoolName": "University of Vermont",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Burlington",
+      "state": "VT",
+      "conference": "America East",
+      "mascot": null,
+      "colors": [
+        "#005710",
+        "#005710"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 11743,
+      "acceptanceRate": 0.653,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 19343,
+      "sat": 1374,
+      "act": 31,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 1,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 11,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 4,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Kristi Huizenga",
+          "title": "Head Coach",
+          "email": "Kristi.Lefebvre@uvm.edu"
+        },
+        {
+          "name": "Michael Skelton",
+          "title": "Associate Head Coach",
+          "email": "Michael.Skelton@uvm.edu"
+        },
+        {
+          "name": "Mack Kingman",
+          "title": "Assistant Coach",
+          "email": "MacKenzie.Kingman@uvm.edu"
+        },
+        {
+          "name": "Joey Cipicchio",
+          "title": "Assistant Coach - Goalkeepers",
+          "email": null
+        },
+        {
+          "name": "Peri Brooks-Randall",
+          "title": "Assistant Athletic Performance Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.uvm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?231174",
+      "athleticsUrl": "https://uvmathletics.com/sports/womens-soccer/roster",
+      "instagramHandle": "vermontcatamounts",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://uvmathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "231174"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?231174"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://uvmathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://uvmathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://uvmathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://uvmathletics.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 16 of 28 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "west-georgia",
+      "schoolName": "University of West Georgia",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Carrollton",
+      "state": "GA",
+      "conference": "United Athletic Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 7520,
+      "acceptanceRate": 0.5161,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 12786,
+      "sat": 1032,
+      "act": 21,
+      "campusLife": [],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.westga.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?141334",
+      "athleticsUrl": null,
+      "instagramHandle": "uwestga",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.westga.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "141334"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?141334"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.westga.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wisconsin-green-bay",
+      "schoolName": "University of Wisconsin-Green Bay",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Green Bay",
+      "state": "WI",
+      "conference": "Horizon League",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 6341,
+      "acceptanceRate": 0.8859,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 13369,
+      "sat": 1120,
+      "act": 22,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.uwgb.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?240277",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "240277"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?240277"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wisconsin-madison",
+      "schoolName": "University of Wisconsin-Madison",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Madison",
+      "state": "WI",
+      "conference": "Big Ten Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 36902,
+      "acceptanceRate": 0.452,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 17354,
+      "sat": 1427,
+      "act": 29,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wisc.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?240444",
+      "athleticsUrl": null,
+      "instagramHandle": "uwmadison",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.wisc.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "240444"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?240444"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.wisc.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wisconsin-milwaukee",
+      "schoolName": "University of Wisconsin-Milwaukee",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Milwaukee",
+      "state": "WI",
+      "conference": "Horizon League",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 16758,
+      "acceptanceRate": 0.9068,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 15014,
+      "sat": 1090,
+      "act": 22,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://uwm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?240453",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "240453"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?240453"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wyoming",
+      "schoolName": "University of Wyoming",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Laramie",
+      "state": "WY",
+      "conference": "Mountain West Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 7944,
+      "acceptanceRate": 0.9688,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 13599,
+      "sat": null,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 13,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 4,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Josh Purdum",
+          "title": "Head Coach",
+          "email": "jpurdum1@uwyo.edu"
+        },
+        {
+          "name": "Rachael Doyle-Guetlein",
+          "title": "Associate Head Coach",
+          "email": "rdoylegu@uwyo.edu"
+        },
+        {
+          "name": "Quentin Boric",
+          "title": "Assistant Coach",
+          "email": "qboric@uwyo.edu"
+        },
+        {
+          "name": "Taylor Russow",
+          "title": "Assistant Coach",
+          "email": "tburton6@uwyo.edu"
+        },
+        {
+          "name": "Austin Pfeffer",
+          "title": "Assistant Sports Performance Coach - Golf & Women's Soccer",
+          "email": "apfeffer@uwyo.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.uwyo.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?240727",
+      "athleticsUrl": "https://gowyo.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "wyo_soccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gowyo.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "240727"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?240727"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://gowyo.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gowyo.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 20 of 26 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "incarnate-word",
+      "schoolName": "University of the Incarnate Word",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "San Antonio",
+      "state": "TX",
+      "conference": "Southland",
+      "mascot": null,
+      "colors": [
+        "#C9282D",
+        "#000000"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 4440,
+      "acceptanceRate": 0.9814,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 22775,
+      "sat": null,
+      "act": 20,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 5,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 6,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Jake Plant",
+          "title": "Head Women's Soccer Coach",
+          "email": null
+        },
+        {
+          "name": "Victoria Ramirez",
+          "title": "Associate Head Women's Soccer Coach",
+          "email": "uiwathletics@uiwtx.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.uiw.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?225627",
+      "athleticsUrl": "https://uiwcardinals.com/sports/womens-soccer/roster",
+      "instagramHandle": "uiwwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://uiwcardinals.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "225627"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?225627"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://uiwcardinals.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://uiwcardinals.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://uiwcardinals.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://uiwcardinals.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 14 of 24 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "pacific",
+      "schoolName": "University of the Pacific",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Stockton",
+      "state": "CA",
+      "conference": "West Coast Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 3204,
+      "acceptanceRate": 0.7132,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 25447,
+      "sat": 1346,
+      "act": 28,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Jeff Freeman",
+          "title": "Head Coach",
+          "email": "jfreeman@pacific.edu"
+        },
+        {
+          "name": "Joel Bancroft",
+          "title": "Associate Head Coach",
+          "email": "jbancroft@pacific.edu"
+        },
+        {
+          "name": "Taylor Liddell-Book",
+          "title": "Assistant Coach",
+          "email": "tbook@pacific.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.pacific.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?120883",
+      "athleticsUrl": "https://pacifictigers.com/sports/womens-soccer/roster",
+      "instagramHandle": "PacificWSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://pacifictigers.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "120883"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?120883"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://pacifictigers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://pacifictigers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://pacifictigers.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 29 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "utah-state",
+      "schoolName": "Utah State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Logan",
+      "state": "UT",
+      "conference": "Pac-12 Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 20272,
+      "acceptanceRate": 0.9247,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 14936,
+      "sat": 1187,
+      "act": 25,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.usu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?230728",
+      "athleticsUrl": null,
+      "instagramHandle": "usuaggielife",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.usu.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "230728"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?230728"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.usu.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "utah-tech",
+      "schoolName": "Utah Tech University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Saint George",
+      "state": "UT",
+      "conference": "Big Sky Conference",
+      "mascot": null,
+      "colors": [
+        "#C41E3A",
+        "#00234C"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 8552,
+      "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
+      "estimatedNetCost": 16039,
+      "sat": null,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 8,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 11,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Lexi Brown",
+          "title": "Head Coach",
+          "email": "lexi.brown1@utahtech.edu"
+        },
+        {
+          "name": "Tyler Brown",
+          "title": "Assistant Coach",
+          "email": "tyler.brown5@utahtech.edu"
+        },
+        {
+          "name": "Juli Nield",
+          "title": "Assistant Coach",
+          "email": "juli.nield@utahtech.edu"
+        },
+        {
+          "name": "Lauren Towne",
+          "title": "Assistant Coach",
+          "email": "lauren.towne@utahtech.edu"
+        }
+      ],
+      "questionnaireUrl": "https://utahtechtrailblazers.com/sports/2019/3/7/recruiting-questionnaires.aspx",
+      "admissionsUrl": "https://utahtech.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?230171",
+      "athleticsUrl": "https://utahtechtrailblazers.com/sports/womens-soccer/roster",
+      "instagramHandle": "utahtech_wsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://utahtechtrailblazers.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "230171"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?230171"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://utahtechtrailblazers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://utahtechtrailblazers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://utahtechtrailblazers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://utahtechtrailblazers.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 27 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "utah-valley",
+      "schoolName": "Utah Valley University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Orem",
+      "state": "UT",
+      "conference": "Western Athletic Conference",
+      "mascot": "Utah Valley University",
+      "colors": [
+        "#004812",
+        "#004812"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 28453,
+      "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
+      "estimatedNetCost": 6376,
+      "sat": null,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 6,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 10,
+          "graduating": 5
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Chris Lemay",
+          "title": "Head Coach",
+          "email": null
+        },
+        {
+          "name": "Sydney Bushman",
+          "title": "Assistant Coach",
+          "email": "sydney.bushman@uvu.edu"
+        },
+        {
+          "name": "Carter Johnson",
+          "title": "Assistant Coach/Recruiting Coordinator",
+          "email": "Carter.Johnson@uvu.edu"
+        },
+        {
+          "name": "Vess Pearson",
+          "title": "GM/Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": "https://college.jumpforward.com/questionnaire.aspx?iid=361&sportid=9",
+      "admissionsUrl": "https://www.uvu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?230737",
+      "athleticsUrl": "https://gouvu.com/sports/womens-soccer/roster",
+      "instagramHandle": "uvuwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://gouvu.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "230737"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?230737"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://gouvu.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://gouvu.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://gouvu.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://gouvu.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://gouvu.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "valparaiso",
+      "schoolName": "Valparaiso University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Valparaiso",
+      "state": "IN",
+      "conference": "Missouri Valley Conference",
+      "mascot": null,
+      "colors": [
+        "#5C3000",
+        "#F4B81A"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 2083,
+      "acceptanceRate": 0.8943,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 18578,
+      "sat": 1178,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 2,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 7,
+          "graduating": 0
+        },
+        {
+          "position": "ST",
+          "count": 8,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "John Marovich",
+          "title": "Head Coach",
+          "email": "John.Marovich@valpo.edu"
+        },
+        {
+          "name": "Brianne Barnes",
+          "title": "Associate Head Coach",
+          "email": "brianne.barnes@valpo.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.valpo.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?152600",
+      "athleticsUrl": "https://valpoathletics.com/sports/womens-soccer/roster",
+      "instagramHandle": "valparaisou",
+      "instagramKind": "school",
+      "instagramConfirmation": {
+        "method": "school-homepage",
+        "kind": "school",
+        "url": "https://www.valpo.edu/",
+        "note": "No team or athletics Instagram was confirmed. The university homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "152600"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?152600"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://valpoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://valpoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://valpoathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official university Instagram",
+          "url": "https://www.valpo.edu/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 17 of 27 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "villanova",
+      "schoolName": "Villanova University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Villanova",
+      "state": "PA",
+      "conference": "Big East",
+      "mascot": null,
+      "colors": [
+        "#00205B",
+        "#3DB7E4"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 6938,
+      "acceptanceRate": 0.2698,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 43756,
+      "sat": 1460,
+      "act": 33,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 6,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 9,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Samar Azem",
+          "title": "Head Coach",
+          "email": "samar.azem@villanova.edu"
+        },
+        {
+          "name": "Erin Scott",
+          "title": "Assistant Coach",
+          "email": "erin.j.scott@villanova.edu"
+        },
+        {
+          "name": "Luca Crivellari",
+          "title": "Assistant Coach",
+          "email": "luca.crivellari@villanova.edu"
+        },
+        {
+          "name": "Adam Kanji",
+          "title": "Assistant Coach/Data and Performance Analytics",
+          "email": null
+        },
+        {
+          "name": "Beth Lazarus",
+          "title": "Sports Performance Coach (Women's Soccer)",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.villanova.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?216597",
+      "athleticsUrl": "https://villanova.com/sports/womens-soccer/roster",
+      "instagramHandle": "NovaWSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://villanova.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "216597"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?216597"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://villanova.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://villanova.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://villanova.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://villanova.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 27 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "virginia-commonwealth",
+      "schoolName": "Virginia Commonwealth University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Richmond",
+      "state": "VA",
+      "conference": "Atlantic 10",
+      "mascot": null,
+      "colors": [
+        "#FFB300",
+        "#FFB300"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 20753,
+      "acceptanceRate": 0.9262,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 23433,
+      "sat": 1137,
+      "act": 25,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 6,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Lauryn Hutchinson",
+          "title": "Women's Soccer Head Coach",
+          "email": null
+        },
+        {
+          "name": "Matt Freibaum",
+          "title": "Associate Head Coach",
+          "email": null
+        },
+        {
+          "name": "Mario Sequeira Quesada",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.vcu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?234030",
+      "athleticsUrl": "https://vcuathletics.com/sports/womens-soccer/roster",
+      "instagramHandle": "vcuwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://vcuathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "234030"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?234030"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://vcuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://vcuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://vcuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://vcuathletics.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 18 of 28 players mapped; generic defenders were left off the meter.",
+        "Coaches are named on the athletics site, but no staff email was published.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "virginia-military-institute",
+      "schoolName": "Virginia Military Institute",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Lexington",
+      "state": "VA",
+      "conference": "Southern Conference",
+      "mascot": null,
+      "colors": [
+        "#BF0000",
+        "#FFD520"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 1527,
+      "acceptanceRate": 0.7125,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 17113,
+      "sat": 1244,
+      "act": 25,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 5,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 8,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Jim Robbins",
+          "title": "Women's Soccer Head Coach",
+          "email": "robbinsjc@vmi.edu"
+        },
+        {
+          "name": "McKayla Wetsel",
+          "title": "Assistant Coach",
+          "email": "wetselm@vmi.edu"
+        },
+        {
+          "name": "Sam Honig",
+          "title": "Assistant Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.vmi.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?234085",
+      "athleticsUrl": "https://vmikeydets.com/sports/womens-soccer/roster",
+      "instagramHandle": "vmiathletics",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://vmikeydets.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "234085"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?234085"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://vmikeydets.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://vmikeydets.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://vmikeydets.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://vmikeydets.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 16 of 27 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "virginia-polytechnic-institute-state",
+      "schoolName": "Virginia Polytechnic Institute and State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Blacksburg",
+      "state": "VA",
+      "conference": "Atlantic Coast Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 30923,
+      "acceptanceRate": 0.5478,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 24953,
+      "sat": 1364,
+      "act": 29,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.vt.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?233921",
+      "athleticsUrl": null,
+      "instagramHandle": null,
+      "instagramKind": null,
+      "instagramConfirmation": null,
+      "externalIds": {
+        "scorecard": "233921"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?233921"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Official athletics page was not found.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wagner",
+      "schoolName": "Wagner College",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Staten Island",
+      "state": "NY",
+      "conference": "Northeast Conference",
+      "mascot": null,
+      "colors": [
+        "#00471D",
+        "#00471D"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 1651,
+      "acceptanceRate": 0.88,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 28241,
+      "sat": 1243,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 1,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 10,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 11,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Fred King",
+          "title": "Head Coach",
+          "email": "fred.king@wagner.edu"
+        },
+        {
+          "name": "Elliot McPhelim",
+          "title": "Assistant Coach",
+          "email": "elliot.mcphelim@wagner.edu"
+        },
+        {
+          "name": "Homere Breton",
+          "title": "Assistant Coach",
+          "email": "homere.breton@wagner.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wagner.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?197197",
+      "athleticsUrl": "https://wagnerathletics.com/sports/womens-soccer/roster",
+      "instagramHandle": "wag_wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wagnerathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "197197"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?197197"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://wagnerathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://wagnerathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://wagnerathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wagnerathletics.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 29 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wake-forest",
+      "schoolName": "Wake Forest University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Winston-Salem",
+      "state": "NC",
+      "conference": "Atlantic Coast Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 5485,
+      "acceptanceRate": 0.2167,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 28719,
+      "sat": 1475,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "CM",
+          "count": 1,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Tony da Luz",
+          "title": "Head Coach",
+          "email": "daluz@wfu.edu"
+        },
+        {
+          "name": "Brittany Cameron",
+          "title": "Associate Head Coach",
+          "email": "camerob@wfu.edu"
+        },
+        {
+          "name": "Christine Nairn",
+          "title": "Assistant Coach",
+          "email": "nairnc@wfu.edu"
+        },
+        {
+          "name": "Taylor Culp",
+          "title": "Assistant Coach",
+          "email": "culpt@wfu.edu"
+        }
+      ],
+      "questionnaireUrl": "https://my.armssoftware.com/arms/public/questionnaire/1b594f28917d",
+      "admissionsUrl": "https://www.wfu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?199847",
+      "athleticsUrl": "https://godeacs.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "demondeacons",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://godeacs.com:443/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "199847"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?199847"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://godeacs.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official athletics Instagram",
+          "url": "https://godeacs.com:443/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 1 of 25 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "washington-state",
+      "schoolName": "Washington State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Pullman",
+      "state": "WA",
+      "conference": "Pac-12 Conference",
+      "mascot": "Site",
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 21099,
+      "acceptanceRate": 0.8664,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 14971,
+      "sat": null,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 6,
+          "graduating": 0
+        },
+        {
+          "position": "ST",
+          "count": 10,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Chris Citowicki",
+          "title": "Head Coach",
+          "email": "athletics.soccer@wsu.edu"
+        },
+        {
+          "name": "Molly Rouse",
+          "title": "Associate Head Coach",
+          "email": "athletics.soccer@wsu.edu"
+        },
+        {
+          "name": "Ashley Herndon",
+          "title": "Assistant Coach",
+          "email": "athletics.soccer@wsu.edu"
+        },
+        {
+          "name": "Alex Nestor",
+          "title": "Assistant Coach",
+          "email": "athletics.soccer@wsu.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://wsu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?236939",
+      "athleticsUrl": "https://wsucougars.com/sports/womens-soccer/roster",
+      "instagramHandle": "kyliekayb",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wsucougars.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "236939"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?236939"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://wsucougars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "mascot",
+          "label": "Official athletics page",
+          "url": "https://wsucougars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wsucougars.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 20 of 31 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "weber-state",
+      "schoolName": "Weber State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Ogden",
+      "state": "UT",
+      "conference": "Big Sky Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 16360,
+      "acceptanceRate": null,
+      "acceptanceLabel": "Open admission",
+      "estimatedNetCost": 10258,
+      "sat": null,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CB",
+          "count": 2,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 11,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 6,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Kyle Christensen",
+          "title": "Head Coach",
+          "email": "kylechristensen1@weber.edu"
+        },
+        {
+          "name": "Colette Jepson-Smith",
+          "title": "Assistant Coach",
+          "email": "colettesmith2@weber.edu"
+        },
+        {
+          "name": "Damir Sabanovic",
+          "title": "Assistant Coach",
+          "email": "damirsabanovic@weber.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.weber.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?230782",
+      "athleticsUrl": "https://weberstatesports.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "wsuwildcats",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://weberstatesports.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram from its social icons."
+      },
+      "externalIds": {
+        "scorecard": "230782"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?230782"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://weberstatesports.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://weberstatesports.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 22 of 29 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "western-carolina",
+      "schoolName": "Western Carolina University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Cullowhee",
+      "state": "NC",
+      "conference": "Southern Conference",
+      "mascot": null,
+      "colors": [
+        "#592C88",
+        "#C1A875"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 10024,
+      "acceptanceRate": 0.8183,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 13315,
+      "sat": 1157,
+      "act": 22,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 8,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 8,
+          "graduating": 3
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Chad Miller",
+          "title": "Head Coach",
+          "email": "millerc@email.wcu.edu"
+        },
+        {
+          "name": "Andrew Green",
+          "title": "Associate Head Coach",
+          "email": "greena@wcu.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wcu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?200004",
+      "athleticsUrl": "https://catamountsports.com/sports/womens-soccer/roster",
+      "instagramHandle": "catamountSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://catamountsports.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "200004"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?200004"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://catamountsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://catamountsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://catamountsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://catamountsports.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 29 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "western-illinois",
+      "schoolName": "Western Illinois University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Macomb",
+      "state": "IL",
+      "conference": "Ohio Valley Conference",
+      "mascot": null,
+      "colors": [
+        "#663399",
+        "#663399"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 4410,
+      "acceptanceRate": 0.7118,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 12937,
+      "sat": null,
+      "act": null,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 6,
+          "graduating": 3
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Ross Henderson",
+          "title": "Head Coach",
+          "email": "rg-henderson@wiu.edu"
+        },
+        {
+          "name": "Justin Evans",
+          "title": "Assistant Coach",
+          "email": "JM-Evans2@wiu.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wiu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?149772",
+      "athleticsUrl": "https://goleathernecks.com/sports/womens-soccer/roster",
+      "instagramHandle": "wiuwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://goleathernecks.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "149772"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?149772"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://goleathernecks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://goleathernecks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://goleathernecks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://goleathernecks.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 15 of 24 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "western-kentucky",
+      "schoolName": "Western Kentucky University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Bowling Green",
+      "state": "KY",
+      "conference": "Conference USA",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 12155,
+      "acceptanceRate": 0.9387,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 10990,
+      "sat": 971,
+      "act": null,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CB",
+          "count": 1,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 14,
+          "graduating": 6
+        },
+        {
+          "position": "ST",
+          "count": 3,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Jason Neidell",
+          "title": "Head Coach",
+          "email": "jason.neidell@wku.edu"
+        },
+        {
+          "name": "Antonio La Gamba",
+          "title": "Assistant Coach",
+          "email": "antonio.lagamba@wku.edu"
+        },
+        {
+          "name": "Emma Tompkins",
+          "title": "Assistant Coach",
+          "email": "emma.tompkins@wku.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wku.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?157951",
+      "athleticsUrl": "https://wkusports.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "wku_soccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wkusports.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "157951"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?157951"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://wkusports.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wkusports.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 21 of 28 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "western-michigan",
+      "schoolName": "Western Michigan University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Kalamazoo",
+      "state": "MI",
+      "conference": "Mid-American",
+      "mascot": null,
+      "colors": [
+        "#532E1F",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 12568,
+      "acceptanceRate": 0.846,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 15273,
+      "sat": null,
+      "act": 24,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 10,
+          "graduating": 0
+        },
+        {
+          "position": "ST",
+          "count": 8,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Lewis Robinson",
+          "title": "Head Coach",
+          "email": "lewis.robinson@wmich.edu"
+        },
+        {
+          "name": "Paige Eli",
+          "title": "Assistant Coach",
+          "email": "paige.eli@wmich.edu"
+        },
+        {
+          "name": "Nate Van Ryn",
+          "title": "Assistant Coach",
+          "email": "nathan.vanryn@wmich.edu"
+        },
+        {
+          "name": "Madi Canada",
+          "title": "Assistant Coach",
+          "email": "madison.a.canada@wmich.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://wmich.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?172699",
+      "athleticsUrl": "https://wmubroncos.com/sports/womens-soccer/roster",
+      "instagramHandle": "wmuwomenssoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wmubroncos.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "172699"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?172699"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://wmubroncos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://wmubroncos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://wmubroncos.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wmubroncos.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "william-mary",
+      "schoolName": "William & Mary",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Williamsburg",
+      "state": "VA",
+      "conference": "Coastal Athletic Association",
+      "mascot": null,
+      "colors": [
+        "#115740",
+        "#115740"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 7055,
+      "acceptanceRate": 0.3407,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 19096,
+      "sat": 1473,
+      "act": 33,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 12,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 4,
+          "graduating": 0
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Marsha Lycan",
+          "title": "Associate Head Coach",
+          "email": "mflycan@wm.edu"
+        },
+        {
+          "name": "Julie Shackford",
+          "title": "Head Women's Soccer Coach",
+          "email": "jcshackford@wm.edu"
+        },
+        {
+          "name": "Kohl Orner",
+          "title": "Assistant Coach",
+          "email": "korner@wm.edu"
+        },
+        {
+          "name": "Colton Krueger",
+          "title": "Sports Performance Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?231624",
+      "athleticsUrl": "https://tribeathletics.com/sports/womens-soccer/roster",
+      "instagramHandle": "WMTribeWSOC",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://tribeathletics.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "231624"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?231624"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://tribeathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://tribeathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://tribeathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://tribeathletics.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "winthrop",
+      "schoolName": "Winthrop University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Rock Hill",
+      "state": "SC",
+      "conference": "Big South Conference",
+      "mascot": null,
+      "colors": [
+        "#560219",
+        "#560219"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 3523,
+      "acceptanceRate": 0.7925,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 15343,
+      "sat": 1139,
+      "act": 23,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 1,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 13,
+          "graduating": 2
+        },
+        {
+          "position": "ST",
+          "count": 3,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Spencer Smith",
+          "title": "Head Soccer Coach",
+          "email": "smithsl@winthrop.edu"
+        },
+        {
+          "name": "Dylan (Patterson) Hill",
+          "title": "Assistant Women's Soccer Coach",
+          "email": "pattersond@winthrop.edu"
+        },
+        {
+          "name": "Kerry Edwards",
+          "title": "Women's Soccer Goalkeeper Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.winthrop.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?218964",
+      "athleticsUrl": "https://winthropeagles.com/sports/womens-soccer/roster",
+      "instagramHandle": "winthropwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://winthropeagles.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "218964"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?218964"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://winthropeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://winthropeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://winthropeagles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://winthropeagles.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 17 of 23 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wofford",
+      "schoolName": "Wofford College",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Spartanburg",
+      "state": "SC",
+      "conference": "Southern Conference",
+      "mascot": null,
+      "colors": [
+        "#907051",
+        "#907051"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 1816,
+      "acceptanceRate": 0.5194,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 18732,
+      "sat": 1296,
+      "act": 30,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 6,
+          "graduating": 0
+        },
+        {
+          "position": "ST",
+          "count": 5,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Kevin Dempsey",
+          "title": "Head Women's Soccer Coach",
+          "email": null
+        },
+        {
+          "name": "Stephen Lee",
+          "title": "Assistant Women's Soccer Coach",
+          "email": null
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wofford.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?218973",
+      "athleticsUrl": "https://woffordterriers.com/sports/womens-soccer/roster",
+      "instagramHandle": "woffordwsoc",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://woffordterriers.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "218973"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?218973"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://woffordterriers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://woffordterriers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://woffordterriers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://woffordterriers.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 14 of 27 players mapped; generic defenders were left off the meter.",
+        "Coaches are named on the athletics site, but no staff email was published.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "wright-state",
+      "schoolName": "Wright State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Dayton",
+      "state": "OH",
+      "conference": "Horizon League",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 6762,
+      "acceptanceRate": 0.9633,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 15415,
+      "sat": null,
+      "act": 21,
+      "campusLife": [],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 2,
+          "graduating": 0
+        },
+        {
+          "position": "CM",
+          "count": 10,
+          "graduating": 5
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Travis Sobers",
+          "title": "Head Coach",
+          "email": "travis.sobers@wright.edu"
+        },
+        {
+          "name": "Haley (DD) Shelton",
+          "title": "Assistant Coach",
+          "email": "haley.shelton@wright.edu"
+        },
+        {
+          "name": "Neil Daniels",
+          "title": "Assistant Coach",
+          "email": "neil.daniels@wright.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.wright.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?206604",
+      "athleticsUrl": "https://wsuraiders.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "wsu_wsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://wsuraiders.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "206604"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?206604"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://wsuraiders.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://wsuraiders.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "xavier",
+      "schoolName": "Xavier University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Cincinnati",
+      "state": "OH",
+      "conference": "BIG EAST Conference",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 4207,
+      "acceptanceRate": 0.8641,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 32997,
+      "sat": 1217,
+      "act": 25,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 8,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 10,
+          "graduating": 2
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Katy Etelman",
+          "title": "Head Coach",
+          "email": "etelmank@xavier.edu"
+        },
+        {
+          "name": "Cory Herchenroeder",
+          "title": "Associate Head Coach",
+          "email": "herchenroederc@xavier.edu"
+        },
+        {
+          "name": "Mikayla Krzeczowski",
+          "title": "Assistant Coach",
+          "email": "krzeczowskim@xavier.edu"
+        }
+      ],
+      "questionnaireUrl": "https://questionnaires.armssoftware.com/5a1db3dd1cb7",
+      "admissionsUrl": "https://www.xavier.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?206622",
+      "athleticsUrl": "https://goxavier.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "xuathletics",
+      "instagramKind": "athletics",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "athletics",
+        "url": "https://goxavier.com:443/",
+        "note": "No team Instagram was confirmed. The athletics homepage links this account."
+      },
+      "externalIds": {
+        "scorecard": "206622"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?206622"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://goxavier.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official athletics Instagram",
+          "url": "https://goxavier.com:443/"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "yale",
+      "schoolName": "Yale University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "New Haven",
+      "state": "CT",
+      "conference": "Ivy League",
+      "mascot": null,
+      "colors": [
+        "#0E233F",
+        "#FFFFFF"
+      ],
+      "colorNames": null,
+      "colorSource": "athletics-css",
+      "enrollment": 6758,
+      "acceptanceRate": 0.0387,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 23777,
+      "sat": 1534,
+      "act": 34,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 4,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 9,
+          "graduating": 1
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 3
+        }
+      ],
+      "coaches": [],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://www.yale.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?130794",
+      "athleticsUrl": "https://yalebulldogs.com/sports/womens-soccer/roster",
+      "instagramHandle": "YaleWSoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://yalebulldogs.com/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "130794"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?130794"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://yalebulldogs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "Official athletics page",
+          "url": "https://yalebulldogs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "colors",
+          "label": "Athletics site theme colors",
+          "url": "https://yalebulldogs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://yalebulldogs.com/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 20 of 26 players mapped; generic defenders were left off the meter.",
+        "No coach names were published on the fetched staff or roster page.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
+      "id": "youngstown-state",
+      "schoolName": "Youngstown State University",
+      "division": "NCAA D1",
+      "jucoDivision": null,
+      "nationalRank": null,
+      "city": "Youngstown",
+      "state": "OH",
+      "conference": "Horizon League",
+      "mascot": null,
+      "colors": null,
+      "colorNames": null,
+      "colorSource": null,
+      "enrollment": 7961,
+      "acceptanceRate": 0.8445,
+      "acceptanceLabel": null,
+      "estimatedNetCost": 12767,
+      "sat": 1120,
+      "act": 21,
+      "campusLife": [
+        "city"
+      ],
+      "record": null,
+      "roster": [
+        {
+          "position": "GK",
+          "count": 3,
+          "graduating": 1
+        },
+        {
+          "position": "CM",
+          "count": 13,
+          "graduating": 3
+        },
+        {
+          "position": "ST",
+          "count": 7,
+          "graduating": 1
+        }
+      ],
+      "coaches": [
+        {
+          "name": "Rich Wall",
+          "title": "Women's Soccer Head Coach",
+          "email": "rjwall@ysu.edu"
+        },
+        {
+          "name": "Anna Braughton",
+          "title": "Assistant Women's Soccer Coach",
+          "email": "agrexford@ysu.edu"
+        },
+        {
+          "name": "Taryn Baxter",
+          "title": "Assistant Women's Soccer Coach",
+          "email": "tbaxter01@ysu.edu"
+        }
+      ],
+      "questionnaireUrl": null,
+      "admissionsUrl": "https://ysu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?206695",
+      "athleticsUrl": "https://ysusports.com:443/sports/womens-soccer/roster",
+      "instagramHandle": "ysuwsoccer",
+      "instagramKind": "team",
+      "instagramConfirmation": {
+        "method": "athletics-page",
+        "kind": "team",
+        "url": "https://ysusports.com:443/sports/womens-soccer/roster",
+        "note": "The women's soccer page links this Instagram in the team social menu."
+      },
+      "externalIds": {
+        "scorecard": "206695"
+      },
+      "sources": [
+        {
+          "field": "membership",
+          "label": "NCAA directory, Division I women's soccer",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?206695"
+        },
+        {
+          "field": "athletics",
+          "label": "Official athletics page",
+          "url": "https://ysusports.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "instagram",
+          "label": "Official team Instagram",
+          "url": "https://ysusports.com:443/sports/womens-soccer/roster"
+        }
+      ],
+      "lastVerified": "2026-11-03",
+      "gaps": [
+        "Roster positions on the athletics site are broader than the app's spots. 23 of 35 players mapped; generic defenders were left off the meter.",
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+      ]
+    },
+    {
       "id": "florida-tech",
       "schoolName": "Florida Tech",
       "division": "NCAA D2",
