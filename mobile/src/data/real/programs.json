@@ -114,11 +114,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?13508112"
@@ -137,20 +132,30 @@
           "field": "colors",
           "label": "Athletics site theme colors",
           "url": "https://kuseahawks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 27 of 36 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
         "No women's soccer Instagram link was labeled on the athletics page."
-      ]
+      ],
+      "ranking": {
+        "rank": 1,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "cumberlands",
       "schoolName": "University of the Cumberlands",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 2,
+      "nationalRank": 4,
       "city": "Williamsburg",
       "state": "KY",
       "conference": "Mid-South Conference",
@@ -221,11 +226,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?156541"
@@ -244,19 +244,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://cumberlandspatriots.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 15 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 4,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "embry-riddle-az",
       "schoolName": "Embry-Riddle Aeronautical University (Arizona)",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 3,
+      "nationalRank": 7,
       "city": "Prescott",
       "state": "AZ",
       "conference": null,
@@ -292,27 +302,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?104586"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 7,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "oklahoma-wesleyan",
       "schoolName": "Oklahoma Wesleyan University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 3,
+      "nationalRank": 19,
       "city": "Bartlesville",
       "state": "OK",
       "conference": null,
@@ -346,27 +361,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?206835"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 19,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "marian",
       "schoolName": "Marian University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 5,
+      "nationalRank": 6,
       "city": "Indianapolis",
       "state": "IN",
       "conference": "Crossroads Conference",
@@ -447,11 +467,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?151786"
@@ -480,19 +495,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://muknights.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 27 of 34 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 6,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "missouri-valley",
       "schoolName": "Missouri Valley College",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 6,
+      "nationalRank": null,
       "city": "Marshall",
       "state": "MO",
       "conference": null,
@@ -531,11 +556,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?178369"
@@ -556,7 +576,7 @@
       "schoolName": "John Brown University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 7,
+      "nationalRank": 17,
       "city": "Siloam Springs",
       "state": "AR",
       "conference": "Sooner Athletic Conference",
@@ -614,11 +634,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?107141"
@@ -642,20 +657,30 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://jbuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 16 of 22 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page."
-      ]
+      ],
+      "ranking": {
+        "rank": 17,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "truett-mcconnell",
       "schoolName": "Truett McConnell University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 8,
+      "nationalRank": 11,
       "city": "Cleveland",
       "state": "GA",
       "conference": null,
@@ -689,20 +714,25 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?141237"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 11,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "william-carey",
@@ -780,11 +810,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?176479"
@@ -808,19 +833,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://careyathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 26 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 9,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "college-of-idaho",
       "schoolName": "College of Idaho",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 10,
+      "nationalRank": 20,
       "city": "Caldwell",
       "state": "ID",
       "conference": "Cascade Collegiate Conference",
@@ -899,11 +934,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?142294"
@@ -927,19 +957,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://collegeofidaho.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 20,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "indiana-wesleyan",
       "schoolName": "Indiana Wesleyan University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 11,
+      "nationalRank": 3,
       "city": "Marion",
       "state": "IN",
       "conference": null,
@@ -978,11 +1018,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?151801"
@@ -991,19 +1026,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.indwes.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 3,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "grace",
       "schoolName": "Grace College",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 12,
+      "nationalRank": 2,
       "city": "Winona Lake",
       "state": "IN",
       "conference": null,
@@ -1037,27 +1082,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?150677"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 2,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "life",
       "schoolName": "Life University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 13,
+      "nationalRank": 21,
       "city": "Marietta",
       "state": "GA",
       "conference": null,
@@ -1098,11 +1148,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?140252"
@@ -1111,12 +1156,22 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.life.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 21,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "taylor",
@@ -1162,11 +1217,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?152530"
@@ -1175,19 +1225,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.taylor.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 14,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "lindsey-wilson",
       "schoolName": "Lindsey Wilson University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 15,
+      "nationalRank": 8,
       "city": "Columbia",
       "state": "KY",
       "conference": "Mid-South Conference",
@@ -1261,11 +1321,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?157216"
@@ -1294,19 +1349,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.lindsey.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 17 of 21 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 8,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "midamerica-nazarene",
       "schoolName": "MidAmerica Nazarene University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 16,
+      "nationalRank": 18,
       "city": "Olathe",
       "state": "KS",
       "conference": null,
@@ -1340,27 +1405,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?155520"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 18,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "southeastern",
       "schoolName": "Southeastern University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 17,
+      "nationalRank": 12,
       "city": "Lakeland",
       "state": "FL",
       "conference": "Independent",
@@ -1426,11 +1496,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?137564"
@@ -1449,20 +1514,30 @@
           "field": "colors",
           "label": "Athletics site theme colors",
           "url": "https://fire.seu.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "NAIA Women's Soccer Coaches Top 25",
+          "url": "https://www.naia.org/sports/womens-soccer/polls/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 24 of 35 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page."
-      ]
+      ],
+      "ranking": {
+        "rank": 12,
+        "poll": "NAIA Women's Soccer Coaches Top 25",
+        "date": "2026-10-28"
+      }
     },
     {
       "id": "central-methodist",
       "schoolName": "Central Methodist University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 18,
+      "nationalRank": null,
       "city": "Fayette",
       "state": "MO",
       "conference": null,
@@ -1501,11 +1576,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?176947"
@@ -1526,7 +1596,7 @@
       "schoolName": "Cumberland University",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 19,
+      "nationalRank": null,
       "city": "Lebanon",
       "state": "TN",
       "conference": "Mid-South Conference",
@@ -1595,11 +1665,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?219949"
@@ -1635,7 +1700,7 @@
       "schoolName": "University of Science and Arts of Oklahoma",
       "division": "NAIA",
       "jucoDivision": null,
-      "nationalRank": 20,
+      "nationalRank": null,
       "city": "Chickasha",
       "state": "OK",
       "conference": null,
@@ -1674,11 +1739,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://kcacsports.com/news/2025/12/17/oklahoma-wesleyan-tied-for-no-3-in-naia-womens-soccer-postseason-coaches-poll.aspx"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?207722"
@@ -1699,7 +1759,7 @@
       "schoolName": "Florida State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 1,
+      "nationalRank": 22,
       "city": "Tallahassee",
       "state": "FL",
       "conference": "Atlantic Coast",
@@ -1777,11 +1837,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?134097"
@@ -1810,19 +1865,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://seminoles.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 22,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "stanford",
       "schoolName": "Stanford University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 2,
+      "nationalRank": 13,
       "city": "Stanford",
       "state": "CA",
       "conference": "Atlantic Coast",
@@ -1898,11 +1963,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?243744"
@@ -1931,19 +1991,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://gostanford.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 13,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "duke",
       "schoolName": "Duke University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 3,
+      "nationalRank": 5,
       "city": "Durham",
       "state": "NC",
       "conference": "Atlantic Coast",
@@ -2021,11 +2091,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?198419"
@@ -2054,19 +2119,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://goduke.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 25 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 5,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "tcu",
       "schoolName": "TCU",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 4,
+      "nationalRank": null,
       "city": "Fort Worth",
       "state": "TX",
       "conference": "Big 12 Conference",
@@ -2147,11 +2222,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?228875"
@@ -2187,7 +2257,7 @@
       "schoolName": "Vanderbilt University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 5,
+      "nationalRank": 1,
       "city": "Nashville",
       "state": "TN",
       "conference": "Southeastern",
@@ -2265,11 +2335,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?221999"
@@ -2303,19 +2368,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.vanderbilt.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 1,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "washington",
       "schoolName": "University of Washington",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 6,
+      "nationalRank": 21,
       "city": "Seattle",
       "state": "WA",
       "conference": "Big Ten",
@@ -2393,11 +2468,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?236948"
@@ -2426,19 +2496,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://gohuskies.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating."
-      ]
+      ],
+      "ranking": {
+        "rank": 21,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "michigan-state",
       "schoolName": "Michigan State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 7,
+      "nationalRank": 6,
       "city": "East Lansing",
       "state": "MI",
       "conference": "Big Ten",
@@ -2521,11 +2601,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?171100"
@@ -2554,19 +2629,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://msuspartans.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 30 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 6,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "virginia",
       "schoolName": "University of Virginia",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 8,
+      "nationalRank": 19,
       "city": "Charlottesville",
       "state": "VA",
       "conference": "Atlantic Coast",
@@ -2642,11 +2727,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?234076"
@@ -2670,20 +2750,30 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/virginia"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
         "No women's soccer Instagram link was labeled on the athletics page."
-      ]
+      ],
+      "ranking": {
+        "rank": 19,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "ohio-state",
       "schoolName": "Ohio State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 9,
+      "nationalRank": 3,
       "city": "Columbus",
       "state": "OH",
       "conference": "Big Ten Conference",
@@ -2751,11 +2841,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?204796"
@@ -2774,19 +2859,29 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 6 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 3,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "georgetown",
       "schoolName": "Georgetown University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 10,
+      "nationalRank": null,
       "city": "Washington",
       "state": "DC",
       "conference": "Big East Conference",
@@ -2867,11 +2962,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?131496"
@@ -2922,7 +3012,7 @@
       "schoolName": "University of Notre Dame",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 11,
+      "nationalRank": 9,
       "city": "Notre Dame",
       "state": "IN",
       "conference": "Atlantic Coast",
@@ -2998,11 +3088,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?152080"
@@ -3031,19 +3116,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.nd.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 9,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "colorado",
       "schoolName": "University of Colorado",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 12,
+      "nationalRank": 17,
       "city": "Boulder",
       "state": "CO",
       "conference": "Big 12",
@@ -3116,11 +3211,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?126614"
@@ -3149,19 +3239,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.colorado.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 28 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 17,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "north-carolina",
       "schoolName": "University of North Carolina",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 13,
+      "nationalRank": 2,
       "city": "Chapel Hill",
       "state": "NC",
       "conference": "Atlantic Coast",
@@ -3239,11 +3339,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?199120"
@@ -3272,19 +3367,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://goheels.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 22 of 32 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 2,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "kansas",
       "schoolName": "University of Kansas",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 14,
+      "nationalRank": 15,
       "city": "Lawrence",
       "state": "KS",
       "conference": "Big 12",
@@ -3362,11 +3467,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?155317"
@@ -3395,19 +3495,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/kansas"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 24 of 31 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 15,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "baylor",
       "schoolName": "Baylor University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 15,
+      "nationalRank": 8,
       "city": "Waco",
       "state": "TX",
       "conference": "Big 12",
@@ -3490,11 +3600,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://en.wikipedia.org/wiki/2025_NCAA_Division_I_women%27s_soccer_rankings"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?223232"
@@ -3523,19 +3628,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/baylor"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 8,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "lsu",
       "schoolName": "Louisiana State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 16,
+      "nationalRank": null,
       "city": "Baton Rouge",
       "state": "LA",
       "conference": "Southeastern",
@@ -3571,11 +3686,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?159391"
@@ -3606,7 +3716,7 @@
       "schoolName": "University of Arkansas",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 17,
+      "nationalRank": 20,
       "city": "Fayetteville",
       "state": "AR",
       "conference": "Southeastern",
@@ -3647,11 +3757,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?106397"
@@ -3675,19 +3780,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/arkansas"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 20,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "memphis",
       "schoolName": "University of Memphis",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 18,
+      "nationalRank": null,
       "city": "Memphis",
       "state": "TN",
       "conference": "American",
@@ -3765,11 +3880,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?220862"
@@ -3810,7 +3920,7 @@
       "schoolName": "West Virginia University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 19,
+      "nationalRank": null,
       "city": "Morgantown",
       "state": "WV",
       "conference": "Big 12",
@@ -3888,11 +3998,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?238032"
@@ -3933,7 +4038,7 @@
       "schoolName": "Brigham Young University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": 20,
+      "nationalRank": 16,
       "city": "Provo",
       "state": "UT",
       "conference": "Big 12",
@@ -3969,11 +4074,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://en.wikipedia.org/wiki/2025_NCAA_Division_I_women%27s_soccer_rankings"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?230038"
@@ -3992,12 +4092,22 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/byu"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 16,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "abilene-christian",
@@ -4793,7 +4903,7 @@
       "schoolName": "Auburn University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 24,
       "city": "Auburn",
       "state": "AL",
       "conference": "Southeastern",
@@ -4910,13 +5020,23 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.auburn.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 28 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 24,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "austin-peay-state",
@@ -18735,7 +18855,7 @@
       "schoolName": "Pennsylvania State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 23,
       "city": "University Park",
       "state": "PA",
       "conference": "Big Ten Conference",
@@ -18790,13 +18910,23 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.psu.edu:443/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Official athletics page was not found.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 23,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "pepperdine",
@@ -19444,7 +19574,7 @@
       "schoolName": "Purdue University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 18,
       "city": "West Lafayette",
       "state": "IN",
       "conference": "Big Ten Conference",
@@ -19551,13 +19681,23 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.purdue.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 29 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 18,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "purdue-fort-wayne",
@@ -23854,7 +23994,7 @@
       "schoolName": "Texas Tech University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 11,
       "city": "Lubbock",
       "state": "TX",
       "conference": "Big 12 Conference",
@@ -23951,13 +24091,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://texastech.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 17 of 28 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 11,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "citadel",
@@ -25193,7 +25343,7 @@
       "schoolName": "University of Alabama",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 6,
       "city": "Tuscaloosa",
       "state": "AL",
       "conference": "Southeastern Conference",
@@ -25238,6 +25388,11 @@
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?100751"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
@@ -25245,7 +25400,12 @@
         "Official athletics page was not found.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
         "Campus city is the College Scorecard main-campus row (The University of Alabama)."
-      ]
+      ],
+      "ranking": {
+        "rank": 6,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "alabama-birmingham",
@@ -25661,7 +25821,7 @@
       "schoolName": "University of California, Los Angeles",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 14,
       "city": "Los Angeles",
       "state": "CA",
       "conference": "Big Ten Conference",
@@ -25706,13 +25866,23 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Official athletics page was not found.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 14,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "california-riverside",
@@ -27759,7 +27929,7 @@
       "schoolName": "University of Louisville",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 12,
       "city": "Louisville",
       "state": "KY",
       "conference": "Atlantic Coast Conference",
@@ -27851,13 +28021,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://gocards.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 17 of 25 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 12,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "maine",
@@ -31165,7 +31345,7 @@
       "schoolName": "University of South Carolina, Columbia",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 10,
       "city": "Columbia",
       "state": "SC",
       "conference": "Southeastern Conference",
@@ -31210,13 +31390,23 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Official athletics page was not found.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 10,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "south-dakota",
@@ -32948,7 +33138,7 @@
       "schoolName": "Utah State University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 25,
       "city": "Logan",
       "state": "UT",
       "conference": "Pac-12 Conference",
@@ -33003,13 +33193,23 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.usu.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Official athletics page was not found.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 25,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "utah-tech",
@@ -33880,7 +34080,7 @@
       "schoolName": "Wake Forest University",
       "division": "NCAA D1",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 4,
       "city": "Winston-Salem",
       "state": "NC",
       "conference": "Atlantic Coast Conference",
@@ -33967,13 +34167,23 @@
           "field": "instagram",
           "label": "Official athletics Instagram",
           "url": "https://godeacs.com:443/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 1 of 25 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 4,
+        "poll": "United Soccer Coaches NCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "washington-state",
@@ -35387,7 +35597,7 @@
       "schoolName": "Florida Tech",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 1,
+      "nationalRank": 2,
       "city": "Melbourne",
       "state": "FL",
       "conference": "Sunshine State Conference",
@@ -35458,11 +35668,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?133881"
@@ -35491,19 +35696,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://floridatechsports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 9 of 31 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 2,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "cal-poly-pomona",
       "schoolName": "Cal Poly Pomona",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 2,
+      "nationalRank": 13,
       "city": "Pomona",
       "state": "CA",
       "conference": "CCAA",
@@ -35577,11 +35792,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?110529"
@@ -35615,19 +35825,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/cal-poly-pomona"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 25 of 35 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 13,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "franklin-pierce",
       "schoolName": "Franklin Pierce University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 3,
+      "nationalRank": 6,
       "city": "Rindge",
       "state": "NH",
       "conference": "Northeast 10",
@@ -35706,11 +35926,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?182795"
@@ -35744,19 +35959,29 @@
           "field": "colors",
           "label": "Athletics site theme colors",
           "url": "https://fpuravens.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 6,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "washburn",
       "schoolName": "Washburn University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 4,
+      "nationalRank": null,
       "city": "Topeka",
       "state": "KS",
       "conference": "MIAA",
@@ -35832,11 +36057,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?156082"
@@ -35882,7 +36102,7 @@
       "schoolName": "Dallas Baptist University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 5,
+      "nationalRank": 1,
       "city": "Dallas",
       "state": "TX",
       "conference": "Lone Star",
@@ -35918,11 +36138,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?224226"
@@ -35941,19 +36156,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/dallas-baptist"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 1,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "west-chester",
       "schoolName": "West Chester University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 6,
+      "nationalRank": 10,
       "city": "West Chester",
       "state": "PA",
       "conference": "PSAC",
@@ -36027,11 +36252,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?216764"
@@ -36065,19 +36285,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/west-chester"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 28 of 34 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 10,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "nova-southeastern",
       "schoolName": "Nova Southeastern University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 7,
+      "nationalRank": 14,
       "city": "Fort Lauderdale",
       "state": "FL",
       "conference": "Sunshine State Conference",
@@ -36136,11 +36366,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?136215"
@@ -36174,19 +36399,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/nova-southeastern"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 4 of 28 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 14,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "lenoir-rhyne",
       "schoolName": "Lenoir-Rhyne University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 8,
+      "nationalRank": null,
       "city": "Hickory",
       "state": "NC",
       "conference": "South Atlantic",
@@ -36257,11 +36492,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?198835"
@@ -36307,7 +36537,7 @@
       "schoolName": "Azusa Pacific University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 9,
+      "nationalRank": null,
       "city": "Azusa",
       "state": "CA",
       "conference": "PacWest",
@@ -36381,11 +36611,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?109785"
@@ -36426,7 +36651,7 @@
       "schoolName": "University of Missouri-St. Louis",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 10,
+      "nationalRank": 8,
       "city": "Saint Louis",
       "state": "MO",
       "conference": "GLVC",
@@ -36510,11 +36735,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?178420"
@@ -36538,19 +36758,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://umsltritons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 29 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 8,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "uccs",
       "schoolName": "University of Colorado Colorado Springs",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 11,
+      "nationalRank": null,
       "city": "Colorado Springs",
       "state": "CO",
       "conference": "Rocky Mountain Athletic Conference",
@@ -36596,11 +36826,6 @@
           "url": "https://web3.ncaa.org/directory/memberList?division=II&sportCode=WSO&type=12"
         },
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?126580"
@@ -36621,7 +36846,7 @@
       "schoolName": "Thomas Jefferson University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 12,
+      "nationalRank": null,
       "city": "Philadelphia",
       "state": "PA",
       "conference": "CACC",
@@ -36692,11 +36917,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?216366"
@@ -36732,7 +36952,7 @@
       "schoolName": "Colorado School of Mines",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 13,
+      "nationalRank": null,
       "city": "Golden",
       "state": "CO",
       "conference": "Rocky Mountain Athletic Conference",
@@ -36806,11 +37026,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?126775"
@@ -36856,7 +37071,7 @@
       "schoolName": "Catawba College",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 14,
+      "nationalRank": 18,
       "city": "Salisbury",
       "state": "NC",
       "conference": "South Atlantic Conference",
@@ -36930,11 +37145,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?198215"
@@ -36968,19 +37178,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/catawba"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 28 of 38 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 18,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "north-georgia",
       "schoolName": "University of North Georgia",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 15,
+      "nationalRank": 12,
       "city": "Dahlonega",
       "state": "GA",
       "conference": "Peach Belt Conference",
@@ -37049,11 +37269,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?482680"
@@ -37087,19 +37302,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/north-georgia"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 21 of 28 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 12,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "minnesota-state",
       "schoolName": "Minnesota State University, Mankato",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 16,
+      "nationalRank": 3,
       "city": "Mankato",
       "state": "MN",
       "conference": "Northern Sun",
@@ -37175,11 +37400,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?173920"
@@ -37203,19 +37423,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://msumavericks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 30 of 42 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 3,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "west-florida",
       "schoolName": "University of West Florida",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 17,
+      "nationalRank": null,
       "city": "Pensacola",
       "state": "FL",
       "conference": "Atlantic Sun Conference",
@@ -37294,11 +37524,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?138354"
@@ -37339,7 +37564,7 @@
       "schoolName": "St. Cloud State University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 18,
+      "nationalRank": null,
       "city": "Saint Cloud",
       "state": "MN",
       "conference": "Northern Sun Intercollegiate Conference",
@@ -37380,11 +37605,6 @@
           "url": "https://web3.ncaa.org/directory/memberList?division=II&sportCode=WSO&type=12"
         },
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?174783"
@@ -37400,7 +37620,7 @@
       "schoolName": "Shepherd University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 19,
+      "nationalRank": null,
       "city": "Shepherdstown",
       "state": "WV",
       "conference": "PSAC",
@@ -37469,11 +37689,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?237792"
@@ -37519,7 +37734,7 @@
       "schoolName": "Western Washington University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": 20,
+      "nationalRank": 7,
       "city": "Bellingham",
       "state": "WA",
       "conference": "GNAC",
@@ -37605,11 +37820,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?237011"
@@ -37633,12 +37843,22 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://wwuvikings.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 23 of 32 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 7,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "adams-state",
@@ -38292,7 +38512,7 @@
       "schoolName": "Ashland University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 22,
       "city": "Ashland",
       "state": "OH",
       "conference": "Great Midwest Athletic Conference",
@@ -38374,6 +38594,11 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.ashland.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
@@ -38381,7 +38606,12 @@
         "Roster positions on the athletics site are broader than the app's spots. 26 of 31 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 22,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "assumption",
@@ -39137,7 +39367,7 @@
       "schoolName": "Bentley University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 15,
       "city": "Waltham",
       "state": "MA",
       "conference": "Northeast 10 Conference",
@@ -39237,13 +39467,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://bentleyfalcons.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 24 of 30 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 15,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "biola",
@@ -40947,7 +41187,7 @@
       "schoolName": "Cedarville University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 25,
       "city": "Cedarville",
       "state": "OH",
       "conference": "Great Midwest Athletic Conference",
@@ -41045,13 +41285,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://yellowjackets.cedarville.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 21 of 30 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 25,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "central-washington",
@@ -42236,7 +42486,7 @@
       "schoolName": "Columbus State University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 5,
       "city": "Columbus",
       "state": "GA",
       "conference": "Peach Belt Conference",
@@ -42336,13 +42586,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://csucougars.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 30 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 5,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "concord",
@@ -44641,7 +44901,7 @@
       "schoolName": "Fairmont State University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 19,
       "city": "Fairmont",
       "state": "WV",
       "conference": "Mountain East Conference",
@@ -44723,13 +44983,23 @@
           "field": "instagram",
           "label": "Official athletics Instagram",
           "url": "https://fightingfalcons.com/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster page did not include position and class-year counts.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 19,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "felician",
@@ -47368,7 +47638,7 @@
       "schoolName": "Kutztown University of Pennsylvania",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 4,
       "city": "Kutztown",
       "state": "PA",
       "conference": "Pennsylvania State Athletic Conference",
@@ -47461,13 +47731,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://kubears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 23 of 29 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 4,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "lake-erie",
@@ -47701,7 +47981,7 @@
       "schoolName": "Lee University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 9,
       "city": "Cleveland",
       "state": "TN",
       "conference": "Gulf South Conference",
@@ -47796,13 +48076,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://leeuflames.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 21 of 34 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 9,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "lees-mcrae",
@@ -49707,7 +49997,7 @@
       "schoolName": "Midwestern State University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 23,
       "city": "Wichita Falls",
       "state": "TX",
       "conference": "Lone Star Conference",
@@ -49817,13 +50107,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://msumustangs.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 28 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 23,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "millersville-pennsylvania",
@@ -52957,7 +53257,7 @@
       "schoolName": "Pittsburg State University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 11,
       "city": "Pittsburg",
       "state": "KS",
       "conference": "Mid-America Intercollegiate Athletics Association",
@@ -53060,20 +53360,30 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://pittstategorillas.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 26 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 11,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "point-loma-nazarene",
       "schoolName": "Point Loma Nazarene University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 24,
       "city": "San Diego",
       "state": "CA",
       "conference": "Pacific West Conference",
@@ -53193,13 +53503,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://plnusealions.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 24,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "point-park",
@@ -53782,7 +54102,7 @@
       "schoolName": "Regis University (Colorado)",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 16,
       "city": "Denver",
       "state": "CO",
       "conference": "Rocky Mountain Athletic Conference",
@@ -53882,13 +54202,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://regisrangers.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 22 of 33 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 16,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "roberts-wesleyan",
@@ -57671,7 +58001,7 @@
       "schoolName": "Texas Woman's University",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 21,
       "city": "Denton",
       "state": "TX",
       "conference": "Lone Star Conference",
@@ -57766,6 +58096,11 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/texas-womans"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
@@ -57773,7 +58108,12 @@
         "Roster positions on the athletics site are broader than the app's spots. 21 of 28 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 21,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "texas-permian-basin",
@@ -59095,7 +59435,7 @@
       "schoolName": "University of Central Missouri",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 20,
       "city": "Warrensburg",
       "state": "MO",
       "conference": "Mid-America Intercollegiate Athletics Association",
@@ -59188,13 +59528,23 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.ucmo.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 19 of 25 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 20,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "central-oklahoma",
@@ -62502,7 +62852,7 @@
       "schoolName": "Wayne State University (Michigan)",
       "division": "NCAA D2",
       "jucoDivision": null,
-      "nationalRank": null,
+      "nationalRank": 17,
       "city": "Detroit",
       "state": "MI",
       "conference": "Great Lakes Intercollegiate Athletic Conference",
@@ -62607,13 +62957,23 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://wsuathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division II Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 20 of 33 players mapped; generic defenders were left off the meter.",
         "Included from the NCAA D2 women's soccer directory. No final-poll rank or season record was copied."
-      ]
+      ],
+      "ranking": {
+        "rank": 17,
+        "poll": "United Soccer Coaches NCAA Division II Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "west-liberty",
@@ -64168,11 +64528,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?179867"
@@ -64196,19 +64551,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://washubears.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster page did not include position and class-year counts."
-      ]
+      ],
+      "ranking": {
+        "rank": 1,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "emory",
       "schoolName": "Emory University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 2,
+      "nationalRank": 21,
       "city": "Atlanta",
       "state": "GA",
       "conference": "UAA",
@@ -64289,11 +64654,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?139658"
@@ -64327,19 +64687,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/emory"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 23 of 30 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 21,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "chicago",
       "schoolName": "University of Chicago",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 3,
+      "nationalRank": 10,
       "city": "Chicago",
       "state": "IL",
       "conference": "University Athletic Association",
@@ -64420,11 +64790,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?144050"
@@ -64458,12 +64823,22 @@
           "field": "colors",
           "label": "Athletics site theme colors",
           "url": "https://athletics.uchicago.edu/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 10,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "tufts",
@@ -64544,11 +64919,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?168148"
@@ -64582,19 +64952,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/tufts"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 27 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 4,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "messiah",
       "schoolName": "Messiah University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 5,
+      "nationalRank": 7,
       "city": "Mechanicsburg",
       "state": "PA",
       "conference": "MAC Commonwealth",
@@ -64678,11 +65058,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?213996"
@@ -64716,19 +65091,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/messiah"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 26 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 7,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "pomona-pitzer",
       "schoolName": "Pomona-Pitzer",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 6,
+      "nationalRank": 15,
       "city": "Claremont",
       "state": "CA",
       "conference": "SCIAC",
@@ -64786,11 +65171,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?121345"
@@ -64824,20 +65204,30 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/pomona-pitzer"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Pomona-Pitzer is a joint team. Enrollment, acceptance rate, and net price are Pomona College's College Scorecard figures.",
         "Roster page did not include position and class-year counts."
-      ]
+      ],
+      "ranking": {
+        "rank": 15,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "washington-lee",
       "schoolName": "Washington and Lee University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 7,
+      "nationalRank": 2,
       "city": "Lexington",
       "state": "VA",
       "conference": "Old Dominion",
@@ -64911,11 +65301,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?234207"
@@ -64939,19 +65324,29 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://generalssports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 23 of 32 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 2,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "mit",
       "schoolName": "Massachusetts Institute of Technology",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 8,
+      "nationalRank": 5,
       "city": "Cambridge",
       "state": "MA",
       "conference": null,
@@ -64992,11 +65387,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?166683"
@@ -65005,19 +65395,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://web.mit.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 5,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "middlebury",
       "schoolName": "Middlebury College",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 9,
+      "nationalRank": 25,
       "city": "Middlebury",
       "state": "VT",
       "conference": "NESCAC",
@@ -65101,11 +65501,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?230959"
@@ -65139,19 +65534,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/middlebury"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 26 of 34 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 25,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "williams",
       "schoolName": "Williams College",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 10,
+      "nationalRank": 8,
       "city": "Williamstown",
       "state": "MA",
       "conference": "New England Small College Athletic",
@@ -65220,11 +65625,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?168342"
@@ -65258,19 +65658,29 @@
           "field": "instagram",
           "label": "Official Instagram",
           "url": "https://ephsports.williams.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 8,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "case-western",
       "schoolName": "Case Western Reserve University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 11,
+      "nationalRank": null,
       "city": "Cleveland",
       "state": "OH",
       "conference": null,
@@ -65306,11 +65716,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?201645"
@@ -65326,7 +65731,7 @@
       "schoolName": "University of Mary Washington",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 12,
+      "nationalRank": null,
       "city": "Fredericksburg",
       "state": "VA",
       "conference": "Coast-To-Coast Athletic",
@@ -65383,11 +65788,6 @@
         "scorecard": "232681"
       },
       "sources": [
-        {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
         {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
@@ -65513,11 +65913,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?216287"
@@ -65551,19 +65946,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/swarthmore"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 23 of 35 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 13,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "cal-lutheran",
       "schoolName": "California Lutheran University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 14,
+      "nationalRank": null,
       "city": "Thousand Oaks",
       "state": "CA",
       "conference": "SCIAC",
@@ -65639,11 +66044,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?110413"
@@ -65689,7 +66089,7 @@
       "schoolName": "Johns Hopkins University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 15,
+      "nationalRank": 16,
       "city": "Baltimore",
       "state": "MD",
       "conference": "Centennial Conference",
@@ -65770,11 +66170,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?162928"
@@ -65808,19 +66203,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/johns-hopkins"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 25 of 34 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 16,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "carleton",
       "schoolName": "Carleton College",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 16,
+      "nationalRank": 20,
       "city": "Northfield",
       "state": "MN",
       "conference": "MIAC",
@@ -65889,11 +66294,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?173258"
@@ -65922,20 +66322,30 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/carleton"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 18 of 30 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page."
-      ]
+      ],
+      "ranking": {
+        "rank": 20,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "calvin",
       "schoolName": "Calvin University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 17,
+      "nationalRank": 9,
       "city": "Grand Rapids",
       "state": "MI",
       "conference": "Michigan Intercollegiate",
@@ -66013,11 +66423,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?169080"
@@ -66046,19 +66451,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/calvin"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 24 of 30 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 9,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "rowan",
       "schoolName": "Rowan University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 18,
+      "nationalRank": 3,
       "city": "Glassboro",
       "state": "NJ",
       "conference": "NJAC",
@@ -66132,11 +66547,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?184782"
@@ -66170,19 +66580,29 @@
           "field": "colorNames",
           "label": "NCAA.com school directory",
           "url": "https://www.ncaa.com/schools/rowan"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NCAA Division III Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 21 of 32 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 3,
+        "poll": "United Soccer Coaches NCAA Division III Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "rochester",
       "schoolName": "University of Rochester",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 19,
+      "nationalRank": null,
       "city": "Rochester",
       "state": "NY",
       "conference": "Liberty League",
@@ -66248,11 +66668,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?195030"
@@ -66288,7 +66703,7 @@
       "schoolName": "Misericordia University",
       "division": "NCAA D3",
       "jucoDivision": null,
-      "nationalRank": 20,
+      "nationalRank": null,
       "city": "Dallas",
       "state": "PA",
       "conference": "MAC Freedom League",
@@ -66351,11 +66766,6 @@
         "scorecard": "214069"
       },
       "sources": [
-        {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/"
-        },
         {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
@@ -66473,11 +66883,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?133386"
@@ -66496,12 +66901,22 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://www.dscfalcons.com/sports/wsoc/2026-27/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 12 of 28 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 1,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "arizona-western",
@@ -66544,27 +66959,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?104160"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 2,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "tyler",
       "schoolName": "Tyler Junior College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 3,
+      "nationalRank": null,
       "city": "Tyler",
       "state": "TX",
       "conference": null,
@@ -66604,11 +67024,6 @@
         "scorecard": "229355"
       },
       "sources": [
-        {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
         {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
@@ -66680,11 +67095,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?225308"
@@ -66703,20 +67113,30 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.tvcc.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 13 of 28 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page."
-      ]
+      ],
+      "ranking": {
+        "rank": 4,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "salt-lake",
       "schoolName": "Salt Lake Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 5,
+      "nationalRank": 8,
       "city": "Salt Lake City",
       "state": "UT",
       "conference": null,
@@ -66755,11 +67175,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?230746"
@@ -66768,19 +67183,29 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.slcc.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 8,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "laramie-county",
       "schoolName": "Laramie County Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 6,
+      "nationalRank": 15,
       "city": "Cheyenne",
       "state": "WY",
       "conference": null,
@@ -66833,11 +67258,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?240620"
@@ -66861,20 +67281,30 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.lccc.wy.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 12 of 24 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page."
-      ]
+      ],
+      "ranking": {
+        "rank": 15,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "monroe",
       "schoolName": "Monroe Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 7,
+      "nationalRank": 6,
       "city": "Rochester",
       "state": "NY",
       "conference": null,
@@ -66922,11 +67352,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?193326"
@@ -66950,20 +67375,30 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.monroecc.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster page did not include position and class-year counts.",
         "Coaches are named on the athletics site, but no staff email was published."
-      ]
+      ],
+      "ranking": {
+        "rank": 6,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "lewis-clark",
       "schoolName": "Lewis and Clark Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 8,
+      "nationalRank": null,
       "city": "Godfrey",
       "state": "IL",
       "conference": null,
@@ -67011,11 +67446,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?146603"
@@ -67046,7 +67476,7 @@
       "schoolName": "Motlow State Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 9,
+      "nationalRank": 13,
       "city": "Tullahoma",
       "state": "TN",
       "conference": null,
@@ -67080,27 +67510,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?221096"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 13,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "eastern-florida",
       "schoolName": "Eastern Florida State College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 10,
+      "nationalRank": null,
       "city": "Melbourne",
       "state": "FL",
       "conference": null,
@@ -67160,11 +67595,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?132693"
@@ -67196,7 +67626,7 @@
       "schoolName": "Eastern Arizona College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 11,
+      "nationalRank": 7,
       "city": "Thatcher",
       "state": "AZ",
       "conference": null,
@@ -67230,27 +67660,32 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?104577"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found."
-      ]
+      ],
+      "ranking": {
+        "rank": 7,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "butler",
       "schoolName": "Butler Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 12,
+      "nationalRank": 5,
       "city": "El Dorado",
       "state": "KS",
       "conference": null,
@@ -67309,11 +67744,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?154800"
@@ -67332,20 +67762,30 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.butlercc.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 11 of 28 players mapped; generic defenders were left off the meter.",
         "Coaches are named on the athletics site, but no staff email was published."
-      ]
+      ],
+      "ranking": {
+        "rank": 5,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "blinn",
       "schoolName": "Blinn College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 13,
+      "nationalRank": 10,
       "city": "Brenham",
       "state": "TX",
       "conference": "NJCAA",
@@ -67403,11 +67843,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?223427"
@@ -67431,20 +67866,30 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.blinn.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 16 of 21 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page."
-      ]
+      ],
+      "ranking": {
+        "rank": 10,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "gillette",
       "schoolName": "Gillette College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 14,
+      "nationalRank": 12,
       "city": "Gillette",
       "state": "WY",
       "conference": null,
@@ -67478,11 +67923,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?240666"
@@ -67491,20 +67931,30 @@
           "field": "location",
           "label": "Official campus page",
           "url": "https://www.gillettecollege.org/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Official athletics page was not found.",
         "Gillette College publishes its address as Gillette, WY, and says it is part of the Northern Wyoming Community College District. Enrollment, net price, and open-admission status are that district's College Scorecard figures."
-      ]
+      ],
+      "ranking": {
+        "rank": 12,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "columbia-state",
       "schoolName": "Columbia State Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 15,
+      "nationalRank": 14,
       "city": "Columbia",
       "state": "TN",
       "conference": null,
@@ -67552,11 +68002,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?219888"
@@ -67580,20 +68025,30 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://columbiastatecc.prestosports.com/sports/wsoc/2025-26/roster"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 4 of 20 players mapped; generic defenders were left off the meter.",
         "No coach names were published on the fetched staff or roster page."
-      ]
+      ],
+      "ranking": {
+        "rank": 14,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     },
     {
       "id": "southwestern-illinois",
       "schoolName": "Southwestern Illinois College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 16,
+      "nationalRank": null,
       "city": "Belleville",
       "state": "IL",
       "conference": null,
@@ -67632,11 +68087,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?143215"
@@ -67657,7 +68107,7 @@
       "schoolName": "Bellevue College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 17,
+      "nationalRank": null,
       "city": "Bellevue",
       "state": "WA",
       "conference": null,
@@ -67693,11 +68143,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?234669"
@@ -67713,7 +68158,7 @@
       "schoolName": "Harford Community College",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 18,
+      "nationalRank": null,
       "city": "Bel Air",
       "state": "MD",
       "conference": "NJCAA",
@@ -67787,11 +68232,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?162706"
@@ -67827,7 +68267,7 @@
       "schoolName": "College of Southern Idaho",
       "division": "NJCAA",
       "jucoDivision": "D1",
-      "nationalRank": 19,
+      "nationalRank": 9,
       "city": "Twin Falls",
       "state": "ID",
       "conference": "Scenic West Athletic Conference",
@@ -67908,11 +68348,6 @@
       },
       "sources": [
         {
-          "field": "ranking",
-          "label": "National poll",
-          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
-        },
-        {
           "field": "scorecard",
           "label": "College Scorecard institution file, updated June 10, 2026",
           "url": "https://collegescorecard.ed.gov/school/?142559"
@@ -67936,12 +68371,22 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.csi.edu/"
+        },
+        {
+          "field": "ranking",
+          "label": "United Soccer Coaches NJCAA Division I Women",
+          "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/"
         }
       ],
       "lastVerified": "2026-10-10",
       "gaps": [
         "Roster positions on the athletics site are broader than the app's spots. 12 of 25 players mapped; generic defenders were left off the meter."
-      ]
+      ],
+      "ranking": {
+        "rank": 9,
+        "poll": "United Soccer Coaches NJCAA Division I Women",
+        "date": "2026-10-27"
+      }
     }
   ]
 }

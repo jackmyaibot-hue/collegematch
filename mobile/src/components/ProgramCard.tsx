@@ -14,6 +14,7 @@ import { colors, divisionTone, fitTone, radius } from '../theme';
 import { cardPhotos, coachPortrait } from './cardPhotos';
 import { FitBars } from './FitBars';
 import { PhotoGallery } from './PhotoGallery';
+import { RankBadge } from './RankBadge';
 import { AppText, Pill } from './ui';
 
 export function ProgramCard({
@@ -46,7 +47,10 @@ export function ProgramCard({
   };
 
   return (
-    <View style={styles.card} accessibilityLabel={`${program.schoolName}, fit ${fit.total}, ${program.division}`}>
+    <View
+      style={styles.card}
+      accessibilityLabel={`${program.schoolName}${program.ranking ? `, ranked number ${program.ranking.rank} nationally` : ''}, fit ${fit.total}, ${program.division}`}
+    >
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} nestedScrollEnabled>
         <View style={[styles.hero, { backgroundColor: primary }]}>
           <View style={styles.crestBlock}>
@@ -65,6 +69,14 @@ export function ProgramCard({
             <AppText variant="title" color="#F7F4EE" numberOfLines={2} style={styles.name}>
               {program.schoolName}
             </AppText>
+            {program.ranking ? (
+              <RankBadge
+                rank={program.ranking.rank}
+                accent={accent}
+                background={primary}
+                colorsVerified={program.colorsVerified}
+              />
+            ) : null}
             <AppText variant="caption" color="#E4EDE8" numberOfLines={1}>
               {program.city}, {program.state}
             </AppText>

@@ -1,7 +1,7 @@
 import { schoolSizeFromEnrollment } from '../format';
 import catalogFile from '../real/programs.json';
 import { regionForState } from '../regions';
-import type { Coach, Division, JucoDivision, Position, Program, ProgramSource, RosterCount, TeamRecord } from '../types';
+import type { Coach, Division, JucoDivision, Position, Program, ProgramRanking, ProgramSource, RosterCount, TeamRecord } from '../types';
 import type { ProgramCatalog } from './types';
 
 /**
@@ -18,6 +18,7 @@ type RawProgram = {
   division: string;
   jucoDivision?: string | null;
   nationalRank?: number;
+  ranking?: { rank?: number; poll?: string; date?: string } | null;
   city?: string | null;
   state?: string | null;
   conference?: string | null;
@@ -88,6 +89,16 @@ function verifiedColors(raw: RawProgram): { colors: [string, string]; colorsVeri
   return { colors: PLACEHOLDER_COLORS, colorsVerified: false };
 }
 
+function rankingFrom(raw: RawProgram['ranking']): ProgramRanking | null {
+  if (!raw) return null;
+  const rank = raw.rank;
+  const poll = raw.poll?.trim() ?? '';
+  const date = raw.date?.trim() ?? '';
+  if (!Number.isInteger(rank) || rank == null || rank < 1 || rank > 25) return null;
+  if (!poll || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+  return { rank, poll, date };
+}
+
 function toProgram(raw: RawProgram): Program | null {
   if (!DIVISIONS.has(raw.division as Division)) return null;
   const city = raw.city?.trim() ?? '';
@@ -145,6 +156,7 @@ function toProgram(raw: RawProgram): Program | null {
     rosterOrigin: null,
     idCamps: [],
     sample: false,
+    ranking: rankingFrom(raw.ranking),
     nationalRank: raw.nationalRank,
     lastVerified: raw.lastVerified,
     sources: raw.sources,

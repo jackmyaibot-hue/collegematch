@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FitBars } from '../../components/FitBars';
+import { RankBadge } from '../../components/RankBadge';
 import { AppText, Button, Pill, SampleBanner, StatusPill } from '../../components/ui';
 import { offersMajor, scoreProgram } from '../../data/fitScore';
 import { addDays, effectiveStatus, formatEnrollment, formatLongDate, formatMoney, formatPercent, isoToday, isIsoDate } from '../../data/format';
@@ -73,6 +74,15 @@ export default function SchoolScreen() {
         <AppText variant="title" color="#F4F1EA">
           {program.schoolName}
         </AppText>
+        {program.ranking ? (
+          <RankBadge
+            rank={program.ranking.rank}
+            accent={program.colors[1]}
+            background={colors.greenDark}
+            colorsVerified={program.colorsVerified}
+            align="flex-start"
+          />
+        ) : null}
         <AppText variant="body" color="#D5E6DC">
           {[program.mascot, `${program.city}, ${program.state}`].filter(Boolean).join(' · ')}
         </AppText>

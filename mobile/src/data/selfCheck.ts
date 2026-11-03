@@ -508,6 +508,17 @@ const floridaState = REAL_PROGRAMS.find((program) => program.id === 'florida-sta
 check(Boolean(floridaState && floridaState.city === 'Tallahassee' && floridaState.state === 'FL'), 'Florida State location should come from Scorecard');
 check(floridaState?.instagramHandle === 'nolesoccer', 'Florida State Instagram should be the handle on the athletics page');
 check(
+  floridaState?.ranking?.rank === 22 &&
+    floridaState.ranking.poll === 'United Soccer Coaches NCAA Division I Women' &&
+    floridaState.ranking.date === '2026-10-27' &&
+    floridaState.nationalRank === 22,
+  'Florida State should carry the October 27, 2026 coaches poll rank',
+);
+const vanderbilt = REAL_PROGRAMS.find((program) => program.id === 'vanderbilt');
+check(vanderbilt?.ranking?.rank === 1, 'Vanderbilt should be number 1 in the current Division I poll');
+const tcu = REAL_PROGRAMS.find((program) => program.id === 'tcu');
+check(tcu?.ranking == null && tcu?.nationalRank == null, 'TCU is outside the current Top 25 and should not keep a rank');
+check(
   Boolean(floridaState?.coaches.some((coach) => coach.email?.endsWith('@fsu.edu'))),
   'Florida State should keep a published fsu.edu coach email',
 );

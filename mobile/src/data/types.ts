@@ -231,6 +231,15 @@ export type Coach = {
   email: string | null;
 };
 
+export type ProgramRanking = {
+  /** Place in that poll, including ties as printed. */
+  rank: number;
+  /** Official poll name. */
+  poll: string;
+  /** ISO date printed on the poll. */
+  date: string;
+};
+
 export type ProgramSource = {
   field: string;
   label: string;
@@ -339,7 +348,11 @@ export type Program = {
    * Real providers should set this to false.
    */
   sample: boolean;
-  /** Final-poll rank for real programs. */
+  /**
+   * Latest official Top 25 rank. Empty when the school is not in the current poll.
+   * `nationalRank` mirrors `ranking.rank` for the same poll.
+   */
+  ranking?: ProgramRanking | null;
   nationalRank?: number;
   /** ISO date the public sources were fetched. */
   lastVerified?: string;
