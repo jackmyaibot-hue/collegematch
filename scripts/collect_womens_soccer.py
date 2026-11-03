@@ -568,6 +568,12 @@ def city_state_from_html(html: str, state_hint: str | None = None) -> tuple[str 
         r"\b([A-Z][A-Za-z.'’\-]*(?: [A-Z][A-Za-z.'’\-]*){0,3}),\s*([A-Z]{2})\s+\d{5}\b",
         text,
     )
+    street = {"st", "street", "ave", "avenue", "rd", "road", "dr", "drive", "blvd", "ln", "lane", "way", "pkwy"}
+    pairs = [
+        (found_city, found_state)
+        for found_city, found_state in pairs
+        if not any(word.strip(".").lower() in street for word in found_city.split())
+    ]
     if state_hint:
         pairs = [(found_city, found_state) for found_city, found_state in pairs if found_state == state_hint]
     cities = {found_city for found_city, _state in pairs}
@@ -845,7 +851,34 @@ def team_page(url: str) -> bool:
     return True
 
 
-def try_roster_page(seed: dict, url: str) -> tuple[str | None, str]:
+def hosts_match(left: str, right: str) -> bool:
+    def host(url: str) -> str:
+        status, final, _body = fetch(url)
+        target = final if status else url
+        return urllib.parse.urlparse(target).netloc.lower().removeprefix("www.")
+
+    return bool(left and right and host(left) == host(right))
+
+
+def coach_index_urls(roster_url: str) -> list[str]:
+    parts = urllib.parse.urlparse(roster_url)
+    origin = f"{parts.scheme}://{parts.netloc}"
+    paths: list[str] = []
+    sport = re.search(r"(/sports/[^/]+)", parts.path)
+    if sport:
+        base = sport.group(1)
+        paths.extend([f"{base}/coaches/index-all", f"{base}/coaches", f"{base}/coaches/index"])
+    if parts.path.rstrip("/").endswith("/roster"):
+        paths.append(re.sub(r"/roster/?$", "/coaches", parts.path))
+    urls: list[str] = []
+    for path in paths:
+        url = origin + path
+        if url not in urls:
+            urls.append(url)
+    return urls
+
+
+def try_roster_page(seed: dict, url: str, trust_host: bool = False) -> tuple[str | None, str]:
     if not team_page(url):
         return None, ""
     parts = urllib.parse.urlparse(url)
@@ -855,7 +888,10 @@ def try_roster_page(seed: dict, url: str) -> tuple[str | None, str]:
     if status != 200:
         return None, ""
     parsed = parse_athletics(final, body)
-    if (parsed["coaches"] or parsed["roster"]) and page_matches_school(seed, final, body):
+    # A women's soccer roster on the NCAA directory athletics host is that school,
+    # even when the page title uses a short name.
+    trusted = trust_host and hosts_match(seed.get("athleticsHome") or "", final)
+    if (parsed["coaches"] or parsed["roster"]) and (trusted or page_matches_school(seed, final, body)):
         return final, body
     return None, ""
 
@@ -897,7 +933,7 @@ def probe_athletics_home(seed: dict) -> tuple[str | None, str]:
         return None, ""
     origin = f"{parts.scheme}://{parts.netloc}"
     for path in ROSTER_PATHS:
-        found, body = try_roster_page(seed, origin + path)
+        found, body = try_roster_page(seed, origin + path, trust_host=True)
         if found:
             return found, body
     status, final, body = fetch(home if home.startswith("http") else origin)
@@ -908,7 +944,7 @@ def probe_athletics_home(seed: dict) -> tuple[str | None, str]:
     for link in ranked:
         if "/roster" not in link.lower() or not roster_link(link):
             continue
-        found, roster_body = try_roster_page(seed, link)
+        found, roster_body = try_roster_page(seed, link, trust_host=hosts_match(home, link))
         if found:
             return found, roster_body
     return None, ""
@@ -1112,9 +1148,16 @@ def presto_players(html: str) -> list[dict]:
         position_match = re.search(r'data-field="position"[\s\S]*?</td>', row, flags=re.I)
         year_match = re.search(r'data-field="year"[\s\S]*?</td>', row, flags=re.I)
         if not position_match or not year_match:
+            position_match = re.search(r">\s*Pos\.:\s*</span>\s*([^<]+)", row, flags=re.I)
+            year_match = re.search(r">\s*Cl\.:\s*</span>\s*([^<]+)", row, flags=re.I)
+        if not position_match or not year_match:
             continue
-        position = plain_text(position_match.group(0))
-        year = plain_text(year_match.group(0))
+        if "data-field" in position_match.group(0):
+            position = plain_text(position_match.group(0))
+            year = plain_text(year_match.group(0))
+        else:
+            position = position_match.group(1)
+            year = year_match.group(1)
         position = re.sub(r"^Pos\.:?\s*", "", position, flags=re.I).strip()
         year = re.sub(r"^Cl\.:?\s*", "", year, flags=re.I).strip()
         if not position or position.lower() in {"pos.", "pos", "position"}:
@@ -1323,6 +1366,15 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
     }
     if page_url:
         athletics = parse_athletics(page_url, html)
+        if not athletics["coaches"]:
+            for coach_url in coach_index_urls(page_url):
+                coach_status, coach_final, coach_body = fetch(coach_url)
+                if coach_status != 200 or not hosts_match(page_url, coach_final):
+                    continue
+                found = presto_coaches(coach_body) or coaches_from_html(coach_body)
+                if found:
+                    athletics["coaches"] = enrich_emails(coach_final, found)
+                    break
         if not facts["city"] or not facts["state"]:
             city, state = city_state_from_html(html, seed.get("state"))
             if city and state:
@@ -1572,7 +1624,7 @@ def main() -> None:
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n")
     report = summarize(programs, document["polls"], before)
     if args.only:
-        for key in ("batch1", "batches"):
+        for key in ("batch1", "batches", "d1Women"):
             if key in previous_report and key not in report:
                 report[key] = previous_report[key]
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n")

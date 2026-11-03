@@ -4,8 +4,8 @@
   "fetched": "2026-11-03",
   "note": "Official NCAA directory of Division II institutions that sponsor women's soccer. status done means the school is already in mobile/src/data/real/programs.json. Azusa Pacific and West Florida are in the catalog from the 2025 D2 poll but are not on this directory.",
   "count": 261,
-  "done": 18,
-  "pending": 243,
+  "done": 88,
+  "pending": 173,
   "schools": [
     {
       "name": "Adams State University",
@@ -13,8 +13,8 @@
       "state": "CO",
       "athleticsUrl": "https://www.asugrizzlies.com",
       "ncaaOrgId": 929,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "adams-state",
+      "status": "done"
     },
     {
       "name": "Adelphi University",
@@ -22,8 +22,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.aupanthers.com",
       "ncaaOrgId": 3,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "adelphi",
+      "status": "done"
     },
     {
       "name": "Allen University",
@@ -31,8 +31,8 @@
       "state": "SC",
       "athleticsUrl": "https://auyellowjackets.com",
       "ncaaOrgId": 30240,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "allen",
+      "status": "done"
     },
     {
       "name": "American International College",
@@ -40,8 +40,8 @@
       "state": "MA",
       "athleticsUrl": "https://aicyellowjackets.com",
       "ncaaOrgId": 22,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "american-international",
+      "status": "done"
     },
     {
       "name": "Anderson University (South Carolina)",
@@ -49,8 +49,8 @@
       "state": "SC",
       "athleticsUrl": "https://www.autrojans.com",
       "ncaaOrgId": 13028,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "anderson-south-carolina",
+      "status": "done"
     },
     {
       "name": "Angelo State University",
@@ -58,8 +58,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.angelosports.com",
       "ncaaOrgId": 25,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "angelo-state",
+      "status": "done"
     },
     {
       "name": "Ashland University",
@@ -67,8 +67,8 @@
       "state": "OH",
       "athleticsUrl": "https://www.goashlandeagles.com",
       "ncaaOrgId": 35,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "ashland",
+      "status": "done"
     },
     {
       "name": "Assumption University",
@@ -76,8 +76,8 @@
       "state": "MA",
       "athleticsUrl": "https://www.assumptiongreyhounds.com",
       "ncaaOrgId": 36,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "assumption",
+      "status": "done"
     },
     {
       "name": "Auburn University at Montgomery",
@@ -85,8 +85,8 @@
       "state": "AL",
       "athleticsUrl": "https://www.aumathletics.com",
       "ncaaOrgId": 30093,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "auburn-montgomery",
+      "status": "done"
     },
     {
       "name": "Augustana University (South Dakota)",
@@ -94,8 +94,8 @@
       "state": "SD",
       "athleticsUrl": "https://www.goaugie.com",
       "ncaaOrgId": 41,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "augustana-south-dakota",
+      "status": "done"
     },
     {
       "name": "Barry University",
@@ -103,8 +103,8 @@
       "state": "FL",
       "athleticsUrl": "https://Www.GoBarryBucs.com",
       "ncaaOrgId": 49,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "barry",
+      "status": "done"
     },
     {
       "name": "Barton College",
@@ -112,8 +112,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.bartonbulldogs.com",
       "ncaaOrgId": 15646,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "barton",
+      "status": "done"
     },
     {
       "name": "Belmont Abbey College",
@@ -121,8 +121,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.abbeyathletics.com",
       "ncaaOrgId": 2683,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "belmont-abbey",
+      "status": "done"
     },
     {
       "name": "Bemidji State University",
@@ -130,8 +130,8 @@
       "state": "MN",
       "athleticsUrl": "https://www.bsubeavers.com",
       "ncaaOrgId": 54,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "bemidji-state",
+      "status": "done"
     },
     {
       "name": "Bentley University",
@@ -139,8 +139,8 @@
       "state": "MA",
       "athleticsUrl": "https://www.bentley.edu/athletics",
       "ncaaOrgId": 56,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "bentley",
+      "status": "done"
     },
     {
       "name": "Biola University",
@@ -148,8 +148,8 @@
       "state": "CA",
       "athleticsUrl": "https://athletics.biola.edu",
       "ncaaOrgId": 30220,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "biola",
+      "status": "done"
     },
     {
       "name": "Black Hills State University",
@@ -157,8 +157,8 @@
       "state": "SD",
       "athleticsUrl": "https://bhsuathletics.com",
       "ncaaOrgId": 30134,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "black-hills-state",
+      "status": "done"
     },
     {
       "name": "Bloomsburg University of Pennsylvania",
@@ -166,8 +166,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.bloomsburgathletics.com",
       "ncaaOrgId": 65,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "bloomsburg-pennsylvania",
+      "status": "done"
     },
     {
       "name": "Bluefield State University",
@@ -175,8 +175,8 @@
       "state": "WV",
       "athleticsUrl": "https://gobstate.com",
       "ncaaOrgId": 985,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "bluefield-state",
+      "status": "done"
     },
     {
       "name": "Caldwell University",
@@ -184,8 +184,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.caldwellathletics.com",
       "ncaaOrgId": 995,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "caldwell",
+      "status": "done"
     },
     {
       "name": "California State Polytechnic University, Humboldt",
@@ -193,8 +193,8 @@
       "state": "CA",
       "athleticsUrl": "https://humboldtathletics.com",
       "ncaaOrgId": 291,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-polytechnic-humboldt",
+      "status": "done"
     },
     {
       "name": "California State Polytechnic University, Pomona",
@@ -211,8 +211,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.chicowildcats.com",
       "ncaaOrgId": 95,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-chico",
+      "status": "done"
     },
     {
       "name": "California State University, Dominguez Hills",
@@ -220,8 +220,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.gotoros.com",
       "ncaaOrgId": 92,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-dominguez-hills",
+      "status": "done"
     },
     {
       "name": "California State University, East Bay",
@@ -229,8 +229,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.eastbaypioneers.com",
       "ncaaOrgId": 98,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-east-bay",
+      "status": "done"
     },
     {
       "name": "California State University, Los Angeles",
@@ -238,8 +238,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.lagoldeneagles.com",
       "ncaaOrgId": 100,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-los-angeles",
+      "status": "done"
     },
     {
       "name": "California State University, Monterey Bay",
@@ -247,8 +247,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.otterathletics.com",
       "ncaaOrgId": 30055,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-monterey-bay",
+      "status": "done"
     },
     {
       "name": "California State University, San Bernardino",
@@ -256,8 +256,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.csusbathletics.com",
       "ncaaOrgId": 93,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-san-bernardino",
+      "status": "done"
     },
     {
       "name": "California State University, San Marcos",
@@ -265,8 +265,8 @@
       "state": "CA",
       "athleticsUrl": "https://csusmcougars.com",
       "ncaaOrgId": 30198,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-san-marcos",
+      "status": "done"
     },
     {
       "name": "California State University, Stanislaus",
@@ -274,8 +274,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.warriorathletics.com",
       "ncaaOrgId": 103,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-state-stanislaus",
+      "status": "done"
     },
     {
       "name": "Carson-Newman University",
@@ -283,8 +283,8 @@
       "state": "TN",
       "athleticsUrl": "https://cneagles.com",
       "ncaaOrgId": 1000,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "carson-newman",
+      "status": "done"
     },
     {
       "name": "Catawba College",
@@ -301,8 +301,8 @@
       "state": "OH",
       "athleticsUrl": "https://www.yellowjackets.cedarville.edu",
       "ncaaOrgId": 30124,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "cedarville",
+      "status": "done"
     },
     {
       "name": "Central Washington University",
@@ -310,8 +310,8 @@
       "state": "WA",
       "athleticsUrl": "https://wildcatsports.com",
       "ncaaOrgId": 1010,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "central-washington",
+      "status": "done"
     },
     {
       "name": "Chaminade University",
@@ -319,8 +319,8 @@
       "state": "HI",
       "athleticsUrl": "https://goswords.com",
       "ncaaOrgId": 133,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "chaminade",
+      "status": "done"
     },
     {
       "name": "Chestnut Hill College",
@@ -328,8 +328,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.griffinathletics.com",
       "ncaaOrgId": 21323,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "chestnut-hill",
+      "status": "done"
     },
     {
       "name": "Chowan University",
@@ -337,8 +337,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.gocuhawks.com",
       "ncaaOrgId": 8875,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "chowan",
+      "status": "done"
     },
     {
       "name": "Christian Brothers University",
@@ -346,8 +346,8 @@
       "state": "TN",
       "athleticsUrl": "https://www.cbubucs.com",
       "ncaaOrgId": 1015,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "christian-brothers",
+      "status": "done"
     },
     {
       "name": "Clayton State University",
@@ -355,8 +355,8 @@
       "state": "GA",
       "athleticsUrl": "https://www.claytonstatesports.com",
       "ncaaOrgId": 20576,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "clayton-state",
+      "status": "done"
     },
     {
       "name": "Coker University",
@@ -364,8 +364,8 @@
       "state": "SC",
       "athleticsUrl": "https://www.cokercobras.com",
       "ncaaOrgId": 1023,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "coker",
+      "status": "done"
     },
     {
       "name": "College of Staten Island",
@@ -373,8 +373,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.csidolphins.com",
       "ncaaOrgId": 675,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "staten-island",
+      "status": "done"
     },
     {
       "name": "Colorado Christian University",
@@ -382,8 +382,8 @@
       "state": "CO",
       "athleticsUrl": "https://www.ccucougars.com",
       "ncaaOrgId": 11403,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "colorado-christian",
+      "status": "done"
     },
     {
       "name": "Colorado Mesa University",
@@ -391,8 +391,8 @@
       "state": "CO",
       "athleticsUrl": "https://cmumavericks.com",
       "ncaaOrgId": 11416,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "colorado-mesa",
+      "status": "done"
     },
     {
       "name": "Colorado School of Mines",
@@ -409,8 +409,8 @@
       "state": "CO",
       "athleticsUrl": "https://www.gothunderwolves.com",
       "ncaaOrgId": 2720,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "colorado-state-pueblo",
+      "status": "done"
     },
     {
       "name": "Columbus State University",
@@ -418,8 +418,8 @@
       "state": "GA",
       "athleticsUrl": "https://csucougars.com",
       "ncaaOrgId": 159,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "columbus-state",
+      "status": "done"
     },
     {
       "name": "Concord University",
@@ -427,8 +427,8 @@
       "state": "WV",
       "athleticsUrl": "https://www.cumountainlions.com",
       "ncaaOrgId": 1028,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "concord",
+      "status": "done"
     },
     {
       "name": "Concordia University Irvine",
@@ -436,8 +436,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.cuigoldeneagles.com",
       "ncaaOrgId": 30199,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "concordia-irvine",
+      "status": "done"
     },
     {
       "name": "Concordia University, St. Paul",
@@ -445,8 +445,8 @@
       "state": "MN",
       "athleticsUrl": "https://cspbears.com/index.aspx",
       "ncaaOrgId": 9081,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "concordia-saint-paul",
+      "status": "done"
     },
     {
       "name": "Converse University",
@@ -454,8 +454,8 @@
       "state": "SC",
       "athleticsUrl": "https://govalkyries.com",
       "ncaaOrgId": 8935,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "converse",
+      "status": "done"
     },
     {
       "name": "D'Youville University",
@@ -463,8 +463,8 @@
       "state": "NY",
       "athleticsUrl": "https://athletics.dyc.edu",
       "ncaaOrgId": 1059,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "d-youville",
+      "status": "done"
     },
     {
       "name": "Daemen University",
@@ -472,8 +472,8 @@
       "state": "NY",
       "athleticsUrl": "https://daemenwildcats.com",
       "ncaaOrgId": 30174,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "daemen",
+      "status": "done"
     },
     {
       "name": "Dallas Baptist University",
@@ -490,8 +490,8 @@
       "state": "MI",
       "athleticsUrl": "https://dupanthers.com",
       "ncaaOrgId": 30221,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "davenport",
+      "status": "done"
     },
     {
       "name": "Davis & Elkins College",
@@ -499,8 +499,8 @@
       "state": "WV",
       "athleticsUrl": "https://www.senatornation.com",
       "ncaaOrgId": 174,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "davis-elkins",
+      "status": "done"
     },
     {
       "name": "Delta State University",
@@ -508,8 +508,8 @@
       "state": "MS",
       "athleticsUrl": "https://www.gostatesmen.com",
       "ncaaOrgId": 181,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "delta-state",
+      "status": "done"
     },
     {
       "name": "Dominican University New York",
@@ -517,8 +517,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.chargerathletics.com",
       "ncaaOrgId": 8956,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "dominican-new-york",
+      "status": "done"
     },
     {
       "name": "Dominican University of California",
@@ -526,8 +526,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.dominicanathletics.com",
       "ncaaOrgId": 30118,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "dominican-california",
+      "status": "done"
     },
     {
       "name": "Drury University",
@@ -535,8 +535,8 @@
       "state": "MO",
       "athleticsUrl": "https://www.drurypanthers.com",
       "ncaaOrgId": 1057,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "drury",
+      "status": "done"
     },
     {
       "name": "East Central University",
@@ -544,8 +544,8 @@
       "state": "OK",
       "athleticsUrl": "https://ecutigers.com",
       "ncaaOrgId": 8965,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "east-central",
+      "status": "done"
     },
     {
       "name": "East Stroudsburg University of Pennsylvania",
@@ -553,8 +553,8 @@
       "state": "PA",
       "athleticsUrl": "https://esuwarriors.com",
       "ncaaOrgId": 197,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "east-stroudsburg-pennsylvania",
+      "status": "done"
     },
     {
       "name": "Eastern New Mexico University",
@@ -562,8 +562,8 @@
       "state": "NM",
       "athleticsUrl": "https://www.goeasternathletics.com",
       "ncaaOrgId": 206,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "eastern-new-mexico",
+      "status": "done"
     },
     {
       "name": "Eckerd College",
@@ -571,8 +571,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.eckerdtritons.com",
       "ncaaOrgId": 208,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "eckerd",
+      "status": "done"
     },
     {
       "name": "Edward Waters University",
@@ -580,8 +580,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.ewutigerpride.com",
       "ncaaOrgId": 30244,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "edward-waters",
+      "status": "done"
     },
     {
       "name": "Embry-Riddle Aeronautical University (Florida)",
@@ -589,8 +589,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.erauathletics.com",
       "ncaaOrgId": 9680,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "embry-riddle-aeronautical-florida",
+      "status": "done"
     },
     {
       "name": "Emmanuel University (Georgia)",
@@ -598,8 +598,8 @@
       "state": "GA",
       "athleticsUrl": "https://www.goeclions.com",
       "ncaaOrgId": 30193,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "emmanuel-georgia",
+      "status": "done"
     },
     {
       "name": "Emory & Henry University",
@@ -607,8 +607,8 @@
       "state": "VA",
       "athleticsUrl": "https://www.gowasps.com",
       "ncaaOrgId": 216,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "emory-henry",
+      "status": "done"
     },
     {
       "name": "Emporia State University",
@@ -616,8 +616,8 @@
       "state": "KS",
       "athleticsUrl": "https://www.esuhornets.com",
       "ncaaOrgId": 1071,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "emporia-state",
+      "status": "done"
     },
     {
       "name": "Erskine College",
@@ -625,8 +625,8 @@
       "state": "SC",
       "athleticsUrl": "https://www.erskinesports.com",
       "ncaaOrgId": 1072,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "erskine",
+      "status": "done"
     },
     {
       "name": "Fairmont State University",
@@ -634,8 +634,8 @@
       "state": "WV",
       "athleticsUrl": "https://www.fightingfalcons.com",
       "ncaaOrgId": 1076,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "fairmont-state",
+      "status": "done"
     },
     {
       "name": "Felician University",
@@ -643,8 +643,8 @@
       "state": "NJ",
       "athleticsUrl": "https://www.felicianuathletics.com",
       "ncaaOrgId": 23157,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "felician",
+      "status": "done"
     },
     {
       "name": "Ferris State University",
@@ -652,8 +652,8 @@
       "state": "MI",
       "athleticsUrl": "https://www.ferrisstatebulldogs.com",
       "ncaaOrgId": 224,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "ferris-state",
+      "status": "done"
     },
     {
       "name": "Ferrum College",
@@ -661,8 +661,8 @@
       "state": "VA",
       "athleticsUrl": "https://www.ferrumpanthers.com",
       "ncaaOrgId": 225,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "ferrum",
+      "status": "done"
     },
     {
       "name": "Flagler College",
@@ -670,8 +670,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.flaglerathletics.com",
       "ncaaOrgId": 30092,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "flagler",
+      "status": "done"
     },
     {
       "name": "Florida Institute of Technology",
@@ -688,7 +688,7 @@
       "state": "FL",
       "athleticsUrl": "https://www.fscmocs.com",
       "ncaaOrgId": 233,
-      "catalogId": null,
+      "catalogId": "florida-southern",
       "status": "pending"
     },
     {
@@ -697,7 +697,7 @@
       "state": "KS",
       "athleticsUrl": "https://www.fhsuathletics.com",
       "ncaaOrgId": 9011,
-      "catalogId": null,
+      "catalogId": "fort-hays-state",
       "status": "pending"
     },
     {
@@ -706,7 +706,7 @@
       "state": "CO",
       "athleticsUrl": "https://www.goskyhawks.com",
       "ncaaOrgId": 1083,
-      "catalogId": null,
+      "catalogId": "fort-lewis",
       "status": "pending"
     },
     {
@@ -715,7 +715,7 @@
       "state": "SC",
       "athleticsUrl": "https://www.fmupatriots.com",
       "ncaaOrgId": 1085,
-      "catalogId": null,
+      "catalogId": "francis-marion",
       "status": "pending"
     },
     {
@@ -733,7 +733,7 @@
       "state": "CA",
       "athleticsUrl": "https://fpuathletics.com",
       "ncaaOrgId": 30147,
-      "catalogId": null,
+      "catalogId": "fresno-pacific",
       "status": "pending"
     },
     {
@@ -742,7 +742,7 @@
       "state": "MD",
       "athleticsUrl": "https://www.frostburgsports.com",
       "ncaaOrgId": 243,
-      "catalogId": null,
+      "catalogId": "frostburg-state",
       "status": "pending"
     },
     {
@@ -751,7 +751,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.gannonsports.com",
       "ncaaOrgId": 246,
-      "catalogId": null,
+      "catalogId": "gannon",
       "status": "pending"
     },
     {
@@ -760,7 +760,7 @@
       "state": "GA",
       "athleticsUrl": "https://www.gcsubobcats.com",
       "ncaaOrgId": 1096,
-      "catalogId": null,
+      "catalogId": "georgia-college",
       "status": "pending"
     },
     {
@@ -769,7 +769,7 @@
       "state": "GA",
       "athleticsUrl": "https://www.gswcanes.com",
       "ncaaOrgId": 1097,
-      "catalogId": null,
+      "catalogId": "georgia-southwestern-state",
       "status": "pending"
     },
     {
@@ -778,7 +778,7 @@
       "state": "NJ",
       "athleticsUrl": "https://www.gculions.com",
       "ncaaOrgId": 9004,
-      "catalogId": null,
+      "catalogId": "georgian-court",
       "status": "pending"
     },
     {
@@ -787,7 +787,7 @@
       "state": "WV",
       "athleticsUrl": "https://www.gscpioneers.com",
       "ncaaOrgId": 1098,
-      "catalogId": null,
+      "catalogId": "glenville-state",
       "status": "pending"
     },
     {
@@ -796,7 +796,7 @@
       "state": "DE",
       "athleticsUrl": "https://www.gbcathletics.com",
       "ncaaOrgId": 8366,
-      "catalogId": null,
+      "catalogId": "goldey-beacom",
       "status": "pending"
     },
     {
@@ -805,7 +805,7 @@
       "state": "MI",
       "athleticsUrl": "https://gvsulakers.com",
       "ncaaOrgId": 262,
-      "catalogId": null,
+      "catalogId": "grand-valley-state",
       "status": "pending"
     },
     {
@@ -814,7 +814,7 @@
       "state": "AR",
       "athleticsUrl": "https://www.hardingsports.com",
       "ncaaOrgId": 1116,
-      "catalogId": null,
+      "catalogId": "harding",
       "status": "pending"
     },
     {
@@ -823,7 +823,7 @@
       "state": "HI",
       "athleticsUrl": "https://www.hpusharks.com",
       "ncaaOrgId": 2696,
-      "catalogId": null,
+      "catalogId": "hawaii-pacific",
       "status": "pending"
     },
     {
@@ -832,7 +832,7 @@
       "state": "PA",
       "athleticsUrl": "https://athletics.holyfamily.edu",
       "ncaaOrgId": 1126,
-      "catalogId": null,
+      "catalogId": "holy-family",
       "status": "pending"
     },
     {
@@ -841,7 +841,7 @@
       "state": "PA",
       "athleticsUrl": "https://iupathletics.com",
       "ncaaOrgId": 307,
-      "catalogId": null,
+      "catalogId": "indiana-pennsylvania",
       "status": "pending"
     },
     {
@@ -850,7 +850,7 @@
       "state": "CA",
       "athleticsUrl": "https://jessupathletics.com",
       "ncaaOrgId": 30262,
-      "catalogId": null,
+      "catalogId": "jessup",
       "status": "pending"
     },
     {
@@ -859,7 +859,7 @@
       "state": "KY",
       "athleticsUrl": "https://kwcpanthers.com",
       "ncaaOrgId": 333,
-      "catalogId": null,
+      "catalogId": "kentucky-wesleyan",
       "status": "pending"
     },
     {
@@ -868,7 +868,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.kingtornado.com",
       "ncaaOrgId": 30051,
-      "catalogId": null,
+      "catalogId": "king",
       "status": "pending"
     },
     {
@@ -877,7 +877,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.kubears.com",
       "ncaaOrgId": 339,
-      "catalogId": null,
+      "catalogId": "kutztown-pennsylvania",
       "status": "pending"
     },
     {
@@ -886,7 +886,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.lakeeriestorm.com",
       "ncaaOrgId": 2746,
-      "catalogId": null,
+      "catalogId": "lake-erie",
       "status": "pending"
     },
     {
@@ -895,7 +895,7 @@
       "state": "SC",
       "athleticsUrl": "https://www.landerbearcats.com",
       "ncaaOrgId": 1167,
-      "catalogId": null,
+      "catalogId": "lander",
       "status": "pending"
     },
     {
@@ -904,7 +904,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.leeuflames.com",
       "ncaaOrgId": 30013,
-      "catalogId": null,
+      "catalogId": "lee",
       "status": "pending"
     },
     {
@@ -913,7 +913,7 @@
       "state": "NC",
       "athleticsUrl": "https://lmcbobcats.com",
       "ncaaOrgId": 13302,
-      "catalogId": null,
+      "catalogId": "lees-mcrae",
       "status": "pending"
     },
     {
@@ -931,7 +931,7 @@
       "state": "IL",
       "athleticsUrl": "https://www.lewisflyers.com",
       "ncaaOrgId": 354,
-      "catalogId": null,
+      "catalogId": "lewis",
       "status": "pending"
     },
     {
@@ -940,7 +940,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.lmurailsplitters.com",
       "ncaaOrgId": 1176,
-      "catalogId": null,
+      "catalogId": "lincoln-memorial",
       "status": "pending"
     },
     {
@@ -949,7 +949,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.lubluetigers.com",
       "ncaaOrgId": 356,
-      "catalogId": null,
+      "catalogId": "lincoln-missouri",
       "status": "pending"
     },
     {
@@ -958,7 +958,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.lulions.com",
       "ncaaOrgId": 357,
-      "catalogId": null,
+      "catalogId": "lincoln-pennsylvania",
       "status": "pending"
     },
     {
@@ -967,7 +967,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.lockhavenathletics.com",
       "ncaaOrgId": 360,
-      "catalogId": null,
+      "catalogId": "lock-haven-pennsylvania",
       "status": "pending"
     },
     {
@@ -976,7 +976,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.lcuchaps.com",
       "ncaaOrgId": 30177,
-      "catalogId": null,
+      "catalogId": "lubbock-christian",
       "status": "pending"
     },
     {
@@ -985,7 +985,7 @@
       "state": "FL",
       "athleticsUrl": "https://www.lynnfightingknights.com",
       "ncaaOrgId": 20794,
-      "catalogId": null,
+      "catalogId": "lynn",
       "status": "pending"
     },
     {
@@ -994,7 +994,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.malonepioneers.com",
       "ncaaOrgId": 30137,
-      "catalogId": null,
+      "catalogId": "malone",
       "status": "pending"
     },
     {
@@ -1003,7 +1003,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.gomounties.com",
       "ncaaOrgId": 384,
-      "catalogId": null,
+      "catalogId": "mansfield-pennsylvania",
       "status": "pending"
     },
     {
@@ -1012,7 +1012,7 @@
       "state": "NC",
       "athleticsUrl": "https://www.marshilllions.com",
       "ncaaOrgId": 1199,
-      "catalogId": null,
+      "catalogId": "mars-hill",
       "status": "pending"
     },
     {
@@ -1021,7 +1021,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.maryvillesaints.com",
       "ncaaOrgId": 395,
-      "catalogId": null,
+      "catalogId": "maryville-saint-louis",
       "status": "pending"
     },
     {
@@ -1030,7 +1030,7 @@
       "state": "IL",
       "athleticsUrl": "https://www.mckbearcats.com",
       "ncaaOrgId": 30138,
-      "catalogId": null,
+      "catalogId": "mckendree",
       "status": "pending"
     },
     {
@@ -1039,7 +1039,7 @@
       "state": "CA",
       "athleticsUrl": "https://menloathletics.com",
       "ncaaOrgId": 405,
-      "catalogId": null,
+      "catalogId": "menlo",
       "status": "pending"
     },
     {
@@ -1048,7 +1048,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.mercyathletics.com",
       "ncaaOrgId": 407,
-      "catalogId": null,
+      "catalogId": "mercy",
       "status": "pending"
     },
     {
@@ -1057,7 +1057,7 @@
       "state": "CO",
       "athleticsUrl": "https://www.RoadrunnersAthletics.com",
       "ncaaOrgId": 413,
-      "catalogId": null,
+      "catalogId": "metropolitan-state-denver",
       "status": "pending"
     },
     {
@@ -1066,7 +1066,7 @@
       "state": "MI",
       "athleticsUrl": "https://www.michigantechhuskies.com",
       "ncaaOrgId": 417,
-      "catalogId": null,
+      "catalogId": "michigan-technological",
       "status": "pending"
     },
     {
@@ -1075,7 +1075,7 @@
       "state": "GA",
       "athleticsUrl": "",
       "ncaaOrgId": 30272,
-      "catalogId": null,
+      "catalogId": "middle-georgia-state",
       "status": "pending"
     },
     {
@@ -1084,7 +1084,7 @@
       "state": "TX",
       "athleticsUrl": "https://msumustangs.com",
       "ncaaOrgId": 1222,
-      "catalogId": null,
+      "catalogId": "midwestern-state",
       "status": "pending"
     },
     {
@@ -1093,7 +1093,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.millersvilleathletics.com",
       "ncaaOrgId": 423,
-      "catalogId": null,
+      "catalogId": "millersville-pennsylvania",
       "status": "pending"
     },
     {
@@ -1102,7 +1102,7 @@
       "state": "MN",
       "athleticsUrl": "https://msumdragons.com",
       "ncaaOrgId": 1240,
-      "catalogId": null,
+      "catalogId": "minnesota-state-moorhead",
       "status": "pending"
     },
     {
@@ -1120,7 +1120,7 @@
       "state": "ND",
       "athleticsUrl": "https://www.msubeavers.com",
       "ncaaOrgId": 30125,
-      "catalogId": null,
+      "catalogId": "minot-state",
       "status": "pending"
     },
     {
@@ -1129,7 +1129,7 @@
       "state": "MS",
       "athleticsUrl": "https://www.gochoctaws.com",
       "ncaaOrgId": 429,
-      "catalogId": null,
+      "catalogId": "mississippi-christian",
       "status": "pending"
     },
     {
@@ -1138,7 +1138,7 @@
       "state": "MO",
       "athleticsUrl": "https://mssulions.com",
       "ncaaOrgId": 9012,
-      "catalogId": null,
+      "catalogId": "missouri-southern-state",
       "status": "pending"
     },
     {
@@ -1147,7 +1147,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.minerathletics.com",
       "ncaaOrgId": 435,
-      "catalogId": null,
+      "catalogId": "missouri-science-technology",
       "status": "pending"
     },
     {
@@ -1156,7 +1156,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.gogriffons.com",
       "ncaaOrgId": 9013,
-      "catalogId": null,
+      "catalogId": "missouri-western-state",
       "status": "pending"
     },
     {
@@ -1165,7 +1165,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.molloylions.com",
       "ncaaOrgId": 437,
-      "catalogId": null,
+      "catalogId": "molloy",
       "status": "pending"
     },
     {
@@ -1174,7 +1174,7 @@
       "state": "MT",
       "athleticsUrl": "https://www.msubsports.com",
       "ncaaOrgId": 205,
-      "catalogId": null,
+      "catalogId": "montana-state-billings",
       "status": "pending"
     },
     {
@@ -1183,7 +1183,7 @@
       "state": "NM",
       "athleticsUrl": "https://www.nmhuathletics.com",
       "ncaaOrgId": 8577,
-      "catalogId": null,
+      "catalogId": "new-mexico-highlands",
       "status": "pending"
     },
     {
@@ -1192,7 +1192,7 @@
       "state": "SC",
       "athleticsUrl": "https://www.newberrywolves.com",
       "ncaaOrgId": 1257,
-      "catalogId": null,
+      "catalogId": "newberry",
       "status": "pending"
     },
     {
@@ -1201,7 +1201,7 @@
       "state": "KS",
       "athleticsUrl": "https://www.newmanjets.com",
       "ncaaOrgId": 30054,
-      "catalogId": null,
+      "catalogId": "newman",
       "status": "pending"
     },
     {
@@ -1210,7 +1210,7 @@
       "state": "SC",
       "athleticsUrl": "https://www.nguathletics.com",
       "ncaaOrgId": 9223,
-      "catalogId": null,
+      "catalogId": "north-greenville",
       "status": "pending"
     },
     {
@@ -1219,7 +1219,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.goriverhawksgo.com",
       "ncaaOrgId": 12810,
-      "catalogId": null,
+      "catalogId": "northeastern-state",
       "status": "pending"
     },
     {
@@ -1228,7 +1228,7 @@
       "state": "MI",
       "athleticsUrl": "https://www.nmuwildcats.com",
       "ncaaOrgId": 506,
-      "catalogId": null,
+      "catalogId": "northern-michigan",
       "status": "pending"
     },
     {
@@ -1237,7 +1237,7 @@
       "state": "SD",
       "athleticsUrl": "https://nsuwolves.com",
       "ncaaOrgId": 1266,
-      "catalogId": null,
+      "catalogId": "northern-state",
       "status": "pending"
     },
     {
@@ -1246,7 +1246,7 @@
       "state": "MO",
       "athleticsUrl": "https://bearcatsports.com",
       "ncaaOrgId": 507,
-      "catalogId": null,
+      "catalogId": "northwest-missouri-state",
       "status": "pending"
     },
     {
@@ -1255,7 +1255,7 @@
       "state": "ID",
       "athleticsUrl": "https://nnusports.com",
       "ncaaOrgId": 1274,
-      "catalogId": null,
+      "catalogId": "northwest-nazarene",
       "status": "pending"
     },
     {
@@ -1264,7 +1264,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.riderangersride.com",
       "ncaaOrgId": 30178,
-      "catalogId": null,
+      "catalogId": "northwestern-oklahoma-state",
       "status": "pending"
     },
     {
@@ -1273,7 +1273,7 @@
       "state": "MI",
       "athleticsUrl": "https://gonorthwood.com",
       "ncaaOrgId": 510,
-      "catalogId": null,
+      "catalogId": "northwood",
       "status": "pending"
     },
     {
@@ -1291,7 +1291,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.ohiodominicanpanthers.com",
       "ncaaOrgId": 30119,
-      "catalogId": null,
+      "catalogId": "ohio-dominican",
       "status": "pending"
     },
     {
@@ -1300,7 +1300,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.obubison.com",
       "ncaaOrgId": 30202,
-      "catalogId": null,
+      "catalogId": "oklahoma-baptist",
       "status": "pending"
     },
     {
@@ -1309,7 +1309,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.oceagles.com",
       "ncaaOrgId": 30179,
-      "catalogId": null,
+      "catalogId": "oklahoma-christian",
       "status": "pending"
     },
     {
@@ -1318,7 +1318,7 @@
       "state": "AR",
       "athleticsUrl": "https://www.obutigers.com",
       "ncaaOrgId": 1289,
-      "catalogId": null,
+      "catalogId": "ouachita-baptist",
       "status": "pending"
     },
     {
@@ -1327,7 +1327,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.paceuathletics.com",
       "ncaaOrgId": 533,
-      "catalogId": null,
+      "catalogId": "pace",
       "status": "pending"
     },
     {
@@ -1336,7 +1336,7 @@
       "state": "FL",
       "athleticsUrl": "https://www.pbasailfish.com",
       "ncaaOrgId": 30045,
-      "catalogId": null,
+      "catalogId": "palm-beach-atlantic",
       "status": "pending"
     },
     {
@@ -1345,7 +1345,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.calvulcans.com",
       "ncaaOrgId": 106,
-      "catalogId": null,
+      "catalogId": "pennsylvania-western-california",
       "status": "pending"
     },
     {
@@ -1354,7 +1354,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.clariongoldeneagles.com",
       "ncaaOrgId": 143,
-      "catalogId": null,
+      "catalogId": "pennsylvania-western-clarion",
       "status": "pending"
     },
     {
@@ -1363,7 +1363,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.gofightingscots.com",
       "ncaaOrgId": 209,
-      "catalogId": null,
+      "catalogId": "pennsylvania-western-edinboro",
       "status": "pending"
     },
     {
@@ -1372,7 +1372,7 @@
       "state": "KS",
       "athleticsUrl": "https://www.pittstategorillas.com",
       "ncaaOrgId": 1314,
-      "catalogId": null,
+      "catalogId": "pittsburg-state",
       "status": "pending"
     },
     {
@@ -1381,7 +1381,7 @@
       "state": "CA",
       "athleticsUrl": "https://www.plnusealions.com",
       "ncaaOrgId": 30149,
-      "catalogId": null,
+      "catalogId": "point-loma-nazarene",
       "status": "pending"
     },
     {
@@ -1390,7 +1390,7 @@
       "state": "PA",
       "athleticsUrl": "https://pointparksports.com",
       "ncaaOrgId": 30268,
-      "catalogId": null,
+      "catalogId": "point-park",
       "status": "pending"
     },
     {
@@ -1399,7 +1399,7 @@
       "state": "CT",
       "athleticsUrl": "https://www.posteagles.com",
       "ncaaOrgId": 1318,
-      "catalogId": null,
+      "catalogId": "post",
       "status": "pending"
     },
     {
@@ -1408,7 +1408,7 @@
       "state": "IN",
       "athleticsUrl": "https://www.pnwathletics.com",
       "ncaaOrgId": 30222,
-      "catalogId": null,
+      "catalogId": "purdue-northwest",
       "status": "pending"
     },
     {
@@ -1417,7 +1417,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.queensknights.com",
       "ncaaOrgId": 560,
-      "catalogId": null,
+      "catalogId": "queens-new-york",
       "status": "pending"
     },
     {
@@ -1426,7 +1426,7 @@
       "state": "IL",
       "athleticsUrl": "https://quhawks.com",
       "ncaaOrgId": 561,
-      "catalogId": null,
+      "catalogId": "quincy",
       "status": "pending"
     },
     {
@@ -1435,7 +1435,7 @@
       "state": "CO",
       "athleticsUrl": "https://www.regisrangers.com",
       "ncaaOrgId": 568,
-      "catalogId": null,
+      "catalogId": "regis-colorado",
       "status": "pending"
     },
     {
@@ -1444,7 +1444,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.robertsredhawks.com",
       "ncaaOrgId": 30150,
-      "catalogId": null,
+      "catalogId": "roberts-wesleyan",
       "status": "pending"
     },
     {
@@ -1453,7 +1453,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.rockhursthawks.com",
       "ncaaOrgId": 1328,
-      "catalogId": null,
+      "catalogId": "rockhurst",
       "status": "pending"
     },
     {
@@ -1462,7 +1462,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.rsuhillcats.com",
       "ncaaOrgId": 30180,
-      "catalogId": null,
+      "catalogId": "rogers-state",
       "status": "pending"
     },
     {
@@ -1471,7 +1471,7 @@
       "state": "FL",
       "athleticsUrl": "https://RollinsSports.com",
       "ncaaOrgId": 584,
-      "catalogId": null,
+      "catalogId": "rollins",
       "status": "pending"
     },
     {
@@ -1480,7 +1480,7 @@
       "state": "IL",
       "athleticsUrl": "https://www.rooseveltlakers.com",
       "ncaaOrgId": 2807,
-      "catalogId": null,
+      "catalogId": "roosevelt",
       "status": "pending"
     },
     {
@@ -1489,7 +1489,7 @@
       "state": "MI",
       "athleticsUrl": "https://www.svsucardinals.com",
       "ncaaOrgId": 591,
-      "catalogId": null,
+      "catalogId": "saginaw-valley-state",
       "status": "pending"
     },
     {
@@ -1498,7 +1498,7 @@
       "state": "NH",
       "athleticsUrl": "https://www.saintanselmhawks.com",
       "ncaaOrgId": 593,
-      "catalogId": null,
+      "catalogId": "saint-anselm",
       "status": "pending"
     },
     {
@@ -1507,7 +1507,7 @@
       "state": "FL",
       "athleticsUrl": "https://www.saintleolions.com",
       "ncaaOrgId": 608,
-      "catalogId": null,
+      "catalogId": "saint-leo",
       "status": "pending"
     },
     {
@@ -1516,7 +1516,7 @@
       "state": "WA",
       "athleticsUrl": "https://www.smusaints.com",
       "ncaaOrgId": 1343,
-      "catalogId": null,
+      "catalogId": "saint-martin-s",
       "status": "pending"
     },
     {
@@ -1525,7 +1525,7 @@
       "state": "VT",
       "athleticsUrl": "https://www.smcathletics.com",
       "ncaaOrgId": 613,
-      "catalogId": null,
+      "catalogId": "saint-michael-s",
       "status": "pending"
     },
     {
@@ -1534,7 +1534,7 @@
       "state": "WV",
       "athleticsUrl": "https://www.salemtigers.com",
       "ncaaOrgId": 19117,
-      "catalogId": null,
+      "catalogId": "salem-west-virginia",
       "status": "pending"
     },
     {
@@ -1543,7 +1543,7 @@
       "state": "CA",
       "athleticsUrl": "https://sfstategators.com",
       "ncaaOrgId": 628,
-      "catalogId": null,
+      "catalogId": "san-francisco-state",
       "status": "pending"
     },
     {
@@ -1552,7 +1552,7 @@
       "state": "WA",
       "athleticsUrl": "https://spufalcons.com/index.aspx",
       "ncaaOrgId": 634,
-      "catalogId": null,
+      "catalogId": "seattle-pacific",
       "status": "pending"
     },
     {
@@ -1561,7 +1561,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.setonhill.edu/athletics",
       "ncaaOrgId": 30063,
-      "catalogId": null,
+      "catalogId": "seton-hill",
       "status": "pending"
     },
     {
@@ -1570,7 +1570,7 @@
       "state": "NC",
       "athleticsUrl": "https://www.shawbears.com",
       "ncaaOrgId": 636,
-      "catalogId": null,
+      "catalogId": "shaw",
       "status": "pending"
     },
     {
@@ -1579,7 +1579,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.ssubears.com",
       "ncaaOrgId": 30284,
-      "catalogId": null,
+      "catalogId": "shawnee-state",
       "status": "pending"
     },
     {
@@ -1597,7 +1597,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.shipraiders.com",
       "ncaaOrgId": 638,
-      "catalogId": null,
+      "catalogId": "shippensburg-pennsylvania",
       "status": "pending"
     },
     {
@@ -1606,7 +1606,7 @@
       "state": "GA",
       "athleticsUrl": "https://www.goshorterhawks.com",
       "ncaaOrgId": 30151,
-      "catalogId": null,
+      "catalogId": "shorter",
       "status": "pending"
     },
     {
@@ -1615,7 +1615,7 @@
       "state": "BC",
       "athleticsUrl": "https://athletics.sfu.ca",
       "ncaaOrgId": 30127,
-      "catalogId": null,
+      "catalogId": "simon-fraser",
       "status": "pending"
     },
     {
@@ -1624,7 +1624,7 @@
       "state": "PA",
       "athleticsUrl": "https://www.rockathletics.com",
       "ncaaOrgId": 643,
-      "catalogId": null,
+      "catalogId": "slippery-rock-pennsylvania",
       "status": "pending"
     },
     {
@@ -1633,7 +1633,7 @@
       "state": "CT",
       "athleticsUrl": "https://scsuowls.com",
       "ncaaOrgId": 658,
-      "catalogId": null,
+      "catalogId": "southern-connecticut-state",
       "status": "pending"
     },
     {
@@ -1642,7 +1642,7 @@
       "state": "OK",
       "athleticsUrl": "https://snuathletics.com",
       "ncaaOrgId": 30152,
-      "catalogId": null,
+      "catalogId": "southern-nazarene",
       "status": "pending"
     },
     {
@@ -1651,7 +1651,7 @@
       "state": "NH",
       "athleticsUrl": "https://www.snhupenmen.com",
       "ncaaOrgId": 468,
-      "catalogId": null,
+      "catalogId": "southern-new-hampshire",
       "status": "pending"
     },
     {
@@ -1660,7 +1660,7 @@
       "state": "SC",
       "athleticsUrl": "https://swuathletics.com",
       "ncaaOrgId": 30192,
-      "catalogId": null,
+      "catalogId": "southern-wesleyan",
       "status": "pending"
     },
     {
@@ -1669,7 +1669,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.sbubearcats.com",
       "ncaaOrgId": 2755,
-      "catalogId": null,
+      "catalogId": "southwest-baptist",
       "status": "pending"
     },
     {
@@ -1678,7 +1678,7 @@
       "state": "MN",
       "athleticsUrl": "https://www.smsumustangs.com",
       "ncaaOrgId": 8736,
-      "catalogId": null,
+      "catalogId": "southwest-minnesota-state",
       "status": "pending"
     },
     {
@@ -1687,7 +1687,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.swosuathletics.com",
       "ncaaOrgId": 8744,
-      "catalogId": null,
+      "catalogId": "southwestern-oklahoma-state",
       "status": "pending"
     },
     {
@@ -1696,7 +1696,7 @@
       "state": "AL",
       "athleticsUrl": "https://www.shcbadgers.com",
       "ncaaOrgId": 30191,
-      "catalogId": null,
+      "catalogId": "spring-hill",
       "status": "pending"
     },
     {
@@ -1714,7 +1714,7 @@
       "state": "TX",
       "athleticsUrl": "https://gohilltoppers.com",
       "ncaaOrgId": 1334,
-      "catalogId": null,
+      "catalogId": "saint-edward-s",
       "status": "pending"
     },
     {
@@ -1723,7 +1723,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.rattlerathletics.com",
       "ncaaOrgId": 1346,
-      "catalogId": null,
+      "catalogId": "saint-mary-s-texas",
       "status": "pending"
     },
     {
@@ -1732,7 +1732,7 @@
       "state": "NY",
       "athleticsUrl": "https://www.stacathletics.com/landing/index",
       "ncaaOrgId": 1348,
-      "catalogId": null,
+      "catalogId": "saint-thomas-aquinas",
       "status": "pending"
     },
     {
@@ -1741,7 +1741,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.srlobos.com",
       "ncaaOrgId": 1390,
-      "catalogId": null,
+      "catalogId": "sul-ross-state",
       "status": "pending"
     },
     {
@@ -1750,7 +1750,7 @@
       "state": "TX",
       "athleticsUrl": "https://godustdevils.com",
       "ncaaOrgId": 30090,
-      "catalogId": null,
+      "catalogId": "texas-am-international",
       "status": "pending"
     },
     {
@@ -1759,7 +1759,7 @@
       "state": "TX",
       "athleticsUrl": "",
       "ncaaOrgId": 30285,
-      "catalogId": null,
+      "catalogId": "texas-am-texarkana",
       "status": "pending"
     },
     {
@@ -1768,7 +1768,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.twuathletics.com",
       "ncaaOrgId": 701,
-      "catalogId": null,
+      "catalogId": "texas-woman-s",
       "status": "pending"
     },
     {
@@ -1777,7 +1777,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.uttylerpatriots.com",
       "ncaaOrgId": 30028,
-      "catalogId": null,
+      "catalogId": "texas-tyler",
       "status": "pending"
     },
     {
@@ -1786,7 +1786,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.utpbfalcons.com",
       "ncaaOrgId": 30088,
-      "catalogId": null,
+      "catalogId": "texas-permian-basin",
       "status": "pending"
     },
     {
@@ -1804,7 +1804,7 @@
       "state": "KY",
       "athleticsUrl": "https://www.thomasmoresaints.com",
       "ncaaOrgId": 1402,
-      "catalogId": null,
+      "catalogId": "thomas-more",
       "status": "pending"
     },
     {
@@ -1813,7 +1813,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.gotiffindragons.com",
       "ncaaOrgId": 1403,
-      "catalogId": null,
+      "catalogId": "tiffin",
       "status": "pending"
     },
     {
@@ -1822,7 +1822,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.tnutrojans.com",
       "ncaaOrgId": 30002,
-      "catalogId": null,
+      "catalogId": "trevecca-nazarene",
       "status": "pending"
     },
     {
@@ -1831,7 +1831,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.trumanbulldogs.com",
       "ncaaOrgId": 499,
-      "catalogId": null,
+      "catalogId": "truman-state",
       "status": "pending"
     },
     {
@@ -1840,7 +1840,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.tusculumpioneers.com",
       "ncaaOrgId": 12830,
-      "catalogId": null,
+      "catalogId": "tusculum",
       "status": "pending"
     },
     {
@@ -1849,7 +1849,7 @@
       "state": "AL",
       "athleticsUrl": "https://www.goldentigersports.com",
       "ncaaOrgId": 720,
-      "catalogId": null,
+      "catalogId": "tuskegee",
       "status": "pending"
     },
     {
@@ -1858,7 +1858,7 @@
       "state": "TN",
       "athleticsUrl": "https://www.uuathletics.com",
       "ncaaOrgId": 30153,
-      "catalogId": null,
+      "catalogId": "union",
       "status": "pending"
     },
     {
@@ -1867,7 +1867,7 @@
       "state": "AL",
       "athleticsUrl": "https://uahchargers.com",
       "ncaaOrgId": 10,
-      "catalogId": null,
+      "catalogId": "alabama-in-huntsville",
       "status": "pending"
     },
     {
@@ -1876,7 +1876,7 @@
       "state": "CT",
       "athleticsUrl": "https://www.ubknights.com",
       "ncaaOrgId": 74,
-      "catalogId": null,
+      "catalogId": "bridgeport",
       "status": "pending"
     },
     {
@@ -1885,7 +1885,7 @@
       "state": "CA",
       "athleticsUrl": "https://www.ucmercedbobcats.com",
       "ncaaOrgId": 30266,
-      "catalogId": null,
+      "catalogId": "california-merced",
       "status": "pending"
     },
     {
@@ -1894,7 +1894,7 @@
       "state": "MO",
       "athleticsUrl": "https://ucmathletics.com",
       "ncaaOrgId": 130,
-      "catalogId": null,
+      "catalogId": "central-missouri",
       "status": "pending"
     },
     {
@@ -1903,7 +1903,7 @@
       "state": "OK",
       "athleticsUrl": "https://www.bronchosports.com",
       "ncaaOrgId": 1009,
-      "catalogId": null,
+      "catalogId": "central-oklahoma",
       "status": "pending"
     },
     {
@@ -1912,7 +1912,7 @@
       "state": "WV",
       "athleticsUrl": "https://www.ucgoldeneagles.com",
       "ncaaOrgId": 1013,
-      "catalogId": null,
+      "catalogId": "charleston-west-virginia",
       "status": "pending"
     },
     {
@@ -1930,7 +1930,7 @@
       "state": "OH",
       "athleticsUrl": "https://findlayoilers.com",
       "ncaaOrgId": 1079,
-      "catalogId": null,
+      "catalogId": "findlay",
       "status": "pending"
     },
     {
@@ -1939,7 +1939,7 @@
       "state": "HI",
       "athleticsUrl": "https://hiloathletics.com",
       "ncaaOrgId": 2697,
-      "catalogId": null,
+      "catalogId": "hawaii-hilo",
       "status": "pending"
     },
     {
@@ -1948,7 +1948,7 @@
       "state": "IL",
       "athleticsUrl": "https://www.uisprairiestars.com",
       "ncaaOrgId": 30050,
-      "catalogId": null,
+      "catalogId": "illinois-springfield",
       "status": "pending"
     },
     {
@@ -1957,7 +1957,7 @@
       "state": "IN",
       "athleticsUrl": "https://uindyathletics.com",
       "ncaaOrgId": 309,
-      "catalogId": null,
+      "catalogId": "indianapolis",
       "status": "pending"
     },
     {
@@ -1966,7 +1966,7 @@
       "state": "ND",
       "athleticsUrl": "https://jimmiepride.com",
       "ncaaOrgId": 30267,
-      "catalogId": null,
+      "catalogId": "jamestown",
       "status": "pending"
     },
     {
@@ -1975,7 +1975,7 @@
       "state": "ND",
       "athleticsUrl": "https://www.goumary.com",
       "ncaaOrgId": 30075,
-      "catalogId": null,
+      "catalogId": "mary",
       "status": "pending"
     },
     {
@@ -1984,7 +1984,7 @@
       "state": "MN",
       "athleticsUrl": "https://umdbulldogs.com",
       "ncaaOrgId": 427,
-      "catalogId": null,
+      "catalogId": "minnesota-duluth",
       "status": "pending"
     },
     {
@@ -1993,7 +1993,7 @@
       "state": "MN",
       "athleticsUrl": "https://www.goldeneaglesports.com",
       "ncaaOrgId": 27854,
-      "catalogId": null,
+      "catalogId": "minnesota-crookston",
       "status": "pending"
     },
     {
@@ -2011,7 +2011,7 @@
       "state": "AL",
       "athleticsUrl": "https://www.montevallofalcons.com",
       "ncaaOrgId": 1238,
-      "catalogId": null,
+      "catalogId": "montevallo",
       "status": "pending"
     },
     {
@@ -2020,7 +2020,7 @@
       "state": "NC",
       "athleticsUrl": "https://www.umotrojans.com",
       "ncaaOrgId": 1245,
-      "catalogId": null,
+      "catalogId": "mount-olive",
       "status": "pending"
     },
     {
@@ -2029,7 +2029,7 @@
       "state": "NE",
       "athleticsUrl": "https://www.lopers.com",
       "ncaaOrgId": 1156,
-      "catalogId": null,
+      "catalogId": "nebraska-kearney",
       "status": "pending"
     },
     {
@@ -2038,7 +2038,7 @@
       "state": "NC",
       "athleticsUrl": "https://www.uncpbraves.com",
       "ncaaOrgId": 537,
-      "catalogId": null,
+      "catalogId": "north-carolina-pembroke",
       "status": "pending"
     },
     {
@@ -2056,7 +2056,7 @@
       "state": "PA",
       "athleticsUrl": "https://pittjohnstownathletics.com",
       "ncaaOrgId": 546,
-      "catalogId": null,
+      "catalogId": "pittsburgh-johnstown",
       "status": "pending"
     },
     {
@@ -2065,7 +2065,7 @@
       "state": "PR",
       "athleticsUrl": "https://www.uprb.edu",
       "ncaaOrgId": 2682,
-      "catalogId": null,
+      "catalogId": "puerto-rico-bayamon",
       "status": "pending"
     },
     {
@@ -2074,7 +2074,7 @@
       "state": "SD",
       "athleticsUrl": "https://www.usfcougars.com",
       "ncaaOrgId": 30128,
-      "catalogId": null,
+      "catalogId": "sioux-falls",
       "status": "pending"
     },
     {
@@ -2083,7 +2083,7 @@
       "state": "SC",
       "athleticsUrl": "https://www.pacersports.com",
       "ncaaOrgId": 11276,
-      "catalogId": null,
+      "catalogId": "south-carolina-aiken",
       "status": "pending"
     },
     {
@@ -2092,7 +2092,7 @@
       "state": "SC",
       "athleticsUrl": "https://uscbathletics.com",
       "ncaaOrgId": 30259,
-      "catalogId": null,
+      "catalogId": "south-carolina-beaufort",
       "status": "pending"
     },
     {
@@ -2101,7 +2101,7 @@
       "state": "FL",
       "athleticsUrl": "https://tampaspartans.com/landing/index",
       "ncaaOrgId": 689,
-      "catalogId": null,
+      "catalogId": "tampa",
       "status": "pending"
     },
     {
@@ -2110,7 +2110,7 @@
       "state": "TX",
       "athleticsUrl": "https://utdcomets.com",
       "ncaaOrgId": 23121,
-      "catalogId": null,
+      "catalogId": "texas-dallas",
       "status": "pending"
     },
     {
@@ -2119,7 +2119,7 @@
       "state": "AL",
       "athleticsUrl": "https://www.uwaathletics.com",
       "ncaaOrgId": 358,
-      "catalogId": null,
+      "catalogId": "west-alabama",
       "status": "pending"
     },
     {
@@ -2128,7 +2128,7 @@
       "state": "WI",
       "athleticsUrl": "https://www.parksiderangers.com",
       "ncaaOrgId": 799,
-      "catalogId": null,
+      "catalogId": "wisconsin-parkside",
       "status": "pending"
     },
     {
@@ -2137,7 +2137,7 @@
       "state": "IA",
       "athleticsUrl": "https://uiupeacocks.com",
       "ncaaOrgId": 728,
-      "catalogId": null,
+      "catalogId": "upper-iowa",
       "status": "pending"
     },
     {
@@ -2146,7 +2146,7 @@
       "state": "OH",
       "athleticsUrl": "https://www.ursulinearrows.com",
       "ncaaOrgId": 30140,
-      "catalogId": null,
+      "catalogId": "ursuline",
       "status": "pending"
     },
     {
@@ -2155,7 +2155,7 @@
       "state": "GA",
       "athleticsUrl": "https://www.vstateblazers.com",
       "ncaaOrgId": 734,
-      "catalogId": null,
+      "catalogId": "valdosta-state",
       "status": "pending"
     },
     {
@@ -2164,7 +2164,7 @@
       "state": "CA",
       "athleticsUrl": "https://www.vanguardlions.com",
       "ncaaOrgId": 30263,
-      "catalogId": null,
+      "catalogId": "vanguard",
       "status": "pending"
     },
     {
@@ -2173,7 +2173,7 @@
       "state": "VA",
       "athleticsUrl": "https://www.govsutrojans.com",
       "ncaaOrgId": 743,
-      "catalogId": null,
+      "catalogId": "virginia-state",
       "status": "pending"
     },
     {
@@ -2182,7 +2182,7 @@
       "state": "OH",
       "athleticsUrl": "https://athletics.walsh.edu/landing/index",
       "ncaaOrgId": 30141,
-      "catalogId": null,
+      "catalogId": "walsh",
       "status": "pending"
     },
     {
@@ -2200,7 +2200,7 @@
       "state": "NE",
       "athleticsUrl": "https://www.wscwildcats.com",
       "ncaaOrgId": 1433,
-      "catalogId": null,
+      "catalogId": "wayne-state-nebraska",
       "status": "pending"
     },
     {
@@ -2209,7 +2209,7 @@
       "state": "MI",
       "athleticsUrl": "https://www.wsuathletics.com",
       "ncaaOrgId": 757,
-      "catalogId": null,
+      "catalogId": "wayne-state-michigan",
       "status": "pending"
     },
     {
@@ -2227,7 +2227,7 @@
       "state": "WV",
       "athleticsUrl": "https://www.hilltoppersports.com",
       "ncaaOrgId": 1438,
-      "catalogId": null,
+      "catalogId": "west-liberty",
       "status": "pending"
     },
     {
@@ -2236,7 +2236,7 @@
       "state": "TX",
       "athleticsUrl": "https://www.gobuffsgo.com",
       "ncaaOrgId": 767,
-      "catalogId": null,
+      "catalogId": "west-texas-am",
       "status": "pending"
     },
     {
@@ -2245,7 +2245,7 @@
       "state": "WV",
       "athleticsUrl": "https://www.wvsuyellowjackets.com",
       "ncaaOrgId": 1439,
-      "catalogId": null,
+      "catalogId": "west-virginia-state",
       "status": "pending"
     },
     {
@@ -2254,7 +2254,7 @@
       "state": "WV",
       "athleticsUrl": "https://wesleyanbobcats.com",
       "ncaaOrgId": 9630,
-      "catalogId": null,
+      "catalogId": "west-virginia-wesleyan",
       "status": "pending"
     },
     {
@@ -2263,7 +2263,7 @@
       "state": "CO",
       "athleticsUrl": "https://www.gomountaineers.com",
       "ncaaOrgId": 2759,
-      "catalogId": null,
+      "catalogId": "western-colorado",
       "status": "pending"
     },
     {
@@ -2272,7 +2272,7 @@
       "state": "OR",
       "athleticsUrl": "https://www.wouwolves.com",
       "ncaaOrgId": 1446,
-      "catalogId": null,
+      "catalogId": "western-oregon",
       "status": "pending"
     },
     {
@@ -2290,7 +2290,7 @@
       "state": "UT",
       "athleticsUrl": "https://www.westminstergriffins.com",
       "ncaaOrgId": 30209,
-      "catalogId": null,
+      "catalogId": "westminster-utah",
       "status": "pending"
     },
     {
@@ -2299,7 +2299,7 @@
       "state": "CA",
       "athleticsUrl": "https://athletics.westmont.edu",
       "ncaaOrgId": 30260,
-      "catalogId": null,
+      "catalogId": "westmont",
       "status": "pending"
     },
     {
@@ -2308,7 +2308,7 @@
       "state": "WV",
       "athleticsUrl": "https://wucardinals.com",
       "ncaaOrgId": 12799,
-      "catalogId": null,
+      "catalogId": "wheeling",
       "status": "pending"
     },
     {
@@ -2317,7 +2317,7 @@
       "state": "MO",
       "athleticsUrl": "https://www.jewellcardinals.com",
       "ncaaOrgId": 30120,
-      "catalogId": null,
+      "catalogId": "william-jewell",
       "status": "pending"
     },
     {
@@ -2326,7 +2326,7 @@
       "state": "DE",
       "athleticsUrl": "https://athletics.wilmu.edu/landing/index",
       "ncaaOrgId": 1460,
-      "catalogId": null,
+      "catalogId": "wilmington-delaware",
       "status": "pending"
     },
     {
@@ -2335,7 +2335,7 @@
       "state": "NC",
       "athleticsUrl": "https://wingatebulldogs.com",
       "ncaaOrgId": 1462,
-      "catalogId": null,
+      "catalogId": "wingate",
       "status": "pending"
     },
     {
@@ -2344,7 +2344,7 @@
       "state": "MN",
       "athleticsUrl": "https://www.winonastatewarriors.com",
       "ncaaOrgId": 790,
-      "catalogId": null,
+      "catalogId": "winona-state",
       "status": "pending"
     },
     {
@@ -2353,7 +2353,7 @@
       "state": "GA",
       "athleticsUrl": "https://www.yhcathletics.com",
       "ncaaOrgId": 30154,
-      "catalogId": null,
+      "catalogId": "young-harris",
       "status": "pending"
     }
   ]

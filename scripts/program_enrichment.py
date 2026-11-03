@@ -61,7 +61,7 @@ def promo_handles(html: str, extract_handle) -> list[str]:
 
 
 OTHER_SPORT_HANDLE = re.compile(
-    r"(^|_)(wbb|mbb|wbball|mbball)($|_)|basketball|football|softball|volleyball|baseball|lacrosse",
+    r"(^|_)(wbb|mbb|wbball|mbball)($|_)|basketball|football|softball|volleyball|baseball|lacrosse|stunt",
     re.I,
 )
 
