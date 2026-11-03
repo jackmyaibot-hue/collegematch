@@ -200,7 +200,9 @@ def match_scorecard(seed: dict, rows: list[dict[str, str]]) -> tuple[dict | None
     state = seed.get("state")
     city = norm(seed.get("cityHint") or "")
     exact = [row for row in rows if norm(row["INSTNM"]) == target]
-    hits = exact or [row for row in rows if target in norm(row["INSTNM"])]
+    # A longer institution name that merely contains the target can be a different school.
+    prefix = [row for row in rows if norm(row["INSTNM"]).startswith(target + " ") or norm(row["INSTNM"]) == "the " + target]
+    hits = exact or prefix
     if state:
         in_state = [row for row in hits if row["STABBR"] == state]
         if in_state:
@@ -1471,15 +1473,16 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
             }
         )
     elif seed.get("directoryUrl"):
+        division = seed.get("division") or "NCAA"
         sources.append(
             {
                 "field": "membership",
-                "label": "NCAA directory, Division I women's soccer",
+                "label": f"NCAA directory, {division} women's soccer",
                 "url": seed["directoryUrl"],
             }
         )
         gaps.append(
-            "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+            f"Included from the {division} women's soccer directory. No final-poll rank or season record was copied."
         )
     if score_row:
         sources.append(
