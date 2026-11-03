@@ -4,7 +4,7 @@
   "fetched": "2026-11-03",
   "note": "Official NCAA directory of Division I institutions that sponsor women's soccer. status done means the school is in mobile/src/data/real/programs.json. Batch 1 added the first 70 pending schools in alphabetical order on 2026-11-03. Arizona State, Colorado State, and Columbia are stored but have no Scorecard city, so they stay out of the deck.",
   "count": 349,
-  "done": 230,
+  "done": 300,
   "schools": [
     {
       "name": "Abilene Christian University",
@@ -1992,8 +1992,8 @@
       "state": "NY",
       "athleticsUrl": "https://www.ubbulls.com",
       "ncaaOrgId": 86,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "buffalo-state-new-york",
+      "status": "done"
     },
     {
       "name": "University of Akron",
@@ -2001,8 +2001,8 @@
       "state": "OH",
       "athleticsUrl": "https://gozips.com",
       "ncaaOrgId": 5,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "akron",
+      "status": "done"
     },
     {
       "name": "University of Alabama",
@@ -2010,8 +2010,8 @@
       "state": "AL",
       "athleticsUrl": "https://www.rolltide.com",
       "ncaaOrgId": 8,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "alabama",
+      "status": "done"
     },
     {
       "name": "University of Alabama at Birmingham",
@@ -2019,8 +2019,8 @@
       "state": "AL",
       "athleticsUrl": "https://www.uabsports.com",
       "ncaaOrgId": 9,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "alabama-birmingham",
+      "status": "done"
     },
     {
       "name": "University of Arizona",
@@ -2028,8 +2028,8 @@
       "state": "AZ",
       "athleticsUrl": "https://www.arizonawildcats.com",
       "ncaaOrgId": 29,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "arizona",
+      "status": "done"
     },
     {
       "name": "University of Arkansas at Little Rock",
@@ -2037,8 +2037,8 @@
       "state": "AR",
       "athleticsUrl": "https:////lrtrojans.com",
       "ncaaOrgId": 32,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "arkansas-little-rock",
+      "status": "done"
     },
     {
       "name": "University of Arkansas, Fayetteville",
@@ -2055,8 +2055,8 @@
       "state": "AR",
       "athleticsUrl": "https://uapblionsroar.com",
       "ncaaOrgId": 2678,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "arkansas-pine-bluff",
+      "status": "done"
     },
     {
       "name": "University of California, Berkeley",
@@ -2064,8 +2064,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.calbears.com",
       "ncaaOrgId": 107,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-berkeley",
+      "status": "done"
     },
     {
       "name": "University of California, Davis",
@@ -2073,8 +2073,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.ucdavisaggies.com",
       "ncaaOrgId": 108,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-davis",
+      "status": "done"
     },
     {
       "name": "University of California, Irvine",
@@ -2082,8 +2082,8 @@
       "state": "CA",
       "athleticsUrl": "https://ucirvinesports.com",
       "ncaaOrgId": 109,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-irvine",
+      "status": "done"
     },
     {
       "name": "University of California, Los Angeles",
@@ -2091,8 +2091,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.uclabruins.com",
       "ncaaOrgId": 110,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-los-angeles",
+      "status": "done"
     },
     {
       "name": "University of California, Riverside",
@@ -2100,8 +2100,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.gohighlanders.com",
       "ncaaOrgId": 111,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-riverside",
+      "status": "done"
     },
     {
       "name": "University of California, San Diego",
@@ -2109,8 +2109,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.ucsdtritons.com",
       "ncaaOrgId": 112,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-san-diego",
+      "status": "done"
     },
     {
       "name": "University of California, Santa Barbara",
@@ -2118,8 +2118,8 @@
       "state": "CA",
       "athleticsUrl": "https://ucsbgauchos.com",
       "ncaaOrgId": 104,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "california-santa-barbara",
+      "status": "done"
     },
     {
       "name": "University of Central Arkansas",
@@ -2127,8 +2127,8 @@
       "state": "AR",
       "athleticsUrl": "https://www.ucasports.com",
       "ncaaOrgId": 1004,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "central-arkansas",
+      "status": "done"
     },
     {
       "name": "University of Central Florida",
@@ -2136,8 +2136,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.ucfknights.com",
       "ncaaOrgId": 128,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "central-florida",
+      "status": "done"
     },
     {
       "name": "University of Cincinnati",
@@ -2145,8 +2145,8 @@
       "state": "OH",
       "athleticsUrl": "https://gobearcats.com",
       "ncaaOrgId": 140,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "cincinnati",
+      "status": "done"
     },
     {
       "name": "University of Colorado Boulder",
@@ -2163,8 +2163,8 @@
       "state": "CT",
       "athleticsUrl": "https://www.uconnhuskies.com",
       "ncaaOrgId": 164,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "connecticut",
+      "status": "done"
     },
     {
       "name": "University of Dayton",
@@ -2172,8 +2172,8 @@
       "state": "OH",
       "athleticsUrl": "https://www.daytonflyers.com",
       "ncaaOrgId": 175,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "dayton",
+      "status": "done"
     },
     {
       "name": "University of Delaware",
@@ -2181,8 +2181,8 @@
       "state": "DE",
       "athleticsUrl": "https://www.bluehens.com",
       "ncaaOrgId": 180,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "delaware",
+      "status": "done"
     },
     {
       "name": "University of Denver",
@@ -2190,8 +2190,8 @@
       "state": "CO",
       "athleticsUrl": "https://denverpioneers.com",
       "ncaaOrgId": 183,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "denver",
+      "status": "done"
     },
     {
       "name": "University of Detroit Mercy",
@@ -2199,8 +2199,8 @@
       "state": "MI",
       "athleticsUrl": "https://www.detroittitans.com",
       "ncaaOrgId": 184,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "detroit-mercy",
+      "status": "done"
     },
     {
       "name": "University of Evansville",
@@ -2208,8 +2208,8 @@
       "state": "IN",
       "athleticsUrl": "https://www.gopurpleaces.com",
       "ncaaOrgId": 219,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "evansville",
+      "status": "done"
     },
     {
       "name": "University of Florida",
@@ -2217,8 +2217,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.floridagators.com",
       "ncaaOrgId": 235,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "florida",
+      "status": "done"
     },
     {
       "name": "University of Georgia",
@@ -2226,8 +2226,8 @@
       "state": "GA",
       "athleticsUrl": "https://www.georgiadogs.com",
       "ncaaOrgId": 257,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "georgia",
+      "status": "done"
     },
     {
       "name": "University of Hawaii, Manoa",
@@ -2235,8 +2235,8 @@
       "state": "HI",
       "athleticsUrl": "https://hawaiiathletics.com",
       "ncaaOrgId": 277,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "hawaii-manoa",
+      "status": "done"
     },
     {
       "name": "University of Houston",
@@ -2244,8 +2244,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.uhcougars.com",
       "ncaaOrgId": 288,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "houston",
+      "status": "done"
     },
     {
       "name": "University of Idaho",
@@ -2253,8 +2253,8 @@
       "state": "ID",
       "athleticsUrl": "https://www.govandals.com",
       "ncaaOrgId": 295,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "idaho",
+      "status": "done"
     },
     {
       "name": "University of Illinois Chicago",
@@ -2262,8 +2262,8 @@
       "state": "IL",
       "athleticsUrl": "https://www.uicflames.com",
       "ncaaOrgId": 302,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "illinois-chicago",
+      "status": "done"
     },
     {
       "name": "University of Illinois Urbana-Champaign",
@@ -2271,8 +2271,8 @@
       "state": "IL",
       "athleticsUrl": "https://www.fightingillini.com",
       "ncaaOrgId": 301,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "illinois-urbana-champaign",
+      "status": "done"
     },
     {
       "name": "University of Iowa",
@@ -2280,8 +2280,8 @@
       "state": "IA",
       "athleticsUrl": "https://www.hawkeyesports.com",
       "ncaaOrgId": 312,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "iowa",
+      "status": "done"
     },
     {
       "name": "University of Kansas",
@@ -2298,8 +2298,8 @@
       "state": "KY",
       "athleticsUrl": "https://www.ukathletics.com",
       "ncaaOrgId": 334,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "kentucky",
+      "status": "done"
     },
     {
       "name": "University of Louisiana at Lafayette",
@@ -2307,8 +2307,8 @@
       "state": "LA",
       "athleticsUrl": "https://www.ragincajuns.com",
       "ncaaOrgId": 671,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "louisiana-lafayette",
+      "status": "done"
     },
     {
       "name": "University of Louisiana Monroe",
@@ -2316,8 +2316,8 @@
       "state": "LA",
       "athleticsUrl": "https://www.ulmwarhawks.com",
       "ncaaOrgId": 498,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "louisiana-monroe",
+      "status": "done"
     },
     {
       "name": "University of Louisville",
@@ -2325,8 +2325,8 @@
       "state": "KY",
       "athleticsUrl": "https://www.gocards.com",
       "ncaaOrgId": 367,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "louisville",
+      "status": "done"
     },
     {
       "name": "University of Maine",
@@ -2334,8 +2334,8 @@
       "state": "ME",
       "athleticsUrl": "https://goblackbears.com",
       "ncaaOrgId": 380,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "maine",
+      "status": "done"
     },
     {
       "name": "University of Maryland, Baltimore County",
@@ -2343,8 +2343,8 @@
       "state": "MD",
       "athleticsUrl": "https://UMBCRetrievers.com",
       "ncaaOrgId": 391,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "maryland-baltimore-county",
+      "status": "done"
     },
     {
       "name": "University of Maryland, College Park",
@@ -2352,8 +2352,8 @@
       "state": "MD",
       "athleticsUrl": "https://www.umterps.com",
       "ncaaOrgId": 392,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "maryland-park",
+      "status": "done"
     },
     {
       "name": "University of Massachusetts Lowell",
@@ -2361,8 +2361,8 @@
       "state": "MA",
       "athleticsUrl": "https://www.goriverhawks.com",
       "ncaaOrgId": 368,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "massachusetts-lowell",
+      "status": "done"
     },
     {
       "name": "University of Massachusetts, Amherst",
@@ -2370,8 +2370,8 @@
       "state": "MA",
       "athleticsUrl": "https://www.umassathletics.com",
       "ncaaOrgId": 400,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "massachusetts-amherst",
+      "status": "done"
     },
     {
       "name": "University of Memphis",
@@ -2388,8 +2388,8 @@
       "state": "FL",
       "athleticsUrl": "https://miamihurricanes.com",
       "ncaaOrgId": 415,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "miami-florida",
+      "status": "done"
     },
     {
       "name": "University of Michigan",
@@ -2397,8 +2397,8 @@
       "state": "MI",
       "athleticsUrl": "https://www.mgoblue.com",
       "ncaaOrgId": 418,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "michigan",
+      "status": "done"
     },
     {
       "name": "University of Minnesota, Twin Cities",
@@ -2406,8 +2406,8 @@
       "state": "MN",
       "athleticsUrl": "https://www.gophersports.com",
       "ncaaOrgId": 428,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "minnesota-twin-cities",
+      "status": "done"
     },
     {
       "name": "University of Mississippi",
@@ -2415,8 +2415,8 @@
       "state": "MS",
       "athleticsUrl": "https://www.olemisssports.com",
       "ncaaOrgId": 433,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "mississippi",
+      "status": "done"
     },
     {
       "name": "University of Missouri, Columbia",
@@ -2424,8 +2424,8 @@
       "state": "MO",
       "athleticsUrl": "https://www.mutigers.com",
       "ncaaOrgId": 434,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "missouri-columbia",
+      "status": "done"
     },
     {
       "name": "University of Missouri-Kansas City",
@@ -2433,8 +2433,8 @@
       "state": "MO",
       "athleticsUrl": "https://www.kcroos.com",
       "ncaaOrgId": 2707,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "missouri-kansas-city",
+      "status": "done"
     },
     {
       "name": "University of Montana",
@@ -2442,8 +2442,8 @@
       "state": "MT",
       "athleticsUrl": "https://www.gogriz.com",
       "ncaaOrgId": 441,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "montana",
+      "status": "done"
     },
     {
       "name": "University of Nebraska at Omaha",
@@ -2451,8 +2451,8 @@
       "state": "NE",
       "athleticsUrl": "https://www.omavs.com",
       "ncaaOrgId": 464,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "nebraska-omaha",
+      "status": "done"
     },
     {
       "name": "University of Nebraska-Lincoln",
@@ -2460,8 +2460,8 @@
       "state": "NE",
       "athleticsUrl": "https://www.huskers.com",
       "ncaaOrgId": 463,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "nebraska-lincoln",
+      "status": "done"
     },
     {
       "name": "University of Nevada, Las Vegas",
@@ -2469,8 +2469,8 @@
       "state": "NV",
       "athleticsUrl": "https://unlvrebels.com",
       "ncaaOrgId": 465,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "nevada-las-vegas",
+      "status": "done"
     },
     {
       "name": "University of Nevada, Reno",
@@ -2478,8 +2478,8 @@
       "state": "NV",
       "athleticsUrl": "https://nevadawolfpack.com",
       "ncaaOrgId": 466,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "nevada-reno",
+      "status": "done"
     },
     {
       "name": "University of New Hampshire",
@@ -2487,8 +2487,8 @@
       "state": "NH",
       "athleticsUrl": "https://www.unhwildcats.com",
       "ncaaOrgId": 469,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "new-hampshire",
+      "status": "done"
     },
     {
       "name": "University of New Haven",
@@ -2496,8 +2496,8 @@
       "state": "CT",
       "athleticsUrl": "https://www.newhavenchargers.com",
       "ncaaOrgId": 470,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "new-haven",
+      "status": "done"
     },
     {
       "name": "University of New Mexico",
@@ -2505,8 +2505,8 @@
       "state": "NM",
       "athleticsUrl": "https://www.golobos.com",
       "ncaaOrgId": 473,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "new-mexico",
+      "status": "done"
     },
     {
       "name": "University of North Alabama",
@@ -2514,8 +2514,8 @@
       "state": "AL",
       "athleticsUrl": "https://www.roarlions.com",
       "ncaaOrgId": 487,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-alabama",
+      "status": "done"
     },
     {
       "name": "University of North Carolina Asheville",
@@ -2523,8 +2523,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.uncabulldogs.com",
       "ncaaOrgId": 456,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-carolina-asheville",
+      "status": "done"
     },
     {
       "name": "University of North Carolina Wilmington",
@@ -2532,8 +2532,8 @@
       "state": "NC",
       "athleticsUrl": "https://www.uncwsports.com",
       "ncaaOrgId": 460,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-carolina-wilmington",
+      "status": "done"
     },
     {
       "name": "University of North Carolina, Chapel Hill",
@@ -2550,8 +2550,8 @@
       "state": "ND",
       "athleticsUrl": "https://www.fightinghawks.com",
       "ncaaOrgId": 494,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-dakota",
+      "status": "done"
     },
     {
       "name": "University of North Florida",
@@ -2559,8 +2559,8 @@
       "state": "FL",
       "athleticsUrl": "https://www.unfospreys.com",
       "ncaaOrgId": 2711,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-florida",
+      "status": "done"
     },
     {
       "name": "University of North Texas",
@@ -2568,8 +2568,8 @@
       "state": "TX",
       "athleticsUrl": "https://www.meangreensports.com",
       "ncaaOrgId": 497,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "north-texas",
+      "status": "done"
     },
     {
       "name": "University of Northern Colorado",
@@ -2577,8 +2577,8 @@
       "state": "CO",
       "athleticsUrl": "https://uncbears.com",
       "ncaaOrgId": 502,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "northern-colorado",
+      "status": "done"
     },
     {
       "name": "University of Northern Iowa",
@@ -2586,8 +2586,8 @@
       "state": "IA",
       "athleticsUrl": "https://unipanthers.com",
       "ncaaOrgId": 504,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "northern-iowa",
+      "status": "done"
     },
     {
       "name": "University of Notre Dame",
@@ -2604,8 +2604,8 @@
       "state": "OK",
       "athleticsUrl": "https://soonersports.com",
       "ncaaOrgId": 522,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "oklahoma",
+      "status": "done"
     },
     {
       "name": "University of Oregon",
@@ -2613,8 +2613,8 @@
       "state": "OR",
       "athleticsUrl": "https://www.goducks.com",
       "ncaaOrgId": 529,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "oregon",
+      "status": "done"
     },
     {
       "name": "University of Pennsylvania",
@@ -2622,8 +2622,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.pennathletics.com",
       "ncaaOrgId": 540,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "pennsylvania",
+      "status": "done"
     },
     {
       "name": "University of Pittsburgh",
@@ -2631,8 +2631,8 @@
       "state": "PA",
       "athleticsUrl": "https://www.pittsburghpanthers.com",
       "ncaaOrgId": 545,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "pittsburgh",
+      "status": "done"
     },
     {
       "name": "University of Portland",
@@ -2640,8 +2640,8 @@
       "state": "OR",
       "athleticsUrl": "https://www.portlandpilots.com",
       "ncaaOrgId": 551,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "portland",
+      "status": "done"
     },
     {
       "name": "University of Rhode Island",
@@ -2649,8 +2649,8 @@
       "state": "RI",
       "athleticsUrl": "https://www.gorhody.com",
       "ncaaOrgId": 572,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "rhode-island",
+      "status": "done"
     },
     {
       "name": "University of Richmond",
@@ -2658,8 +2658,8 @@
       "state": "VA",
       "athleticsUrl": "https://richmondspiders.com",
       "ncaaOrgId": 575,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "richmond",
+      "status": "done"
     },
     {
       "name": "University of San Diego",
@@ -2667,8 +2667,8 @@
       "state": "CA",
       "athleticsUrl": "https://www.usdtoreros.com",
       "ncaaOrgId": 627,
-      "catalogId": null,
-      "status": "pending"
+      "catalogId": "san-diego",
+      "status": "done"
     },
     {
       "name": "University of San Francisco",
@@ -3149,5 +3149,5 @@
     }
   ],
   "queued": 0,
-  "pending": 119
+  "pending": 49
 }
