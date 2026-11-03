@@ -308,6 +308,10 @@ def find_roster_block(node: object) -> dict | None:
 def map_position(short: str | None, long: str | None) -> str | None:
     text = (long or "").split("/")[0].strip().lower().replace("-", " ")
     code = (short or "").split("/")[0].strip().upper()
+    # Some Sidearm pages put the full position name in the short field.
+    if not text and len(code) > 3:
+        text = code.lower().replace("-", " ")
+        code = ""
     # Presto tables sometimes print the short code in the position column.
     if not code and re.fullmatch(r"[A-Za-z]{1,3}", text.replace(" ", "")):
         code = text.replace(" ", "").upper()
