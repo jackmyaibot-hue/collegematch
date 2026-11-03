@@ -1,0 +1,3153 @@
+{
+  "source": "https://web3.ncaa.org/directory/api/directory/memberList?type=12&division=I&sportCode=WSO",
+  "sourcePage": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12",
+  "fetched": "2026-11-03",
+  "note": "Official NCAA directory of Division I institutions that sponsor women's soccer. status done means the school is in mobile/src/data/real/programs.json. Batch 1 added the first 70 pending schools in alphabetical order on 2026-11-03. Arizona State, Colorado State, and Columbia are stored but have no Scorecard city, so they stay out of the deck.",
+  "count": 349,
+  "done": 90,
+  "schools": [
+    {
+      "name": "Abilene Christian University",
+      "conference": "United Athletic Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.acusports.com",
+      "ncaaOrgId": 2,
+      "catalogId": "abilene-christian",
+      "status": "done"
+    },
+    {
+      "name": "Alabama A&M University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "AL",
+      "athleticsUrl": "https://www.aamusports.com",
+      "ncaaOrgId": 6,
+      "catalogId": "alabama-am",
+      "status": "done"
+    },
+    {
+      "name": "Alabama State University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "AL",
+      "athleticsUrl": "https://www.bamastatesports.com",
+      "ncaaOrgId": 7,
+      "catalogId": "alabama-state",
+      "status": "done"
+    },
+    {
+      "name": "Alcorn State University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "MS",
+      "athleticsUrl": "https://www.alcornsports.com",
+      "ncaaOrgId": 17,
+      "catalogId": "alcorn-state",
+      "status": "done"
+    },
+    {
+      "name": "American University",
+      "conference": "Patriot League",
+      "state": "DC",
+      "athleticsUrl": "https://www.aueagles.com",
+      "ncaaOrgId": 23,
+      "catalogId": "american",
+      "status": "done"
+    },
+    {
+      "name": "Appalachian State University",
+      "conference": "Sun Belt Conference",
+      "state": "NC",
+      "athleticsUrl": "https://appstatesports.com",
+      "ncaaOrgId": 27,
+      "catalogId": "appalachian-state",
+      "status": "done"
+    },
+    {
+      "name": "Arizona State University",
+      "conference": "Big 12 Conference",
+      "state": "AZ",
+      "athleticsUrl": "https://sundevils.com",
+      "ncaaOrgId": 28,
+      "catalogId": "arizona-state",
+      "status": "done"
+    },
+    {
+      "name": "Arkansas State University",
+      "conference": "Sun Belt Conference",
+      "state": "AR",
+      "athleticsUrl": "https://www.astateredwolves.com",
+      "ncaaOrgId": 30,
+      "catalogId": "arkansas-state",
+      "status": "done"
+    },
+    {
+      "name": "Auburn University",
+      "conference": "Southeastern Conference",
+      "state": "AL",
+      "athleticsUrl": "https://www.auburntigers.com",
+      "ncaaOrgId": 37,
+      "catalogId": "auburn",
+      "status": "done"
+    },
+    {
+      "name": "Austin Peay State University",
+      "conference": "United Athletic Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.letsgopeay.com",
+      "ncaaOrgId": 43,
+      "catalogId": "austin-peay-state",
+      "status": "done"
+    },
+    {
+      "name": "Ball State University",
+      "conference": "Mid-American Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.ballstatesports.com",
+      "ncaaOrgId": 47,
+      "catalogId": "ball-state",
+      "status": "done"
+    },
+    {
+      "name": "Baylor University",
+      "conference": "Big 12 Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.baylorbears.com",
+      "ncaaOrgId": 51,
+      "catalogId": "baylor",
+      "status": "done"
+    },
+    {
+      "name": "Bellarmine University",
+      "conference": "Atlantic Sun Conference",
+      "state": "KY",
+      "athleticsUrl": "https://athletics.bellarmine.edu",
+      "ncaaOrgId": 52,
+      "catalogId": "bellarmine",
+      "status": "done"
+    },
+    {
+      "name": "Belmont University",
+      "conference": "Missouri Valley Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.belmontbruins.com",
+      "ncaaOrgId": 14927,
+      "catalogId": "belmont",
+      "status": "done"
+    },
+    {
+      "name": "Binghamton University",
+      "conference": "America East Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.bubearcats.com",
+      "ncaaOrgId": 62,
+      "catalogId": "binghamton",
+      "status": "done"
+    },
+    {
+      "name": "Boise State University",
+      "conference": "Pac-12 Conference",
+      "state": "ID",
+      "athleticsUrl": "https://www.broncosports.com",
+      "ncaaOrgId": 66,
+      "catalogId": "boise-state",
+      "status": "done"
+    },
+    {
+      "name": "Boston College",
+      "conference": "Atlantic Coast Conference",
+      "state": "MA",
+      "athleticsUrl": "https://www.bceagles.com",
+      "ncaaOrgId": 67,
+      "catalogId": "boston-college",
+      "status": "done"
+    },
+    {
+      "name": "Boston University",
+      "conference": "Patriot League",
+      "state": "MA",
+      "athleticsUrl": "https://www.goterriers.com",
+      "ncaaOrgId": 68,
+      "catalogId": "boston-university",
+      "status": "done"
+    },
+    {
+      "name": "Bowling Green State University",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.bgsufalcons.com",
+      "ncaaOrgId": 71,
+      "catalogId": "bowling-green-state",
+      "status": "done"
+    },
+    {
+      "name": "Brigham Young University",
+      "conference": "Big 12 Conference",
+      "state": "UT",
+      "athleticsUrl": "https://byucougars.com",
+      "ncaaOrgId": 77,
+      "catalogId": "byu",
+      "status": "done"
+    },
+    {
+      "name": "Brown University",
+      "conference": "The Ivy League",
+      "state": "RI",
+      "athleticsUrl": "https://www.brownbears.com",
+      "ncaaOrgId": 80,
+      "catalogId": "brown",
+      "status": "done"
+    },
+    {
+      "name": "Bryant University",
+      "conference": "America East Conference",
+      "state": "RI",
+      "athleticsUrl": "https://www.bryantbulldogs.com",
+      "ncaaOrgId": 81,
+      "catalogId": "bryant",
+      "status": "done"
+    },
+    {
+      "name": "Bucknell University",
+      "conference": "Patriot League",
+      "state": "PA",
+      "athleticsUrl": "https://bucknellbison.com",
+      "ncaaOrgId": 83,
+      "catalogId": "bucknell",
+      "status": "done"
+    },
+    {
+      "name": "Butler University",
+      "conference": "BIG EAST Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.butlersports.com",
+      "ncaaOrgId": 87,
+      "catalogId": "butler-university",
+      "status": "done"
+    },
+    {
+      "name": "California Baptist University",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.cbulancers.com",
+      "ncaaOrgId": 30135,
+      "catalogId": "california-baptist",
+      "status": "done"
+    },
+    {
+      "name": "California Polytechnic State University",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://gopoly.com",
+      "ncaaOrgId": 90,
+      "catalogId": "cal-poly",
+      "status": "done"
+    },
+    {
+      "name": "California State University, Bakersfield",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.gorunners.com",
+      "ncaaOrgId": 94,
+      "catalogId": "california-state-bakersfield",
+      "status": "done"
+    },
+    {
+      "name": "California State University, Fresno",
+      "conference": "Pac-12 Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.gobulldogs.com",
+      "ncaaOrgId": 96,
+      "catalogId": "california-state-fresno",
+      "status": "done"
+    },
+    {
+      "name": "California State University, Fullerton",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.fullertontitans.com",
+      "ncaaOrgId": 97,
+      "catalogId": "california-state-fullerton",
+      "status": "done"
+    },
+    {
+      "name": "California State University, Northridge",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.GoMatadors.com",
+      "ncaaOrgId": 101,
+      "catalogId": "california-state-northridge",
+      "status": "done"
+    },
+    {
+      "name": "California State University, Sacramento",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.hornetsports.com",
+      "ncaaOrgId": 102,
+      "catalogId": "california-state-sacramento",
+      "status": "done"
+    },
+    {
+      "name": "Campbell University",
+      "conference": "Coastal Athletic Association",
+      "state": "NC",
+      "athleticsUrl": "https://www.gocamels.com",
+      "ncaaOrgId": 115,
+      "catalogId": "campbell",
+      "status": "done"
+    },
+    {
+      "name": "Canisius University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.gogriffs.com",
+      "ncaaOrgId": 116,
+      "catalogId": "canisius",
+      "status": "done"
+    },
+    {
+      "name": "Central Connecticut State University",
+      "conference": "Northeast Conference",
+      "state": "CT",
+      "athleticsUrl": "https://www.ccsubluedevils.com",
+      "ncaaOrgId": 127,
+      "catalogId": "central-connecticut-state",
+      "status": "done"
+    },
+    {
+      "name": "Central Michigan University",
+      "conference": "Mid-American Conference",
+      "state": "MI",
+      "athleticsUrl": "https://www.cmuchippewas.com",
+      "ncaaOrgId": 129,
+      "catalogId": "central-michigan",
+      "status": "done"
+    },
+    {
+      "name": "Charleston Southern University",
+      "conference": "Big South Conference",
+      "state": "SC",
+      "athleticsUrl": "https://csusports.com",
+      "ncaaOrgId": 48,
+      "catalogId": "charleston-southern",
+      "status": "done"
+    },
+    {
+      "name": "Chicago State University",
+      "conference": "Northeast Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.gocsucougars.com",
+      "ncaaOrgId": 136,
+      "catalogId": "chicago-state",
+      "status": "done"
+    },
+    {
+      "name": "Clemson University",
+      "conference": "Atlantic Coast Conference",
+      "state": "SC",
+      "athleticsUrl": "https://clemsontigers.com",
+      "ncaaOrgId": 147,
+      "catalogId": "clemson",
+      "status": "done"
+    },
+    {
+      "name": "Cleveland State University",
+      "conference": "Horizon League",
+      "state": "OH",
+      "athleticsUrl": "https://www.csuvikings.com",
+      "ncaaOrgId": 148,
+      "catalogId": "cleveland-state",
+      "status": "done"
+    },
+    {
+      "name": "Coastal Carolina University",
+      "conference": "Sun Belt Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.goccusports.com",
+      "ncaaOrgId": 149,
+      "catalogId": "coastal-carolina",
+      "status": "done"
+    },
+    {
+      "name": "Colgate University",
+      "conference": "Patriot League",
+      "state": "NY",
+      "athleticsUrl": "https://gocolgateraiders.com",
+      "ncaaOrgId": 153,
+      "catalogId": "colgate",
+      "status": "done"
+    },
+    {
+      "name": "College of Charleston (South Carolina)",
+      "conference": "Coastal Athletic Association",
+      "state": "SC",
+      "athleticsUrl": "https://www.cofcsports.com",
+      "ncaaOrgId": 1014,
+      "catalogId": "college-of-charleston",
+      "status": "done"
+    },
+    {
+      "name": "College of the Holy Cross",
+      "conference": "Patriot League",
+      "state": "MA",
+      "athleticsUrl": "https://goholycross.com",
+      "ncaaOrgId": 285,
+      "catalogId": "holy-cross",
+      "status": "done"
+    },
+    {
+      "name": "Colorado College",
+      "conference": "Mountain West Conference",
+      "state": "CO",
+      "athleticsUrl": "https://www.cctigers.com",
+      "ncaaOrgId": 154,
+      "catalogId": "colorado-college",
+      "status": "done"
+    },
+    {
+      "name": "Colorado State University",
+      "conference": "Pac-12 Conference",
+      "state": "CO",
+      "athleticsUrl": "https://www.csurams.com",
+      "ncaaOrgId": 156,
+      "catalogId": "colorado-state",
+      "status": "done"
+    },
+    {
+      "name": "Columbia University-Barnard College",
+      "conference": "The Ivy League",
+      "state": "NY",
+      "athleticsUrl": "https://www.gocolumbialions.com",
+      "ncaaOrgId": 158,
+      "catalogId": "columbia",
+      "status": "done"
+    },
+    {
+      "name": "Cornell University",
+      "conference": "The Ivy League",
+      "state": "NY",
+      "athleticsUrl": "https://www.cornellbigred.com",
+      "ncaaOrgId": 167,
+      "catalogId": "cornell",
+      "status": "done"
+    },
+    {
+      "name": "Creighton University",
+      "conference": "BIG EAST Conference",
+      "state": "NE",
+      "athleticsUrl": "https://gocreighton.com",
+      "ncaaOrgId": 169,
+      "catalogId": "creighton",
+      "status": "done"
+    },
+    {
+      "name": "Dartmouth College",
+      "conference": "The Ivy League",
+      "state": "NH",
+      "athleticsUrl": "https://www.dartmouthsports.com",
+      "ncaaOrgId": 172,
+      "catalogId": "dartmouth",
+      "status": "done"
+    },
+    {
+      "name": "Davidson College",
+      "conference": "Atlantic 10 Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.davidsonwildcats.com",
+      "ncaaOrgId": 173,
+      "catalogId": "davidson",
+      "status": "done"
+    },
+    {
+      "name": "Delaware State University",
+      "conference": "Northeast Conference",
+      "state": "DE",
+      "athleticsUrl": "https://www.dsuhornets.com",
+      "ncaaOrgId": 178,
+      "catalogId": "delaware-state",
+      "status": "done"
+    },
+    {
+      "name": "DePaul University",
+      "conference": "BIG EAST Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.depaulbluedemons.com",
+      "ncaaOrgId": 176,
+      "catalogId": "depaul",
+      "status": "done"
+    },
+    {
+      "name": "Drake University",
+      "conference": "Missouri Valley Conference",
+      "state": "IA",
+      "athleticsUrl": "https://godrakebulldogs.com",
+      "ncaaOrgId": 189,
+      "catalogId": "drake",
+      "status": "done"
+    },
+    {
+      "name": "Drexel University",
+      "conference": "Coastal Athletic Association",
+      "state": "PA",
+      "athleticsUrl": "https://www.drexeldragons.com",
+      "ncaaOrgId": 191,
+      "catalogId": "drexel",
+      "status": "done"
+    },
+    {
+      "name": "Duke University",
+      "conference": "Atlantic Coast Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.goduke.com",
+      "ncaaOrgId": 193,
+      "catalogId": "duke",
+      "status": "done"
+    },
+    {
+      "name": "Duquesne University",
+      "conference": "Atlantic 10 Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.GoDuquesne.com",
+      "ncaaOrgId": 194,
+      "catalogId": "duquesne",
+      "status": "done"
+    },
+    {
+      "name": "East Carolina University",
+      "conference": "American Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.ecupirates.com",
+      "ncaaOrgId": 196,
+      "catalogId": "east-carolina",
+      "status": "done"
+    },
+    {
+      "name": "East Tennessee State University",
+      "conference": "Southern Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.etsubucs.com",
+      "ncaaOrgId": 198,
+      "catalogId": "east-tennessee-state",
+      "status": "done"
+    },
+    {
+      "name": "East Texas A&M University",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.lionathletics.com",
+      "ncaaOrgId": 199,
+      "catalogId": "east-texas-am",
+      "status": "done"
+    },
+    {
+      "name": "Eastern Illinois University",
+      "conference": "Ohio Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.eiupanthers.com",
+      "ncaaOrgId": 201,
+      "catalogId": "eastern-illinois",
+      "status": "done"
+    },
+    {
+      "name": "Eastern Kentucky University",
+      "conference": "United Athletic Conference",
+      "state": "KY",
+      "athleticsUrl": "https://www.ekusports.com",
+      "ncaaOrgId": 202,
+      "catalogId": "eastern-kentucky",
+      "status": "done"
+    },
+    {
+      "name": "Eastern Michigan University",
+      "conference": "Mid-American Conference",
+      "state": "MI",
+      "athleticsUrl": "https://www.emueagles.com",
+      "ncaaOrgId": 204,
+      "catalogId": "eastern-michigan",
+      "status": "done"
+    },
+    {
+      "name": "Eastern Washington University",
+      "conference": "Big Sky Conference",
+      "state": "WA",
+      "athleticsUrl": "https://goeags.com",
+      "ncaaOrgId": 207,
+      "catalogId": "eastern-washington",
+      "status": "done"
+    },
+    {
+      "name": "Elon University",
+      "conference": "Coastal Athletic Association",
+      "state": "NC",
+      "athleticsUrl": "https://www.elonphoenix.com",
+      "ncaaOrgId": 1068,
+      "catalogId": "elon",
+      "status": "done"
+    },
+    {
+      "name": "Fairfield University",
+      "conference": "Metro Conference",
+      "state": "CT",
+      "athleticsUrl": "https://fairfieldstags.com",
+      "ncaaOrgId": 220,
+      "catalogId": "fairfield",
+      "status": "done"
+    },
+    {
+      "name": "Fairleigh Dickinson University, Metropolitan Campus",
+      "conference": "Northeast Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.fduknights.com",
+      "ncaaOrgId": 222,
+      "catalogId": "fairleigh-dickinson",
+      "status": "done"
+    },
+    {
+      "name": "Florida Atlantic University",
+      "conference": "American Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.fausports.com",
+      "ncaaOrgId": 229,
+      "catalogId": "florida-atlantic",
+      "status": "done"
+    },
+    {
+      "name": "Florida Gulf Coast University",
+      "conference": "Atlantic Sun Conference",
+      "state": "FL",
+      "athleticsUrl": "https://fgcuathletics.com",
+      "ncaaOrgId": 28755,
+      "catalogId": "florida-gulf-coast",
+      "status": "done"
+    },
+    {
+      "name": "Florida International University",
+      "conference": "Conference USA",
+      "state": "FL",
+      "athleticsUrl": "https://www.fiusports.com",
+      "ncaaOrgId": 231,
+      "catalogId": "florida-international",
+      "status": "done"
+    },
+    {
+      "name": "Florida State University",
+      "conference": "Atlantic Coast Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.seminoles.com",
+      "ncaaOrgId": 234,
+      "catalogId": "florida-state",
+      "status": "done"
+    },
+    {
+      "name": "Fordham University",
+      "conference": "Atlantic 10 Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.fordhamsports.com",
+      "ncaaOrgId": 236,
+      "catalogId": "fordham",
+      "status": "done"
+    },
+    {
+      "name": "Furman University",
+      "conference": "Southern Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.furmanpaladins.com",
+      "ncaaOrgId": 244,
+      "catalogId": "furman",
+      "status": "done"
+    },
+    {
+      "name": "Gardner-Webb University",
+      "conference": "Big South Conference",
+      "state": "NC",
+      "athleticsUrl": "https://gwusports.com",
+      "ncaaOrgId": 1092,
+      "catalogId": "gardner-webb",
+      "status": "done"
+    },
+    {
+      "name": "George Mason University",
+      "conference": "Atlantic 10 Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.gomason.com",
+      "ncaaOrgId": 248,
+      "catalogId": "george-mason",
+      "status": "done"
+    },
+    {
+      "name": "George Washington University",
+      "conference": "Atlantic 10 Conference",
+      "state": "DC",
+      "athleticsUrl": "https://www.gwsports.com/index.html",
+      "ncaaOrgId": 249,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Georgetown University",
+      "conference": "BIG EAST Conference",
+      "state": "DC",
+      "athleticsUrl": "https://guhoyas.com",
+      "ncaaOrgId": 251,
+      "catalogId": "georgetown",
+      "status": "done"
+    },
+    {
+      "name": "Georgia Southern University",
+      "conference": "Sun Belt Conference",
+      "state": "GA",
+      "athleticsUrl": "https://gseagles.com",
+      "ncaaOrgId": 253,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Georgia State University",
+      "conference": "Sun Belt Conference",
+      "state": "GA",
+      "athleticsUrl": "https://georgiastatesports.com",
+      "ncaaOrgId": 254,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Gonzaga University",
+      "conference": "Pac-12 Conference",
+      "state": "WA",
+      "athleticsUrl": "https://www.gozags.com",
+      "ncaaOrgId": 260,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Grambling State University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "LA",
+      "athleticsUrl": "https://www.gsutigers.com",
+      "ncaaOrgId": 261,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Grand Canyon University",
+      "conference": "Mountain West Conference",
+      "state": "AZ",
+      "athleticsUrl": "https://www.gculopes.com",
+      "ncaaOrgId": 1104,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Hampton University",
+      "conference": "Coastal Athletic Association",
+      "state": "VA",
+      "athleticsUrl": "https://hamptonpirates.com",
+      "ncaaOrgId": 270,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Harvard University",
+      "conference": "The Ivy League",
+      "state": "MA",
+      "athleticsUrl": "https://gocrimson.com",
+      "ncaaOrgId": 275,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "High Point University",
+      "conference": "Big South Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.highpointpanthers.com",
+      "ncaaOrgId": 19651,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Hofstra University",
+      "conference": "Coastal Athletic Association",
+      "state": "NY",
+      "athleticsUrl": "https://www.gohofstra.com",
+      "ncaaOrgId": 283,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Houston Christian University",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.hcuhuskies.com",
+      "ncaaOrgId": 287,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Howard University",
+      "conference": "Northeast Conference",
+      "state": "DC",
+      "athleticsUrl": "https://www.hubison.com",
+      "ncaaOrgId": 290,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Idaho State University",
+      "conference": "Big Sky Conference",
+      "state": "ID",
+      "athleticsUrl": "https://www.isubengals.com",
+      "ncaaOrgId": 294,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Illinois State University",
+      "conference": "Missouri Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://GoRedbirds.com",
+      "ncaaOrgId": 299,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Indiana State University",
+      "conference": "Missouri Valley Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.gosycamores.com",
+      "ncaaOrgId": 305,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Indiana University Indianapolis",
+      "conference": "Horizon League",
+      "state": "IN",
+      "athleticsUrl": "https://iuindyjags.com",
+      "ncaaOrgId": 2699,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Indiana University, Bloomington",
+      "conference": "Big Ten Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.iuhoosiers.com",
+      "ncaaOrgId": 306,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Iona University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.ionagaels.com",
+      "ncaaOrgId": 310,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Iowa State University",
+      "conference": "Big 12 Conference",
+      "state": "IA",
+      "athleticsUrl": "https://www.cyclones.com",
+      "ncaaOrgId": 311,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Jackson State University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "MS",
+      "athleticsUrl": "https://www.gojsutigers.com",
+      "ncaaOrgId": 314,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Jacksonville State University",
+      "conference": "Conference USA",
+      "state": "AL",
+      "athleticsUrl": "https://www.jaxstatesports.com",
+      "ncaaOrgId": 315,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Jacksonville University",
+      "conference": "Atlantic Sun Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.judolphins.com",
+      "ncaaOrgId": 316,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "James Madison University",
+      "conference": "Sun Belt Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.jmusports.com",
+      "ncaaOrgId": 317,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Kansas State University",
+      "conference": "Big 12 Conference",
+      "state": "KS",
+      "athleticsUrl": "https://www.kstatesports.com",
+      "ncaaOrgId": 327,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Kennesaw State University",
+      "conference": "Conference USA",
+      "state": "GA",
+      "athleticsUrl": "https://www.ksuowls.com",
+      "ncaaOrgId": 1157,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Kent State University",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.kentstatesports.com",
+      "ncaaOrgId": 331,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "La Salle University",
+      "conference": "Atlantic 10 Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.goexplorers.com",
+      "ncaaOrgId": 340,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Lafayette College",
+      "conference": "Patriot League",
+      "state": "PA",
+      "athleticsUrl": "https://www.goleopards.com",
+      "ncaaOrgId": 342,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Lamar University",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.lamarcardinals.com",
+      "ncaaOrgId": 346,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Le Moyne College",
+      "conference": "Northeast Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.lemoynedolphins.com",
+      "ncaaOrgId": 349,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Lehigh University",
+      "conference": "Patriot League",
+      "state": "PA",
+      "athleticsUrl": "https://www.lehighsports.com",
+      "ncaaOrgId": 352,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Liberty University",
+      "conference": "Conference USA",
+      "state": "VA",
+      "athleticsUrl": "https://www.LibertyFlames.com",
+      "ncaaOrgId": 355,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Lindenwood University",
+      "conference": "Ohio Valley Conference",
+      "state": "MO",
+      "athleticsUrl": "https://lindenwoodlions.com",
+      "ncaaOrgId": 30136,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Lipscomb University",
+      "conference": "Atlantic Sun Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.lipscombsports.com",
+      "ncaaOrgId": 28600,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Long Beach State University",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://longbeachstate.com",
+      "ncaaOrgId": 99,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Long Island University",
+      "conference": "Northeast Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.liuathletics.com",
+      "ncaaOrgId": 361,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Longwood University",
+      "conference": "Big South Conference",
+      "state": "VA",
+      "athleticsUrl": "https://longwoodlancers.com",
+      "ncaaOrgId": 363,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Louisiana State University",
+      "conference": "Southeastern Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.lsusports.net",
+      "ncaaOrgId": 365,
+      "catalogId": "lsu",
+      "status": "done"
+    },
+    {
+      "name": "Louisiana Tech University",
+      "conference": "Sun Belt Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.latechsports.com",
+      "ncaaOrgId": 366,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Loyola Marymount University",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.LMULions.com",
+      "ncaaOrgId": 370,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Loyola University Chicago",
+      "conference": "Atlantic 10 Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.loyolaramblers.com",
+      "ncaaOrgId": 371,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Loyola University Maryland",
+      "conference": "Patriot League",
+      "state": "MD",
+      "athleticsUrl": "https://www.loyolagreyhounds.com",
+      "ncaaOrgId": 369,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Manhattan University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.gojaspers.com",
+      "ncaaOrgId": 381,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Marist University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://goredfoxes.com",
+      "ncaaOrgId": 386,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Marquette University",
+      "conference": "BIG EAST Conference",
+      "state": "WI",
+      "athleticsUrl": "https://www.gomarquette.com",
+      "ncaaOrgId": 387,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Marshall University",
+      "conference": "Sun Belt Conference",
+      "state": "WV",
+      "athleticsUrl": "https://www.herdzone.com",
+      "ncaaOrgId": 388,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "McNeese State University",
+      "conference": "Southland Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.mcneesesports.com",
+      "ncaaOrgId": 402,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Mercer University",
+      "conference": "Southern Conference",
+      "state": "GA",
+      "athleticsUrl": "https://www.mercerbears.com",
+      "ncaaOrgId": 406,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Mercyhurst University",
+      "conference": "Northeast Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.hurstathletics.com",
+      "ncaaOrgId": 408,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Merrimack College",
+      "conference": "Metro Conference",
+      "state": "MA",
+      "athleticsUrl": "https://www.merrimackathletics.com",
+      "ncaaOrgId": 410,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Miami University (Ohio)",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.miamiredhawks.com",
+      "ncaaOrgId": 414,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Michigan State University",
+      "conference": "Big Ten Conference",
+      "state": "MI",
+      "athleticsUrl": "https://msuspartans.com",
+      "ncaaOrgId": 416,
+      "catalogId": "michigan-state",
+      "status": "done"
+    },
+    {
+      "name": "Middle Tennessee State University",
+      "conference": "Conference USA",
+      "state": "TN",
+      "athleticsUrl": "https://www.goblueraiders.com",
+      "ncaaOrgId": 419,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Mississippi State University",
+      "conference": "Southeastern Conference",
+      "state": "MS",
+      "athleticsUrl": "https://www.hailstate.com",
+      "ncaaOrgId": 430,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Missouri State University",
+      "conference": "Conference USA",
+      "state": "MO",
+      "athleticsUrl": "https://www.missouristatebears.com",
+      "ncaaOrgId": 669,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Monmouth University",
+      "conference": "Coastal Athletic Association",
+      "state": "NJ",
+      "athleticsUrl": "https://www.monmouthhawks.com",
+      "ncaaOrgId": 439,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Morehead State University",
+      "conference": "Ohio Valley Conference",
+      "state": "KY",
+      "athleticsUrl": "https://www.msueagles.com",
+      "ncaaOrgId": 444,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Mount St. Mary's University",
+      "conference": "Metro Conference",
+      "state": "MD",
+      "athleticsUrl": "https://www.mountathletics.com",
+      "ncaaOrgId": 450,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Murray State University",
+      "conference": "Missouri Valley Conference",
+      "state": "KY",
+      "athleticsUrl": "https://www.goracers.com",
+      "ncaaOrgId": 454,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "New Jersey Institute of Technology",
+      "conference": "America East Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.njithighlanders.com",
+      "ncaaOrgId": 471,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "New Mexico State University",
+      "conference": "Conference USA",
+      "state": "NM",
+      "athleticsUrl": "https://www.nmstatesports.com",
+      "ncaaOrgId": 472,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Niagara University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.purpleeagles.com",
+      "ncaaOrgId": 482,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Nicholls State University",
+      "conference": "Southland Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.geauxcolonels.com",
+      "ncaaOrgId": 483,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "North Carolina State University",
+      "conference": "Atlantic Coast Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.gopack.com",
+      "ncaaOrgId": 490,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "North Dakota State University",
+      "conference": "The Summit League",
+      "state": "ND",
+      "athleticsUrl": "https://www.GoBison.com",
+      "ncaaOrgId": 493,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northeastern University",
+      "conference": "Coastal Athletic Association",
+      "state": "MA",
+      "athleticsUrl": "https://www.nuhuskies.com",
+      "ncaaOrgId": 500,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northern Arizona University",
+      "conference": "Big Sky Conference",
+      "state": "AZ",
+      "athleticsUrl": "https://www.nauathletics.com",
+      "ncaaOrgId": 501,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northern Illinois University",
+      "conference": "Horizon League",
+      "state": "IL",
+      "athleticsUrl": "https://www.niuhuskies.com",
+      "ncaaOrgId": 503,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northern Kentucky University",
+      "conference": "Horizon League",
+      "state": "KY",
+      "athleticsUrl": "https://www.nkunorse.com",
+      "ncaaOrgId": 505,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northwestern State University",
+      "conference": "Southland Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.nsudemons.com",
+      "ncaaOrgId": 508,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Northwestern University",
+      "conference": "Big Ten Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.nusports.com",
+      "ncaaOrgId": 509,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Oakland University",
+      "conference": "Horizon League",
+      "state": "MI",
+      "athleticsUrl": "https://goldengrizzlies.com",
+      "ncaaOrgId": 514,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Ohio University",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.ohiobobcats.com",
+      "ncaaOrgId": 519,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Oklahoma State University",
+      "conference": "Big 12 Conference",
+      "state": "OK",
+      "athleticsUrl": "https://www.okstate.com",
+      "ncaaOrgId": 521,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Old Dominion University",
+      "conference": "Sun Belt Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.odusports.com",
+      "ncaaOrgId": 523,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Oral Roberts University",
+      "conference": "The Summit League",
+      "state": "OK",
+      "athleticsUrl": "https://www.oruathletics.com",
+      "ncaaOrgId": 527,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Oregon State University",
+      "conference": "Pac-12 Conference",
+      "state": "OR",
+      "athleticsUrl": "https://osubeavers.com",
+      "ncaaOrgId": 528,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Pennsylvania State University",
+      "conference": "Big Ten Conference",
+      "state": "PA",
+      "athleticsUrl": "https://goPSUsports.com",
+      "ncaaOrgId": 539,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Pepperdine University",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.pepperdinewaves.com",
+      "ncaaOrgId": 541,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Portland State University",
+      "conference": "Big Sky Conference",
+      "state": "OR",
+      "athleticsUrl": "https://goviks.com",
+      "ncaaOrgId": 550,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Prairie View A&M University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "TX",
+      "athleticsUrl": "https://www.pvpanthers.com",
+      "ncaaOrgId": 553,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Presbyterian College",
+      "conference": "Big South Conference",
+      "state": "SC",
+      "athleticsUrl": "https://gobluehose.com",
+      "ncaaOrgId": 1320,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Princeton University",
+      "conference": "The Ivy League",
+      "state": "NJ",
+      "athleticsUrl": "https://www.goprincetontigers.com",
+      "ncaaOrgId": 554,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Providence College",
+      "conference": "BIG EAST Conference",
+      "state": "RI",
+      "athleticsUrl": "https://www.friars.com",
+      "ncaaOrgId": 556,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Purdue University",
+      "conference": "Big Ten Conference",
+      "state": "IN",
+      "athleticsUrl": "https://purduesports.com",
+      "ncaaOrgId": 559,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Purdue University Fort Wayne",
+      "conference": "Horizon League",
+      "state": "IN",
+      "athleticsUrl": "https://www.gomastodons.com",
+      "ncaaOrgId": 308,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Queens University of Charlotte",
+      "conference": "Atlantic Sun Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.queensathletics.com",
+      "ncaaOrgId": 11504,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Quinnipiac University",
+      "conference": "Metro Conference",
+      "state": "CT",
+      "athleticsUrl": "https://www.gobobcats.com",
+      "ncaaOrgId": 562,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Radford University",
+      "conference": "Big South Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.radfordathletics.com",
+      "ncaaOrgId": 563,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Rice University",
+      "conference": "American Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.riceowls.com",
+      "ncaaOrgId": 574,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Rider University",
+      "conference": "Metro Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.gobroncs.com",
+      "ncaaOrgId": 576,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Robert Morris University",
+      "conference": "Horizon League",
+      "state": "PA",
+      "athleticsUrl": "https://www.rmucolonials.com",
+      "ncaaOrgId": 579,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Rutgers, The State University of New Jersey, New Brunswick",
+      "conference": "Big Ten Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.scarletknights.com",
+      "ncaaOrgId": 587,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Sacred Heart University",
+      "conference": "Metro Conference",
+      "state": "CT",
+      "athleticsUrl": "https://sacredheartpioneers.com",
+      "ncaaOrgId": 590,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Saint Joseph's University",
+      "conference": "Atlantic 10 Conference",
+      "state": "PA",
+      "athleticsUrl": "https://sjuhawks.com",
+      "ncaaOrgId": 606,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Saint Louis University",
+      "conference": "Atlantic 10 Conference",
+      "state": "MO",
+      "athleticsUrl": "https://www.slubillikens.com",
+      "ncaaOrgId": 609,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Saint Mary's College of California",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.SMCGaels.com",
+      "ncaaOrgId": 610,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Saint Peter's University",
+      "conference": "Metro Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.saintpeterspeacocks.com",
+      "ncaaOrgId": 617,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Sam Houston State University",
+      "conference": "Conference USA",
+      "state": "TX",
+      "athleticsUrl": "https://www.gobearkats.com",
+      "ncaaOrgId": 624,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Samford University",
+      "conference": "Southern Conference",
+      "state": "AL",
+      "athleticsUrl": "https://samfordsports.com",
+      "ncaaOrgId": 625,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "San Diego State University",
+      "conference": "Pac-12 Conference",
+      "state": "CA",
+      "athleticsUrl": "https://goaztecs.com",
+      "ncaaOrgId": 626,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "San Jose State University",
+      "conference": "Mountain West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.sjsuspartans.com",
+      "ncaaOrgId": 630,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Santa Clara University",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://santaclarabroncos.com",
+      "ncaaOrgId": 631,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Seattle University",
+      "conference": "West Coast Conference",
+      "state": "WA",
+      "athleticsUrl": "https://goseattleu.com",
+      "ncaaOrgId": 1356,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Seton Hall University",
+      "conference": "BIG EAST Conference",
+      "state": "NJ",
+      "athleticsUrl": "https://www.shupirates.com",
+      "ncaaOrgId": 635,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Siena University",
+      "conference": "Metro Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.sienasaints.com",
+      "ncaaOrgId": 639,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "South Carolina State University",
+      "conference": "Independent",
+      "state": "SC",
+      "athleticsUrl": "https://www.scsuathletics.com/index.aspx",
+      "ncaaOrgId": 647,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "South Dakota State University",
+      "conference": "The Summit League",
+      "state": "SD",
+      "athleticsUrl": "https://www.gojacks.com",
+      "ncaaOrgId": 649,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southeast Missouri State University",
+      "conference": "Ohio Valley Conference",
+      "state": "MO",
+      "athleticsUrl": "https://www.semoredhawks.com",
+      "ncaaOrgId": 654,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southeastern Louisiana University",
+      "conference": "Southland Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.lionsports.net",
+      "ncaaOrgId": 655,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southern Illinois University at Carbondale",
+      "conference": "Missouri Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.siusalukis.com",
+      "ncaaOrgId": 659,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southern Illinois University Edwardsville",
+      "conference": "Ohio Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.siuecougars.com",
+      "ncaaOrgId": 660,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southern Methodist University",
+      "conference": "Atlantic Coast Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.smumustangs.com",
+      "ncaaOrgId": 663,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southern University, Baton Rouge",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "LA",
+      "athleticsUrl": "https://www.gojagsports.com",
+      "ncaaOrgId": 665,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Southern Utah University",
+      "conference": "Big Sky Conference",
+      "state": "UT",
+      "athleticsUrl": "https://www.suutbirds.com",
+      "ncaaOrgId": 667,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "St. Bonaventure University",
+      "conference": "Atlantic 10 Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.gobonnies.com",
+      "ncaaOrgId": 596,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "St. John's University (New York)",
+      "conference": "BIG EAST Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.redstormsports.com",
+      "ncaaOrgId": 603,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Stanford University",
+      "conference": "Atlantic Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://gostanford.com",
+      "ncaaOrgId": 674,
+      "catalogId": "stanford",
+      "status": "done"
+    },
+    {
+      "name": "Stephen F. Austin State University",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://SFAjacks.com",
+      "ncaaOrgId": 676,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Stetson University",
+      "conference": "Atlantic Sun Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.gohatters.com",
+      "ncaaOrgId": 678,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Stonehill College",
+      "conference": "Northeast Conference",
+      "state": "MA",
+      "athleticsUrl": "https://www.stonehillskyhawks.com",
+      "ncaaOrgId": 682,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Stony Brook University",
+      "conference": "Coastal Athletic Association",
+      "state": "NY",
+      "athleticsUrl": "https://stonybrookathletics.com",
+      "ncaaOrgId": 683,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Syracuse University",
+      "conference": "Atlantic Coast Conference",
+      "state": "NY",
+      "athleticsUrl": "https://cuse.com",
+      "ncaaOrgId": 688,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Tarleton State University",
+      "conference": "United Athletic Conference",
+      "state": "TX",
+      "athleticsUrl": "https://tarletonsports.com",
+      "ncaaOrgId": 1395,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Temple University",
+      "conference": "American Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.owlsports.com",
+      "ncaaOrgId": 690,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Tennessee Technological University",
+      "conference": "Southern Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.TTUsports.com",
+      "ncaaOrgId": 692,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Texas A&M University, College Station",
+      "conference": "Southeastern Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.12thman.com",
+      "ncaaOrgId": 697,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Texas A&M University-Corpus Christi",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.goislanders.com",
+      "ncaaOrgId": 26172,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Texas Christian University",
+      "conference": "Big 12 Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.gofrogs.com",
+      "ncaaOrgId": 698,
+      "catalogId": "tcu",
+      "status": "done"
+    },
+    {
+      "name": "Texas Southern University",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "TX",
+      "athleticsUrl": "https://www.tsusports.com",
+      "ncaaOrgId": 699,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Texas State University",
+      "conference": "Pac-12 Conference",
+      "state": "TX",
+      "athleticsUrl": "https://txstatebobcats.com",
+      "ncaaOrgId": 670,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Texas Tech University",
+      "conference": "Big 12 Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.texastech.com",
+      "ncaaOrgId": 700,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The Citadel",
+      "conference": "Southern Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.citadelsports.com",
+      "ncaaOrgId": 141,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The Ohio State University",
+      "conference": "Big Ten Conference",
+      "state": "OH",
+      "athleticsUrl": "https://ohiostatebuckeyes.com",
+      "ncaaOrgId": 518,
+      "catalogId": "ohio-state",
+      "status": "done"
+    },
+    {
+      "name": "The University of North Carolina at Charlotte",
+      "conference": "American Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.charlotte49ers.com",
+      "ncaaOrgId": 458,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The University of North Carolina at Greensboro",
+      "conference": "Southern Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.uncgspartans.com",
+      "ncaaOrgId": 459,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The University of Southern Mississippi",
+      "conference": "Sun Belt Conference",
+      "state": "MS",
+      "athleticsUrl": "https://www.southernmiss.com",
+      "ncaaOrgId": 664,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The University of Texas Rio Grande Valley",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://goutrgv.com",
+      "ncaaOrgId": 536,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "The University of Tulsa",
+      "conference": "American Conference",
+      "state": "OK",
+      "athleticsUrl": "https://www.tulsahurricane.com",
+      "ncaaOrgId": 719,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Towson University",
+      "conference": "Coastal Athletic Association",
+      "state": "MD",
+      "athleticsUrl": "https://www.towsontigers.com",
+      "ncaaOrgId": 711,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Troy University",
+      "conference": "Sun Belt Conference",
+      "state": "AL",
+      "athleticsUrl": "https://troytrojans.com",
+      "ncaaOrgId": 716,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "U.S. Air Force Academy",
+      "conference": "Mountain West Conference",
+      "state": "CO",
+      "athleticsUrl": "https://www.goairforcefalcons.com",
+      "ncaaOrgId": 721,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "U.S. Military Academy",
+      "conference": "Patriot League",
+      "state": "NY",
+      "athleticsUrl": "https://goarmywestpoint.com/index.aspx",
+      "ncaaOrgId": 725,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "U.S. Naval Academy",
+      "conference": "Patriot League",
+      "state": "MD",
+      "athleticsUrl": "https://www.navysports.com",
+      "ncaaOrgId": 726,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University at Albany",
+      "conference": "America East Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.ualbanysports.com",
+      "ncaaOrgId": 14,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University at Buffalo, the State University of New York",
+      "conference": "Mid-American Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.ubbulls.com",
+      "ncaaOrgId": 86,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Akron",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://gozips.com",
+      "ncaaOrgId": 5,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Alabama",
+      "conference": "Southeastern Conference",
+      "state": "AL",
+      "athleticsUrl": "https://www.rolltide.com",
+      "ncaaOrgId": 8,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Alabama at Birmingham",
+      "conference": "American Conference",
+      "state": "AL",
+      "athleticsUrl": "https://www.uabsports.com",
+      "ncaaOrgId": 9,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Arizona",
+      "conference": "Big 12 Conference",
+      "state": "AZ",
+      "athleticsUrl": "https://www.arizonawildcats.com",
+      "ncaaOrgId": 29,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Arkansas at Little Rock",
+      "conference": "United Athletic Conference",
+      "state": "AR",
+      "athleticsUrl": "https:////lrtrojans.com",
+      "ncaaOrgId": 32,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Arkansas, Fayetteville",
+      "conference": "Southeastern Conference",
+      "state": "AR",
+      "athleticsUrl": "https://arkansasrazorbacks.com",
+      "ncaaOrgId": 31,
+      "catalogId": "arkansas",
+      "status": "done"
+    },
+    {
+      "name": "University of Arkansas, Pine Bluff",
+      "conference": "Southwestern Athletic Conf.",
+      "state": "AR",
+      "athleticsUrl": "https://uapblionsroar.com",
+      "ncaaOrgId": 2678,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Berkeley",
+      "conference": "Atlantic Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.calbears.com",
+      "ncaaOrgId": 107,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Davis",
+      "conference": "Mountain West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.ucdavisaggies.com",
+      "ncaaOrgId": 108,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Irvine",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://ucirvinesports.com",
+      "ncaaOrgId": 109,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Los Angeles",
+      "conference": "Big Ten Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.uclabruins.com",
+      "ncaaOrgId": 110,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Riverside",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.gohighlanders.com",
+      "ncaaOrgId": 111,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, San Diego",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.ucsdtritons.com",
+      "ncaaOrgId": 112,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of California, Santa Barbara",
+      "conference": "Big West Conference",
+      "state": "CA",
+      "athleticsUrl": "https://ucsbgauchos.com",
+      "ncaaOrgId": 104,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Central Arkansas",
+      "conference": "United Athletic Conference",
+      "state": "AR",
+      "athleticsUrl": "https://www.ucasports.com",
+      "ncaaOrgId": 1004,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Central Florida",
+      "conference": "Big 12 Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.ucfknights.com",
+      "ncaaOrgId": 128,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Cincinnati",
+      "conference": "Big 12 Conference",
+      "state": "OH",
+      "athleticsUrl": "https://gobearcats.com",
+      "ncaaOrgId": 140,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Colorado Boulder",
+      "conference": "Big 12 Conference",
+      "state": "CO",
+      "athleticsUrl": "https://www.cubuffs.com",
+      "ncaaOrgId": 157,
+      "catalogId": "colorado",
+      "status": "done"
+    },
+    {
+      "name": "University of Connecticut",
+      "conference": "BIG EAST Conference",
+      "state": "CT",
+      "athleticsUrl": "https://www.uconnhuskies.com",
+      "ncaaOrgId": 164,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Dayton",
+      "conference": "Atlantic 10 Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.daytonflyers.com",
+      "ncaaOrgId": 175,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Delaware",
+      "conference": "Conference USA",
+      "state": "DE",
+      "athleticsUrl": "https://www.bluehens.com",
+      "ncaaOrgId": 180,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Denver",
+      "conference": "West Coast Conference",
+      "state": "CO",
+      "athleticsUrl": "https://denverpioneers.com",
+      "ncaaOrgId": 183,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Detroit Mercy",
+      "conference": "Horizon League",
+      "state": "MI",
+      "athleticsUrl": "https://www.detroittitans.com",
+      "ncaaOrgId": 184,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Evansville",
+      "conference": "Missouri Valley Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.gopurpleaces.com",
+      "ncaaOrgId": 219,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Florida",
+      "conference": "Southeastern Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.floridagators.com",
+      "ncaaOrgId": 235,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Georgia",
+      "conference": "Southeastern Conference",
+      "state": "GA",
+      "athleticsUrl": "https://www.georgiadogs.com",
+      "ncaaOrgId": 257,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Hawaii, Manoa",
+      "conference": "Mountain West Conference",
+      "state": "HI",
+      "athleticsUrl": "https://hawaiiathletics.com",
+      "ncaaOrgId": 277,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Houston",
+      "conference": "Big 12 Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.uhcougars.com",
+      "ncaaOrgId": 288,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Idaho",
+      "conference": "Big Sky Conference",
+      "state": "ID",
+      "athleticsUrl": "https://www.govandals.com",
+      "ncaaOrgId": 295,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Illinois Chicago",
+      "conference": "Missouri Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.uicflames.com",
+      "ncaaOrgId": 302,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Illinois Urbana-Champaign",
+      "conference": "Big Ten Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.fightingillini.com",
+      "ncaaOrgId": 301,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Iowa",
+      "conference": "Big Ten Conference",
+      "state": "IA",
+      "athleticsUrl": "https://www.hawkeyesports.com",
+      "ncaaOrgId": 312,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Kansas",
+      "conference": "Big 12 Conference",
+      "state": "KS",
+      "athleticsUrl": "https://kuathletics.com",
+      "ncaaOrgId": 328,
+      "catalogId": "kansas",
+      "status": "done"
+    },
+    {
+      "name": "University of Kentucky",
+      "conference": "Southeastern Conference",
+      "state": "KY",
+      "athleticsUrl": "https://www.ukathletics.com",
+      "ncaaOrgId": 334,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Louisiana at Lafayette",
+      "conference": "Sun Belt Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.ragincajuns.com",
+      "ncaaOrgId": 671,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Louisiana Monroe",
+      "conference": "Sun Belt Conference",
+      "state": "LA",
+      "athleticsUrl": "https://www.ulmwarhawks.com",
+      "ncaaOrgId": 498,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Louisville",
+      "conference": "Atlantic Coast Conference",
+      "state": "KY",
+      "athleticsUrl": "https://www.gocards.com",
+      "ncaaOrgId": 367,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Maine",
+      "conference": "America East Conference",
+      "state": "ME",
+      "athleticsUrl": "https://goblackbears.com",
+      "ncaaOrgId": 380,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Maryland, Baltimore County",
+      "conference": "America East Conference",
+      "state": "MD",
+      "athleticsUrl": "https://UMBCRetrievers.com",
+      "ncaaOrgId": 391,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Maryland, College Park",
+      "conference": "Big Ten Conference",
+      "state": "MD",
+      "athleticsUrl": "https://www.umterps.com",
+      "ncaaOrgId": 392,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Massachusetts Lowell",
+      "conference": "America East Conference",
+      "state": "MA",
+      "athleticsUrl": "https://www.goriverhawks.com",
+      "ncaaOrgId": 368,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Massachusetts, Amherst",
+      "conference": "Mid-American Conference",
+      "state": "MA",
+      "athleticsUrl": "https://www.umassathletics.com",
+      "ncaaOrgId": 400,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Memphis",
+      "conference": "American Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.gotigersgo.com",
+      "ncaaOrgId": 404,
+      "catalogId": "memphis",
+      "status": "done"
+    },
+    {
+      "name": "University of Miami (Florida)",
+      "conference": "Atlantic Coast Conference",
+      "state": "FL",
+      "athleticsUrl": "https://miamihurricanes.com",
+      "ncaaOrgId": 415,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Michigan",
+      "conference": "Big Ten Conference",
+      "state": "MI",
+      "athleticsUrl": "https://www.mgoblue.com",
+      "ncaaOrgId": 418,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Minnesota, Twin Cities",
+      "conference": "Big Ten Conference",
+      "state": "MN",
+      "athleticsUrl": "https://www.gophersports.com",
+      "ncaaOrgId": 428,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Mississippi",
+      "conference": "Southeastern Conference",
+      "state": "MS",
+      "athleticsUrl": "https://www.olemisssports.com",
+      "ncaaOrgId": 433,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Missouri, Columbia",
+      "conference": "Southeastern Conference",
+      "state": "MO",
+      "athleticsUrl": "https://www.mutigers.com",
+      "ncaaOrgId": 434,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Missouri-Kansas City",
+      "conference": "The Summit League",
+      "state": "MO",
+      "athleticsUrl": "https://www.kcroos.com",
+      "ncaaOrgId": 2707,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Montana",
+      "conference": "Big Sky Conference",
+      "state": "MT",
+      "athleticsUrl": "https://www.gogriz.com",
+      "ncaaOrgId": 441,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Nebraska at Omaha",
+      "conference": "The Summit League",
+      "state": "NE",
+      "athleticsUrl": "https://www.omavs.com",
+      "ncaaOrgId": 464,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Nebraska-Lincoln",
+      "conference": "Big Ten Conference",
+      "state": "NE",
+      "athleticsUrl": "https://www.huskers.com",
+      "ncaaOrgId": 463,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Nevada, Las Vegas",
+      "conference": "Mountain West Conference",
+      "state": "NV",
+      "athleticsUrl": "https://unlvrebels.com",
+      "ncaaOrgId": 465,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Nevada, Reno",
+      "conference": "Mountain West Conference",
+      "state": "NV",
+      "athleticsUrl": "https://nevadawolfpack.com",
+      "ncaaOrgId": 466,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of New Hampshire",
+      "conference": "America East Conference",
+      "state": "NH",
+      "athleticsUrl": "https://www.unhwildcats.com",
+      "ncaaOrgId": 469,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of New Haven",
+      "conference": "Northeast Conference",
+      "state": "CT",
+      "athleticsUrl": "https://www.newhavenchargers.com",
+      "ncaaOrgId": 470,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of New Mexico",
+      "conference": "Mountain West Conference",
+      "state": "NM",
+      "athleticsUrl": "https://www.golobos.com",
+      "ncaaOrgId": 473,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Alabama",
+      "conference": "United Athletic Conference",
+      "state": "AL",
+      "athleticsUrl": "https://www.roarlions.com",
+      "ncaaOrgId": 487,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Carolina Asheville",
+      "conference": "Big South Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.uncabulldogs.com",
+      "ncaaOrgId": 456,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Carolina Wilmington",
+      "conference": "Coastal Athletic Association",
+      "state": "NC",
+      "athleticsUrl": "https://www.uncwsports.com",
+      "ncaaOrgId": 460,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Carolina, Chapel Hill",
+      "conference": "Atlantic Coast Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.goheels.com",
+      "ncaaOrgId": 457,
+      "catalogId": "north-carolina",
+      "status": "done"
+    },
+    {
+      "name": "University of North Dakota",
+      "conference": "The Summit League",
+      "state": "ND",
+      "athleticsUrl": "https://www.fightinghawks.com",
+      "ncaaOrgId": 494,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Florida",
+      "conference": "Atlantic Sun Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.unfospreys.com",
+      "ncaaOrgId": 2711,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of North Texas",
+      "conference": "American Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.meangreensports.com",
+      "ncaaOrgId": 497,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "conference": "Big Sky Conference",
+      "state": "CO",
+      "athleticsUrl": "https://uncbears.com",
+      "ncaaOrgId": 502,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Northern Iowa",
+      "conference": "Missouri Valley Conference",
+      "state": "IA",
+      "athleticsUrl": "https://unipanthers.com",
+      "ncaaOrgId": 504,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Notre Dame",
+      "conference": "Atlantic Coast Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.fightingirish.com",
+      "ncaaOrgId": 513,
+      "catalogId": "notre-dame",
+      "status": "done"
+    },
+    {
+      "name": "University of Oklahoma",
+      "conference": "Southeastern Conference",
+      "state": "OK",
+      "athleticsUrl": "https://soonersports.com",
+      "ncaaOrgId": 522,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Oregon",
+      "conference": "Big Ten Conference",
+      "state": "OR",
+      "athleticsUrl": "https://www.goducks.com",
+      "ncaaOrgId": 529,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Pennsylvania",
+      "conference": "The Ivy League",
+      "state": "PA",
+      "athleticsUrl": "https://www.pennathletics.com",
+      "ncaaOrgId": 540,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Pittsburgh",
+      "conference": "Atlantic Coast Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.pittsburghpanthers.com",
+      "ncaaOrgId": 545,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Portland",
+      "conference": "West Coast Conference",
+      "state": "OR",
+      "athleticsUrl": "https://www.portlandpilots.com",
+      "ncaaOrgId": 551,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Rhode Island",
+      "conference": "Atlantic 10 Conference",
+      "state": "RI",
+      "athleticsUrl": "https://www.gorhody.com",
+      "ncaaOrgId": 572,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Richmond",
+      "conference": "Atlantic 10 Conference",
+      "state": "VA",
+      "athleticsUrl": "https://richmondspiders.com",
+      "ncaaOrgId": 575,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of San Diego",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.usdtoreros.com",
+      "ncaaOrgId": 627,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of San Francisco",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://usfdons.com/index.aspx",
+      "ncaaOrgId": 629,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of South Alabama",
+      "conference": "Sun Belt Conference",
+      "state": "AL",
+      "athleticsUrl": "https://www.usajaguars.com",
+      "ncaaOrgId": 646,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of South Carolina Upstate",
+      "conference": "Big South Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.upstatespartans.com",
+      "ncaaOrgId": 10411,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of South Carolina, Columbia",
+      "conference": "Southeastern Conference",
+      "state": "SC",
+      "athleticsUrl": "https://gamecocksonline.com",
+      "ncaaOrgId": 648,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of South Dakota",
+      "conference": "The Summit League",
+      "state": "SD",
+      "athleticsUrl": "https://www.goyotes.com",
+      "ncaaOrgId": 650,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of South Florida",
+      "conference": "American Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.gousfbulls.com",
+      "ncaaOrgId": 651,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Southern California",
+      "conference": "Big Ten Conference",
+      "state": "CA",
+      "athleticsUrl": "https://usctrojans.com",
+      "ncaaOrgId": 657,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Southern Indiana",
+      "conference": "Ohio Valley Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.usiscreamingeagles.com",
+      "ncaaOrgId": 661,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of St. Thomas (Minnesota)",
+      "conference": "The Summit League",
+      "state": "MN",
+      "athleticsUrl": "https://www.Tommiesports.com",
+      "ncaaOrgId": 620,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Tennessee at Chattanooga",
+      "conference": "Southern Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.gomocs.com",
+      "ncaaOrgId": 693,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Tennessee at Martin",
+      "conference": "Ohio Valley Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.utmsports.com",
+      "ncaaOrgId": 695,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Tennessee, Knoxville",
+      "conference": "Southeastern Conference",
+      "state": "TN",
+      "athleticsUrl": "https://www.utsports.com",
+      "ncaaOrgId": 694,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Texas at Austin",
+      "conference": "Southeastern Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.TexasLonghorns.com",
+      "ncaaOrgId": 703,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Texas at El Paso",
+      "conference": "Mountain West Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.utepminers.com",
+      "ncaaOrgId": 704,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Texas at San Antonio",
+      "conference": "American Conference",
+      "state": "TX",
+      "athleticsUrl": "https://www.goutsa.com",
+      "ncaaOrgId": 706,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of the Incarnate Word",
+      "conference": "Southland Conference",
+      "state": "TX",
+      "athleticsUrl": "https://uiwcardinals.com",
+      "ncaaOrgId": 2743,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of the Pacific",
+      "conference": "West Coast Conference",
+      "state": "CA",
+      "athleticsUrl": "https://www.pacifictigers.com",
+      "ncaaOrgId": 534,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Toledo",
+      "conference": "Mid-American Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.utrockets.com",
+      "ncaaOrgId": 709,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Utah",
+      "conference": "Big 12 Conference",
+      "state": "UT",
+      "athleticsUrl": "https://utahutes.com",
+      "ncaaOrgId": 732,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Vermont",
+      "conference": "America East Conference",
+      "state": "VT",
+      "athleticsUrl": "https://www.uvmathletics.com",
+      "ncaaOrgId": 738,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Virginia",
+      "conference": "Atlantic Coast Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.virginiasports.com",
+      "ncaaOrgId": 746,
+      "catalogId": "virginia",
+      "status": "done"
+    },
+    {
+      "name": "University of Washington",
+      "conference": "Big Ten Conference",
+      "state": "WA",
+      "athleticsUrl": "https://www.gohuskies.com",
+      "ncaaOrgId": 756,
+      "catalogId": "washington",
+      "status": "done"
+    },
+    {
+      "name": "University of West Florida",
+      "conference": "Atlantic Sun Conference",
+      "state": "FL",
+      "athleticsUrl": "https://www.goargos.com",
+      "ncaaOrgId": 11740,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of West Georgia",
+      "conference": "United Athletic Conference",
+      "state": "GA",
+      "athleticsUrl": "https://www.uwgathletics.com",
+      "ncaaOrgId": 766,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Wisconsin-Green Bay",
+      "conference": "Horizon League",
+      "state": "WI",
+      "athleticsUrl": "https://greenbayphoenix.com",
+      "ncaaOrgId": 794,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Wisconsin-Madison",
+      "conference": "Big Ten Conference",
+      "state": "WI",
+      "athleticsUrl": "https://www.uwbadgers.com",
+      "ncaaOrgId": 796,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Wisconsin-Milwaukee",
+      "conference": "Horizon League",
+      "state": "WI",
+      "athleticsUrl": "https://www.mkepanthers.com",
+      "ncaaOrgId": 797,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "University of Wyoming",
+      "conference": "Mountain West Conference",
+      "state": "WY",
+      "athleticsUrl": "https://www.gowyo.com",
+      "ncaaOrgId": 811,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Utah State University",
+      "conference": "Pac-12 Conference",
+      "state": "UT",
+      "athleticsUrl": "https://www.utahstateaggies.com",
+      "ncaaOrgId": 731,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Utah Tech University",
+      "conference": "Big Sky Conference",
+      "state": "UT",
+      "athleticsUrl": "https://utahtechtrailblazers.com",
+      "ncaaOrgId": 30095,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Utah Valley University",
+      "conference": "Big West Conference",
+      "state": "UT",
+      "athleticsUrl": "https://www.gouvu.com",
+      "ncaaOrgId": 30024,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Valparaiso University",
+      "conference": "Missouri Valley Conference",
+      "state": "IN",
+      "athleticsUrl": "https://www.valpoathletics.com",
+      "ncaaOrgId": 735,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Vanderbilt University",
+      "conference": "Southeastern Conference",
+      "state": "TN",
+      "athleticsUrl": "https://vucommodores.com",
+      "ncaaOrgId": 736,
+      "catalogId": "vanderbilt",
+      "status": "done"
+    },
+    {
+      "name": "Villanova University",
+      "conference": "BIG EAST Conference",
+      "state": "PA",
+      "athleticsUrl": "https://www.villanova.com",
+      "ncaaOrgId": 739,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Virginia Commonwealth University",
+      "conference": "Atlantic 10 Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.vcuathletics.com",
+      "ncaaOrgId": 740,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Virginia Military Institute",
+      "conference": "Southern Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.vmikeydets.com",
+      "ncaaOrgId": 741,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Virginia Polytechnic Institute and State University",
+      "conference": "Atlantic Coast Conference",
+      "state": "VA",
+      "athleticsUrl": "https://www.hokiesports.com",
+      "ncaaOrgId": 742,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Wagner College",
+      "conference": "Northeast Conference",
+      "state": "NY",
+      "athleticsUrl": "https://www.wagnerathletics.com",
+      "ncaaOrgId": 748,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Wake Forest University",
+      "conference": "Atlantic Coast Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.godeacs.com",
+      "ncaaOrgId": 749,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Washington State University",
+      "conference": "Pac-12 Conference",
+      "state": "WA",
+      "athleticsUrl": "https://www.wsucougars.com",
+      "ncaaOrgId": 754,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Weber State University",
+      "conference": "Big Sky Conference",
+      "state": "UT",
+      "athleticsUrl": "https://www.weberstatesports.com",
+      "ncaaOrgId": 758,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "West Virginia University",
+      "conference": "Big 12 Conference",
+      "state": "WV",
+      "athleticsUrl": "https://www.wvusports.com",
+      "ncaaOrgId": 768,
+      "catalogId": "west-virginia",
+      "status": "done"
+    },
+    {
+      "name": "Western Carolina University",
+      "conference": "Southern Conference",
+      "state": "NC",
+      "athleticsUrl": "https://www.catamountsports.com",
+      "ncaaOrgId": 769,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Western Illinois University",
+      "conference": "Ohio Valley Conference",
+      "state": "IL",
+      "athleticsUrl": "https://www.goleathernecks.com",
+      "ncaaOrgId": 771,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Western Kentucky University",
+      "conference": "Conference USA",
+      "state": "KY",
+      "athleticsUrl": "https://www.wkusports.com",
+      "ncaaOrgId": 772,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Western Michigan University",
+      "conference": "Mid-American Conference",
+      "state": "MI",
+      "athleticsUrl": "https://www.wmubroncos.com",
+      "ncaaOrgId": 774,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "William & Mary",
+      "conference": "Coastal Athletic Association",
+      "state": "VA",
+      "athleticsUrl": "https://www.tribeathletics.com",
+      "ncaaOrgId": 786,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Winthrop University",
+      "conference": "Big South Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.winthropeagles.com",
+      "ncaaOrgId": 792,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Wofford College",
+      "conference": "Southern Conference",
+      "state": "SC",
+      "athleticsUrl": "https://www.wofford.edu/athletics",
+      "ncaaOrgId": 2915,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Wright State University",
+      "conference": "Horizon League",
+      "state": "OH",
+      "athleticsUrl": "https://www.wsuraiders.com",
+      "ncaaOrgId": 810,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Xavier University",
+      "conference": "BIG EAST Conference",
+      "state": "OH",
+      "athleticsUrl": "https://www.goxavier.com",
+      "ncaaOrgId": 812,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Yale University",
+      "conference": "The Ivy League",
+      "state": "CT",
+      "athleticsUrl": "https://www.yalebulldogs.com",
+      "ncaaOrgId": 813,
+      "catalogId": null,
+      "status": "pending"
+    },
+    {
+      "name": "Youngstown State University",
+      "conference": "Horizon League",
+      "state": "OH",
+      "athleticsUrl": "https://www.ysusports.com",
+      "ncaaOrgId": 817,
+      "catalogId": null,
+      "status": "pending"
+    }
+  ],
+  "queued": 70,
+  "pending": 259
+}

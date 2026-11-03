@@ -60,6 +60,17 @@ def promo_handles(html: str, extract_handle) -> list[str]:
     return list(dict.fromkeys(found))
 
 
+OTHER_SPORT_HANDLE = re.compile(
+    r"(^|_)(wbb|mbb|wbball|mbball)($|_)|basketball|football|softball|volleyball|baseball|lacrosse",
+    re.I,
+)
+
+
+def department_handles(handles: list[str]) -> list[str]:
+    """Drop another sport's account when the page is the athletics or university homepage."""
+    return [handle for handle in handles if not OTHER_SPORT_HANDLE.search(handle)]
+
+
 def sitewide_handles(html: str, extract_handle) -> list[str]:
     decoded = urllib.parse.unquote(html)
     cleaned = re.sub(r"<li\b[^>]*roster-player[\s\S]*?</li>", " ", decoded, flags=re.I)
@@ -398,7 +409,7 @@ def resolve_instagram(seed, athletics_url, html, school_home, fetch, instagram_h
     if athletics_home:
         status, final, body = fetch(athletics_home + "/")
         if status == 200 and page_matches(seed, final, body):
-            found = sitewide_handles(body, extract_handle)
+            found = department_handles(sitewide_handles(body, extract_handle))
             if len(found) == 1:
                 return pack(
                     found[0],
@@ -418,7 +429,7 @@ def resolve_instagram(seed, athletics_url, html, school_home, fetch, instagram_h
         status, final, body = fetch(link)
         if status != 200 or not page_matches(seed, final, body) or soccer_url(final):
             continue
-        found = sitewide_handles(body, extract_handle)
+        found = department_handles(sitewide_handles(body, extract_handle))
         if len(found) == 1:
             return pack(
                 found[0],
@@ -431,7 +442,7 @@ def resolve_instagram(seed, athletics_url, html, school_home, fetch, instagram_h
     if school_home and school_home.startswith("http"):
         status, final, body = fetch(school_home)
         if status == 200 and page_matches(seed, final, body):
-            found = sitewide_handles(body, extract_handle)
+            found = department_handles(sitewide_handles(body, extract_handle))
             if len(found) == 1:
                 return pack(
                     found[0],
@@ -453,7 +464,7 @@ def resolve_instagram(seed, athletics_url, html, school_home, fetch, instagram_h
             continue
         if athletics_url and urllib.parse.urlparse(final).netloc == urllib.parse.urlparse(athletics_url).netloc:
             continue
-        found = sitewide_handles(body, extract_handle)
+        found = department_handles(sitewide_handles(body, extract_handle))
         if len(found) == 1:
             return pack(
                 found[0],

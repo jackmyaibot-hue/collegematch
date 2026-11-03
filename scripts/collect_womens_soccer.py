@@ -49,7 +49,10 @@ SCORECARD_ZIP_URL = (
 SCORECARD_PAGE = "https://collegescorecard.ed.gov/data/"
 OUT_PATH = ROOT / "mobile" / "src" / "data" / "real" / "programs.json"
 REPORT_PATH = ROOT / "scripts" / "data" / "collect-report.json"
-LAST_VERIFIED = "2026-10-10"
+LAST_VERIFIED = "2026-11-03"
+NCAA_D1_WOMENS_SOCCER_DIRECTORY = (
+    "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+)
 # Some public athletics sites answer 403 unless the client looks like a browser.
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -193,7 +196,7 @@ def match_scorecard(seed: dict, rows: list[dict[str, str]]) -> tuple[dict | None
     target_name = seed.get("scorecardName")
     if not target_name:
         return None, seed.get("gap") or "No Scorecard match requested."
-    target = norm(target_name)
+    target = norm(re.sub(r"\s*\([^)]*\)", "", target_name))
     state = seed.get("state")
     city = norm(seed.get("cityHint") or "")
     exact = [row for row in rows if norm(row["INSTNM"]) == target]
@@ -206,6 +209,10 @@ def match_scorecard(seed: dict, rows: list[dict[str, str]]) -> tuple[dict | None
         in_city = [row for row in hits if norm(row["CITY"]) == city or city in norm(row["CITY"])]
         if in_city:
             hits = in_city
+    if len(hits) > 1:
+        main_campus = [row for row in hits if "main campus" in norm(row["INSTNM"])]
+        if len(main_campus) == 1:
+            hits = main_campus
     if len(hits) == 1:
         return hits[0], ""
     if not hits:
@@ -414,7 +421,9 @@ def extract_handle(raw: str) -> str | None:
     if not parts:
         return None
     handle = parts[0].strip().lstrip("@")
-    if handle.lower() in INSTAGRAM_SKIP or "instagram" in handle.lower():
+    if handle.lower() in INSTAGRAM_SKIP or handle.lower() in {"api", "embed", "www", "static", "assets"}:
+        return None
+    if "instagram" in handle.lower() or re.search(r"\.(js|css|png|jpe?g|svg|gif|json|html)$", handle, re.I):
         return None
     if not re.fullmatch(r"[A-Za-z0-9._]{2,30}", handle):
         return None
@@ -846,7 +855,48 @@ def athletics_hubs(links: list[str]) -> list[str]:
     return hubs
 
 
+def https_url(url: str) -> str:
+    url = (url or "").strip()
+    if not url:
+        return ""
+    if url.startswith("//"):
+        url = "https:" + url
+    elif not url.startswith("http"):
+        url = "https://" + url
+    return url.rstrip("/")
+
+
+def probe_athletics_home(seed: dict) -> tuple[str | None, str]:
+    """Try the NCAA directory athletics site before a web search."""
+    home = https_url(seed.get("athleticsHome") or "")
+    if not home:
+        return None, ""
+    parts = urllib.parse.urlparse(home)
+    if not parts.netloc or blocked_host(parts.netloc):
+        return None, ""
+    origin = f"{parts.scheme}://{parts.netloc}"
+    for path in ROSTER_PATHS:
+        found, body = try_roster_page(seed, origin + path)
+        if found:
+            return found, body
+    status, final, body = fetch(home if home.startswith("http") else origin)
+    if status != 200:
+        return None, ""
+    links = page_links(body, final)
+    ranked = sorted(dict.fromkeys(links), key=score_url, reverse=True)
+    for link in ranked:
+        if "/roster" not in link.lower() or not roster_link(link):
+            continue
+        found, roster_body = try_roster_page(seed, link)
+        if found:
+            return found, roster_body
+    return None, ""
+
+
 def athletics_pages(seed: dict, school_home: str | None = None) -> tuple[str | None, str]:
+    found, body = probe_athletics_home(seed)
+    if found:
+        return found, body
     links: list[str] = []
     if seed.get("wiki"):
         links.extend(wiki_candidates(seed["wiki"]))
@@ -1210,7 +1260,9 @@ def coaches_from_html(html: str) -> list[dict]:
     return kept[:6]
 
 
-def parse_record(value: str) -> dict | None:
+def parse_record(value: str | None) -> dict | None:
+    if not value:
+        return None
     match = re.fullmatch(r"(\d+)-(\d+)-(\d+)", value.strip())
     if not match:
         return None
@@ -1266,6 +1318,9 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
             gaps.append("No women's soccer Instagram link was labeled on the athletics page.")
     else:
         gaps.append(athletics["rosterNote"])
+    if not facts["state"] and seed.get("state"):
+        facts["state"] = seed["state"]
+        gaps.append("State is the NCAA directory state. College Scorecard did not yield a single campus city.")
     location = seed.get("verifiedLocation")
     if location:
         status, _final, body = fetch(location["url"])
@@ -1307,13 +1362,36 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
         gaps = [gap for gap in gaps if not gap.startswith("No women's soccer Instagram")]
     elif athletics.get("athleticsUrl") and not any(gap.startswith("No women's soccer Instagram") for gap in gaps):
         gaps.append("No official team, athletics, or university Instagram could be confirmed.")
-    sources = [
-        {
-            "field": "ranking",
-            "label": "National poll",
-            "url": seed.get("recordUrl") or poll_url(seed),
-        }
-    ]
+    if not enriched.get("conference") and (seed.get("directoryConference") or "").strip():
+        enriched["conference"] = seed["directoryConference"].strip()
+        enriched["sources"] = [
+            {
+                "field": "conference",
+                "label": "NCAA directory conference",
+                "url": seed.get("directoryUrl") or NCAA_D1_WOMENS_SOCCER_DIRECTORY,
+            },
+            *enriched.get("sources", []),
+        ]
+    sources = []
+    if seed.get("rank"):
+        sources.append(
+            {
+                "field": "ranking",
+                "label": "National poll",
+                "url": seed.get("recordUrl") or poll_url(seed),
+            }
+        )
+    elif seed.get("directoryUrl"):
+        sources.append(
+            {
+                "field": "membership",
+                "label": "NCAA directory, Division I women's soccer",
+                "url": seed["directoryUrl"],
+            }
+        )
+        gaps.append(
+            "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        )
     if score_row:
         sources.append(
             {
@@ -1339,7 +1417,7 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
         "schoolName": seed["name"],
         "division": seed["division"],
         "jucoDivision": seed.get("jucoDivision"),
-        "nationalRank": seed["rank"],
+        "nationalRank": seed.get("rank"),
         "city": facts["city"],
         "state": facts["state"],
         "conference": enriched["conference"],
@@ -1402,7 +1480,7 @@ def main() -> None:
                 "extract_handle": extract_handle,
             },
         )
-        saved["programs"].sort(key=lambda item: (item["division"], item["nationalRank"], item["schoolName"]))
+        saved["programs"].sort(key=program_sort_key)
         OUT_PATH.write_text(json.dumps(saved, indent=2) + "\n")
         REPORT_PATH.write_text(json.dumps(summarize(saved["programs"], document["polls"], before), indent=2) + "\n")
         print(json.dumps(coverage(saved["programs"]), indent=2))
@@ -1448,7 +1526,7 @@ def main() -> None:
         for program in programs:
             by_id[program["id"]] = program
         programs = list(by_id.values())
-    programs.sort(key=lambda item: (item["division"], item["nationalRank"], item["schoolName"]))
+    programs.sort(key=program_sort_key)
     before = coverage(json.loads(OUT_PATH.read_text())["programs"]) if OUT_PATH.exists() and not args.only else None
     if args.only and OUT_PATH.exists():
         before = None
@@ -1463,6 +1541,12 @@ def main() -> None:
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n")
     REPORT_PATH.write_text(json.dumps(summarize(programs, document["polls"], before), indent=2) + "\n")
     print(f"Wrote {len(programs)} programs to {OUT_PATH}")
+
+
+def program_sort_key(item: dict) -> tuple:
+    rank = item.get("nationalRank")
+    rank_key = rank if isinstance(rank, int) else 10**9
+    return (item.get("division") or "", rank_key, item.get("schoolName") or "")
 
 
 def coverage(programs: list[dict]) -> dict:
