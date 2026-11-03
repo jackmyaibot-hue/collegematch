@@ -618,8 +618,8 @@ BLOCKED_HOST_MARKERS = (
 
 
 def blocked_host(host: str) -> bool:
-    lowered = host.lower()
-    return any(marker in lowered for marker in BLOCKED_HOST_MARKERS)
+    lowered = host.lower().split(":")[0]
+    return any(lowered == marker or lowered.endswith("." + marker) for marker in BLOCKED_HOST_MARKERS)
 
 
 ROSTER_PATHS = (
