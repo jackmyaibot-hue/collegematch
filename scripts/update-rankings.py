@@ -70,10 +70,14 @@ ALIASES = {
     },
     "NCAA D2": {
         "Kutztown University": "kutztown-pennsylvania",
+        "Slippery Rock University": "slippery-rock-pennsylvania",
     },
     "NCAA D3": {
         "Washington University (Mo.)": "washu",
         "Pomona-Pitzer Colleges": "pomona-pitzer",
+        # William Smith is the women's college at Hobart and William Smith.
+        "William Smith College": "hobart-william-smith-colleges",
+        "Penn State University-Behrend": "pennsylvania-state-univ-erie-behrend",
     },
 }
 
@@ -131,7 +135,7 @@ def fetch(url: str) -> str:
                 raise
             import time
 
-            time.sleep(4 * (attempt + 1))
+            time.sleep(15 * (attempt + 1))
     raise last_error or RuntimeError(f"Could not fetch {url}")
 
 

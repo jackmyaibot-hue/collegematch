@@ -508,11 +508,11 @@ const floridaState = REAL_PROGRAMS.find((program) => program.id === 'florida-sta
 check(Boolean(floridaState && floridaState.city === 'Tallahassee' && floridaState.state === 'FL'), 'Florida State location should come from Scorecard');
 check(floridaState?.instagramHandle === 'nolesoccer', 'Florida State Instagram should be the handle on the athletics page');
 check(
-  floridaState?.ranking?.rank === 22 &&
+  floridaState?.ranking?.rank === 10 &&
     floridaState.ranking.poll === 'United Soccer Coaches NCAA Division I Women' &&
-    floridaState.ranking.date === '2026-10-27' &&
-    floridaState.nationalRank === 22,
-  'Florida State should carry the October 27, 2026 coaches poll rank',
+    floridaState.ranking.date === '2026-11-03' &&
+    floridaState.nationalRank === 10,
+  'Florida State should carry the November 3, 2026 coaches poll rank',
 );
 const vanderbilt = REAL_PROGRAMS.find((program) => program.id === 'vanderbilt');
 check(vanderbilt?.ranking?.rank === 1, 'Vanderbilt should be number 1 in the current Division I poll');
