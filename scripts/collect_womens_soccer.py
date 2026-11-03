@@ -555,6 +555,27 @@ def address_from_html(html: str) -> tuple[str | None, str | None]:
     return None, None
 
 
+def city_state_from_html(html: str, state_hint: str | None = None) -> tuple[str | None, str | None]:
+    """A single City, ST ZIP on the page, limited to the directory state when known."""
+    city, state = address_from_html(html)
+    if city and state and (not state_hint or state == state_hint):
+        return city, state
+    text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I)
+    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+    pairs = re.findall(
+        r"\b([A-Z][A-Za-z.'’\-]*(?: [A-Z][A-Za-z.'’\-]*){0,3}),\s*([A-Z]{2})\s+\d{5}\b",
+        text,
+    )
+    if state_hint:
+        pairs = [(found_city, found_state) for found_city, found_state in pairs if found_state == state_hint]
+    cities = {found_city for found_city, _state in pairs}
+    if len(cities) == 1 and pairs:
+        return pairs[0][0], pairs[0][1]
+    return None, None
+
+
 BLOCKED_HOST_MARKERS = (
     "wikipedia.org",
     "wikimedia.org",
@@ -1303,11 +1324,11 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
     if page_url:
         athletics = parse_athletics(page_url, html)
         if not facts["city"] or not facts["state"]:
-            city, state = address_from_html(html)
+            city, state = city_state_from_html(html, seed.get("state"))
             if city and state:
                 facts["city"] = city
-                facts["state"] = state
-                gaps.append("City and state came from the athletics page address, not College Scorecard.")
+                facts["state"] = facts["state"] or state
+                gaps.append("City came from the address on the official athletics page.")
         if athletics["rosterNote"]:
             gaps.append(athletics["rosterNote"])
         if not athletics["coaches"]:
@@ -1318,9 +1339,17 @@ def build_program(seed: dict, rows: list[dict[str, str]]) -> dict:
             gaps.append("No women's soccer Instagram link was labeled on the athletics page.")
     else:
         gaps.append(athletics["rosterNote"])
+    if not facts["city"] and seed.get("athleticsHome"):
+        status, final, home_body = fetch(https_url(seed["athleticsHome"]))
+        if status == 200:
+            city, state = city_state_from_html(home_body, seed.get("state"))
+            if city:
+                facts["city"] = city
+                facts["state"] = facts["state"] or state
+                gaps.append("City came from the address on the official athletics site.")
     if not facts["state"] and seed.get("state"):
         facts["state"] = seed["state"]
-        gaps.append("State is the NCAA directory state. College Scorecard did not yield a single campus city.")
+        gaps.append("State is the NCAA directory state. A single campus city was not on the fetched pages.")
     location = seed.get("verifiedLocation")
     if location:
         status, _final, body = fetch(location["url"])

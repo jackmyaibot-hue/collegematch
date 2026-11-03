@@ -2069,7 +2069,7 @@
       "nationalRank": 4,
       "city": "Fort Worth",
       "state": "TX",
-      "conference": null,
+      "conference": "Big 12 Conference",
       "mascot": null,
       "colors": [
         "#CF2E2E",
@@ -2170,6 +2170,11 @@
           "field": "instagram",
           "label": "Official university Instagram",
           "url": "https://www.tcu.edu/"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -2681,7 +2686,7 @@
       "nationalRank": 9,
       "city": "Columbus",
       "state": "OH",
-      "conference": null,
+      "conference": "Big Ten Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
@@ -2764,6 +2769,11 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://ohiostatebuckeyes.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "conference",
+          "label": "NCAA directory conference",
+          "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
         }
       ],
       "lastVerified": "2026-10-10",
@@ -13600,19 +13610,19 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Kent",
       "state": "OH",
       "conference": "Mid-American Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 19320,
+      "acceptanceRate": 0.8634,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 20787,
+      "sat": 1099,
+      "act": 22,
       "campusLife": [],
       "record": null,
       "roster": [
@@ -13650,8 +13660,8 @@
         }
       ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.kent.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?203517",
       "athleticsUrl": "https://kentstatesports.com:443/sports/womens-soccer/roster",
       "instagramHandle": "kentstsoccer",
       "instagramKind": "team",
@@ -13661,7 +13671,9 @@
         "url": "https://kentstatesports.com:443/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "203517"
+      },
       "sources": [
         {
           "field": "membership",
@@ -13682,14 +13694,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://kentstatesports.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?203517"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for Kent State University: Kent State University at Ashtabula (Ashtabula, OH), Kent State University at East Liverpool (East Liverpool, OH), Kent State University at Stark (North Canton, OH), Kent State University at Trumbull (Warren, OH), Kent State University at Tuscarawas (New Philadelphia, OH), Kent State University at Salem (Salem, OH).",
         "Roster positions on the athletics site are broader than the app's spots. 18 of 25 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Kent State University at Kent)."
       ]
     },
     {
@@ -14560,20 +14576,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Long Beach",
       "state": "CA",
       "conference": "Big West Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 35924,
+      "acceptanceRate": 0.4627,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
+      "estimatedNetCost": 10440,
       "sat": null,
       "act": null,
-      "campusLife": [],
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -14620,8 +14638,8 @@
         }
       ],
       "questionnaireUrl": "https://questionnaires.armssoftware.com/b76884fb22bd",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.csulb.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?110583",
       "athleticsUrl": "https://longbeachstate.com/sports/womens-soccer/roster",
       "instagramHandle": "lbsusoccer",
       "instagramKind": "team",
@@ -14631,7 +14649,9 @@
         "url": "https://longbeachstate.com/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "110583"
+      },
       "sources": [
         {
           "field": "membership",
@@ -14652,14 +14672,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://longbeachstate.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?110583"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for Long Beach State University.",
         "Roster positions on the athletics site are broader than the app's spots. 19 of 29 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (California State University-Long Beach)."
       ]
     },
     {
@@ -16158,31 +16182,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Oxford",
       "state": "OH",
       "conference": "Mid-American Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 16656,
+      "acceptanceRate": 0.754,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 28384,
+      "sat": 1317,
+      "act": 27,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://miamioh.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?204024",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "204024"
+      },
       "sources": [
         {
           "field": "membership",
@@ -16193,14 +16219,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?204024"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for Miami University (Ohio): Miami University-Hamilton (Hamilton, OH), Miami University-Middletown (Middletown, OH), Miami University-Oxford (Oxford, OH).",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Miami University-Oxford)."
       ]
     },
     {
@@ -16407,20 +16437,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Springfield",
       "state": "MO",
       "conference": "Conference USA",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 13313,
+      "acceptanceRate": 0.9053,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 17613,
+      "sat": 1122,
+      "act": 23,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -16462,8 +16494,8 @@
         }
       ],
       "questionnaireUrl": "https://my.armssoftware.com/arms/public/questionnaire/0408d203b824",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.missouristate.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?179566",
       "athleticsUrl": "https://missouristatebears.com:443/sports/womens-soccer/roster",
       "instagramHandle": "mostatewsoc",
       "instagramKind": "team",
@@ -16473,7 +16505,9 @@
         "url": "https://missouristatebears.com:443/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "179566"
+      },
       "sources": [
         {
           "field": "membership",
@@ -16494,14 +16528,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://missouristatebears.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?179566"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for Missouri State University: Northwest Missouri State University (Maryville, MO), Missouri State University-West Plains (West Plains, MO), Southeast Missouri State University (Cape Girardeau, MO), Missouri State University-Springfield (Springfield, MO).",
         "Roster positions on the athletics site are broader than the app's spots. 19 of 29 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Missouri State University-Springfield)."
       ]
     },
     {
@@ -20296,31 +20334,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "New Brunswick",
       "state": "NJ",
       "conference": "Big Ten Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 37751,
+      "acceptanceRate": 0.5815,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 24406,
+      "sat": 1410,
+      "act": 30,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://newbrunswick.rutgers.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?186380",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "186380"
+      },
       "sources": [
         {
           "field": "membership",
@@ -20331,14 +20373,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?186380"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for Rutgers, The State University of New Jersey, New Brunswick.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Rutgers University-New Brunswick)."
       ]
     },
     {
@@ -20440,7 +20486,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Philadelphia",
       "state": "PA",
       "conference": "Atlantic 10",
       "mascot": null,
@@ -20450,13 +20496,15 @@
       ],
       "colorNames": null,
       "colorSource": "athletics-css",
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 4948,
+      "acceptanceRate": 0.8883,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 29689,
+      "sat": 1258,
+      "act": 28,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -20493,8 +20541,8 @@
         }
       ],
       "questionnaireUrl": "https://sjuhawks.com/sports/2013/9/11/recruiting-questionnaires",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.sju.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?215770",
       "athleticsUrl": "https://sjuhawks.com/sports/womens-soccer/roster",
       "instagramHandle": "sjuhawks_wsoc",
       "instagramKind": "team",
@@ -20504,7 +20552,9 @@
         "url": "https://sjuhawks.com/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "215770"
+      },
       "sources": [
         {
           "field": "membership",
@@ -20530,14 +20580,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://sjuhawks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?215770"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for Saint Joseph's University: Saint Joseph's University - Philadelphia (Philadelphia, PA), Saint Joseph's University - Lancaster (Lancaster, PA).",
         "Roster positions on the athletics site are broader than the app's spots. 16 of 28 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Saint Joseph's University - Philadelphia)."
       ]
     },
     {
@@ -22136,31 +22190,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Carbondale",
       "state": "IL",
       "conference": "Missouri Valley Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 8494,
+      "acceptanceRate": 0.8688,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 13297,
+      "sat": 1055,
+      "act": 24,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://siu.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?149222",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "149222"
+      },
       "sources": [
         {
           "field": "membership",
@@ -22171,14 +22227,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?149222"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for Southern Illinois University at Carbondale.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Southern Illinois University-Carbondale)."
       ]
     },
     {
@@ -22243,31 +22303,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Baton Rouge",
       "state": "LA",
       "conference": "Southwestern Athletic Conf.",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 5519,
+      "acceptanceRate": 0.3512,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 20077,
+      "sat": 942,
+      "act": 17,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.subr.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?160621",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "160621"
+      },
       "sources": [
         {
           "field": "membership",
@@ -22278,14 +22342,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?160621"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for Southern University, Baton Rouge.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Southern University and A & M College)."
       ]
     },
     {
@@ -23897,20 +23965,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Charleston",
       "state": "SC",
       "conference": "Southern Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 2705,
+      "acceptanceRate": 0.2272,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
+      "estimatedNetCost": 20723,
+      "sat": 1208,
       "act": null,
-      "campusLife": [],
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -23947,8 +24017,8 @@
         }
       ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://citadel.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?217864",
       "athleticsUrl": "https://citadelsports.com:443/sports/womens-soccer/roster",
       "instagramHandle": "citadelsports",
       "instagramKind": "team",
@@ -23958,7 +24028,9 @@
         "url": "https://citadelsports.com:443/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram from its social icons."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "217864"
+      },
       "sources": [
         {
           "field": "membership",
@@ -23979,14 +24051,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://citadelsports.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?217864"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for The Citadel.",
         "Roster positions on the athletics site are broader than the app's spots. 17 of 26 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (Citadel Military College of South Carolina)."
       ]
     },
     {
@@ -23995,31 +24071,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Charlotte",
       "state": "NC",
       "conference": "American Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 24453,
+      "acceptanceRate": 0.796,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 15435,
+      "sat": 1231,
+      "act": 24,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.charlotte.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?199139",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "199139"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24030,14 +24110,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?199139"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for The University of North Carolina at Charlotte.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of North Carolina at Charlotte)."
       ]
     },
     {
@@ -24046,31 +24130,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Greensboro",
       "state": "NC",
       "conference": "Southern Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 14062,
+      "acceptanceRate": 0.8851,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 10965,
+      "sat": 1193,
+      "act": 24,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.uncg.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?199148",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "199148"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24081,14 +24169,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?199148"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for The University of North Carolina at Greensboro.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of North Carolina at Greensboro)."
       ]
     },
     {
@@ -24097,31 +24189,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Hattiesburg",
       "state": "MS",
       "conference": "Sun Belt Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 10075,
+      "acceptanceRate": 0.9912,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 21708,
+      "sat": 1190,
+      "act": 23,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.usm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?176372",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "176372"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24132,14 +24228,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?176372"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for The University of Southern Mississippi.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Southern Mississippi)."
       ]
     },
     {
@@ -24216,20 +24316,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Tulsa",
       "state": "OK",
       "conference": "American Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 2813,
+      "acceptanceRate": 0.6151,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 15000,
+      "sat": 1389,
+      "act": 26,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -24271,8 +24373,8 @@
         }
       ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://utulsa.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?207971",
       "athleticsUrl": "https://tulsahurricane.com:443/sports/womens-soccer/roster",
       "instagramHandle": "tulsawsoccer",
       "instagramKind": "team",
@@ -24282,7 +24384,9 @@
         "url": "https://tulsahurricane.com:443/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "207971"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24303,14 +24407,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://tulsahurricane.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?207971"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for The University of Tulsa.",
         "Roster positions on the athletics site are broader than the app's spots. 19 of 30 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Tulsa)."
       ]
     },
     {
@@ -24532,19 +24640,19 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "USAF Academy",
       "state": "CO",
       "conference": "Mountain West Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 4114,
+      "acceptanceRate": 0.1409,
       "acceptanceLabel": null,
       "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "sat": 1350,
+      "act": 32,
       "campusLife": [],
       "record": null,
       "roster": [
@@ -24582,13 +24690,15 @@
         }
       ],
       "questionnaireUrl": "https://questionnaires.armssoftware.com/e1f3f1e57fa3",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.usafa.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?128328",
       "athleticsUrl": "https://goairforcefalcons.com:443/sports/womens-soccer/roster",
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "128328"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24604,15 +24714,19 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?128328"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for U.S. Air Force Academy.",
         "Roster positions on the athletics site are broader than the app's spots. 22 of 30 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (United States Air Force Academy)."
       ]
     },
     {
@@ -24621,31 +24735,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "West Point",
       "state": "NY",
       "conference": "Patriot League",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 4408,
+      "acceptanceRate": 0.1245,
       "acceptanceLabel": null,
       "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "sat": 1355,
+      "act": 31,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.westpoint.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?197036",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "197036"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24656,14 +24772,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?197036"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for U.S. Military Academy.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (United States Military Academy)."
       ]
     },
     {
@@ -24672,7 +24792,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Annapolis",
       "state": "MD",
       "conference": "Patriot League",
       "mascot": null,
@@ -24682,12 +24802,12 @@
       ],
       "colorNames": null,
       "colorSource": "athletics-css",
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 4474,
+      "acceptanceRate": 0.0927,
       "acceptanceLabel": null,
       "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "sat": 1307,
+      "act": 29,
       "campusLife": [],
       "record": null,
       "roster": [
@@ -24730,8 +24850,8 @@
         }
       ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.usna.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?164155",
       "athleticsUrl": "https://navysports.com/sports/womens-soccer/roster",
       "instagramHandle": "navywsoccer",
       "instagramKind": "team",
@@ -24741,7 +24861,9 @@
         "url": "https://navysports.com/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "164155"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24767,14 +24889,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://navysports.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?164155"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for U.S. Naval Academy.",
         "Roster positions on the athletics site are broader than the app's spots. 20 of 30 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (United States Naval Academy)."
       ]
     },
     {
@@ -24901,31 +25027,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Buffalo",
       "state": "NY",
       "conference": "Mid-American Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 20112,
+      "acceptanceRate": 0.7418,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 20995,
+      "sat": 1295,
+      "act": 28,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.buffalo.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?196088",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "196088"
+      },
       "sources": [
         {
           "field": "membership",
@@ -24936,14 +25064,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?196088"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University at Buffalo, the State University of New York.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University at Buffalo)."
       ]
     },
     {
@@ -25062,31 +25194,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Tuscaloosa",
       "state": "AL",
       "conference": "Southeastern Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 33227,
+      "acceptanceRate": 0.7665,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 22420,
+      "sat": 1285,
+      "act": 26,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.ua.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?100751",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "100751"
+      },
       "sources": [
         {
           "field": "membership",
@@ -25097,14 +25233,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?100751"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for University of Alabama: University of Alabama at Birmingham (Birmingham, AL), University of Alabama in Huntsville (Huntsville, AL), The University of Alabama (Tuscaloosa, AL).",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (The University of Alabama)."
       ]
     },
     {
@@ -25293,31 +25433,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Pine Bluff",
       "state": "AR",
       "conference": "Southwestern Athletic Conf.",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 1807,
+      "acceptanceRate": 0.4118,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 12653,
+      "sat": 922,
+      "act": 16,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.uapb.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?106412",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "106412"
+      },
       "sources": [
         {
           "field": "membership",
@@ -25328,14 +25470,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?106412"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University of Arkansas, Pine Bluff.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Arkansas at Pine Bluff)."
       ]
     },
     {
@@ -26880,7 +27026,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Honolulu",
       "state": "HI",
       "conference": "Mountain West Conference",
       "mascot": null,
@@ -26890,13 +27036,15 @@
       ],
       "colorNames": null,
       "colorSource": "athletics-css",
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 15029,
+      "acceptanceRate": 0.866,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 15664,
+      "sat": 1102,
+      "act": 24,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -26933,8 +27081,8 @@
         }
       ],
       "questionnaireUrl": "https://my.armssoftware.com/arms/login",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://manoa.hawaii.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?141574",
       "athleticsUrl": "https://hawaiiathletics.com/sports/womens-soccer/roster",
       "instagramHandle": "UHWahineSoccer",
       "instagramKind": "team",
@@ -26944,7 +27092,9 @@
         "url": "https://hawaiiathletics.com/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "141574"
+      },
       "sources": [
         {
           "field": "membership",
@@ -26970,14 +27120,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://hawaiiathletics.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?141574"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University of Hawaii, Manoa.",
         "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Hawaii at Manoa)."
       ]
     },
     {
@@ -27448,7 +27602,7 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Monroe",
       "state": "LA",
       "conference": "Sun Belt",
       "mascot": null,
@@ -27458,13 +27612,15 @@
       ],
       "colorNames": null,
       "colorSource": "athletics-css",
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 5022,
+      "acceptanceRate": 0.8475,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 13466,
+      "sat": 1116,
+      "act": 22,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -27485,13 +27641,15 @@
       ],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.ulm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?159993",
       "athleticsUrl": "https://ulmwarhawks.com/sports/womens-soccer/roster",
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "159993"
+      },
       "sources": [
         {
           "field": "membership",
@@ -27512,16 +27670,20 @@
           "field": "colors",
           "label": "Athletics site theme colors",
           "url": "https://ulmwarhawks.com/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?159993"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University of Louisiana Monroe.",
         "Roster positions on the athletics site are broader than the app's spots. 14 of 23 players mapped; generic defenders were left off the meter. Numbered class years treat 4th year as graduating.",
         "No coach names were published on the fetched staff or roster page.",
         "No women's soccer Instagram link was labeled on the athletics page.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Louisiana at Monroe)."
       ]
     },
     {
@@ -28150,31 +28312,35 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Ann Arbor",
       "state": "MI",
       "conference": "Big Ten Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 34177,
+      "acceptanceRate": 0.1564,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
+      "estimatedNetCost": 13138,
+      "sat": 1465,
       "act": null,
-      "campusLife": [],
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://umich.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?170976",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "170976"
+      },
       "sources": [
         {
           "field": "membership",
@@ -28185,14 +28351,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?170976"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for University of Michigan: University of Michigan-Ann Arbor (Ann Arbor, MI), University of Michigan-Dearborn (Dearborn, MI), University of Michigan-Flint (Flint, MI).",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Michigan-Ann Arbor)."
       ]
     },
     {
@@ -28441,20 +28611,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Missoula",
       "state": "MT",
       "conference": "Big Sky Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 7488,
+      "acceptanceRate": 0.9586,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 16784,
+      "sat": 1190,
+      "act": 22,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -28491,13 +28663,15 @@
         }
       ],
       "questionnaireUrl": "https://questionnaires.armssoftware.com/3f9fc2dd95a1",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.umt.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?180489",
       "athleticsUrl": "https://gogriz.com:443/sports/womens-soccer/roster",
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "180489"
+      },
       "sources": [
         {
           "field": "membership",
@@ -28513,15 +28687,19 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?180489"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for University of Montana: Helena College University of Montana (Helena, MT), The University of Montana (Missoula, MT), The University of Montana-Western (Dillon, MT).",
         "Roster positions on the athletics site are broader than the app's spots. 17 of 24 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (The University of Montana)."
       ]
     },
     {
@@ -29955,31 +30133,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Norman",
       "state": "OK",
       "conference": "Southeastern Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 22734,
+      "acceptanceRate": 0.766,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 15300,
+      "sat": 1246,
+      "act": 26,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.ou.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?207500",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "207500"
+      },
       "sources": [
         {
           "field": "membership",
@@ -29990,14 +30170,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?207500"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for University of Oklahoma: University of Oklahoma-Health Sciences Center (Oklahoma City, OK), University of Oklahoma-Norman Campus (Norman, OK).",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Oklahoma-Norman Campus)."
       ]
     },
     {
@@ -30122,20 +30306,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Pittsburgh",
       "state": "PA",
       "conference": "Atlantic Coast Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 20370,
+      "acceptanceRate": 0.5808,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 30434,
+      "sat": 1370,
+      "act": 31,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -30172,13 +30358,15 @@
         }
       ],
       "questionnaireUrl": "https://pittsburghpanthers.com:443/sports/2017/6/17/ot-recruit-questionnaires-html",
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.pitt.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?215293",
       "athleticsUrl": "https://pittsburghpanthers.com:443/sports/womens-soccer/roster",
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "215293"
+      },
       "sources": [
         {
           "field": "membership",
@@ -30194,15 +30382,19 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?215293"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "Ambiguous Scorecard match for University of Pittsburgh: University of Pittsburgh-Bradford (Bradford, PA), University of Pittsburgh-Greensburg (Greensburg, PA), University of Pittsburgh-Johnstown (Johnstown, PA), University of Pittsburgh-Pittsburgh Campus (Pittsburgh, PA), University of Pittsburgh-Titusville (Titusville, PA).",
         "Roster positions on the athletics site are broader than the app's spots. 21 of 29 players mapped; generic defenders were left off the meter.",
         "No women's soccer Instagram link was labeled on the athletics page.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (University of Pittsburgh-Pittsburgh Campus)."
       ]
     },
     {
@@ -31467,20 +31659,22 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Chattanooga",
       "state": "TN",
       "conference": "Southern Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 10074,
+      "acceptanceRate": 0.8109,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
-      "campusLife": [],
+      "estimatedNetCost": 14265,
+      "sat": 1147,
+      "act": 23,
+      "campusLife": [
+        "city"
+      ],
       "record": null,
       "roster": [
         {
@@ -31522,8 +31716,8 @@
         }
       ],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://utc.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?221740",
       "athleticsUrl": "https://gomocs.com:443/sports/womens-soccer/roster",
       "instagramHandle": "GoMocsWSoccer",
       "instagramKind": "team",
@@ -31533,7 +31727,9 @@
         "url": "https://gomocs.com:443/sports/womens-soccer/roster",
         "note": "The women's soccer page links this Instagram in the team social menu."
       },
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "221740"
+      },
       "sources": [
         {
           "field": "membership",
@@ -31554,14 +31750,18 @@
           "field": "instagram",
           "label": "Official team Instagram",
           "url": "https://gomocs.com:443/sports/womens-soccer/roster"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?221740"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University of Tennessee at Chattanooga.",
         "Roster positions on the athletics site are broader than the app's spots. 19 of 28 players mapped; generic defenders were left off the meter.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (The University of Tennessee-Chattanooga)."
       ]
     },
     {
@@ -31570,31 +31770,33 @@
       "division": "NCAA D1",
       "jucoDivision": null,
       "nationalRank": null,
-      "city": null,
+      "city": "Martin",
       "state": "TN",
       "conference": "Ohio Valley Conference",
       "mascot": null,
       "colors": null,
       "colorNames": null,
       "colorSource": null,
-      "enrollment": null,
-      "acceptanceRate": null,
+      "enrollment": 4866,
+      "acceptanceRate": 0.882,
       "acceptanceLabel": null,
-      "estimatedNetCost": null,
-      "sat": null,
-      "act": null,
+      "estimatedNetCost": 10701,
+      "sat": 1120,
+      "act": 22,
       "campusLife": [],
       "record": null,
       "roster": [],
       "coaches": [],
       "questionnaireUrl": null,
-      "admissionsUrl": null,
-      "costUrl": null,
+      "admissionsUrl": "https://www.utm.edu/",
+      "costUrl": "https://collegescorecard.ed.gov/school/?221768",
       "athleticsUrl": null,
       "instagramHandle": null,
       "instagramKind": null,
       "instagramConfirmation": null,
-      "externalIds": {},
+      "externalIds": {
+        "scorecard": "221768"
+      },
       "sources": [
         {
           "field": "membership",
@@ -31605,14 +31807,18 @@
           "field": "conference",
           "label": "NCAA directory conference",
           "url": "https://web3.ncaa.org/directory/memberList?division=I&sportCode=WSO&type=12"
+        },
+        {
+          "field": "scorecard",
+          "label": "College Scorecard institution file, updated June 10, 2026",
+          "url": "https://collegescorecard.ed.gov/school/?221768"
         }
       ],
       "lastVerified": "2026-11-03",
       "gaps": [
-        "No Scorecard row for University of Tennessee at Martin.",
         "Official athletics page was not found.",
-        "State is the NCAA directory state. College Scorecard did not yield a single campus city.",
-        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied."
+        "Included from the NCAA Division I women's soccer directory. No final-poll rank or season record was copied.",
+        "Campus city is the College Scorecard main-campus row (The University of Tennessee-Martin)."
       ]
     },
     {
