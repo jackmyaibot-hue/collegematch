@@ -4,8 +4,8 @@
   "fetched": "2026-11-03",
   "note": "Official NCAA directory of Division III institutions that sponsor women's soccer. status done means the school is already in mobile/src/data/real/programs.json. Azusa Pacific is in the catalog as NCAA D2 from the 2025 poll and is not added a second time.",
   "count": 415,
-  "done": 371,
-  "pending": 44,
+  "done": 415,
+  "pending": 0,
   "schools": [
     {
       "name": "Adrian College",
@@ -3326,7 +3326,7 @@
       "athleticsUrl": "https://stoutbluedevils.com",
       "ncaaOrgId": 803,
       "catalogId": "wisconsin-stout-polytechnic",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "University of Wisconsin-Superior",
@@ -3335,7 +3335,7 @@
       "athleticsUrl": "https://www.uwsyellowjackets.com",
       "ncaaOrgId": 804,
       "catalogId": "wisconsin-superior",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "University of Wisconsin-Whitewater",
@@ -3344,7 +3344,7 @@
       "athleticsUrl": "https://www.uwwsports.com",
       "ncaaOrgId": 805,
       "catalogId": "wisconsin-whitewater",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "University of the Ozarks (Arkansas)",
@@ -3353,7 +3353,7 @@
       "athleticsUrl": "https://www.uofoathletics.com/landing/index",
       "ncaaOrgId": 23008,
       "catalogId": "ozarks-arkansas",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "University of the South",
@@ -3362,7 +3362,7 @@
       "athleticsUrl": "https://sewaneetigers.com",
       "ncaaOrgId": 652,
       "catalogId": "south",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Ursinus College",
@@ -3371,7 +3371,7 @@
       "athleticsUrl": "https://www.ursinusathletics.com",
       "ncaaOrgId": 730,
       "catalogId": "ursinus",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Utica University",
@@ -3380,7 +3380,7 @@
       "athleticsUrl": "https://www.uticapioneers.com",
       "ncaaOrgId": 733,
       "catalogId": "utica",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Vassar College",
@@ -3389,7 +3389,7 @@
       "athleticsUrl": "https://www.vassarathletics.com",
       "ncaaOrgId": 737,
       "catalogId": "vassar",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Vermont State University Castleton",
@@ -3398,7 +3398,7 @@
       "athleticsUrl": "https://www.castletonsports.com/landing/index",
       "ncaaOrgId": 123,
       "catalogId": "vermont-state-castleton",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Vermont State University Lyndon",
@@ -3407,7 +3407,7 @@
       "athleticsUrl": "https://www.lyndonhornets.com",
       "ncaaOrgId": 30065,
       "catalogId": "vermont-state-lyndon",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Vermont State University-Johnson",
@@ -3416,7 +3416,7 @@
       "athleticsUrl": "https://nvubadgers.com/landing/index",
       "ncaaOrgId": 324,
       "catalogId": "vermont-state-johnson",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Warren Wilson College",
@@ -3425,7 +3425,7 @@
       "athleticsUrl": "https://warrenwilsonowls.com/landing/index",
       "ncaaOrgId": 30236,
       "catalogId": "warren-wilson",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wartburg College",
@@ -3434,7 +3434,7 @@
       "athleticsUrl": "https://www.go-knights.net",
       "ncaaOrgId": 750,
       "catalogId": "wartburg",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Washington College (Maryland)",
@@ -3443,7 +3443,7 @@
       "athleticsUrl": "https://www.WashingtonCollegeSports.com",
       "ncaaOrgId": 753,
       "catalogId": "washington-maryland",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Washington University in St. Louis",
@@ -3461,7 +3461,7 @@
       "athleticsUrl": "https://www.gopresidents.com",
       "ncaaOrgId": 751,
       "catalogId": "washington-jefferson",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Washington and Lee University",
@@ -3479,7 +3479,7 @@
       "athleticsUrl": "https://www.waynesburgsports.com",
       "ncaaOrgId": 1434,
       "catalogId": "waynesburg",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Webster University",
@@ -3488,7 +3488,7 @@
       "athleticsUrl": "https://websterathletics.com",
       "ncaaOrgId": 759,
       "catalogId": "webster",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wellesley College",
@@ -3497,7 +3497,7 @@
       "athleticsUrl": "https://www.wellesleyblue.com",
       "ncaaOrgId": 760,
       "catalogId": "wellesley",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wentworth Institute of Technology",
@@ -3506,7 +3506,7 @@
       "athleticsUrl": "https://www.wentworthathletics.com",
       "ncaaOrgId": 762,
       "catalogId": "wentworth-institute-technology",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wesleyan University (Connecticut)",
@@ -3515,7 +3515,7 @@
       "athleticsUrl": "https://www.wesleyan.edu/athletics",
       "ncaaOrgId": 764,
       "catalogId": "wesleyan-connecticut",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Western Connecticut State University",
@@ -3524,7 +3524,7 @@
       "athleticsUrl": "https://www.westconnathletics.com",
       "ncaaOrgId": 770,
       "catalogId": "western-connecticut-state",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Western New England University",
@@ -3533,7 +3533,7 @@
       "athleticsUrl": "https://www.wnegoldenbears.com",
       "ncaaOrgId": 775,
       "catalogId": "western-new-england",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Westfield State University",
@@ -3542,7 +3542,7 @@
       "athleticsUrl": "https://www.WestfieldStateOwls.com",
       "ncaaOrgId": 777,
       "catalogId": "westfield-state",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Westminster College (Missouri)",
@@ -3551,7 +3551,7 @@
       "athleticsUrl": "https://www.wcbluejays.com/landing/index",
       "ncaaOrgId": 1450,
       "catalogId": "westminster-missouri",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Westminster College (Pennsylvania)",
@@ -3560,7 +3560,7 @@
       "athleticsUrl": "https://www.westminster.edu/athletics",
       "ncaaOrgId": 1451,
       "catalogId": "westminster-pennsylvania",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wheaton College (Illinois)",
@@ -3569,7 +3569,7 @@
       "athleticsUrl": "https://athletics.wheaton.edu",
       "ncaaOrgId": 778,
       "catalogId": "wheaton-illinois",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wheaton College (Massachusetts)",
@@ -3578,7 +3578,7 @@
       "athleticsUrl": "https://wheatoncollegelyons.com",
       "ncaaOrgId": 779,
       "catalogId": "wheaton-massachusetts",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Whitman College",
@@ -3587,7 +3587,7 @@
       "athleticsUrl": "https://www.whitman.edu/athletics",
       "ncaaOrgId": 780,
       "catalogId": "whitman",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Whittier College",
@@ -3596,7 +3596,7 @@
       "athleticsUrl": "https://www.wcpoets.com",
       "ncaaOrgId": 781,
       "catalogId": "whittier",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Whitworth University",
@@ -3605,7 +3605,7 @@
       "athleticsUrl": "https://www.whitworthpirates.com",
       "ncaaOrgId": 1454,
       "catalogId": "whitworth",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Widener University",
@@ -3614,7 +3614,7 @@
       "athleticsUrl": "https://www.widenerpride.com",
       "ncaaOrgId": 783,
       "catalogId": "widener",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wilkes University",
@@ -3623,7 +3623,7 @@
       "athleticsUrl": "https://www.gowilkesu.com",
       "ncaaOrgId": 784,
       "catalogId": "wilkes",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Willamette University",
@@ -3632,7 +3632,7 @@
       "athleticsUrl": "https://willamette.prestosports.com/landing/index",
       "ncaaOrgId": 785,
       "catalogId": "willamette",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "William Paterson University of New Jersey",
@@ -3641,7 +3641,7 @@
       "athleticsUrl": "https://www.wpupioneers.com",
       "ncaaOrgId": 787,
       "catalogId": "william-paterson-new-jersey",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "William Peace University",
@@ -3650,7 +3650,7 @@
       "athleticsUrl": "https://www.gopeacepacers.com",
       "ncaaOrgId": 17094,
       "catalogId": "william-peace",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Williams College",
@@ -3668,7 +3668,7 @@
       "athleticsUrl": "https://www.wilmington.edu/athletics",
       "ncaaOrgId": 1461,
       "catalogId": "wilmington-ohio",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wilson College",
@@ -3677,7 +3677,7 @@
       "athleticsUrl": "https://www.wilsonphoenix.com",
       "ncaaOrgId": 12973,
       "catalogId": "wilson",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wisconsin Lutheran College",
@@ -3686,7 +3686,7 @@
       "athleticsUrl": "https://www.wlcsports.com/landing/index",
       "ncaaOrgId": 8911,
       "catalogId": "wisconsin-lutheran",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Wittenberg University",
@@ -3695,7 +3695,7 @@
       "athleticsUrl": "https://www.wittenbergtigers.com",
       "ncaaOrgId": 806,
       "catalogId": "wittenberg",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Worcester Polytechnic Institute",
@@ -3704,7 +3704,7 @@
       "athleticsUrl": "https://athletics.wpi.edu",
       "ncaaOrgId": 808,
       "catalogId": "worcester-polytechnic-institute",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Worcester State University",
@@ -3713,7 +3713,7 @@
       "athleticsUrl": "https://www.wsulancers.com",
       "ncaaOrgId": 809,
       "catalogId": "worcester-state",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "Yeshiva University",
@@ -3722,7 +3722,7 @@
       "athleticsUrl": "https://www.yumacs.com",
       "ncaaOrgId": 814,
       "catalogId": "yeshiva",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "York College (New York)",
@@ -3731,7 +3731,7 @@
       "athleticsUrl": "https://www.yorkathletics.com",
       "ncaaOrgId": 2730,
       "catalogId": "york-new-york",
-      "status": "pending"
+      "status": "done"
     },
     {
       "name": "York College (Pennsylvania)",
@@ -3740,7 +3740,7 @@
       "athleticsUrl": "https://www.ycpspartans.com",
       "ncaaOrgId": 815,
       "catalogId": "york-pennsylvania",
-      "status": "pending"
+      "status": "done"
     }
   ]
 }
