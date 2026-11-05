@@ -1,5 +1,5 @@
 import { buildDeck } from './deck';
-import { buildIntroEmail, mailtoUrl } from './email';
+import { buildIntroEmail, buildMailto, MAILTO_URL_LIMIT, mailtoUrl } from './email';
 import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
 import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
@@ -221,6 +221,13 @@ if (!northwind || !amber || !harbor || !cinder) {
   const url = mailtoUrl(email);
   check(url.startsWith('mailto:'), 'mailto url missing scheme');
   check(url.includes(encodeURIComponent(email.subject)), 'mailto missing subject');
+  const shortLink = buildMailto(email, MAILTO_URL_LIMIT);
+  check(shortLink.includedBody && shortLink.url.length <= MAILTO_URL_LIMIT, 'a normal intro should fit in a mail link');
+  const longLink = buildMailto({ ...email, body: 'Hello there. '.repeat(400) }, MAILTO_URL_LIMIT);
+  check(!longLink.includedBody, 'a very long message should leave the body out of the mail link');
+  check(longLink.url.length <= MAILTO_URL_LIMIT, 'a trimmed mail link should stay under the Safari limit');
+  check(longLink.url.startsWith(`mailto:${email.to}?`) && longLink.url.includes('subject='), 'a trimmed mail link should still open the address');
+  check(!longLink.url.includes('body='), 'a trimmed mail link should not carry the long body');
 }
 
 check(regionForState('OR') === 'West', 'Oregon should map to West');

@@ -238,13 +238,30 @@ export function buildIntroEmail(
   };
 }
 
+/**
+ * iPhone Safari drops mailto links once the encoded URL gets long.
+ * Stay under this so the address, subject, and parent copy still open.
+ */
+export const MAILTO_URL_LIMIT = 1800;
+
 export function mailtoUrl(email: IntroEmail): string {
+  return buildMailto(email).url;
+}
+
+export function buildMailto(email: IntroEmail, maxLength = Number.POSITIVE_INFINITY): { url: string; includedBody: boolean } {
+  const withBody = composeMailto(email, true);
+  if (withBody.length <= maxLength) return { url: withBody, includedBody: true };
+  return { url: composeMailto(email, false), includedBody: false };
+}
+
+function composeMailto(email: IntroEmail, includeBody: boolean): string {
   const query = [
     `subject=${encodeURIComponent(email.subject)}`,
-    `body=${encodeURIComponent(email.body)}`,
+    includeBody ? `body=${encodeURIComponent(email.body)}` : '',
     email.cc ? `cc=${encodeURIComponent(email.cc)}` : '',
   ]
     .filter(Boolean)
     .join('&');
-  return `mailto:${email.to}?${query}`;
+  const addressed = `mailto:${email.to}`;
+  return query ? `${addressed}?${query}` : addressed;
 }

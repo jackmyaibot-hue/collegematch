@@ -160,7 +160,11 @@ export default function SchoolScreen() {
             <View style={styles.coachCopy}>
               <AppText variant="headline">{coach.name}</AppText>
               <AppText variant="caption">{coach.title}</AppText>
-              {coach.email ? <AppText variant="caption">{coach.email}</AppText> : <AppText variant="caption">No email published</AppText>}
+              {coach.email ? (
+                <AppText variant="caption">{coach.email}</AppText>
+              ) : (
+                <AppText variant="caption">No email was published, so the intro button stays off.</AppText>
+              )}
             </View>
             {coach.email ? (
               <Button
