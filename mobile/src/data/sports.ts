@@ -30,16 +30,26 @@ export const SPORT_LABEL: Record<Sport, string> = {
 };
 
 export const GENDER_OPTIONS: { id: AthleteGender; label: string }[] = [
-  { id: 'girls', label: 'Girls' },
-  { id: 'boys', label: 'Boys' },
-  { id: 'unspecified', label: 'Prefer not to say' },
+  { id: 'female', label: 'Female' },
+  { id: 'male', label: 'Male' },
 ];
 
 export const GENDER_LABEL: Record<AthleteGender, string> = {
-  girls: 'Girls',
-  boys: 'Boys',
-  unspecified: 'Prefer not to say',
+  female: 'Female',
+  male: 'Male',
 };
+
+/**
+ * Older profiles used girls/boys/unspecified. girls and women become Female,
+ * boys and men become Male. Prefer not to say stays unset so the app can ask.
+ */
+export function migrateGender(value: unknown): AthleteGender | null {
+  if (typeof value !== 'string') return null;
+  const text = value.trim().toLowerCase().replace(/[_-]+/g, ' ');
+  if (text === 'female' || text === 'woman' || text === 'women' || text === 'girl' || text === 'girls') return 'female';
+  if (text === 'male' || text === 'man' || text === 'men' || text === 'boy' || text === 'boys') return 'male';
+  return null;
+}
 
 /** Inclusive birthdate window for a high school athlete in this MVP. */
 export const BIRTHDATE_MIN = '2004-01-01';
@@ -206,9 +216,8 @@ export function programMatchesAthlete(
   program: Pick<Program, 'sport' | 'side'>,
   athlete: Pick<PlayerProfile, 'sport' | 'gender'>,
 ): boolean {
-  if (program.sport !== athlete.sport) return false;
-  if (athlete.gender === 'unspecified') return true;
-  const side: ProgramSide = athlete.gender === 'boys' ? 'men' : 'women';
+  if (program.sport !== athlete.sport || athlete.gender == null) return false;
+  const side: ProgramSide = athlete.gender === 'male' ? 'men' : 'women';
   return program.side === side;
 }
 

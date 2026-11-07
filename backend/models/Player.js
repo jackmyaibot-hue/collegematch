@@ -43,7 +43,7 @@ const Player = sequelize.define('Player', {
   club_name: DataTypes.STRING,
   gpa: {
     type: DataTypes.FLOAT,
-    validate: { min: 0.0, max: 4.0 }
+    validate: { min: 0.0, max: 6.0 }
   },
   sat: DataTypes.INTEGER,
   act: DataTypes.INTEGER,
@@ -59,7 +59,7 @@ const Player = sequelize.define('Player', {
   primary_sport: DataTypes.STRING,
   position: DataTypes.STRING, // legacy single position
   positions: {
-    type: DataTypes.ARRAY(DataTypes.STRING), // GK, CB, FB, DM, CM, W, ST
+    type: DataTypes.ARRAY(DataTypes.STRING), // GK, CB, OB, DM, CM, W, ST
     defaultValue: []
   },
   league: DataTypes.STRING, // ECNL, Girls Academy, other

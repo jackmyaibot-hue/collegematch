@@ -1,0 +1,848 @@
+{
+  "updated": "2026-11-03",
+  "polls": [
+    {
+      "division": "NCAA D1",
+      "poll": "United Soccer Coaches NCAA Division I Women",
+      "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-di-women/",
+      "date": "2026-11-03",
+      "ranked": 25,
+      "badged": 25,
+      "matched": [
+        {
+          "rank": 1,
+          "pollName": "Vanderbilt University",
+          "id": "vanderbilt",
+          "schoolName": "Vanderbilt University",
+          "how": "exact name"
+        },
+        {
+          "rank": 2,
+          "pollName": "University of North Carolina",
+          "id": "north-carolina",
+          "schoolName": "University of North Carolina",
+          "how": "exact name"
+        },
+        {
+          "rank": 3,
+          "pollName": "Ohio State University",
+          "id": "ohio-state",
+          "schoolName": "Ohio State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 4,
+          "pollName": "Wake Forest University",
+          "id": "wake-forest",
+          "schoolName": "Wake Forest University",
+          "how": "exact name"
+        },
+        {
+          "rank": 5,
+          "pollName": "Michigan State University",
+          "id": "michigan-state",
+          "schoolName": "Michigan State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 6,
+          "pollName": "University of Notre Dame",
+          "id": "notre-dame",
+          "schoolName": "University of Notre Dame",
+          "how": "exact name"
+        },
+        {
+          "rank": 7,
+          "pollName": "Texas Tech University",
+          "id": "texas-tech",
+          "schoolName": "Texas Tech University",
+          "how": "exact name"
+        },
+        {
+          "rank": 8,
+          "pollName": "Baylor University",
+          "id": "baylor",
+          "schoolName": "Baylor University",
+          "how": "exact name"
+        },
+        {
+          "rank": 8,
+          "pollName": "University of Alabama",
+          "id": "alabama",
+          "schoolName": "University of Alabama",
+          "how": "exact name"
+        },
+        {
+          "rank": 10,
+          "pollName": "Florida State University",
+          "id": "florida-state",
+          "schoolName": "Florida State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 10,
+          "pollName": "UCLA",
+          "id": "california-los-angeles",
+          "schoolName": "University of California, Los Angeles",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 12,
+          "pollName": "University of South Carolina",
+          "id": "south-carolina-columbia",
+          "schoolName": "University of South Carolina, Columbia",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 13,
+          "pollName": "Brigham Young University",
+          "id": "byu",
+          "schoolName": "Brigham Young University",
+          "how": "exact name"
+        },
+        {
+          "rank": 14,
+          "pollName": "University of Virginia",
+          "id": "virginia",
+          "schoolName": "University of Virginia",
+          "how": "exact name"
+        },
+        {
+          "rank": 15,
+          "pollName": "Duke University",
+          "id": "duke",
+          "schoolName": "Duke University",
+          "how": "exact name"
+        },
+        {
+          "rank": 16,
+          "pollName": "Purdue University",
+          "id": "purdue",
+          "schoolName": "Purdue University",
+          "how": "exact name"
+        },
+        {
+          "rank": 17,
+          "pollName": "Stanford University",
+          "id": "stanford",
+          "schoolName": "Stanford University",
+          "how": "exact name"
+        },
+        {
+          "rank": 18,
+          "pollName": "University of Kansas",
+          "id": "kansas",
+          "schoolName": "University of Kansas",
+          "how": "exact name"
+        },
+        {
+          "rank": 18,
+          "pollName": "University of Colorado",
+          "id": "colorado",
+          "schoolName": "University of Colorado",
+          "how": "exact name"
+        },
+        {
+          "rank": 20,
+          "pollName": "University of Washington",
+          "id": "washington",
+          "schoolName": "University of Washington",
+          "how": "exact name"
+        },
+        {
+          "rank": 21,
+          "pollName": "Penn State University",
+          "id": "pennsylvania-state",
+          "schoolName": "Pennsylvania State University",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 22,
+          "pollName": "Utah State University",
+          "id": "utah-state",
+          "schoolName": "Utah State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 23,
+          "pollName": "Auburn University",
+          "id": "auburn",
+          "schoolName": "Auburn University",
+          "how": "exact name"
+        },
+        {
+          "rank": 24,
+          "pollName": "University of Louisville",
+          "id": "louisville",
+          "schoolName": "University of Louisville",
+          "how": "exact name"
+        },
+        {
+          "rank": 25,
+          "pollName": "University of Houston",
+          "id": "houston",
+          "schoolName": "University of Houston",
+          "how": "exact name"
+        }
+      ],
+      "unmatched": []
+    },
+    {
+      "division": "NCAA D2",
+      "poll": "United Soccer Coaches NCAA Division II Women",
+      "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-dii-women/",
+      "date": "2026-11-03",
+      "ranked": 25,
+      "badged": 25,
+      "matched": [
+        {
+          "rank": 1,
+          "pollName": "Dallas Baptist University",
+          "id": "dallas-baptist",
+          "schoolName": "Dallas Baptist University",
+          "how": "exact name"
+        },
+        {
+          "rank": 2,
+          "pollName": "Minnesota State University-Mankato",
+          "id": "minnesota-state",
+          "schoolName": "Minnesota State University, Mankato",
+          "how": "exact name"
+        },
+        {
+          "rank": 3,
+          "pollName": "Florida Tech",
+          "id": "florida-tech",
+          "schoolName": "Florida Tech",
+          "how": "exact name"
+        },
+        {
+          "rank": 4,
+          "pollName": "Kutztown University",
+          "id": "kutztown-pennsylvania",
+          "schoolName": "Kutztown University of Pennsylvania",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 5,
+          "pollName": "Franklin Pierce University",
+          "id": "franklin-pierce",
+          "schoolName": "Franklin Pierce University",
+          "how": "exact name"
+        },
+        {
+          "rank": 6,
+          "pollName": "Columbus State University",
+          "id": "columbus-state",
+          "schoolName": "Columbus State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 7,
+          "pollName": "Western Washington University",
+          "id": "western-washington",
+          "schoolName": "Western Washington University",
+          "how": "exact name"
+        },
+        {
+          "rank": 8,
+          "pollName": "Lee University",
+          "id": "lee",
+          "schoolName": "Lee University",
+          "how": "exact name"
+        },
+        {
+          "rank": 9,
+          "pollName": "University of Missouri-St. Louis",
+          "id": "umsl",
+          "schoolName": "University of Missouri-St. Louis",
+          "how": "exact name"
+        },
+        {
+          "rank": 10,
+          "pollName": "University of North Georgia",
+          "id": "north-georgia",
+          "schoolName": "University of North Georgia",
+          "how": "exact name"
+        },
+        {
+          "rank": 11,
+          "pollName": "Pittsburg State University",
+          "id": "pittsburg-state",
+          "schoolName": "Pittsburg State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 12,
+          "pollName": "Cal Poly Pomona",
+          "id": "cal-poly-pomona",
+          "schoolName": "Cal Poly Pomona",
+          "how": "exact name"
+        },
+        {
+          "rank": 13,
+          "pollName": "Nova Southeastern University",
+          "id": "nova-southeastern",
+          "schoolName": "Nova Southeastern University",
+          "how": "exact name"
+        },
+        {
+          "rank": 14,
+          "pollName": "Regis University",
+          "id": "regis-colorado",
+          "schoolName": "Regis University (Colorado)",
+          "how": "exact name"
+        },
+        {
+          "rank": 15,
+          "pollName": "West Chester University",
+          "id": "west-chester",
+          "schoolName": "West Chester University",
+          "how": "exact name"
+        },
+        {
+          "rank": 16,
+          "pollName": "Bentley University",
+          "id": "bentley",
+          "schoolName": "Bentley University",
+          "how": "exact name"
+        },
+        {
+          "rank": 17,
+          "pollName": "Cedarville University",
+          "id": "cedarville",
+          "schoolName": "Cedarville University",
+          "how": "exact name"
+        },
+        {
+          "rank": 18,
+          "pollName": "Catawba College",
+          "id": "catawba",
+          "schoolName": "Catawba College",
+          "how": "exact name"
+        },
+        {
+          "rank": 19,
+          "pollName": "Texas Woman's University",
+          "id": "texas-woman-s",
+          "schoolName": "Texas Woman's University",
+          "how": "exact name"
+        },
+        {
+          "rank": 20,
+          "pollName": "Point Loma Nazarene University",
+          "id": "point-loma-nazarene",
+          "schoolName": "Point Loma Nazarene University",
+          "how": "exact name"
+        },
+        {
+          "rank": 21,
+          "pollName": "Washburn University",
+          "id": "washburn",
+          "schoolName": "Washburn University",
+          "how": "exact name"
+        },
+        {
+          "rank": 22,
+          "pollName": "McKendree University",
+          "id": "mckendree",
+          "schoolName": "McKendree University",
+          "how": "exact name"
+        },
+        {
+          "rank": 23,
+          "pollName": "Slippery Rock University",
+          "id": "slippery-rock-pennsylvania",
+          "schoolName": "Slippery Rock University of Pennsylvania",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 24,
+          "pollName": "Fairmont State University",
+          "id": "fairmont-state",
+          "schoolName": "Fairmont State University",
+          "how": "exact name"
+        },
+        {
+          "rank": 25,
+          "pollName": "Thomas Jefferson University",
+          "id": "thomas-jefferson",
+          "schoolName": "Thomas Jefferson University",
+          "how": "exact name"
+        }
+      ],
+      "unmatched": []
+    },
+    {
+      "division": "NCAA D3",
+      "poll": "United Soccer Coaches NCAA Division III Women",
+      "url": "https://unitedsoccercoaches.org/rankings/college-rankings/ncaa-diii-women/",
+      "date": "2026-11-03",
+      "ranked": 25,
+      "badged": 25,
+      "matched": [
+        {
+          "rank": 1,
+          "pollName": "Washington University (Mo.)",
+          "id": "washu",
+          "schoolName": "Washington University in St. Louis",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 2,
+          "pollName": "Rowan University",
+          "id": "rowan",
+          "schoolName": "Rowan University",
+          "how": "exact name"
+        },
+        {
+          "rank": 3,
+          "pollName": "Tufts University",
+          "id": "tufts",
+          "schoolName": "Tufts University",
+          "how": "exact name"
+        },
+        {
+          "rank": 4,
+          "pollName": "Massachusetts Institute of Technology",
+          "id": "mit",
+          "schoolName": "Massachusetts Institute of Technology",
+          "how": "exact name"
+        },
+        {
+          "rank": 5,
+          "pollName": "Washington & Lee University",
+          "id": "washington-lee",
+          "schoolName": "Washington and Lee University",
+          "how": "exact name"
+        },
+        {
+          "rank": 6,
+          "pollName": "The College of New Jersey",
+          "id": "new-jersey",
+          "schoolName": "The College of New Jersey",
+          "how": "exact name"
+        },
+        {
+          "rank": 7,
+          "pollName": "Messiah University",
+          "id": "messiah",
+          "schoolName": "Messiah University",
+          "how": "exact name"
+        },
+        {
+          "rank": 8,
+          "pollName": "Williams College",
+          "id": "williams",
+          "schoolName": "Williams College",
+          "how": "exact name"
+        },
+        {
+          "rank": 9,
+          "pollName": "Calvin University",
+          "id": "calvin",
+          "schoolName": "Calvin University",
+          "how": "exact name"
+        },
+        {
+          "rank": 10,
+          "pollName": "University of Chicago",
+          "id": "chicago",
+          "schoolName": "University of Chicago",
+          "how": "exact name"
+        },
+        {
+          "rank": 11,
+          "pollName": "William Smith College",
+          "id": "hobart-william-smith-colleges",
+          "schoolName": "Hobart and William Smith Colleges",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 12,
+          "pollName": "Carnegie Mellon University",
+          "id": "carnegie-mellon",
+          "schoolName": "Carnegie Mellon University",
+          "how": "exact name"
+        },
+        {
+          "rank": 13,
+          "pollName": "Johns Hopkins University",
+          "id": "johns-hopkins",
+          "schoolName": "Johns Hopkins University",
+          "how": "exact name"
+        },
+        {
+          "rank": 14,
+          "pollName": "Batten University",
+          "id": "batten",
+          "schoolName": "Batten University",
+          "how": "exact name"
+        },
+        {
+          "rank": 15,
+          "pollName": "Vassar College",
+          "id": "vassar",
+          "schoolName": "Vassar College",
+          "how": "exact name"
+        },
+        {
+          "rank": 16,
+          "pollName": "Hamilton College",
+          "id": "hamilton",
+          "schoolName": "Hamilton College",
+          "how": "exact name"
+        },
+        {
+          "rank": 17,
+          "pollName": "Swarthmore College",
+          "id": "swarthmore",
+          "schoolName": "Swarthmore College",
+          "how": "exact name"
+        },
+        {
+          "rank": 18,
+          "pollName": "New York University",
+          "id": "new-york",
+          "schoolName": "New York University",
+          "how": "exact name"
+        },
+        {
+          "rank": 19,
+          "pollName": "Carleton College",
+          "id": "carleton",
+          "schoolName": "Carleton College",
+          "how": "exact name"
+        },
+        {
+          "rank": 20,
+          "pollName": "Penn State University-Behrend",
+          "id": "pennsylvania-state-univ-erie-behrend",
+          "schoolName": "Pennsylvania State Univ. Erie, the Behrend College",
+          "how": "same school, poll prints a shorter name"
+        },
+        {
+          "rank": 21,
+          "pollName": "University of Puget Sound",
+          "id": "puget-sound",
+          "schoolName": "University of Puget Sound",
+          "how": "exact name"
+        },
+        {
+          "rank": 22,
+          "pollName": "Emory University",
+          "id": "emory",
+          "schoolName": "Emory University",
+          "how": "exact name"
+        },
+        {
+          "rank": 23,
+          "pollName": "Middlebury College",
+          "id": "middlebury",
+          "schoolName": "Middlebury College",
+          "how": "exact name"
+        },
+        {
+          "rank": 24,
+          "pollName": "California Lutheran University",
+          "id": "cal-lutheran",
+          "schoolName": "California Lutheran University",
+          "how": "exact name"
+        },
+        {
+          "rank": 24,
+          "pollName": "University of Wisconsin-La Crosse",
+          "id": "wisconsin-la-crosse",
+          "schoolName": "University of Wisconsin-La Crosse",
+          "how": "exact name"
+        }
+      ],
+      "unmatched": []
+    },
+    {
+      "division": "NAIA",
+      "poll": "NAIA Women's Soccer Coaches Top 25",
+      "url": "https://www.naia.org/sports/womens-soccer/polls/",
+      "date": "2026-10-28",
+      "ranked": 25,
+      "badged": 16,
+      "matched": [
+        {
+          "rank": 1,
+          "pollName": "Keiser (Fla.)",
+          "id": "keiser",
+          "schoolName": "Keiser University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 2,
+          "pollName": "Grace (Ind.)",
+          "id": "grace",
+          "schoolName": "Grace College",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 3,
+          "pollName": "Indiana Wesleyan",
+          "id": "indiana-wesleyan",
+          "schoolName": "Indiana Wesleyan University",
+          "how": "same school, shorter poll name"
+        },
+        {
+          "rank": 4,
+          "pollName": "Cumberlands (Ky.)",
+          "id": "cumberlands",
+          "schoolName": "University of the Cumberlands",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 6,
+          "pollName": "Marian (Ind.)",
+          "id": "marian",
+          "schoolName": "Marian University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 7,
+          "pollName": "Embry-Riddle (Ariz.)",
+          "id": "embry-riddle-az",
+          "schoolName": "Embry-Riddle Aeronautical University (Arizona)",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 8,
+          "pollName": "Lindsey Wilson (Ky.)",
+          "id": "lindsey-wilson",
+          "schoolName": "Lindsey Wilson University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 9,
+          "pollName": "William Carey (Miss.)",
+          "id": "william-carey",
+          "schoolName": "William Carey University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 11,
+          "pollName": "Truett McConnell (Ga.)",
+          "id": "truett-mcconnell",
+          "schoolName": "Truett McConnell University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 12,
+          "pollName": "Southeastern (Fla.)",
+          "id": "southeastern",
+          "schoolName": "Southeastern University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 14,
+          "pollName": "Taylor (Ind.)",
+          "id": "taylor",
+          "schoolName": "Taylor University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 17,
+          "pollName": "John Brown (Ark.)",
+          "id": "john-brown",
+          "schoolName": "John Brown University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 18,
+          "pollName": "MidAmerica Nazarene (Kan.)",
+          "id": "midamerica-nazarene",
+          "schoolName": "MidAmerica Nazarene University",
+          "how": "short poll name plus state"
+        },
+        {
+          "rank": 19,
+          "pollName": "Oklahoma Wesleyan",
+          "id": "oklahoma-wesleyan",
+          "schoolName": "Oklahoma Wesleyan University",
+          "how": "same school, shorter poll name"
+        },
+        {
+          "rank": 20,
+          "pollName": "College of Idaho",
+          "id": "college-of-idaho",
+          "schoolName": "College of Idaho",
+          "how": "exact name"
+        },
+        {
+          "rank": 21,
+          "pollName": "Life (Ga.)",
+          "id": "life",
+          "schoolName": "Life University",
+          "how": "short poll name plus state"
+        }
+      ],
+      "unmatched": [
+        {
+          "rank": 5,
+          "pollName": "Spring Arbor (Mich.)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 10,
+          "pollName": "Columbia (Mo.)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 13,
+          "pollName": "Benedictine (Kan.)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 15,
+          "pollName": "Clarke (Iowa)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 16,
+          "pollName": "Rocky Mountain (Mont.)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 22,
+          "pollName": "Tennessee Southern",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 23,
+          "pollName": "Campbellsville (Ky.)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 24,
+          "pollName": "Our Lady of the Lake (Texas)",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 25,
+          "pollName": "Morningside (Iowa)",
+          "reason": "no exact catalog school"
+        }
+      ]
+    },
+    {
+      "division": "NJCAA",
+      "poll": "United Soccer Coaches NJCAA Division I Women",
+      "url": "https://unitedsoccercoaches.org/rankings/college-rankings/njcaa-di-women/",
+      "date": "2026-11-03",
+      "ranked": 16,
+      "badged": 12,
+      "matched": [
+        {
+          "rank": 1,
+          "pollName": "Arizona Western College",
+          "id": "arizona-western",
+          "schoolName": "Arizona Western College",
+          "how": "exact name"
+        },
+        {
+          "rank": 3,
+          "pollName": "Trinity Valley Community College",
+          "id": "trinity-valley",
+          "schoolName": "Trinity Valley Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 4,
+          "pollName": "Daytona State College",
+          "id": "daytona-state",
+          "schoolName": "Daytona State College",
+          "how": "exact name"
+        },
+        {
+          "rank": 5,
+          "pollName": "Butler Community College",
+          "id": "butler",
+          "schoolName": "Butler Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 6,
+          "pollName": "Monroe Community College",
+          "id": "monroe",
+          "schoolName": "Monroe Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 7,
+          "pollName": "Salt Lake Community College",
+          "id": "salt-lake",
+          "schoolName": "Salt Lake Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 8,
+          "pollName": "Eastern Arizona College",
+          "id": "eastern-arizona",
+          "schoolName": "Eastern Arizona College",
+          "how": "exact name"
+        },
+        {
+          "rank": 10,
+          "pollName": "Motlow State Community College",
+          "id": "motlow-state",
+          "schoolName": "Motlow State Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 11,
+          "pollName": "Laramie County Community College",
+          "id": "laramie-county",
+          "schoolName": "Laramie County Community College",
+          "how": "exact name"
+        },
+        {
+          "rank": 12,
+          "pollName": "College of Southern Idaho",
+          "id": "southern-idaho",
+          "schoolName": "College of Southern Idaho",
+          "how": "exact name"
+        },
+        {
+          "rank": 13,
+          "pollName": "Blinn College",
+          "id": "blinn",
+          "schoolName": "Blinn College",
+          "how": "exact name"
+        },
+        {
+          "rank": 15,
+          "pollName": "Columbia State Community College",
+          "id": "columbia-state",
+          "schoolName": "Columbia State Community College",
+          "how": "exact name"
+        }
+      ],
+      "unmatched": [
+        {
+          "rank": 2,
+          "pollName": "Iowa Western Community College",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 9,
+          "pollName": "Gillette Community College",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 14,
+          "pollName": "Northwest Arkansas Community College",
+          "reason": "no exact catalog school"
+        },
+        {
+          "rank": 16,
+          "pollName": "North Idaho College",
+          "reason": "no exact catalog school"
+        }
+      ]
+    }
+  ]
+}

@@ -1,11 +1,14 @@
 import { buildDeck } from './deck';
-import { buildIntroEmail, mailtoUrl } from './email';
-import { effectiveStatus, emptyRecruiting } from './format';
-import { FIT_FACTORS, scoreProgram } from './fitScore';
+import { buildIntroEmail, buildMailto, MAILTO_URL_LIMIT, mailtoUrl } from './email';
+import { buildResumePdf, resumeSections } from './resumePdf';
+import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
+import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
 import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
-import { leagueNameList } from './sports';
+import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
+import { REAL_PROGRAMS } from './providers/realCatalog';
+import { applyUsage, emptyUsage, parseUsage, passwordsMatch, usageReport } from '../server/usage';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
 import { DIVISIONS, POSITIONS, type PlayerProfile } from './types';
@@ -32,12 +35,12 @@ for (const program of SAMPLE_PROGRAMS) {
   check(program.coaches.length >= 2, `${program.id} needs two coaches`);
   for (const coach of program.coaches) {
     check(
-      /^[a-z0-9.]+@[a-z0-9-]+\.example\.com$/.test(coach.email),
+      coach.email != null && /^[a-z0-9.]+@[a-z0-9-]+\.example\.com$/.test(coach.email),
       `${program.id} coach email is not a fictional example.com address: ${coach.email}`,
     );
   }
   for (const url of [program.questionnaireUrl, program.admissionsUrl, program.costUrl, program.athleticsUrl]) {
-    check(url.startsWith('https://example.com/'), `${program.id} url is not example.com: ${url}`);
+    check(url != null && url.startsWith('https://example.com/'), `${program.id} url is not example.com: ${url}`);
   }
   check(program.roster.length === POSITIONS.length, `${program.id} roster is missing positions`);
   for (const spot of program.roster) {
@@ -50,25 +53,32 @@ for (const program of SAMPLE_PROGRAMS) {
   } else {
     check(program.jucoDivision === null, `${program.id} should not have a JUCO tier`);
   }
-  check(/^cm[a-z0-9]+$/.test(program.instagramHandle), `${program.id} instagram handle is not a fictional cm handle`);
   check(
-    instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
+    program.instagramHandle != null && /^cm[a-z0-9]+$/.test(program.instagramHandle),
+    `${program.id} instagram handle is not a fictional cm handle`,
+  );
+  check(
+    program.instagramHandle != null &&
+      instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
     `${program.id} instagram url is not an instagram.com profile`,
   );
-  check(program.mascot.length >= 3, `${program.id} needs a mascot`);
+  check(program.mascot != null && program.mascot.length >= 3, `${program.id} needs a mascot`);
   check(
     program.colors.length === 2 && program.colors.every((color) => /^#[0-9A-Fa-f]{6}$/.test(color)),
     `${program.id} colors should be two hex values`,
   );
-  check(program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
-  check(program.record.wins + program.record.losses + program.record.ties > 0, `${program.id} record is empty`);
-  check(program.conferenceFinish.length > 0 && program.postseason.length > 0, `${program.id} needs a season story`);
-  check(program.funFact.length > 0 && program.funFact.length <= 80, `${program.id} fun fact should stay one short line`);
-  check(program.headCoachYears >= 1 && program.headCoachYears <= 40, `${program.id} coach years look wrong`);
-  check(program.coachPortrait >= 0 && program.coachPortrait < 4, `${program.id} coach portrait index`);
-  check(program.photoSet >= 0 && program.photoSet < 4, `${program.id} photo set index`);
-  check((program.rosterOrigin.byState[program.state] ?? 0) >= 1, `${program.id} should have players from its state`);
-  check((program.rosterOrigin.byLeague.ecnl ?? 0) >= 1, `${program.id} should list ECNL players`);
+  check(program.record != null && program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
+  check(program.record != null && program.record.wins + program.record.losses + program.record.ties > 0, `${program.id} record is empty`);
+  check(
+    program.conferenceFinish != null && program.conferenceFinish.length > 0 && program.postseason != null && program.postseason.length > 0,
+    `${program.id} needs a season story`,
+  );
+  check(program.funFact != null && program.funFact.length > 0 && program.funFact.length <= 80, `${program.id} fun fact should stay one short line`);
+  check(program.headCoachYears != null && program.headCoachYears >= 1 && program.headCoachYears <= 40, `${program.id} coach years look wrong`);
+  check(program.coachPortrait != null && program.coachPortrait >= 0 && program.coachPortrait < 4, `${program.id} coach portrait index`);
+  check(program.photoSet != null && program.photoSet >= 0 && program.photoSet < 4, `${program.id} photo set index`);
+  check(program.rosterOrigin != null && (program.rosterOrigin.byState[program.state] ?? 0) >= 1, `${program.id} should have players from its state`);
+  check(program.rosterOrigin != null && (program.rosterOrigin.byLeague.ecnl ?? 0) >= 1, `${program.id} should list ECNL players`);
 }
 
 const handles = SAMPLE_PROGRAMS.map((program) => program.instagramHandle);
@@ -88,7 +98,7 @@ const strong: PlayerProfile = {
   id: 'test-strong',
   name: 'Maya Chen',
   birthdate: '2010-04-12',
-  gender: 'girls',
+  gender: 'female',
   sport: 'soccer',
   gradYear: 2028,
   positions: ['CB'],
@@ -99,11 +109,13 @@ const strong: PlayerProfile = {
     yearsAtLevel: 3,
     dominantSide: 'left',
     jerseyNumber: 4,
+    height: '',
     clubCoach: { name: 'Jordan Lee', email: 'jordan@club.example.com', phone: '503-555-0142' },
     highSchoolCoach: { name: 'Pat Nguyen', email: 'pat@school.example.com', phone: '503-555-0199' },
   },
   highlightVideoUrl: 'https://video.example.com/maya-chen',
   gpa: 3.6,
+  gpaWeighted: false,
   sat: 1200,
   act: null,
   homeState: 'OR',
@@ -131,6 +143,7 @@ const strong: PlayerProfile = {
   funFact: 'I bake bread for the team bus',
   budget: { id: '15-30', label: '$15–30k', min: 15000, max: 30000 },
   parentEmail: 'parent@example.com',
+  ncaaId: '',
   updatedAt: '2026-10-09T00:00:00.000Z',
 };
 
@@ -193,6 +206,17 @@ if (!northwind || !amber || !harbor || !cinder) {
   check(email.body.includes("I'm proud of sticking with my club through a hard season"), 'body should include what they are proud of');
   check(email.body.includes('Fun fact: I bake bread for the team bus'), 'body should include the fun fact');
   check(email.body.includes('2028'), 'body missing grad year');
+  check(!email.body.includes('NCAA Eligibility Center'), 'email should omit a blank NCAA ID');
+  const withNcaa = buildIntroEmail({ ...strong, ncaaId: '1234567890' }, northwind, northwind.coaches[0], '2026-10-09');
+  check(withNcaa.body.includes('NCAA Eligibility Center ID: 1234567890'), 'email should include a filled NCAA ID');
+  const blankResume = resumeSections(strong);
+  check(!blankResume.sections.some((section) => section.rows.some((item) => item.label === 'Height')), 'CV should omit a blank height');
+  check(!blankResume.sections.some((section) => section.rows.some((item) => item.label === 'NCAA ID')), 'CV should omit a blank NCAA ID');
+  const academy = resumeSections({ ...strong, stats: { ...strong.stats, height: '5\'7"' }, ncaaId: '1234567890', leagues: ['ecnl', 'nwsl-academy', 'usl-academy'] });
+  const academyRows = academy.sections.flatMap((section) => section.rows);
+  check(academyRows.some((item) => item.label === 'Height' && item.value === '5\'7"'), 'CV should show height when it is present');
+  check(academyRows.some((item) => item.label === 'NCAA ID' && item.value === '1234567890'), 'CV should show the NCAA ID');
+  check(academyRows.some((item) => item.label === 'Academy' && item.value.includes('NWSL Academy') && item.value.includes('USL Academy')), 'CV should label NWSL and USL Academy');
   check(email.to.endsWith('.example.com'), 'email recipient is not example.com');
   check(email.cc === 'parent@example.com', 'parent email should be copied');
   check(email.body.includes("I'd love to learn more about the program"), 'email should be in the player voice');
@@ -211,6 +235,13 @@ if (!northwind || !amber || !harbor || !cinder) {
   const url = mailtoUrl(email);
   check(url.startsWith('mailto:'), 'mailto url missing scheme');
   check(url.includes(encodeURIComponent(email.subject)), 'mailto missing subject');
+  const shortLink = buildMailto(email, MAILTO_URL_LIMIT);
+  check(shortLink.includedBody && shortLink.url.length <= MAILTO_URL_LIMIT, 'a normal intro should fit in a mail link');
+  const longLink = buildMailto({ ...email, body: 'Hello there. '.repeat(400) }, MAILTO_URL_LIMIT);
+  check(!longLink.includedBody, 'a very long message should leave the body out of the mail link');
+  check(longLink.url.length <= MAILTO_URL_LIMIT, 'a trimmed mail link should stay under the Safari limit');
+  check(longLink.url.startsWith(`mailto:${email.to}?`) && longLink.url.includes('subject='), 'a trimmed mail link should still open the address');
+  check(!longLink.url.includes('body='), 'a trimmed mail link should not carry the long body');
 }
 
 check(regionForState('OR') === 'West', 'Oregon should map to West');
@@ -265,7 +296,7 @@ check(replied === 'replied', 'replied should not flip back to follow-up due');
 const draft: ProfileDraft = {
   name: 'Maya Chen',
   birthdate: '2010-04-12',
-  gender: 'girls',
+  gender: 'female',
   sport: 'soccer',
   gradYear: 2028,
   positions: ['CB', 'GK'],
@@ -275,6 +306,7 @@ const draft: ProfileDraft = {
   yearsAtLevel: '3',
   dominantSide: 'left',
   jerseyNumber: '4',
+  height: '',
   clubCoachName: 'Jordan Lee',
   clubCoachEmail: 'jordan@club.example.com',
   clubCoachPhone: '503-555-0142',
@@ -283,6 +315,7 @@ const draft: ProfileDraft = {
   highSchoolCoachPhone: '',
   highlightVideoUrl: 'https://video.example.com/maya',
   gpa: '3.6',
+  gpaWeighted: false,
   sat: '',
   act: '',
   homeState: 'OR',
@@ -309,6 +342,7 @@ const draft: ProfileDraft = {
   funFact: 'I bake bread for the team bus',
   budgetId: '15-30',
   parentEmail: 'parent@example.com',
+  ncaaId: '',
 };
 check(Object.keys(validateDraft(draft)).length === 0, `draft should be valid: ${JSON.stringify(validateDraft(draft))}`);
 const profile = profileFromDraft(draft, 'player-1');
@@ -317,7 +351,63 @@ check(profile.stats.jerseyNumber === 4, 'jersey number should be kept');
 check(profile.stats.yearsAtLevel === 3, 'years at league level should be kept');
 check(profile.stats.clubCoach.email === 'jordan@club.example.com', 'club coach email should be kept');
 check(profile.stats.highSchoolCoach.name === '', 'blank high school coach should stay blank');
+
+const noCoaches: ProfileDraft = {
+  ...draft,
+  clubCoachName: '',
+  clubCoachEmail: '',
+  clubCoachPhone: '',
+  highSchoolCoachName: '',
+  highSchoolCoachEmail: '',
+  highSchoolCoachPhone: '',
+};
+check(Object.keys(validateDraft(noCoaches)).length === 0, `coach step should allow every field to stay blank: ${JSON.stringify(validateDraft(noCoaches))}`);
+const nameOnly: ProfileDraft = { ...noCoaches, highSchoolCoachName: 'Pat Nguyen' };
+check(
+  validateDraft(nameOnly).highSchoolCoachEmail == null && validateDraft(nameOnly).highSchoolCoachName == null,
+  'a high school coach name should not require an email',
+);
+check(Boolean(validateDraft({ ...noCoaches, clubCoachEmail: 'not-an-email' }).clubCoachEmail), 'a filled-in coach email should be checked');
+check(Boolean(validateDraft({ ...noCoaches, clubCoachPhone: '12' }).clubCoachPhone), 'a filled-in coach phone should be checked');
+check(!validateDraft({ ...noCoaches, clubCoachEmail: 'coach@club.example.com' }).clubCoachEmail, 'a real-looking coach email should pass');
+if (northwind) {
+  const skipped = profileFromDraft(noCoaches, 'player-skip');
+  const skippedEmail = buildIntroEmail(skipped, northwind, northwind.coaches[0], '2026-10-09');
+  check(!/club coach|high school coach/i.test(skippedEmail.body), 'email should omit coach references when none were added');
+  const namedOnly = profileFromDraft(nameOnly, 'player-hs');
+  const namedEmail = buildIntroEmail(namedOnly, northwind, northwind.coaches[0], '2026-10-09');
+  check(namedEmail.body.includes('My high school coach is Pat Nguyen.'), 'email should name a coach who has no email');
+  check(!namedEmail.body.toLowerCase().includes('club coach'), 'email should omit the club coach when that contact is empty');
+}
 check(profile.sat === null, 'blank SAT should be null');
+check(profile.gpaWeighted === false, 'GPA should default to unweighted');
+const weightedDraft: ProfileDraft = { ...draft, gpa: '4.3', gpaWeighted: true };
+check(Object.keys(validateDraft(weightedDraft)).length === 0, `weighted GPA 4.3 should be valid: ${JSON.stringify(validateDraft(weightedDraft))}`);
+check(Object.keys(validateDraft({ ...draft, gpa: '6' })).length === 0, 'GPA 6.0 should be valid');
+check(Boolean(validateDraft({ ...draft, gpa: '6.01' }).gpa), 'GPA above 6.0 should be rejected');
+check(Boolean(validateDraft({ ...draft, gpa: '3.555' }).gpa), 'GPA with more than two decimals should be rejected');
+check(formatGpa(4.3, true) === '4.3 weighted', 'weighted GPA should read 4.3 weighted');
+if (northwind) {
+  const weightedProfile = profileFromDraft(weightedDraft, 'player-gpa');
+  const weightedEmail = buildIntroEmail(weightedProfile, northwind, northwind.coaches[0], '2026-10-09');
+  check(weightedEmail.body.includes('GPA: 4.3 weighted'), 'coach email should show a weighted GPA');
+  const outside = buildIntroEmail(
+    { ...strong, positions: ['OB'], primaryPosition: 'OB' },
+    northwind,
+    northwind.coaches[0],
+    '2026-10-09',
+  );
+  check(outside.body.toLowerCase().includes('outside back'), 'email should name Outside Back');
+  check(!/fullback/i.test(outside.body) && outside.subject.includes('OB'), 'email should use OB, not Fullback');
+  const unweightedFour = scoreProgram({ ...strong, gpa: 4, gpaWeighted: false }, northwind);
+  const weightedHigh = scoreProgram({ ...strong, gpa: 4.3, gpaWeighted: true }, northwind);
+  const unweightedAcademics = unweightedFour.factors.find((factor) => factor.key === 'academics')?.score ?? -1;
+  const weightedAcademics = weightedHigh.factors.find((factor) => factor.key === 'academics')?.score ?? -1;
+  check(
+    weightedAcademics >= unweightedAcademics && comparableGpa(4.3, true) === 4,
+    'a weighted GPA from 4.0 to 5.0 should compare as a 4.0, not a penalty',
+  );
+}
 check(profile.leagues.includes('ecnl') && profile.leagues.includes('ga'), 'both leagues should be kept');
 check(profile.primaryPosition === 'CB', 'primary position should be kept');
 check(
@@ -344,13 +434,21 @@ if (northwind) {
   check(multiEmail.body.includes('ECNL') && multiEmail.body.includes('GA'), 'email should name every selected league');
   check(multiEmail.subject.startsWith('2028 ST/CB'), 'primary position should lead the subject');
 }
-const boysDeck = buildDeck(
+const maleDeck = buildDeck(
   SAMPLE_PROGRAMS,
-  { ...strong, gender: 'boys' },
+  { ...strong, gender: 'male' },
   emptyRecruiting(),
   SAMPLE_SPONSORS,
 );
-check(boysDeck.length === 0, 'boys soccer should not show the women\'s sample deck');
+check(maleDeck.length === 0, 'male soccer should not show the women\'s sample deck');
+check(migrateGender('girls') === 'female' && migrateGender('women') === 'female', 'girls and women should become Female');
+check(migrateGender('boys') === 'male' && migrateGender('men') === 'male', 'boys and men should become Male');
+check(migrateGender('unspecified') === null && migrateGender('Prefer not to say') === null, 'prefer not to say should ask for a choice');
+if (northwind) {
+  check(programMatchesAthlete(northwind, { sport: 'soccer', gender: 'female' }), 'Female should match a women\'s program');
+  check(!programMatchesAthlete(northwind, { sport: 'soccer', gender: 'male' }), 'Male should not match a women\'s program');
+  check(!programMatchesAthlete(northwind, { sport: 'soccer', gender: null }), 'a missing gender should not match a program');
+}
 check(SAMPLE_PROGRAMS.every((program) => program.sport === 'soccer' && program.side === 'women'), 'sample programs should be women\'s soccer');
 
 const naiaDeck = buildDeck(
@@ -377,9 +475,121 @@ check(Boolean(missingParent.parentEmail), 'parent email should be required');
 const badParent = validateDraft({ ...draft, parentEmail: 'not-an-email' });
 check(Boolean(badParent.parentEmail), 'parent email should be validated');
 
-if (failures.length > 0) {
-  console.error(failures.join('\n'));
-  process.exit(1);
+check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
+check(new Set(REAL_PROGRAMS.map((program) => program.id)).size === REAL_PROGRAMS.length, 'real program ids are not unique');
+for (const division of DIVISIONS) {
+  const count = REAL_PROGRAMS.filter((program) => program.division === division).length;
+  const minimum = division === 'NJCAA' ? 15 : 18;
+  check(count >= minimum, `${division} real count ${count} is below ${minimum}`);
 }
+const emailPattern = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/;
+for (const program of REAL_PROGRAMS) {
+  check(program.sample === false, `${program.id} should not be marked sample`);
+  check(program.photoSet == null && program.coachPortrait == null, `${program.id} should not use stock photos or illustrated coaches`);
+  if (program.colorsVerified) {
+    check(
+      (program.colorSource === 'athletics-css' || program.colorSource === 'brand-guide') &&
+        program.colors.every((color) => /^#[0-9A-Fa-f]{6}$/.test(color)),
+      `${program.id} colors are marked verified without a source`,
+    );
+  }
+  check(program.funFact == null && program.headCoachYears == null && program.rosterOrigin == null, `${program.id} has a fictional poster field`);
+  check(Boolean(program.lastVerified && program.sources && program.sources.length > 0), `${program.id} needs a source and last-verified date`);
+  check(Boolean(regionForState(program.state)), `${program.id} has an unknown state`);
+  for (const coach of program.coaches) {
+    check(coach.email == null || (emailPattern.test(coach.email) && !coach.email.endsWith('.example.com')), `${program.id} coach email is not a published address`);
+  }
+  for (const url of [program.athleticsUrl, program.questionnaireUrl, program.admissionsUrl, program.costUrl]) {
+    check(url == null || url.startsWith('https://'), `${program.id} link is not https: ${url}`);
+  }
+  if (program.instagramHandle) {
+    check(
+      /^[A-Za-z0-9._]{2,30}$/.test(program.instagramHandle) &&
+        instagramProfileUrl(program.instagramHandle) === `https://www.instagram.com/${program.instagramHandle}/`,
+      `${program.id} instagram handle is not a profile`,
+    );
+    check(
+      program.instagramKind === 'team' || program.instagramKind === 'athletics' || program.instagramKind === 'school',
+      `${program.id} instagram needs a team, athletics, or school label`,
+    );
+    check(
+      Boolean(program.instagramConfirmation?.url?.startsWith('https://') && program.instagramConfirmation.note),
+      `${program.id} instagram needs a confirmation note`,
+    );
+  }
+  if (program.record) {
+    check(program.record.wins >= 0 && program.record.losses >= 0 && program.record.ties >= 0, `${program.id} record is invalid`);
+  }
+  for (const spot of program.roster) {
+    check(POSITIONS.includes(spot.position) && spot.graduating <= spot.count && spot.graduating >= 0, `${program.id} roster row is invalid`);
+  }
+  if (program.division === 'NJCAA') {
+    check(program.jucoDivision === 'D1' || program.jucoDivision === 'D2' || program.jucoDivision === 'D3', `${program.id} needs a JUCO tier`);
+  }
+}
+const floridaState = REAL_PROGRAMS.find((program) => program.id === 'florida-state');
+check(Boolean(floridaState && floridaState.city === 'Tallahassee' && floridaState.state === 'FL'), 'Florida State location should come from Scorecard');
+check(floridaState?.instagramHandle === 'nolesoccer', 'Florida State Instagram should be the handle on the athletics page');
+check(
+  floridaState?.ranking?.rank === 10 &&
+    floridaState.ranking.poll === 'United Soccer Coaches NCAA Division I Women' &&
+    floridaState.ranking.date === '2026-11-03' &&
+    floridaState.nationalRank === 10,
+  'Florida State should carry the November 3, 2026 coaches poll rank',
+);
+const vanderbilt = REAL_PROGRAMS.find((program) => program.id === 'vanderbilt');
+check(vanderbilt?.ranking?.rank === 1, 'Vanderbilt should be number 1 in the current Division I poll');
+const tcu = REAL_PROGRAMS.find((program) => program.id === 'tcu');
+check(tcu?.ranking == null && tcu?.nationalRank == null, 'TCU is outside the current Top 25 and should not keep a rank');
+check(
+  Boolean(floridaState?.coaches.some((coach) => coach.email?.endsWith('@fsu.edu'))),
+  'Florida State should keep a published fsu.edu coach email',
+);
+const stanford = REAL_PROGRAMS.find((program) => program.id === 'stanford');
+check(stanford?.instagramHandle === 'stanfordwsoc', 'Stanford Instagram should be the handle in the women\'s soccer menu');
+check(
+  Boolean(stanford?.coaches.some((coach) => coach.email?.endsWith('@stanford.edu'))),
+  'Stanford should keep a published stanford.edu coach email',
+);
 
-console.log(`Sample catalog OK: ${SAMPLE_PROGRAMS.length} programs, fit score and email checks passed.`);
+const install = '11111111-1111-4111-8111-111111111111';
+const other = '22222222-2222-4222-8222-222222222222';
+const parsed = parseUsage({
+  id: install,
+  name: 'profile',
+  sport: 'soccer',
+  levels: ['NCAA D1', 'open'],
+  email: 'maya@example.com',
+  athlete: 'Maya Chen',
+});
+check(parsed?.sport === 'soccer' && parsed.levels.join(',') === 'NCAA D1,open', 'usage profile event should keep sport and level');
+check(!JSON.stringify(parsed).includes('maya@example.com') && !JSON.stringify(parsed).includes('Maya'), 'usage events should drop personal fields');
+check(parseUsage({ id: 'not-a-uuid', name: 'open' }) == null, 'usage events need a random install id');
+check(parseUsage({ id: install, name: 'location' }) == null, 'unknown usage events should be rejected');
+let usage = emptyUsage();
+usage = applyUsage(usage, { id: install, name: 'open', sport: null, levels: [] }, '2026-10-29');
+usage = applyUsage(usage, { id: install, name: 'open', sport: null, levels: [] }, '2026-10-29');
+usage = applyUsage(usage, { id: other, name: 'open', sport: null, levels: [] }, '2026-10-28');
+if (parsed) {
+  usage = applyUsage(usage, parsed, '2026-10-29');
+  usage = applyUsage(usage, parsed, '2026-10-29');
+}
+const report = usageReport(usage, '2026-10-29');
+check(report.totals.open === 3 && report.active.day === 1 && report.active.week === 2, 'opens count every time and people count once a day');
+check(report.totals.profile === 1 && report.sports.soccer === 1 && report.levels['NCAA D1'] === 1, 'a profile should count once, with sport and level totals');
+check(passwordsMatch('correct horse', 'correct horse') && !passwordsMatch('correct horse', 'wrong'), 'stats password should match exactly');
+
+void (async () => {
+  const pdf = await buildResumePdf({ ...strong, ncaaId: '1234567890', stats: { ...strong.stats, height: '5\'7"' } });
+  const pdfText = new TextDecoder().decode(pdf);
+  check(pdf[0] === 0x25 && pdfText.startsWith('%PDF'), 'CV should be a PDF');
+  check(pdfText.includes('/Count 1'), 'CV should be one page');
+  check(pdfText.includes('Maya Chen') && pdfText.includes('1234567890') && pdfText.includes("5'7"), 'CV should include the player, NCAA ID, and height');
+  if (failures.length > 0) {
+    console.error(failures.join('\n'));
+    process.exit(1);
+  }
+  console.log(
+    `Catalog OK: ${SAMPLE_PROGRAMS.length} sample programs, ${REAL_PROGRAMS.length} real programs, fit score and email checks passed.`,
+  );
+})();

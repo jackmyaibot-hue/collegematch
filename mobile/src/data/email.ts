@@ -1,5 +1,5 @@
 import { matchingCampusLife } from './fitScore';
-import { formatLongDate, isoToday, joinLabels } from './format';
+import { formatGpa, formatLongDate, isoToday, joinLabels } from './format';
 import { stateName } from './regions';
 import { dominantSidePhrase, leagueShortList, positionsInDisplayOrder, programSidePhrase } from './sports';
 import {
@@ -207,6 +207,7 @@ export function buildIntroEmail(
     .filter((line): line is string => Boolean(line))
     .join(' ');
   const subject = `${profile.gradYear} ${positionCodes}${jersey} | ${profile.name} | ${profile.clubTeam}`;
+  const ncaaId = profile.ncaaId?.trim();
   const body = [
     `Hi Coach ${lastName},`,
     '',
@@ -214,7 +215,8 @@ export function buildIntroEmail(
     '',
     coaches,
     film,
-    `GPA: ${profile.gpa.toFixed(2)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
+    `GPA: ${formatGpa(profile.gpa, profile.gpaWeighted)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
+    ncaaId ? `NCAA Eligibility Center ID: ${ncaaId}.` : '',
     honorsSentence(profile.honors) ?? '',
     personalSentence(profile) ?? '',
     '',
@@ -233,18 +235,35 @@ export function buildIntroEmail(
   return {
     subject,
     body,
-    to: coach.email,
+    to: coach.email ?? '',
     cc: profile.parentEmail || null,
   };
 }
 
+/**
+ * iPhone Safari drops mailto links once the encoded URL gets long.
+ * Stay under this so the address, subject, and parent copy still open.
+ */
+export const MAILTO_URL_LIMIT = 1800;
+
 export function mailtoUrl(email: IntroEmail): string {
+  return buildMailto(email).url;
+}
+
+export function buildMailto(email: IntroEmail, maxLength = Number.POSITIVE_INFINITY): { url: string; includedBody: boolean } {
+  const withBody = composeMailto(email, true);
+  if (withBody.length <= maxLength) return { url: withBody, includedBody: true };
+  return { url: composeMailto(email, false), includedBody: false };
+}
+
+function composeMailto(email: IntroEmail, includeBody: boolean): string {
   const query = [
     `subject=${encodeURIComponent(email.subject)}`,
-    `body=${encodeURIComponent(email.body)}`,
+    includeBody ? `body=${encodeURIComponent(email.body)}` : '',
     email.cc ? `cc=${encodeURIComponent(email.cc)}` : '',
   ]
     .filter(Boolean)
     .join('&');
-  return `mailto:${email.to}?${query}`;
+  const addressed = `mailto:${email.to}`;
+  return query ? `${addressed}?${query}` : addressed;
 }

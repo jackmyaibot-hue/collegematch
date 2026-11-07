@@ -74,7 +74,10 @@ function RootStack() {
       <Stack.Protected guard={!profile}>
         <Stack.Screen name="onboarding" />
       </Stack.Protected>
-      <Stack.Protected guard={!!profile}>
+      <Stack.Protected guard={!!profile && !profile.gender}>
+        <Stack.Screen name="choose-gender" />
+      </Stack.Protected>
+      <Stack.Protected guard={!!profile?.gender}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="school/[id]" />
         <Stack.Screen name="outreach/[id]" />

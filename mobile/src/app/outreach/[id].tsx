@@ -1,12 +1,14 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { DownloadCvButton } from '../../components/DownloadCvButton';
 import { AppText, Button, SampleBanner } from '../../components/ui';
-import { buildIntroEmail, mailtoUrl } from '../../data/email';
+import { buildIntroEmail, buildMailto, MAILTO_URL_LIMIT } from '../../data/email';
+import { trackUsage } from '../../data/usage';
 import { addDays, isoToday } from '../../data/format';
-import { openExternal } from '../../lib/links';
+import { copyText, openExternal } from '../../lib/links';
 import { useAppState } from '../../state/AppState';
 import { colors, radius } from '../../theme';
 
@@ -19,14 +21,14 @@ export default function OutreachScreen() {
   const params = useLocalSearchParams<{ id: string; coach?: string }>();
   const id = one(params.id);
   const initialCoach = one(params.coach);
-  const { profile, programs, recruiting, setOutreach } = useAppState();
+  const { profile, programs, recruiting, setOutreach, ready } = useAppState();
   const program = programs.find((item) => item.id === id);
   const saved = recruiting.saved[id];
   const [coachId, setCoachId] = useState(initialCoach || program?.coaches[0]?.id || '');
   const coach = program?.coaches.find((item) => item.id === coachId) ?? program?.coaches[0];
 
   const generated = useMemo(() => {
-    if (!profile || !program || !coach) return null;
+    if (!profile || !program || !coach?.email) return null;
     return buildIntroEmail(profile, program, coach);
   }, [profile, program, coach]);
 
@@ -34,11 +36,28 @@ export default function OutreachScreen() {
   const [body, setBody] = useState(saved?.body || generated?.body || '');
   const [note, setNote] = useState<string | null>(null);
   const [usingGenerated, setUsingGenerated] = useState(!saved?.subject && !saved?.body);
+  const [draftReady, setDraftReady] = useState(Boolean(generated));
+
+  // The screen can mount before the on-device profile loads. Fill the draft once
+  // that profile is ready so a filled NCAA ID is in the intro.
+  useEffect(() => {
+    if (!ready || draftReady || !generated) return;
+    if (saved?.subject || saved?.body) {
+      setSubject(saved.subject || generated.subject);
+      setBody(saved.body || generated.body);
+      setUsingGenerated(false);
+    } else {
+      setSubject(generated.subject);
+      setBody(generated.body);
+      setUsingGenerated(true);
+    }
+    setDraftReady(true);
+  }, [ready, draftReady, generated, saved]);
 
   if (!profile || !program || !coach || !generated) {
     return (
       <View style={styles.missing}>
-        <AppText variant="title">This intro needs a saved sample school.</AppText>
+        <AppText variant="title">This intro needs a school with a published coach email.</AppText>
         <Button label="Back" onPress={() => router.back()} />
       </View>
     );
@@ -55,13 +74,25 @@ export default function OutreachScreen() {
     }
   }
 
-  async function send() {
-    const email = { subject: subject.trim(), body: body.trim(), to: coach!.email, cc: profile!.parentEmail || null };
+  function send() {
+    if (!coach?.email) return;
+    const email = { subject: subject.trim(), body: body.trim(), to: coach.email, cc: profile!.parentEmail || null };
     if (!email.subject || !email.body) {
       setNote('Add a subject and a message before opening mail.');
       return;
     }
-    const opened = await openExternal(mailtoUrl(email));
+    // Open mail before any await. Safari only allows that in the tap itself.
+    const link = buildMailto(email, MAILTO_URL_LIMIT);
+    const opened = openExternal(link.url);
+    trackUsage('email');
+    void opened.then((didOpen) => finishSend(email, didOpen, link.includedBody));
+  }
+
+  async function finishSend(
+    email: { subject: string; body: string },
+    opened: boolean,
+    includedBody: boolean,
+  ) {
     if (saved?.status === 'replied') {
       await setOutreach(program!.id, { coachId: coach!.id, subject: email.subject, body: email.body });
     } else {
@@ -74,10 +105,30 @@ export default function OutreachScreen() {
       });
     }
     setUsingGenerated(false);
+    const lengthNote = includedBody
+      ? ''
+      : ' The message was too long for the mail link, so only the address was filled in. Use Copy message, then paste it.';
     setNote(
       opened
-        ? 'Opened your mail app with this draft. The school is marked emailed, with a follow-up in 7 days unless you already set one. If you closed the draft without sending, change the status on the school page.'
-        : 'This phone did not open a mail app. The draft is saved on the school, and you can copy it from here.',
+        ? `Opened your mail app with this draft.${lengthNote} The school is marked emailed, with a follow-up in 7 days unless you already set one. If you closed the draft without sending, change the status on the school page.`
+        : `This browser did not open a mail app.${lengthNote} Use Copy email and Copy message, then paste them into Gmail or Mail.`,
+    );
+  }
+
+  async function copyAddress() {
+    if (!coach?.email) return;
+    const copied = await copyText(coach.email);
+    setNote(copied ? `Copied ${coach.email}.` : 'Could not copy the address. Select it above and copy it yourself.');
+  }
+
+  async function copyMessage() {
+    if (!coach?.email) return;
+    const message = `To: ${coach.email}\nSubject: ${subject.trim()}\n\n${body.trim()}`;
+    const copied = await copyText(message);
+    setNote(
+      copied
+        ? 'Copied the message. Paste it into Gmail or your mail app.'
+        : 'Could not copy the message. Select the text above and copy it yourself.',
     );
   }
 
@@ -97,7 +148,9 @@ export default function OutreachScreen() {
       <SampleBanner />
       <View style={styles.warning}>
         <AppText variant="caption" color={colors.sponsoredInk}>
-          Sample coach address ({coach.email}). It will not reach a real person.
+          {program.sample
+            ? `Sample coach address (${coach.email}). It will not reach a real person.`
+            : `Published staff address (${coach.email}). Check it on the athletics site before you send.`}
         </AppText>
       </View>
       <AppText variant="label">Coach</AppText>
@@ -140,6 +193,12 @@ export default function OutreachScreen() {
       )}
       {note ? <AppText variant="body">{note}</AppText> : null}
       <Button label="Open in mail" icon="mail-outline" onPress={send} />
+      <DownloadCvButton />
+      <Button label="Copy email" kind="ghost" icon="copy-outline" onPress={copyAddress} />
+      <Button label="Copy message" kind="ghost" icon="copy-outline" onPress={copyMessage} />
+      <AppText variant="caption">
+        If mail does not open, or you use Gmail in the browser, copy the address and the message and paste them there.
+      </AppText>
     </ScrollView>
   );
 }

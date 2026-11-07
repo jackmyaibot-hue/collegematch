@@ -12,10 +12,10 @@ export function FitBars({ factors }: { factors: FitFactor[] }) {
             <AppText variant="caption" color={colors.ink} style={styles.label}>
               {factor.label}
             </AppText>
-            <AppText variant="caption">{factor.score}</AppText>
+            <AppText variant="caption">{factor.score == null ? '—' : factor.score}</AppText>
           </View>
           <View style={styles.track}>
-            <View style={[styles.fill, { width: `${factor.score}%` }]} />
+            <View style={[styles.fill, { width: `${factor.score ?? 0}%` }]} />
           </View>
           <AppText variant="caption">{factor.detail}</AppText>
         </View>

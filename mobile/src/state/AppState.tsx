@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { playerStore, programCatalog, recruitingStore, sponsorInventory } from '../data';
 import { emptyRecruiting, isoToday } from '../data/format';
+import { resetUsageProfileCount, trackUsage } from '../data/usage';
 import type { PlayerProfile, Program, RecruitingState, SavedProgram, SponsoredPlacement } from '../data/types';
 
 type AppContextValue = {
@@ -54,6 +55,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         if (!cancelled) setError('CollegeMatch could not read saved data on this phone.');
       } finally {
         if (!cancelled) setReady(true);
+        if (!cancelled) trackUsage('open');
       }
     })();
     return () => {
@@ -75,6 +77,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const clearAll = useCallback(async () => {
     await playerStore.clear();
     await recruitingStore.clear();
+    await resetUsageProfileCount().catch(() => undefined);
     setProfile(null);
     setRecruiting(emptyRecruiting());
     setUndoState(null);
@@ -97,6 +100,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         { ...recruiting, passed, saved: { ...recruiting.saved, [programId]: saved } },
         recruiting,
       );
+      trackUsage('save');
     },
     [persist, recruiting],
   );

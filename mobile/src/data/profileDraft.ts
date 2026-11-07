@@ -47,6 +47,7 @@ export type ProfileDraft = {
   yearsAtLevel: string;
   dominantSide: DominantSide | null;
   jerseyNumber: string;
+  height: string;
   clubCoachName: string;
   clubCoachEmail: string;
   clubCoachPhone: string;
@@ -55,6 +56,8 @@ export type ProfileDraft = {
   highSchoolCoachPhone: string;
   highlightVideoUrl: string;
   gpa: string;
+  /** False is unweighted, the default. */
+  gpaWeighted: boolean;
   sat: string;
   act: string;
   homeState: string;
@@ -82,6 +85,7 @@ export type ProfileDraft = {
   funFact: string;
   budgetId: string | null;
   parentEmail: string;
+  ncaaId: string;
 };
 
 export type FieldErrors = Partial<Record<keyof ProfileDraft, string>>;
@@ -100,6 +104,7 @@ export function emptyDraft(): ProfileDraft {
     yearsAtLevel: '',
     dominantSide: null,
     jerseyNumber: '',
+    height: '',
     clubCoachName: '',
     clubCoachEmail: '',
     clubCoachPhone: '',
@@ -108,6 +113,7 @@ export function emptyDraft(): ProfileDraft {
     highSchoolCoachPhone: '',
     highlightVideoUrl: '',
     gpa: '',
+    gpaWeighted: false,
     sat: '',
     act: '',
     homeState: '',
@@ -134,6 +140,7 @@ export function emptyDraft(): ProfileDraft {
     funFact: '',
     budgetId: null,
     parentEmail: '',
+    ncaaId: '',
   };
 }
 
@@ -151,6 +158,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     yearsAtLevel: String(profile.stats.yearsAtLevel ?? 0),
     dominantSide: profile.stats.dominantSide ?? null,
     jerseyNumber: profile.stats.jerseyNumber == null ? '' : String(profile.stats.jerseyNumber),
+    height: profile.stats.height ?? '',
     clubCoachName: profile.stats.clubCoach?.name ?? '',
     clubCoachEmail: profile.stats.clubCoach?.email ?? '',
     clubCoachPhone: profile.stats.clubCoach?.phone ?? '',
@@ -159,6 +167,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     highSchoolCoachPhone: profile.stats.highSchoolCoach?.phone ?? '',
     highlightVideoUrl: profile.highlightVideoUrl,
     gpa: String(profile.gpa),
+    gpaWeighted: profile.gpaWeighted === true,
     sat: profile.sat == null ? '' : String(profile.sat),
     act: profile.act == null ? '' : String(profile.act),
     homeState: profile.homeState,
@@ -185,6 +194,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     funFact: profile.funFact ?? '',
     budgetId: profile.budget.id,
     parentEmail: profile.parentEmail,
+    ncaaId: profile.ncaaId ?? '',
   };
 }
 
@@ -220,6 +230,12 @@ function parseIntField(value: string): number | null {
   return Number(value.trim());
 }
 
+function looksLikeHeight(value: string): boolean {
+  const text = value.trim();
+  if (text.length < 2 || text.length > 16 || !/\d/.test(text)) return false;
+  return /^\d\s*'\s*\d{1,2}(\s*"|in)?$/i.test(text) || /^\d{2,3}(\.\d)?\s*cm$/i.test(text);
+}
+
 function validEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
@@ -233,18 +249,11 @@ function applyContactErrors(
   errors: FieldErrors,
   prefix: 'clubCoach' | 'highSchoolCoach',
   draft: ProfileDraft,
-  required: boolean,
 ) {
-  const name = draft[`${prefix}Name`];
   const email = draft[`${prefix}Email`];
   const phone = draft[`${prefix}Phone`];
-  const started = name.trim() !== '' || email.trim() !== '' || phone.trim() !== '';
-  if (!required && !started) return;
-  if (name.trim().length < 2) errors[`${prefix}Name`] = 'Add their name.';
-  if (!email.trim()) errors[`${prefix}Email`] = 'Add their email.';
-  else if (!validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
-  if (required && !phone.trim()) errors[`${prefix}Phone`] = 'Add their phone number.';
-  else if (phone.trim() && !validPhone(phone)) {
+  if (email.trim() && !validEmail(email)) errors[`${prefix}Email`] = 'That email does not look right.';
+  if (phone.trim() && !validPhone(phone)) {
     errors[`${prefix}Phone`] = 'Use a phone number with at least 7 digits.';
   }
 }
@@ -256,7 +265,7 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   else if (draft.birthdate < BIRTHDATE_MIN || draft.birthdate > BIRTHDATE_MAX) {
     errors.birthdate = 'Use a birthday that fits a high school athlete.';
   }
-  if (!draft.gender) errors.gender = 'Pick Girls, Boys, or Prefer not to say.';
+  if (!draft.gender) errors.gender = 'Pick Female or Male.';
   if (!draft.sport) errors.sport = 'Pick your sport.';
   if (!draft.gradYear) errors.gradYear = 'Pick your grad year.';
   if (draft.positions.length === 0) errors.positions = 'Pick at least one position.';
@@ -278,17 +287,25 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
-  applyContactErrors(errors, 'clubCoach', draft, true);
-  applyContactErrors(errors, 'highSchoolCoach', draft, false);
+  if ((draft.height ?? '').trim() && !looksLikeHeight(draft.height)) {
+    errors.height = 'Use a height like 5\'7" or 170 cm, or leave it blank.';
+  }
+  const ncaaId = (draft.ncaaId ?? '').trim().replace(/\s+/g, '');
+  if (ncaaId && !/^\d{8,12}$/.test(ncaaId)) {
+    errors.ncaaId = 'Use the digits from your NCAA Eligibility Center ID, or leave it blank.';
+  }
+  applyContactErrors(errors, 'clubCoach', draft);
+  applyContactErrors(errors, 'highSchoolCoach', draft);
 
   const highlight = draft.highlightVideoUrl.trim();
   if (highlight && !/^https?:\/\//i.test(highlight)) {
     errors.highlightVideoUrl = 'Start the link with http:// or https://, or leave it blank.';
   }
 
-  const gpa = Number(draft.gpa);
-  if (draft.gpa.trim() === '' || !Number.isFinite(gpa) || gpa < 0 || gpa > 4) {
-    errors.gpa = 'Enter a GPA from 0.0 to 4.0.';
+  const gpaText = draft.gpa.trim();
+  const gpa = Number(gpaText);
+  if (!/^\d{1,2}(\.\d{1,2})?$/.test(gpaText) || !Number.isFinite(gpa) || gpa < 0 || gpa > 6) {
+    errors.gpa = 'Enter a GPA from 0 to 6.0, with up to two decimals.';
   }
   if (draft.sat.trim() !== '') {
     const sat = parseIntField(draft.sat);
@@ -362,6 +379,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
       yearsAtLevel: Number(draft.yearsAtLevel),
       dominantSide: draft.sport === 'soccer' ? draft.dominantSide : null,
       jerseyNumber: Number(draft.jerseyNumber),
+      height: draft.height.trim(),
       clubCoach: {
         name: draft.clubCoachName.trim(),
         email: draft.clubCoachEmail.trim(),
@@ -375,6 +393,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     },
     highlightVideoUrl: draft.highlightVideoUrl.trim(),
     gpa: Math.round(Number(draft.gpa) * 100) / 100,
+    gpaWeighted: draft.gpaWeighted,
     sat: draft.sat.trim() === '' ? null : Number(draft.sat),
     act: draft.act.trim() === '' ? null : Number(draft.act),
     homeState: draft.homeState,
@@ -389,6 +408,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     funFact: draft.funFact.trim(),
     budget: { id: budget.id, label: budget.label, min: budget.min, max: budget.max },
     parentEmail: draft.parentEmail.trim(),
+    ncaaId: draft.ncaaId.trim().replace(/\s+/g, ''),
     updatedAt: new Date().toISOString(),
   };
 }
