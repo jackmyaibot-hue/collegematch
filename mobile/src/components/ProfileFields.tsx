@@ -312,6 +312,14 @@ export function GameFields({
         error={errors.jerseyNumber}
         hint="The number coaches should look for on film or at a showcase."
       />
+      <TextField
+        label="Height"
+        value={draft.height}
+        onChangeText={(height) => onChange({ height })}
+        placeholder={'5\'7"'}
+        error={errors.height}
+        hint="Optional. Shown on your CV when you add it."
+      />
     </View>
   );
 }
@@ -480,6 +488,15 @@ export function AcademicFields({
         keyboardType="number-pad"
         placeholder="Optional"
         error={errors.act}
+      />
+      <TextField
+        label="NCAA Eligibility Center ID"
+        value={draft.ncaaId}
+        onChangeText={(ncaaId) => onChange({ ncaaId })}
+        keyboardType="number-pad"
+        placeholder="Optional"
+        error={errors.ncaaId}
+        hint="Optional. Added to coach emails and your CV. Stays on this phone."
       />
       <AppText variant="label">Intended majors</AppText>
       <AppText variant="caption" style={styles.help}>

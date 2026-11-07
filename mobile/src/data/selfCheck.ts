@@ -1,5 +1,6 @@
 import { buildDeck } from './deck';
 import { buildIntroEmail, buildMailto, MAILTO_URL_LIMIT, mailtoUrl } from './email';
+import { buildResumePdf, resumeSections } from './resumePdf';
 import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
 import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
@@ -108,6 +109,7 @@ const strong: PlayerProfile = {
     yearsAtLevel: 3,
     dominantSide: 'left',
     jerseyNumber: 4,
+    height: '',
     clubCoach: { name: 'Jordan Lee', email: 'jordan@club.example.com', phone: '503-555-0142' },
     highSchoolCoach: { name: 'Pat Nguyen', email: 'pat@school.example.com', phone: '503-555-0199' },
   },
@@ -141,6 +143,7 @@ const strong: PlayerProfile = {
   funFact: 'I bake bread for the team bus',
   budget: { id: '15-30', label: '$15–30k', min: 15000, max: 30000 },
   parentEmail: 'parent@example.com',
+  ncaaId: '',
   updatedAt: '2026-10-09T00:00:00.000Z',
 };
 
@@ -203,6 +206,17 @@ if (!northwind || !amber || !harbor || !cinder) {
   check(email.body.includes("I'm proud of sticking with my club through a hard season"), 'body should include what they are proud of');
   check(email.body.includes('Fun fact: I bake bread for the team bus'), 'body should include the fun fact');
   check(email.body.includes('2028'), 'body missing grad year');
+  check(!email.body.includes('NCAA Eligibility Center'), 'email should omit a blank NCAA ID');
+  const withNcaa = buildIntroEmail({ ...strong, ncaaId: '1234567890' }, northwind, northwind.coaches[0], '2026-10-09');
+  check(withNcaa.body.includes('NCAA Eligibility Center ID: 1234567890'), 'email should include a filled NCAA ID');
+  const blankResume = resumeSections(strong);
+  check(!blankResume.sections.some((section) => section.rows.some((item) => item.label === 'Height')), 'CV should omit a blank height');
+  check(!blankResume.sections.some((section) => section.rows.some((item) => item.label === 'NCAA ID')), 'CV should omit a blank NCAA ID');
+  const academy = resumeSections({ ...strong, stats: { ...strong.stats, height: '5\'7"' }, ncaaId: '1234567890', leagues: ['ecnl', 'nwsl-academy', 'usl-academy'] });
+  const academyRows = academy.sections.flatMap((section) => section.rows);
+  check(academyRows.some((item) => item.label === 'Height' && item.value === '5\'7"'), 'CV should show height when it is present');
+  check(academyRows.some((item) => item.label === 'NCAA ID' && item.value === '1234567890'), 'CV should show the NCAA ID');
+  check(academyRows.some((item) => item.label === 'Academy' && item.value.includes('NWSL Academy') && item.value.includes('USL Academy')), 'CV should label NWSL and USL Academy');
   check(email.to.endsWith('.example.com'), 'email recipient is not example.com');
   check(email.cc === 'parent@example.com', 'parent email should be copied');
   check(email.body.includes("I'd love to learn more about the program"), 'email should be in the player voice');
@@ -292,6 +306,7 @@ const draft: ProfileDraft = {
   yearsAtLevel: '3',
   dominantSide: 'left',
   jerseyNumber: '4',
+  height: '',
   clubCoachName: 'Jordan Lee',
   clubCoachEmail: 'jordan@club.example.com',
   clubCoachPhone: '503-555-0142',
@@ -327,6 +342,7 @@ const draft: ProfileDraft = {
   funFact: 'I bake bread for the team bus',
   budgetId: '15-30',
   parentEmail: 'parent@example.com',
+  ncaaId: '',
 };
 check(Object.keys(validateDraft(draft)).length === 0, `draft should be valid: ${JSON.stringify(validateDraft(draft))}`);
 const profile = profileFromDraft(draft, 'player-1');
@@ -563,11 +579,17 @@ check(report.totals.open === 3 && report.active.day === 1 && report.active.week 
 check(report.totals.profile === 1 && report.sports.soccer === 1 && report.levels['NCAA D1'] === 1, 'a profile should count once, with sport and level totals');
 check(passwordsMatch('correct horse', 'correct horse') && !passwordsMatch('correct horse', 'wrong'), 'stats password should match exactly');
 
-if (failures.length > 0) {
-  console.error(failures.join('\n'));
-  process.exit(1);
-}
-
-console.log(
-  `Catalog OK: ${SAMPLE_PROGRAMS.length} sample programs, ${REAL_PROGRAMS.length} real programs, fit score and email checks passed.`,
-);
+void (async () => {
+  const pdf = await buildResumePdf({ ...strong, ncaaId: '1234567890', stats: { ...strong.stats, height: '5\'7"' } });
+  const pdfText = new TextDecoder().decode(pdf);
+  check(pdf[0] === 0x25 && pdfText.startsWith('%PDF'), 'CV should be a PDF');
+  check(pdfText.includes('/Count 1'), 'CV should be one page');
+  check(pdfText.includes('Maya Chen') && pdfText.includes('1234567890') && pdfText.includes("5'7"), 'CV should include the player, NCAA ID, and height');
+  if (failures.length > 0) {
+    console.error(failures.join('\n'));
+    process.exit(1);
+  }
+  console.log(
+    `Catalog OK: ${SAMPLE_PROGRAMS.length} sample programs, ${REAL_PROGRAMS.length} real programs, fit score and email checks passed.`,
+  );
+})();

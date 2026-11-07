@@ -207,6 +207,7 @@ export function buildIntroEmail(
     .filter((line): line is string => Boolean(line))
     .join(' ');
   const subject = `${profile.gradYear} ${positionCodes}${jersey} | ${profile.name} | ${profile.clubTeam}`;
+  const ncaaId = profile.ncaaId?.trim();
   const body = [
     `Hi Coach ${lastName},`,
     '',
@@ -215,6 +216,7 @@ export function buildIntroEmail(
     coaches,
     film,
     `GPA: ${formatGpa(profile.gpa, profile.gpaWeighted)}${tests ? ` · ${tests}` : ''}. ${studyLine(profile.intendedMajors)}`.trim(),
+    ncaaId ? `NCAA Eligibility Center ID: ${ncaaId}.` : '',
     honorsSentence(profile.honors) ?? '',
     personalSentence(profile) ?? '',
     '',

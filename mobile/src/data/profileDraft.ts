@@ -47,6 +47,7 @@ export type ProfileDraft = {
   yearsAtLevel: string;
   dominantSide: DominantSide | null;
   jerseyNumber: string;
+  height: string;
   clubCoachName: string;
   clubCoachEmail: string;
   clubCoachPhone: string;
@@ -84,6 +85,7 @@ export type ProfileDraft = {
   funFact: string;
   budgetId: string | null;
   parentEmail: string;
+  ncaaId: string;
 };
 
 export type FieldErrors = Partial<Record<keyof ProfileDraft, string>>;
@@ -102,6 +104,7 @@ export function emptyDraft(): ProfileDraft {
     yearsAtLevel: '',
     dominantSide: null,
     jerseyNumber: '',
+    height: '',
     clubCoachName: '',
     clubCoachEmail: '',
     clubCoachPhone: '',
@@ -137,6 +140,7 @@ export function emptyDraft(): ProfileDraft {
     funFact: '',
     budgetId: null,
     parentEmail: '',
+    ncaaId: '',
   };
 }
 
@@ -154,6 +158,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     yearsAtLevel: String(profile.stats.yearsAtLevel ?? 0),
     dominantSide: profile.stats.dominantSide ?? null,
     jerseyNumber: profile.stats.jerseyNumber == null ? '' : String(profile.stats.jerseyNumber),
+    height: profile.stats.height ?? '',
     clubCoachName: profile.stats.clubCoach?.name ?? '',
     clubCoachEmail: profile.stats.clubCoach?.email ?? '',
     clubCoachPhone: profile.stats.clubCoach?.phone ?? '',
@@ -189,6 +194,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     funFact: profile.funFact ?? '',
     budgetId: profile.budget.id,
     parentEmail: profile.parentEmail,
+    ncaaId: profile.ncaaId ?? '',
   };
 }
 
@@ -222,6 +228,12 @@ function parseIntField(value: string): number | null {
   if (value.trim() === '') return null;
   if (!/^\d+$/.test(value.trim())) return null;
   return Number(value.trim());
+}
+
+function looksLikeHeight(value: string): boolean {
+  const text = value.trim();
+  if (text.length < 2 || text.length > 16 || !/\d/.test(text)) return false;
+  return /^\d\s*'\s*\d{1,2}(\s*"|in)?$/i.test(text) || /^\d{2,3}(\.\d)?\s*cm$/i.test(text);
 }
 
 function validEmail(value: string): boolean {
@@ -275,6 +287,13 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
+  if ((draft.height ?? '').trim() && !looksLikeHeight(draft.height)) {
+    errors.height = 'Use a height like 5\'7" or 170 cm, or leave it blank.';
+  }
+  const ncaaId = (draft.ncaaId ?? '').trim().replace(/\s+/g, '');
+  if (ncaaId && !/^\d{8,12}$/.test(ncaaId)) {
+    errors.ncaaId = 'Use the digits from your NCAA Eligibility Center ID, or leave it blank.';
+  }
   applyContactErrors(errors, 'clubCoach', draft);
   applyContactErrors(errors, 'highSchoolCoach', draft);
 
@@ -360,6 +379,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
       yearsAtLevel: Number(draft.yearsAtLevel),
       dominantSide: draft.sport === 'soccer' ? draft.dominantSide : null,
       jerseyNumber: Number(draft.jerseyNumber),
+      height: draft.height.trim(),
       clubCoach: {
         name: draft.clubCoachName.trim(),
         email: draft.clubCoachEmail.trim(),
@@ -388,6 +408,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     funFact: draft.funFact.trim(),
     budget: { id: budget.id, label: budget.label, min: budget.min, max: budget.max },
     parentEmail: draft.parentEmail.trim(),
+    ncaaId: draft.ncaaId.trim().replace(/\s+/g, ''),
     updatedAt: new Date().toISOString(),
   };
 }

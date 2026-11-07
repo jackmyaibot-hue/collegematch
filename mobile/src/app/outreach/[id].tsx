@@ -1,8 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { DownloadCvButton } from '../../components/DownloadCvButton';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { buildIntroEmail, buildMailto, MAILTO_URL_LIMIT } from '../../data/email';
 import { trackUsage } from '../../data/usage';
@@ -20,7 +21,7 @@ export default function OutreachScreen() {
   const params = useLocalSearchParams<{ id: string; coach?: string }>();
   const id = one(params.id);
   const initialCoach = one(params.coach);
-  const { profile, programs, recruiting, setOutreach } = useAppState();
+  const { profile, programs, recruiting, setOutreach, ready } = useAppState();
   const program = programs.find((item) => item.id === id);
   const saved = recruiting.saved[id];
   const [coachId, setCoachId] = useState(initialCoach || program?.coaches[0]?.id || '');
@@ -35,6 +36,23 @@ export default function OutreachScreen() {
   const [body, setBody] = useState(saved?.body || generated?.body || '');
   const [note, setNote] = useState<string | null>(null);
   const [usingGenerated, setUsingGenerated] = useState(!saved?.subject && !saved?.body);
+  const [draftReady, setDraftReady] = useState(Boolean(generated));
+
+  // The screen can mount before the on-device profile loads. Fill the draft once
+  // that profile is ready so a filled NCAA ID is in the intro.
+  useEffect(() => {
+    if (!ready || draftReady || !generated) return;
+    if (saved?.subject || saved?.body) {
+      setSubject(saved.subject || generated.subject);
+      setBody(saved.body || generated.body);
+      setUsingGenerated(false);
+    } else {
+      setSubject(generated.subject);
+      setBody(generated.body);
+      setUsingGenerated(true);
+    }
+    setDraftReady(true);
+  }, [ready, draftReady, generated, saved]);
 
   if (!profile || !program || !coach || !generated) {
     return (
@@ -175,6 +193,7 @@ export default function OutreachScreen() {
       )}
       {note ? <AppText variant="body">{note}</AppText> : null}
       <Button label="Open in mail" icon="mail-outline" onPress={send} />
+      <DownloadCvButton />
       <Button label="Copy email" kind="ghost" icon="copy-outline" onPress={copyAddress} />
       <Button label="Copy message" kind="ghost" icon="copy-outline" onPress={copyMessage} />
       <AppText variant="caption">

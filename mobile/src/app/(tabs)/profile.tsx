@@ -10,6 +10,7 @@ import {
   PreferenceFields,
   SoccerFields,
 } from '../../components/ProfileFields';
+import { DownloadCvButton } from '../../components/DownloadCvButton';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { PRIVACY_LINE } from '../../copy';
 import { FIT_FACTORS } from '../../data/fitScore';
@@ -142,8 +143,11 @@ export default function ProfileScreen() {
             />
             <Row label="Budget" value={profile.budget.label} />
             <Row label="Highlight" value={profile.highlightVideoUrl || 'Not added'} />
+            <Row label="Height" value={profile.stats.height || 'Not added'} />
+            <Row label="NCAA ID" value={profile.ncaaId || 'Not added'} />
             <Row label="Parent email" value={profile.parentEmail || 'Not added'} />
             <Button label="Edit profile" onPress={() => setEditing(true)} />
+            <DownloadCvButton />
           </View>
         )}
 

@@ -151,6 +151,8 @@ export type PlayerStats = {
    */
   dominantSide: DominantSide | null;
   jerseyNumber: number | null;
+  /** Optional, such as 5'7". Left blank when the player has not added it. */
+  height: string;
   clubCoach: PersonContact;
   highSchoolCoach: PersonContact;
 };
@@ -220,6 +222,8 @@ export type PlayerProfile = {
   };
   /** Optional. Stored on device. Copied on coach emails when set. */
   parentEmail: string;
+  /** Optional NCAA Eligibility Center ID. Stored on device. Empty when not added. */
+  ncaaId: string;
   updatedAt: string;
 };
 

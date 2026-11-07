@@ -44,7 +44,7 @@ const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
   comingSoon: [],
   you: ['name', 'birthdate', 'gender', 'sport', 'gradYear', 'homeState'],
   soccer: ['positions', 'primaryPosition', 'clubTeam', 'leagues'],
-  game: ['highlightVideoUrl', 'yearsAtLevel', 'dominantSide', 'jerseyNumber'],
+  game: ['highlightVideoUrl', 'yearsAtLevel', 'dominantSide', 'jerseyNumber', 'height'],
   coaches: [
     'clubCoachName',
     'clubCoachEmail',
@@ -57,6 +57,7 @@ const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
     'gpa',
     'sat',
     'act',
+    'ncaaId',
     'intendedMajors',
     'customMajor',
     'asbRole',
@@ -308,6 +309,8 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Leagues" value={leagueNameList(draft.leagues)} />
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
+        <Line label="Height" value={draft.height.trim() || 'Not added'} />
+        <Line label="NCAA ID" value={draft.ncaaId.trim() || 'Not added'} />
         <Line label="Years at level" value={draft.yearsAtLevel} />
         <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />
         <Line label="High school coach" value={hs || 'Not added'} />

@@ -70,6 +70,7 @@ function readStats(raw: PlayerProfile): PlayerStats {
     yearsAtLevel: years,
     dominantSide: readSide(stats?.dominantSide),
     jerseyNumber: jersey,
+    height: typeof stats?.height === 'string' ? stats.height.trim() : '',
     clubCoach: readContact(stats?.clubCoach),
     highSchoolCoach: readContact(stats?.highSchoolCoach),
   };
@@ -168,6 +169,7 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
     honors: readHonors(raw.honors),
     proudOf: typeof raw.proudOf === 'string' ? raw.proudOf : '',
     funFact: typeof raw.funFact === 'string' ? raw.funFact : '',
+    ncaaId: typeof raw.ncaaId === 'string' ? raw.ncaaId.trim().replace(/\s+/g, '') : '',
     openToAllLevels: raw.openToAllLevels !== false,
     levels: readLevels(raw.levels),
     campusLife: readCampusLife(raw.campusLife),
