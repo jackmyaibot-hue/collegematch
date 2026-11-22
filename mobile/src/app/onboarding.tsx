@@ -16,6 +16,7 @@ import {
 } from '../components/ProfileFields';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
+import { openPrivacyPolicy } from '../lib/links';
 import { formatGpa, joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
 import { trackProfileCompleted } from '../data/usage';
@@ -68,7 +69,7 @@ const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
     'otherAchievement',
   ],
   about: ['proudOf', 'funFact'],
-  preferences: ['levels', 'preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail', 'campusLife'],
+  preferences: ['levels', 'preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail', 'parentPhone', 'campusLife'],
   review: [],
 };
 
@@ -197,6 +198,11 @@ export default function OnboardingScreen() {
           <AppText variant="caption" color="#D5E6DC">
             {PRIVACY_LINE}
           </AppText>
+          <Pressable accessibilityRole="link" onPress={openPrivacyPolicy} hitSlop={8}>
+            <AppText variant="caption" color={colors.lime}>
+              Privacy policy
+            </AppText>
+          </Pressable>
           <View style={styles.welcomeButton}>
             <Button label="Build my profile" kind="lime" onPress={forward} />
           </View>
@@ -334,6 +340,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
           }
         />
         <Line label="Parent email" value={draft.parentEmail} />
+        <Line label="Parent phone" value={draft.parentPhone} />
       </View>
     </View>
   );

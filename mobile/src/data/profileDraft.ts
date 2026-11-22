@@ -1,3 +1,4 @@
+import { formatUsPhone, normalizeUsPhone } from './phone';
 import { BIRTHDATE_MAX, BIRTHDATE_MIN } from './sports';
 import type {
   AthleteGender,
@@ -85,6 +86,7 @@ export type ProfileDraft = {
   funFact: string;
   budgetId: string | null;
   parentEmail: string;
+  parentPhone: string;
   ncaaId: string;
 };
 
@@ -140,6 +142,7 @@ export function emptyDraft(): ProfileDraft {
     funFact: '',
     budgetId: null,
     parentEmail: '',
+    parentPhone: '',
     ncaaId: '',
   };
 }
@@ -194,6 +197,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     funFact: profile.funFact ?? '',
     budgetId: profile.budget.id,
     parentEmail: profile.parentEmail,
+    parentPhone: profile.parentPhone ? formatUsPhone(profile.parentPhone) : '',
     ncaaId: profile.ncaaId ?? '',
   };
 }
@@ -345,6 +349,11 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   } else if (!validEmail(draft.parentEmail)) {
     errors.parentEmail = 'That email does not look right.';
   }
+  if (!draft.parentPhone.trim()) {
+    errors.parentPhone = 'Add a parent phone number. We text an approval link there when you publish a bio.';
+  } else if (!normalizeUsPhone(draft.parentPhone)) {
+    errors.parentPhone = 'Use a US mobile number, like (415) 555-0134.';
+  }
   return errors;
 }
 
@@ -408,6 +417,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     funFact: draft.funFact.trim(),
     budget: { id: budget.id, label: budget.label, min: budget.min, max: budget.max },
     parentEmail: draft.parentEmail.trim(),
+    parentPhone: normalizeUsPhone(draft.parentPhone) ?? '',
     ncaaId: draft.ncaaId.trim().replace(/\s+/g, ''),
     updatedAt: new Date().toISOString(),
   };

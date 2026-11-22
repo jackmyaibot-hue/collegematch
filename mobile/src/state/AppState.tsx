@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { playerStore, programCatalog, recruitingStore, sponsorInventory } from '../data';
 import { emptyRecruiting, isoToday } from '../data/format';
+import { removePublishedBio } from '../data/publishClient';
 import { resetUsageProfileCount, trackUsage } from '../data/usage';
 import type { PlayerProfile, Program, RecruitingState, SavedProgram, SponsoredPlacement } from '../data/types';
 
@@ -75,13 +76,14 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const clearAll = useCallback(async () => {
+    if (profile) await removePublishedBio(profile.id);
     await playerStore.clear();
     await recruitingStore.clear();
     await resetUsageProfileCount().catch(() => undefined);
     setProfile(null);
     setRecruiting(emptyRecruiting());
     setUndoState(null);
-  }, []);
+  }, [profile]);
 
   const saveProgram = useCallback(
     async (programId: string) => {

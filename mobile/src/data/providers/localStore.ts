@@ -170,6 +170,7 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
     proudOf: typeof raw.proudOf === 'string' ? raw.proudOf : '',
     funFact: typeof raw.funFact === 'string' ? raw.funFact : '',
     ncaaId: typeof raw.ncaaId === 'string' ? raw.ncaaId.trim().replace(/\s+/g, '') : '',
+    parentPhone: typeof raw.parentPhone === 'string' ? raw.parentPhone : '',
     openToAllLevels: raw.openToAllLevels !== false,
     levels: readLevels(raw.levels),
     campusLife: readCampusLife(raw.campusLife),
