@@ -1,3 +1,7 @@
+/**
+ * Kept so text-message approval can be wired back later.
+ * Publishing uses the email provider in email.ts and does not call this module.
+ */
 export type SmsMessage = {
   to: string;
   body: string;

@@ -14,7 +14,6 @@ import { DownloadCvButton } from '../../components/DownloadCvButton';
 import { PublishBio } from '../../components/PublishBio';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { PRIVACY_LINE } from '../../copy';
-import { formatUsPhone } from '../../data/phone';
 import { openPrivacyPolicy } from '../../lib/links';
 import { FIT_FACTORS } from '../../data/fitScore';
 import { formatGpa, formatLongDate, joinLabels } from '../../data/format';
@@ -154,7 +153,6 @@ export default function ProfileScreen() {
             <Row label="Height" value={profile.stats.height || 'Not added'} />
             <Row label="NCAA ID" value={profile.ncaaId || 'Not added'} />
             <Row label="Parent email" value={profile.parentEmail || 'Not added'} />
-            <Row label="Parent phone" value={profile.parentPhone ? formatUsPhone(profile.parentPhone) : 'Not added'} />
             <Button label="Edit profile" onPress={() => setEditing(true)} />
             <DownloadCvButton />
             <PublishBio profile={profile} recruiting={recruiting} programs={programs} />

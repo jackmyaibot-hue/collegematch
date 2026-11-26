@@ -5,7 +5,7 @@ export const BIO_PLAYER_PREFIX = 'cm:bio:p:';
 export const BIO_SLUG_PREFIX = 'cm:bio:slug:';
 export const BIO_TOKEN_PREFIX = 'cm:bio:tok:';
 export const BIO_PHOTO_PREFIX = 'cm:bio:pic:';
-export const BIO_SMS_PREFIX = 'cm:bio:sms:';
+export const BIO_MAIL_PREFIX = 'cm:bio:mail:';
 
 type RedisResult = { result?: unknown; error?: string };
 
@@ -41,7 +41,7 @@ function cloneRecord(record: BioRecord): BioRecord {
 
 export function createMemoryRepo(): BioRepo {
   const byPlayer = new Map<string, BioRecord>();
-  const phoneLog = new Map<string, number[]>();
+  const destinationLog = new Map<string, number[]>();
   return {
     async getByPlayer(playerId) {
       const record = byPlayer.get(playerId);
@@ -65,12 +65,12 @@ export function createMemoryRepo(): BioRepo {
     async remove(record) {
       byPlayer.delete(record.playerId);
     },
-    async phoneSends(phone) {
-      return [...(phoneLog.get(phone) ?? [])];
+    async destinationSends(destination) {
+      return [...(destinationLog.get(destination) ?? [])];
     },
-    async rememberPhoneSend(phone, at) {
-      const next = [...(phoneLog.get(phone) ?? []), at].filter((stamp) => at - stamp < 86_400_000);
-      phoneLog.set(phone, next);
+    async rememberDestinationSend(destination, at) {
+      const next = [...(destinationLog.get(destination) ?? []), at].filter((stamp) => at - stamp < 86_400_000);
+      destinationLog.set(destination, next);
     },
   };
 }
@@ -164,8 +164,8 @@ function createRedisRepo(): BioRepo {
       const saved = await redis(removeCommands(record));
       if (!saved) throw new Error('The bio store did not respond.');
     },
-    async phoneSends(phone) {
-      const rows = await redis([['GET', `${BIO_SMS_PREFIX}${await sha256Hex(phone)}`]]);
+    async destinationSends(destination) {
+      const rows = await redis([['GET', `${BIO_MAIL_PREFIX}${await sha256Hex(destination)}`]]);
       if (!rows || typeof rows[0] !== 'string') return [];
       try {
         const parsed = JSON.parse(rows[0]) as unknown;
@@ -174,9 +174,9 @@ function createRedisRepo(): BioRepo {
         return [];
       }
     },
-    async rememberPhoneSend(phone, at) {
-      const key = `${BIO_SMS_PREFIX}${await sha256Hex(phone)}`;
-      const existing = await this.phoneSends(phone);
+    async rememberDestinationSend(destination, at) {
+      const key = `${BIO_MAIL_PREFIX}${await sha256Hex(destination)}`;
+      const existing = await this.destinationSends(destination);
       const next = [...existing, at].filter((stamp) => at - stamp < 86_400_000);
       const saved = await redis([['SET', key, JSON.stringify(next), 'EX', 172800]]);
       if (!saved) throw new Error('The bio store did not respond.');

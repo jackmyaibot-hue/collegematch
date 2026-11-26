@@ -220,13 +220,13 @@ export type PlayerProfile = {
     min: number;
     max: number;
   };
-  /** Required. Stored on this phone. Copied on coach emails. Not sent to the server. */
-  parentEmail: string;
   /**
-   * Required parent or guardian mobile number, stored on this phone as E.164.
-   * Sent to the server only when a bio is published, so the approval text has a destination.
+   * Required parent or guardian email. Stored on this phone, copied on coach emails,
+   * and sent to the server only when a bio is published so the approval email has a destination.
    * It is not shown on the public page.
    */
+  parentEmail: string;
+  /** Optional. Kept for a later text-message option. Not collected in the form and not sent to the server. */
   parentPhone: string;
   /** Optional NCAA Eligibility Center ID. Stored on device. Empty when not added. */
   ncaaId: string;

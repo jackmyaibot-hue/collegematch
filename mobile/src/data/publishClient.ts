@@ -125,7 +125,7 @@ function payload(profile: PlayerProfile, recruiting: RecruitingState, programs: 
     action: 'publish' as const,
     playerId: profile.id,
     secret,
-    parentPhone: profile.parentPhone,
+    parentEmail: profile.parentEmail,
     name: profile.name,
     sport: profile.sport,
     positions: profile.positions,

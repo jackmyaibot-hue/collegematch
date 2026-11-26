@@ -1,7 +1,7 @@
-import { bioStatus, publishBio, unpublishBio } from '../../server/bio';
+import { BioError, bioStatus, publishBio, unpublishBio } from '../../server/bio';
 import { appBioRepo } from '../../server/bioRepo';
+import { createEmailProvider } from '../../server/email';
 import { fail, json, options, readJson, requestOrigin } from '../../server/http';
-import { createSmsProvider } from '../../server/sms';
 
 const MAX_BYTES = 1_500_000;
 
@@ -23,9 +23,15 @@ export async function POST(request: Request): Promise<Response> {
       return json({ ok: true, state: 'none' });
     }
     if (action === 'publish') {
+      let email;
+      try {
+        email = createEmailProvider();
+      } catch (error) {
+        throw new BioError(error instanceof Error ? error.message : 'Email is not configured. No email was sent.', 503);
+      }
       const result = await publishBio({
         repo,
-        sms: createSmsProvider(),
+        email,
         body,
         origin: requestOrigin(request),
         now: Date.now(),

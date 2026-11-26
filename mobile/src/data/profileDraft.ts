@@ -345,14 +345,12 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   if (!draft.budgetId) errors.budgetId = 'Pick a budget range.';
   if (!draft.parentEmail.trim()) {
-    errors.parentEmail = 'Add a parent email. It is copied on coach emails and stays on this phone.';
+    errors.parentEmail = 'Add a parent email. We send the approval link there when you publish a bio.';
   } else if (!validEmail(draft.parentEmail)) {
     errors.parentEmail = 'That email does not look right.';
   }
-  if (!draft.parentPhone.trim()) {
-    errors.parentPhone = 'Add a parent phone number. We text an approval link there when you publish a bio.';
-  } else if (!normalizeUsPhone(draft.parentPhone)) {
-    errors.parentPhone = 'Use a US mobile number, like (415) 555-0134.';
+  if (draft.parentPhone.trim() && !normalizeUsPhone(draft.parentPhone)) {
+    errors.parentPhone = 'Use a US mobile number, like (415) 555-0134, or leave it blank.';
   }
   return errors;
 }

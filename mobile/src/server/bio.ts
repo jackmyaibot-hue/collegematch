@@ -1,17 +1,16 @@
 import { acceptPhoto, type BioPhoto } from '../data/photo';
-import { normalizeUsPhone } from '../data/phone';
 import { stateName } from '../data/regions';
 import { dominantSideDisplay, leagueShortList, positionSlash, SPORT_LABEL } from '../data/sports';
 import { LEAGUE_IDS, POSITIONS, SPORTS, type LeagueId, type PlayerProfile, type Position, type Sport } from '../data/types';
 import { passwordsMatch } from './usage';
 import { randomId, sha256Hex } from './crypto';
-import { approvalText, type SmsProvider } from './sms';
+import { approvalEmail, type EmailProvider } from './email';
 
 export const TOKEN_TTL_MS = 72 * 60 * 60 * 1000;
-export const SMS_MIN_GAP_MS = 60 * 1000;
-export const SMS_PLAYER_HOUR = 3;
-export const SMS_PLAYER_DAY = 8;
-export const SMS_PHONE_DAY = 5;
+export const SEND_MIN_GAP_MS = 60 * 1000;
+export const SEND_PLAYER_HOUR = 3;
+export const SEND_PLAYER_DAY = 8;
+export const SEND_PARENT_DAY = 5;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const HOUR_MS = 60 * 60 * 1000;
 
@@ -56,7 +55,7 @@ export type BioRecord = {
   playerId: string;
   slug: string;
   status: 'pending' | 'approved';
-  parentPhone: string;
+  parentEmail: string;
   secretHash: string;
   snapshot: BioSnapshot;
   photo: BioPhoto | null;
@@ -74,8 +73,8 @@ export type BioRepo = {
   getByTokenHash(tokenHash: string): Promise<BioRecord | null>;
   save(record: BioRecord): Promise<void>;
   remove(record: BioRecord): Promise<void>;
-  phoneSends(phone: string): Promise<number[]>;
-  rememberPhoneSend(phone: string, at: number): Promise<void>;
+  destinationSends(destination: string): Promise<number[]>;
+  rememberDestinationSend(destination: string, at: number): Promise<void>;
 };
 
 export type PublishResult = {
@@ -99,17 +98,24 @@ export function isPublic(record: BioRecord | null): record is BioRecord {
   return record?.status === 'approved';
 }
 
-export function rateLimitReason(playerSends: number[], phoneSends: number[], now: number): string | null {
+export function rateLimitReason(playerSends: number[], parentSends: number[], now: number): string | null {
   const recent = (stamps: number[], windowMs: number) => stamps.filter((at) => now - at < windowMs && at <= now);
-  if (recent(playerSends, SMS_MIN_GAP_MS).length >= 1) return 'Wait a minute before sending another text.';
-  if (recent(playerSends, HOUR_MS).length >= SMS_PLAYER_HOUR) {
-    return 'Three texts have already gone out this hour. Try again later.';
+  if (recent(playerSends, SEND_MIN_GAP_MS).length >= 1) return 'Wait a minute before sending another email.';
+  if (recent(playerSends, HOUR_MS).length >= SEND_PLAYER_HOUR) {
+    return 'Three emails have already gone out this hour. Try again later.';
   }
-  if (recent(playerSends, DAY_MS).length >= SMS_PLAYER_DAY) return 'The daily text limit has been reached. Try again tomorrow.';
-  if (recent(phoneSends, DAY_MS).length >= SMS_PHONE_DAY) {
-    return 'That parent number has received the daily limit of texts.';
+  if (recent(playerSends, DAY_MS).length >= SEND_PLAYER_DAY) return 'The daily email limit has been reached. Try again tomorrow.';
+  if (recent(parentSends, DAY_MS).length >= SEND_PARENT_DAY) {
+    return 'That parent email has received the daily limit.';
   }
   return null;
+}
+
+function normalizeEmail(value: unknown): string | null {
+  if (typeof value !== 'string') return null;
+  const email = value.trim().toLowerCase();
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
+  return email;
 }
 
 function cleanText(value: unknown, max: number): string {
@@ -208,15 +214,15 @@ function trimSends(stamps: number[], now: number): number[] {
 
 export async function publishBio(args: {
   repo: BioRepo;
-  sms: SmsProvider;
+  email: EmailProvider;
   body: unknown;
   origin: string;
   now: number;
 }): Promise<PublishResult> {
   const row = asRecord(args.body);
   const { playerId, secret } = idsFrom(row);
-  const phone = normalizeUsPhone(typeof row.parentPhone === 'string' ? row.parentPhone : '');
-  if (!phone) throw new BioError('Add a US parent phone number before publishing.', 400);
+  const parentEmail = normalizeEmail(row.parentEmail);
+  if (!parentEmail) throw new BioError('Add a parent email before publishing.', 400);
   const snapshot = snapshotFrom(row);
   let photo: BioPhoto | null;
   try {
@@ -226,8 +232,8 @@ export async function publishBio(args: {
   }
   const existing = await args.repo.getByPlayer(playerId);
   if (existing) await assertOwner(existing, secret);
-  const phoneSends = await args.repo.phoneSends(phone);
-  const limited = rateLimitReason(existing?.sentAt ?? [], phoneSends, args.now);
+  const parentSends = await args.repo.destinationSends(parentEmail);
+  const limited = rateLimitReason(existing?.sentAt ?? [], parentSends, args.now);
   if (limited) throw new BioError(limited, 429);
 
   const token = randomId(32);
@@ -236,7 +242,7 @@ export async function publishBio(args: {
     playerId,
     slug: existing?.slug ?? randomId(12),
     status: 'pending',
-    parentPhone: phone,
+    parentEmail,
     secretHash: existing?.secretHash ?? (await sha256Hex(secret)),
     snapshot,
     photo,
@@ -250,24 +256,34 @@ export async function publishBio(args: {
   const url = `${args.origin.replace(/\/$/, '')}/approve/${token}`;
   await args.repo.save(next);
   try {
-    await args.sms.send({ to: phone, body: approvalText(snapshot.name, url) });
+    await args.email.send(
+      approvalEmail({
+        to: parentEmail,
+        name: snapshot.name,
+        url,
+        position: snapshot.position,
+        gradYear: snapshot.gradYear,
+        hasPhoto: photo != null,
+        colleges: snapshot.colleges.map((college) => college.name),
+      }),
+    );
   } catch (error) {
     if (existing) await args.repo.save(existing);
     else await args.repo.remove(next);
-    const message = error instanceof BioError ? error.message : 'The text could not be sent. Nothing was changed.';
+    const message = error instanceof BioError ? error.message : 'The email could not be sent. Nothing was changed.';
     throw new BioError(message, error instanceof BioError ? error.status : 502);
   }
   try {
-    await args.repo.rememberPhoneSend(phone, args.now);
+    await args.repo.rememberDestinationSend(parentEmail, args.now);
   } catch {
-    console.warn('CollegeMatch could not record the parent-phone send count.');
+    console.warn('CollegeMatch could not record the parent-email send count.');
   }
   return {
     state: 'pending',
     slug: next.slug,
     expiresAt: next.tokenExpiresAt ?? args.now,
-    delivery: args.sms.id === 'mock' ? 'mock' : 'sent',
-    mockApprovalUrl: args.sms.id === 'mock' ? url : null,
+    delivery: args.email.id === 'mock' ? 'mock' : 'sent',
+    mockApprovalUrl: args.email.id === 'mock' ? url : null,
   };
 }
 
@@ -323,7 +339,7 @@ export async function publicBio(repo: BioRepo, slug: string): Promise<BioRecord 
 export type PublishBody = {
   playerId: string;
   secret: string;
-  parentPhone: string;
+  parentEmail: string;
   name: string;
   sport: PlayerProfile['sport'];
   positions: PlayerProfile['positions'];

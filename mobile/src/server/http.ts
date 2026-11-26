@@ -35,7 +35,7 @@ export async function readJson(request: Request, maxBytes: number): Promise<unkn
   }
 }
 
-/** Public site origin for links in texts. Prefers PUBLIC_WEB_ORIGIN, then the forwarding headers. */
+/** Public site origin for links in approval emails. Prefers PUBLIC_WEB_ORIGIN, then the forwarding headers. */
 export function requestOrigin(request: Request): string {
   const configured = process.env.PUBLIC_WEB_ORIGIN?.trim().replace(/\/$/, '');
   if (configured && /^https?:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(configured)) return configured;

@@ -4,7 +4,6 @@ import { AppText, Button } from './ui';
 import { loadLocalPhoto, loadBioStatus, publishProfile, saveLocalPhoto, unpublishProfile, type BioStatus } from '../data/publishClient';
 import { pickProfilePhoto } from '../data/pickPhoto';
 import type { BioPhoto } from '../data/photo';
-import { formatUsPhone } from '../data/phone';
 import { shareLink } from '../lib/shareLink';
 import type { PlayerProfile, Program, RecruitingState } from '../data/types';
 import { colors, radius } from '../theme';
@@ -46,7 +45,6 @@ export function PublishBio({
     };
   }, [profile.id]);
 
-  const phone = formatUsPhone(profile.parentPhone);
   const saved = Object.keys(recruiting.saved).length;
 
   async function choosePhoto() {
@@ -76,8 +74,8 @@ export function PublishBio({
       setStatus(next);
       setNote(
         next.mockApprovalUrl
-          ? 'No text was sent. The mock sender logged the link, and it is below for the parent preview.'
-          : 'A one-time approval text was sent. The page stays private until they approve.',
+          ? 'No email was sent. The mock sender logged the link, and it is below for the parent preview.'
+          : 'A one-time approval email was sent. The page stays private until they approve.',
       );
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'Publish did not go through.');
@@ -112,7 +110,8 @@ export function PublishBio({
     setError(null);
     const result = await shareLink(status.publicUrl, `${profile.name} · CollegeMatch`);
     if (result === 'copied') setNote('Link copied.');
-    else if (result === 'shared') setNote(null);
+    else if (result === 'shared') setNote('Opened the share sheet.');
+    else setNote('The link is on this page if the share sheet did not open.');
   }
 
   async function copyMock() {
@@ -122,15 +121,15 @@ export function PublishBio({
   }
 
   const publishLabel =
-    status?.state === 'approved' ? 'Update and ask again' : status?.state === 'pending' ? 'Send a new approval text' : 'Publish bio';
+    status?.state === 'approved' ? 'Update and ask again' : status?.state === 'pending' ? 'Send a new approval email' : 'Publish bio';
 
   return (
     <View style={styles.card}>
       <AppText variant="headline">Recruiting bio</AppText>
       <AppText variant="caption">
         Publish a page with your photo, position, class year, stats, and the {saved === 1 ? 'college' : 'colleges'} you are
-        watching. Your parent at {phone || 'the number on this profile'} gets one text. Nothing is public until they approve.
-        Only you can take it down.
+        watching. Your parent at {profile.parentEmail || 'the email on this profile'} gets one email. Nothing is public until
+        they approve. Only you can take it down.
       </AppText>
       <Pressable accessibilityRole="button" onPress={choosePhoto} style={styles.photoButton}>
         {photo ? (
@@ -169,9 +168,9 @@ export function PublishBio({
       {status?.state === 'approved' ? (
         <AppText variant="caption">Updating hides the page until your parent approves the new version.</AppText>
       ) : null}
-      {!profile.parentPhone ? (
+      {!profile.parentEmail ? (
         <AppText variant="caption" color={colors.rose}>
-          Add a parent phone number in Edit profile before publishing.
+          Add a parent email in Edit profile before publishing.
         </AppText>
       ) : (
         <Button label={busy ? 'Working…' : publishLabel} onPress={publish} disabled={busy || !status} />

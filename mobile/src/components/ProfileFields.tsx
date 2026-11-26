@@ -767,18 +767,7 @@ export function PreferenceFields({
         keyboardType="email-address"
         placeholder="parent@email.com"
         error={errors.parentEmail}
-        hint="Required. Copied on coach emails. Stored only on this phone."
-      />
-      <TextField
-        label="Parent phone"
-        value={draft.parentPhone}
-        onChangeText={(parentPhone) => onChange({ parentPhone })}
-        keyboardType="phone-pad"
-        textContentType="telephoneNumber"
-        autoComplete="tel"
-        placeholder="(415) 555-0134"
-        error={errors.parentPhone}
-        hint="Required. We text this number a one-time approval link when you publish a bio. It is not shown on the public page."
+        hint="Required. We email a one-time approval link here when you publish a bio. It is also copied on coach emails, and it is not shown on the public page."
       />
     </View>
   );

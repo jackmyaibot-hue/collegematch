@@ -69,7 +69,7 @@ const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
     'otherAchievement',
   ],
   about: ['proudOf', 'funFact'],
-  preferences: ['levels', 'preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail', 'parentPhone', 'campusLife'],
+  preferences: ['levels', 'preferredRegions', 'schoolSizePreference', 'budgetId', 'parentEmail', 'campusLife'],
   review: [],
 };
 
@@ -340,7 +340,6 @@ function Review({ draft }: { draft: ProfileDraft }) {
           }
         />
         <Line label="Parent email" value={draft.parentEmail} />
-        <Line label="Parent phone" value={draft.parentPhone} />
       </View>
     </View>
   );

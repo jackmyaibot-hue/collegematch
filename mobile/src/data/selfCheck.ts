@@ -11,7 +11,7 @@ import { REAL_PROGRAMS } from './providers/realCatalog';
 import { approveBio, bioStatus, previewBio, publicBio, publishBio, TOKEN_TTL_MS, unpublishBio } from '../server/bio';
 import { createMemoryRepo, removeCommands, saveCommands } from '../server/bioRepo';
 import { renderPreview, renderPrivacyPage, renderPublicBio, ROBOT_TAG, ROBOTS_TXT } from '../server/pages';
-import { recordingSmsProvider } from '../server/sms';
+import { emailProviderError, recordingEmailProvider } from '../server/email';
 import { applyUsage, emptyUsage, parseUsage, passwordsMatch, usageReport } from '../server/usage';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
@@ -481,10 +481,10 @@ check(Boolean(missingParent.parentEmail), 'parent email should be required');
 const badParent = validateDraft({ ...draft, parentEmail: 'not-an-email' });
 check(Boolean(badParent.parentEmail), 'parent email should be validated');
 const missingPhone = validateDraft({ ...draft, parentPhone: '' });
-check(Boolean(missingPhone.parentPhone), 'parent phone should be required');
+check(!missingPhone.parentPhone, 'parent phone should be optional');
 const badPhone = validateDraft({ ...draft, parentPhone: '123' });
-check(Boolean(badPhone.parentPhone), 'parent phone should be a US number');
-check(profileFromDraft(draft, 'player-1').parentPhone === '+15035550148', 'parent phone should be stored as E.164');
+check(Boolean(badPhone.parentPhone), 'a partial parent phone should be rejected');
+check(profileFromDraft({ ...draft, parentPhone: '' }, 'player-1').parentPhone === '', 'a blank parent phone should stay blank');
 
 check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
 check(new Set(REAL_PROGRAMS.map((program) => program.id)).size === REAL_PROGRAMS.length, 'real program ids are not unique');
@@ -598,13 +598,13 @@ function bytesToBase64(bytes: number[]): string {
 
 async function checkPublishing(): Promise<void> {
   const repo = createMemoryRepo();
-  const sms = recordingSmsProvider();
+  const mail = recordingEmailProvider();
   const now = Date.parse('2026-11-22T12:00:00.000Z');
   const secret = 'secret-secret-secret-secret';
   const body = {
     playerId: 'player-1710000000000',
     secret,
-    parentPhone: '(503) 555-0148',
+    parentEmail: 'Parent@Example.com',
     name: 'Maya Chen',
     sport: 'soccer',
     positions: ['CB'],
@@ -625,14 +625,16 @@ async function checkPublishing(): Promise<void> {
     highlightUrl: 'https://video.example.com/maya',
     colleges: [{ name: 'Northwind College', division: 'NCAA D1', city: 'Portland', state: 'OR' }],
     birthdate: '2010-04-12',
-    parentEmail: 'parent@example.com',
     photo: null,
   };
-  const published = await publishBio({ repo, sms, body, origin: 'https://collegematch.test', now });
+  const published = await publishBio({ repo, email: mail, body, origin: 'https://collegematch.test', now });
   const token = published.mockApprovalUrl?.split('/approve/')[1] ?? '';
+  const sent = mail.messages[0];
   check(published.delivery === 'mock' && token.length > 20, 'publish should return a one-time mock approval link');
-  check(sms.messages.length === 1 && sms.messages[0].body.includes(token), 'the text should contain the approval link');
-  check(!sms.messages[0].body.includes('555'), 'the text should not include the phone number');
+  check(sent?.to === 'parent@example.com' && sent.text.includes(token) && sent.html.includes(token), 'the email should contain the approval link');
+  check(sent?.html.includes('>Approve<') && sent.text.includes('72 hours') && sent.text.includes('works once'), 'the email should have an approve button, a 72-hour expiry, and a single use');
+  check(sent?.text.toLowerCase().includes('ignore this email'), 'the email should say to ignore an unrecognized request');
+  check(Boolean(sent) && !sent.text.includes('2010-04-12'), 'the email should not include the birthday');
   check((await publicBio(repo, published.slug)) == null, 'a pending bio should not be public');
   const preview = await previewBio(repo, token, now);
   check(preview?.snapshot.name === 'Maya Chen' && preview.snapshot.gradYear === 2028, 'the parent preview should show the bio');
@@ -644,8 +646,8 @@ async function checkPublishing(): Promise<void> {
   const previewPage = preview ? renderPreview(preview, token) : '';
   check(previewPage.includes('noindex, nofollow') && previewPage.includes('Approve and publish'), 'the approval page should be a noindex preview with an approve button');
   check(!previewPage.includes('555-0148') && !previewPage.includes('parent@example.com'), 'the approval page should hide the parent phone and email');
-  const tooSoon = await publishBio({ repo, sms, body, origin: 'https://collegematch.test', now: now + 1000 }).catch((error: unknown) => error);
-  check(tooSoon instanceof Error && /minute/i.test(tooSoon.message), 'a second text inside a minute should be refused');
+  const tooSoon = await publishBio({ repo, email: mail, body, origin: 'https://collegematch.test', now: now + 1000 }).catch((error: unknown) => error);
+  check(tooSoon instanceof Error && /minute/i.test(tooSoon.message), 'a second email inside a minute should be refused');
   check((await publicBio(repo, published.slug)) == null, 'a refused update should leave the bio unpublished');
   check((await approveBio(repo, token, now + TOKEN_TTL_MS + 1)) == null, 'an expired token should not approve');
   const approved = await approveBio(repo, token, now + 1000);
@@ -657,7 +659,7 @@ async function checkPublishing(): Promise<void> {
   check(livePage.includes('name="robots" content="noindex, nofollow"') && livePage.includes('Class of 2028'), 'the public page should stay out of search results');
   const wrong = await publishBio({
     repo,
-    sms,
+    email: mail,
     body: { ...body, secret: 'another-secret-secret-secret' },
     origin: 'https://collegematch.test',
     now: now + 120_000,
@@ -671,7 +673,7 @@ async function checkPublishing(): Promise<void> {
   const jpeg = bytesToBase64([0xff, 0xd8, 0xff, 0xd9]);
   const withPhoto = await publishBio({
     repo,
-    sms,
+    email: mail,
     body: { ...body, photo: { data: jpeg } },
     origin: 'https://collegematch.test',
     now: now + 180_000,
@@ -694,7 +696,7 @@ async function checkPublishing(): Promise<void> {
   const gif = bytesToBase64([0x47, 0x49, 0x46, 0x38, 0x39, 0x61]);
   const badPhoto = await publishBio({
     repo,
-    sms,
+    email: mail,
     body: { ...body, photo: { data: gif } },
     origin: 'https://collegematch.test',
     now: now + 300_000,
@@ -716,6 +718,13 @@ async function checkPublishing(): Promise<void> {
     'robots.txt should disallow the bio and approval routes',
   );
   check(ROBOT_TAG === 'noindex, nofollow', 'bio responses should send noindex, nofollow');
+  check(
+    emailProviderError({ provider: 'resend' })?.includes('No email was sent') === true &&
+      emailProviderError({ provider: 'resend', key: 're_test' })?.includes('No email was sent') === true &&
+      emailProviderError({ provider: 'resend', key: 're_test', from: 'CollegeMatch <approve@example.com>' }) == null,
+    'resend should refuse to send until both the key and the from address are set',
+  );
+  check(emailProviderError({}) == null, 'the email provider should default to the mock sender');
 }
 
 void (async () => {

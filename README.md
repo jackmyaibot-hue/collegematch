@@ -79,7 +79,7 @@ The app also exports server routes (`web.output` is `server`). `/api/usage` acce
 
 ## What the MVP does
 
-1. **Profile.** Name, birthday, gender (Female or Male, required), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, optional club and high school coach contacts, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, the levels they want (or open to all), regions, campus size, optional campus-life vibes, net-cost budget, a required parent email that is copied on coach emails, and a required parent or guardian phone number. Both stay on the phone. The phone number is sent to the server only when the player publishes a bio.
+1. **Profile.** Name, birthday, gender (Female or Male, required), sport, grad year, positions (multi-select, with one primary and the rest secondary), club, and every league they play in. Soccer leagues are ECNL, ECNL-RL, Girls Academy, NAL, USYS, NWSL Academy, USL Academy, and Other / High school. Then a highlight link, dominant foot, years at the current league level, jersey number, optional club and high school coach contacts, GPA, optional SAT/ACT, one or more intended majors (plus a custom major), honors and leadership, a short "something I'm proud of" and a fun fact, home state, the levels they want (or open to all), regions, campus size, optional campus-life vibes, net-cost budget, and a required parent or guardian email. The email stays on the phone, is copied on coach emails, and is sent to the server only when the player publishes a bio.
 2. **Deck.** Programs ranked by a fit score. Each card is a short recruiting poster: a large generated crest, division, location, and whatever enrollment, acceptance, and net cost the catalog actually has. A Photos button appears only when the school has a licensed photo set. The sample schools use a shared stock gallery; real schools do not, so the button stays hidden. A spot meter shows roster counts by position when the athletics site published them. A team snapshot shows the head coach and last season’s record when those were published. “Could you play here?” shows the fit score and an expandable “why this fits.” Athletics and Instagram links appear only when the catalog has a real URL or handle. There is no video on the card. Pass and Save stay under the card. Visit opens the school page.
 3. **Saved schools.** Detail page with coaches (name, title, email), questionnaire link, ID camp dates, admissions and cost info, and an athletics link.
 4. **Coach email.** A short editable intro (positions, jersey number, dominant foot, years at league level, coach references, highlight, grad year, majors, a brief honors line, and a light personal note) opens in the device mail app with `mailto`. Status per school: not contacted, emailed, replied, follow-up due, plus a reminder date.
@@ -93,7 +93,7 @@ TypeScript types live in `mobile/src/data/types.ts`. The important records:
 
 | Type | Role |
 |---|---|
-| `PlayerProfile` | The athlete. Sport, gender, birthday, positions, primary position, leagues, parent email, and parent phone. Stored on the device. A published bio is a separate server record. |
+| `PlayerProfile` | The athlete. Sport, gender, birthday, positions, primary position, leagues, and parent email. Stored on the device. A published bio is a separate server record. |
 | `Program` | One college program: `sport`, `side` (`women` or `men`), campus, cost, academics, roster by position, coaches, camps, and links. Empty fields are omitted on the card. The real rows are women's soccer. Sample rows add a fictional poster (mascot, colors, record, roster origins, Instagram handle). |
 | `Coach` | Name, title, email. |
 | `SponsoredPlacement` | A labeled sponsor card and where it sits in the deck. |
@@ -140,7 +140,7 @@ The score is 0–100, a weighted average of six 0–100 pieces. The card sentenc
 
 ## Privacy
 
-Most athletes are minors. The app does not create accounts. The profile, including the parent email and parent phone, stays on the device. The parent email is added as a Cc when a coach draft opens and is not sent to the server. Reset from the profile tab unpublishes a bio if this phone published one, then erases the local profile and the deck. If the server cannot be reached, the phone profile is kept so the player can try again.
+Most athletes are minors. The app does not create accounts. The profile, including the parent email, stays on the device until a player publishes. The parent email is added as a Cc when a coach draft opens. Publishing also sends that address to the server so the approval email has a destination. Reset from the profile tab unpublishes a bio if this phone published one, then erases the local profile and the deck. If the server cannot be reached, the phone profile is kept so the player can try again.
 
 Anonymous usage counts go to this app's own `/api/usage` route. The phone keeps a random install id so a person is counted once per day. The server stores that id only inside daily sets that expire after 40 days, plus totals for opens, completed profiles, swipes, saved schools, and drafted coach emails. Sport and level are added as totals when a profile is completed. Names, emails, birthdays, phone numbers, and IP addresses are not part of those counts. There is no ad SDK and no third-party tracker. `/stats` is password-protected and is not linked from the athlete screens.
 
@@ -148,19 +148,19 @@ The full policy is served at `/privacy`.
 
 ### Publishing a bio
 
-From the profile tab, a player can publish a recruiting page: photo, position, graduation year, stats, and the colleges saved at that moment. Publish stores a pending bio and a single-use approval token that expires in 72 hours, then texts the parent phone. The parent opens the link, sees the same page, and taps Approve. Until then, `/bio/{slug}` and its photo return "not public." After approval, anyone with the link can view it without an account.
+From the profile tab, a player can publish a recruiting page: photo, position, graduation year, stats, and the colleges saved at that moment. Publish stores a pending bio and a single-use approval token that expires in 72 hours, then emails the parent. The parent opens the link, sees the same page, and taps Approve. Until then, `/bio/{slug}` and its photo return "not public." After approval, anyone with the link can view it without an account.
 
 Only the player can unpublish. That deletes the bio record and the photo. A parent cannot take the page down. Updating a live bio hides it again until the parent approves the new version.
 
-The server does not store the birthday, parent email, or coach contacts. It does store the parent phone, a hash of a device secret, and a hash of the approval token. Texts are rate limited (one a minute, three an hour, eight a day per player, and five a day per parent number).
+The server does not store the birthday or coach contacts. It does store the parent email, a hash of a device secret, and a hash of the approval token. Emails are rate limited (one a minute, three an hour, eight a day per player, and five a day per parent address).
 
 Search engines are asked to skip these pages. The HTML sends `<meta name="robots" content="noindex, nofollow">` and the response sends `X-Robots-Tag: noindex, nofollow`. `public/robots.txt` disallows `/bio/` and `/approve/`.
 
 Records and photos live in Upstash Redis when `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are set, the same database as the usage counts, under `cm:bio:*` keys. Photos are capped at 500KB. Without those variables, a local server keeps bios in memory for that process only. Redis is a fine start for this volume. A photo bucket such as Cloudflare R2 is the right next store if the photos outgrow Redis: the photo is already a separate key, so a later `PhotoStore` can swap in `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_BASE_URL` without changing the approval flow.
 
-Sending goes through `createSmsProvider()`. The default is `mock`: it logs the approval link and the app shows it, so the flow works with no vendor account. Set `SMS_PROVIDER` only after a provider is actually connected. Do not point this at a carrier until the cost note below is accepted.
+Sending goes through `createEmailProvider()`. The default is `mock`: it logs the approval link and the app shows it, so the flow works with no vendor account. Set `EMAIL_PROVIDER=resend` with `RESEND_API_KEY` and `EMAIL_FROM` to deliver real mail. If those values are missing, the server refuses to send and does not pretend an email went out. The SMS module is still in the repo for a later text option and is not called.
 
-### Text providers (checked November 2026)
+### Text providers (kept for later, checked November 2026)
 
 US outbound SMS, before carrier fees, from each vendor's public rate card. Carrier fees are extra everywhere (about $0.0035 to $0.005 per segment; AT&T $0.0035, T-Mobile $0.0045, Verizon about $0.0045 to $0.005). A parent text is one or two segments. This product is low volume and transactional.
 
@@ -174,7 +174,7 @@ US outbound SMS, before carrier fees, from each vendor's public rate card. Carri
 
 10DLC brand review is often hours to a few days, and campaign vetting is often several days to about two weeks. Toll-free is one form instead of a brand plus a campaign, and a few messages per second is enough for parent approvals. None of these were purchased for this change.
 
-Recommendation: Telnyx with one toll-free number when a real sender is needed. It is the lowest serious per-message price, one number covers this volume, and verification is free. At a few hundred texts a month the bill is a few dollars plus the number. Keep the mock provider until that account exists. The approval copy and the privacy policy are the opt-in story carriers will read: the athlete enters the parent number, and the only message is the one-time approval link. Reviewers sometimes want the recipient to opt in themselves, so expect a question there. `SMS_PROVIDER=telnyx` is reserved and currently refuses to send, on purpose, until a Telnyx adapter and `TELNYX_API_KEY` plus `TELNYX_FROM_NUMBER` are added.
+Approval is email for now. If texts come back later, Telnyx with one toll-free number was the recommendation: the lowest serious per-message price, one number for this volume, and free verification. At a few hundred texts a month the bill is a few dollars plus the number. `SMS_PROVIDER=telnyx` is reserved and currently refuses to send, on purpose, until a Telnyx adapter and `TELNYX_API_KEY` plus `TELNYX_FROM_NUMBER` are added. The SMS module is not used by publish.
 
 ## Repo layout
 
@@ -190,6 +190,6 @@ Mobile profile fields line up with columns on `backend/models/Player.js` for a l
 ## Next steps
 
 1. **Richer real data.** Conference, mascot, and school colors are still empty until they can be read off an athletics page without guessing. Re-run `scripts/collect_womens_soccer.py` after each final poll.
-2. **Text provider.** The publish flow uses the mock sender until a Telnyx (or other) account exists. Add the adapter, the from-number, and the API key as server environment variables. Move photos to Cloudflare R2 if Redis storage gets tight. The unused `backend/` API is still not called by the app.
+2. **Approval email.** The publish flow uses the mock sender until `EMAIL_PROVIDER=resend`, `RESEND_API_KEY`, and `EMAIL_FROM` are set. Text messages can be added back through the unused SMS module. Move photos to Cloudflare R2 if Redis storage gets tight. The unused `backend/` API is still not called by the app.
 3. **App Store and Play Store.** The Expo project is set up for Expo Go, not a store binary. Use EAS Build (`npx eas-cli build`) with the bundle id `com.collegematch.app`. The privacy policy is at `/privacy`. Submit with `eas submit`. Apple and Google both require accounts, screenshots, and a review of apps used by minors.
 4. **Coach-side app.** A later app can let staff see only the players who contacted them, answer questionnaires, and post camp dates. It should be a separate client on the same program and message models, not a mode inside the player app.
