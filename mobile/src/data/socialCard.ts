@@ -39,13 +39,14 @@ export function socialCard(profile: PlayerProfile, options: { nameStyle: SocialN
   }
   const years = profile.stats.yearsAtLevel;
   stats.push({ label: 'Years', value: years === 1 ? '1 year' : `${years} years` });
+  if (profile.stats.height) stats.push({ label: 'Height', value: profile.stats.height });
   return {
     name: socialName(profile.name, options.nameStyle),
     sport: SPORT_LABEL[profile.sport],
     position: positionSlash(profile.positions, profile.primaryPosition),
     gradYear: profile.gradYear,
     club: profile.clubTeam.trim(),
-    stats: stats.slice(0, 2),
+    stats: stats.slice(0, 3),
     gpa: options.includeGpa ? formatGpa(profile.gpa, profile.gpaWeighted) : null,
     site: SOCIAL_SITE,
   };

@@ -4,7 +4,8 @@ import { buildResumePdf, resumeSections } from './resumePdf';
 import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
 import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
-import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
+import { canonicalHeight, splitHeight } from './height';
+import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
 import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
@@ -312,7 +313,8 @@ const draft: ProfileDraft = {
   yearsAtLevel: '3',
   dominantSide: 'left',
   jerseyNumber: '4',
-  height: '',
+  heightFeet: '',
+  heightInches: '',
   clubCoachName: 'Jordan Lee',
   clubCoachEmail: 'jordan@club.example.com',
   clubCoachPhone: '503-555-0142',
@@ -486,6 +488,19 @@ check(!missingPhone.parentPhone, 'parent phone should be optional');
 const badPhone = validateDraft({ ...draft, parentPhone: '123' });
 check(Boolean(badPhone.parentPhone), 'a partial parent phone should be rejected');
 check(profileFromDraft({ ...draft, parentPhone: '' }, 'player-1').parentPhone === '', 'a blank parent phone should stay blank');
+const savedHeight = splitHeight(`5'6"`);
+check(savedHeight.feet === '5' && savedHeight.inches === '6', 'a saved height with quote marks should split into feet and inches');
+check(canonicalHeight('170 cm') === `5'7"`, 'a saved centimeter height should become feet and inches');
+check(splitHeight(`5'6`).feet === '5' && splitHeight(`5'6`).inches === '6', 'a height without the inch mark should still migrate');
+const withHeight = profileFromDraft({ ...draft, heightFeet: '5', heightInches: '6' }, 'player-1');
+check(withHeight.stats.height === `5'6"`, 'feet and inches should be stored in the display format');
+const badFeet = validateDraft({ ...draft, heightFeet: '8', heightInches: '2' });
+check(Boolean(badFeet.heightFeet), 'feet above 7 should be rejected');
+const badInches = validateDraft({ ...draft, heightFeet: '5', heightInches: '12' });
+check(Boolean(badInches.heightInches), 'inches above 11 should be rejected');
+const blankHeight = validateDraft({ ...draft, heightFeet: '', heightInches: '' });
+check(!blankHeight.heightFeet && !blankHeight.heightInches, 'height should stay optional');
+check(draftFromProfile({ ...strong, stats: { ...strong.stats, height: `5'6"` } }).heightInches === '6', 'editing a saved height should fill inches');
 
 check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
 check(new Set(REAL_PROGRAMS.map((program) => program.id)).size === REAL_PROGRAMS.length, 'real program ids are not unique');

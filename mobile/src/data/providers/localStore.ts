@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { canonicalHeight } from '../height';
 import { emptyRecruiting, isIsoDate } from '../format';
 import { migrateGender } from '../sports';
 import {
@@ -70,7 +71,7 @@ function readStats(raw: PlayerProfile): PlayerStats {
     yearsAtLevel: years,
     dominantSide: readSide(stats?.dominantSide),
     jerseyNumber: jersey,
-    height: typeof stats?.height === 'string' ? stats.height.trim() : '',
+    height: canonicalHeight(typeof stats?.height === 'string' ? stats.height : ''),
     clubCoach: readContact(stats?.clubCoach),
     highSchoolCoach: readContact(stats?.highSchoolCoach),
   };

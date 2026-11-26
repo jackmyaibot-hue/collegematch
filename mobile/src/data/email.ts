@@ -53,6 +53,7 @@ function gameSentence(profile: PlayerProfile): string {
     profile.stats.jerseyNumber != null ? `I wear #${profile.stats.jerseyNumber}` : null,
     dominantSidePhrase(profile.sport, profile.stats.dominantSide),
     yearsPhrase(profile.stats.yearsAtLevel),
+    profile.stats.height ? `I'm ${profile.stats.height}` : null,
   ].filter((line): line is string => Boolean(line));
   return `${positionSentence(profile)}. I play for ${profile.clubTeam} (${leaguePhrase(profile)}) in ${stateName(profile.homeState)}. ${details.join('. ')}.`;
 }

@@ -26,6 +26,7 @@ import {
 } from '../data/types';
 import { colors, radius } from '../theme';
 import { DateField } from './DateField';
+import { FieldAnchor } from './formScroll';
 import { StateSelect } from './StateSelect';
 import { AppText, Chip, TextField } from './ui';
 
@@ -51,6 +52,7 @@ export function IdentityFields({
 }) {
   return (
     <View>
+      <FieldAnchor name="sport" invalid={Boolean(errors.sport)}>
       <AppText variant="label">Your sport</AppText>
       <AppText variant="caption" style={styles.help}>
         Athletes, start here. Pick the sport you want college programs for.
@@ -78,7 +80,9 @@ export function IdentityFields({
         })}
       </View>
       {errors.sport ? <Error text={errors.sport} /> : null}
+      </FieldAnchor>
       <TextField
+        field="name"
         label="Name"
         value={draft.name}
         onChangeText={(name) => onChange({ name })}
@@ -87,12 +91,14 @@ export function IdentityFields({
         error={errors.name}
       />
       <DateField
+        field="birthdate"
         label="Birthday"
         value={draft.birthdate}
         onChange={(birthdate) => onChange({ birthdate })}
         error={errors.birthdate}
         hint="Stays on this phone. Used so programs match your class."
       />
+      <FieldAnchor name="gender" invalid={Boolean(errors.gender)}>
       <AppText variant="label">Gender</AppText>
       <AppText variant="caption" style={styles.help}>
         Required. Female matches women's programs. Male matches men's programs.
@@ -108,6 +114,8 @@ export function IdentityFields({
         ))}
       </Wrap>
       {errors.gender ? <Error text={errors.gender} /> : null}
+      </FieldAnchor>
+      <FieldAnchor name="gradYear" invalid={Boolean(errors.gradYear)}>
       <AppText variant="label">Grad year</AppText>
       <Wrap>
         {GRAD_YEARS.map((year) => (
@@ -120,7 +128,9 @@ export function IdentityFields({
         ))}
       </Wrap>
       {errors.gradYear ? <Error text={errors.gradYear} /> : null}
+      </FieldAnchor>
       <StateSelect
+        field="homeState"
         label="Home state"
         value={draft.homeState}
         onChange={(homeState) => onChange({ homeState })}
@@ -162,47 +172,52 @@ export function SoccerFields({
 
   return (
     <View>
-      <AppText variant="label">Positions</AppText>
-      <AppText variant="caption" style={styles.help}>
-        Select every position you play. A check means it's on. Mark one as primary — that's the spot we list first.
-      </AppText>
-      {setup.positions.length === 0 ? (
-        <AppText variant="body">Positions for this sport are coming soon.</AppText>
-      ) : (
-        <Wrap>
-          {setup.positions.map((position) => {
-            const id = position.id as Position;
-            const selected = selectedPositions.includes(id);
-            return (
-              <Chip
-                key={position.id}
-                label={position.label}
-                selected={selected}
-                badge={selected && draft.primaryPosition === id ? 'Primary' : undefined}
-                onPress={() => onChange(togglePosition(draft, id))}
-              />
-            );
-          })}
-        </Wrap>
-      )}
-      {errors.positions ? <Error text={errors.positions} /> : null}
-      {selectedPositions.length > 1 ? (
-        <View style={styles.primaryBlock}>
-          <AppText variant="label">Primary position</AppText>
+      <FieldAnchor name="positions" invalid={Boolean(errors.positions)}>
+        <AppText variant="label">Positions</AppText>
+        <AppText variant="caption" style={styles.help}>
+          Select every position you play. A check means it's on. Mark one as primary — that's the spot we list first.
+        </AppText>
+        {setup.positions.length === 0 ? (
+          <AppText variant="body">Positions for this sport are coming soon.</AppText>
+        ) : (
           <Wrap>
-            {selectedPositions.map((position) => (
-              <Chip
-                key={`primary-${position}`}
-                label={POSITION_LABEL[position]}
-                selected={draft.primaryPosition === position}
-                onPress={() => onChange({ primaryPosition: position })}
-              />
-            ))}
+            {setup.positions.map((position) => {
+              const id = position.id as Position;
+              const selected = selectedPositions.includes(id);
+              return (
+                <Chip
+                  key={position.id}
+                  label={position.label}
+                  selected={selected}
+                  badge={selected && draft.primaryPosition === id ? 'Primary' : undefined}
+                  onPress={() => onChange(togglePosition(draft, id))}
+                />
+              );
+            })}
           </Wrap>
-        </View>
+        )}
+        {errors.positions ? <Error text={errors.positions} /> : null}
+      </FieldAnchor>
+      {selectedPositions.length > 1 ? (
+        <FieldAnchor name="primaryPosition" invalid={Boolean(errors.primaryPosition)}>
+          <View style={styles.primaryBlock}>
+            <AppText variant="label">Primary position</AppText>
+            <Wrap>
+              {selectedPositions.map((position) => (
+                <Chip
+                  key={`primary-${position}`}
+                  label={POSITION_LABEL[position]}
+                  selected={draft.primaryPosition === position}
+                  onPress={() => onChange({ primaryPosition: position })}
+                />
+              ))}
+            </Wrap>
+          </View>
+          {errors.primaryPosition ? <Error text={errors.primaryPosition} /> : null}
+        </FieldAnchor>
       ) : null}
-      {errors.primaryPosition ? <Error text={errors.primaryPosition} /> : null}
       <TextField
+        field="clubTeam"
         label="Club team"
         value={draft.clubTeam}
         onChangeText={(clubTeam) => onChange({ clubTeam })}
@@ -210,32 +225,34 @@ export function SoccerFields({
         autoCapitalize="words"
         error={errors.clubTeam}
       />
-      <AppText variant="label">Leagues</AppText>
-      <AppText variant="caption" style={styles.help}>
-        Select every league you play in. More than one is fine.
-      </AppText>
-      <View style={styles.stack}>
-        {setup.leagues.map((league) => {
-          const selected = draft.leagues.includes(league.id);
-          return (
-            <Pressable
-              key={league.id}
-              accessibilityRole="checkbox"
-              accessibilityState={{ checked: selected }}
-              onPress={() => toggleLeague(league.id)}
-              style={[styles.league, selected && styles.leagueOn]}
-            >
-              <View style={[styles.box, selected && styles.boxOn]}>
-                {selected ? <Ionicons name="checkmark" size={16} color={colors.greenDark} /> : null}
-              </View>
-              <AppText variant="headline" color={colors.ink} style={styles.leagueLabel}>
-                {league.label}
-              </AppText>
-            </Pressable>
-          );
-        })}
-      </View>
-      {errors.leagues ? <Error text={errors.leagues} /> : null}
+      <FieldAnchor name="leagues" invalid={Boolean(errors.leagues)}>
+        <AppText variant="label">Leagues</AppText>
+        <AppText variant="caption" style={styles.help}>
+          Select every league you play in. More than one is fine.
+        </AppText>
+        <View style={styles.stack}>
+          {setup.leagues.map((league) => {
+            const selected = draft.leagues.includes(league.id);
+            return (
+              <Pressable
+                key={league.id}
+                accessibilityRole="checkbox"
+                accessibilityState={{ checked: selected }}
+                onPress={() => toggleLeague(league.id)}
+                style={[styles.league, selected && styles.leagueOn]}
+              >
+                <View style={[styles.box, selected && styles.boxOn]}>
+                  {selected ? <Ionicons name="checkmark" size={16} color={colors.greenDark} /> : null}
+                </View>
+                <AppText variant="headline" color={colors.ink} style={styles.leagueLabel}>
+                  {league.label}
+                </AppText>
+              </Pressable>
+            );
+          })}
+        </View>
+        {errors.leagues ? <Error text={errors.leagues} /> : null}
+      </FieldAnchor>
     </View>
   );
 }
@@ -254,6 +271,7 @@ export function GameFields({
   return (
     <View>
       <TextField
+        field="highlightVideoUrl"
         label="Highlight video link"
         value={draft.highlightVideoUrl}
         onChangeText={(highlightVideoUrl) => onChange({ highlightVideoUrl })}
@@ -272,7 +290,7 @@ export function GameFields({
         </AppText>
       </View>
       {side ? (
-        <>
+        <FieldAnchor name="dominantSide" invalid={Boolean(errors.dominantSide)}>
           <AppText variant="label">{side.label}</AppText>
           <AppText variant="caption" style={styles.help}>
             {side.hint}
@@ -288,13 +306,14 @@ export function GameFields({
             ))}
           </Wrap>
           {errors.dominantSide ? <Error text={errors.dominantSide} /> : null}
-        </>
+        </FieldAnchor>
       ) : (
         <AppText variant="caption" style={styles.help}>
           We'll ask for the equivalent, such as a dominant hand, when this sport opens.
         </AppText>
       )}
       <TextField
+        field="yearsAtLevel"
         label="Years at this league level"
         value={draft.yearsAtLevel}
         onChangeText={(yearsAtLevel) => onChange({ yearsAtLevel })}
@@ -304,6 +323,7 @@ export function GameFields({
         hint="How many years you've played at your current league level. Use 0 if this is year one."
       />
       <TextField
+        field="jerseyNumber"
         label="Jersey number"
         value={draft.jerseyNumber}
         onChangeText={(jerseyNumber) => onChange({ jerseyNumber })}
@@ -312,14 +332,38 @@ export function GameFields({
         error={errors.jerseyNumber}
         hint="The number coaches should look for on film or at a showcase."
       />
-      <TextField
-        label="Height"
-        value={draft.height}
-        onChangeText={(height) => onChange({ height })}
-        placeholder={'5\'7"'}
-        error={errors.height}
-        hint="Optional. Shown on your CV when you add it."
-      />
+      <AppText variant="label">Height</AppText>
+      <AppText variant="caption" style={styles.help}>
+        Optional. Use the number pad. 5 and 6 becomes 5'6" on your CV.
+      </AppText>
+      <View style={styles.heightRow}>
+        <View style={styles.heightCell}>
+          <TextField
+            field="heightFeet"
+            label="Feet"
+            value={draft.heightFeet}
+            onChangeText={(heightFeet) => onChange({ heightFeet: heightFeet.replace(/\D/g, '').slice(0, 1) })}
+            keyboardType="number-pad"
+            inputMode="numeric"
+            placeholder="5"
+            maxLength={1}
+            error={errors.heightFeet}
+          />
+        </View>
+        <View style={styles.heightCell}>
+          <TextField
+            field="heightInches"
+            label="Inches"
+            value={draft.heightInches}
+            onChangeText={(heightInches) => onChange({ heightInches: heightInches.replace(/\D/g, '').slice(0, 2) })}
+            keyboardType="number-pad"
+            inputMode="numeric"
+            placeholder="6"
+            maxLength={2}
+            error={errors.heightInches}
+          />
+        </View>
+      </View>
     </View>
   );
 }
@@ -348,6 +392,7 @@ export function CoachFields({
       ) : null}
       <AppText variant="label">Club coach</AppText>
       <TextField
+        field="clubCoachName"
         label="Name"
         value={draft.clubCoachName}
         onChangeText={(clubCoachName) => onChange({ clubCoachName })}
@@ -356,6 +401,7 @@ export function CoachFields({
         error={errors.clubCoachName}
       />
       <TextField
+        field="clubCoachEmail"
         label="Email"
         value={draft.clubCoachEmail}
         onChangeText={(clubCoachEmail) => onChange({ clubCoachEmail })}
@@ -366,6 +412,7 @@ export function CoachFields({
         error={errors.clubCoachEmail}
       />
       <TextField
+        field="clubCoachPhone"
         label="Phone"
         value={draft.clubCoachPhone}
         onChangeText={(clubCoachPhone) => onChange({ clubCoachPhone })}
@@ -377,6 +424,7 @@ export function CoachFields({
         High school coach
       </AppText>
       <TextField
+        field="highSchoolCoachName"
         label="Name"
         value={draft.highSchoolCoachName}
         onChangeText={(highSchoolCoachName) => onChange({ highSchoolCoachName })}
@@ -385,6 +433,7 @@ export function CoachFields({
         error={errors.highSchoolCoachName}
       />
       <TextField
+        field="highSchoolCoachEmail"
         label="Email"
         value={draft.highSchoolCoachEmail}
         onChangeText={(highSchoolCoachEmail) => onChange({ highSchoolCoachEmail })}
@@ -395,6 +444,7 @@ export function CoachFields({
         error={errors.highSchoolCoachEmail}
       />
       <TextField
+        field="highSchoolCoachPhone"
         label="Phone"
         value={draft.highSchoolCoachPhone}
         onChangeText={(highSchoolCoachPhone) => onChange({ highSchoolCoachPhone })}
@@ -456,6 +506,7 @@ export function AcademicFields({
   return (
     <View>
       <TextField
+        field="gpa"
         label="GPA"
         value={draft.gpa}
         onChangeText={(gpa) => onChange({ gpa })}
@@ -474,6 +525,7 @@ export function AcademicFields({
         <Chip label="Weighted" selected={draft.gpaWeighted} onPress={() => onChange({ gpaWeighted: true })} />
       </Wrap>
       <TextField
+        field="sat"
         label="SAT"
         value={draft.sat}
         onChangeText={(sat) => onChange({ sat })}
@@ -482,6 +534,7 @@ export function AcademicFields({
         error={errors.sat}
       />
       <TextField
+        field="act"
         label="ACT"
         value={draft.act}
         onChangeText={(act) => onChange({ act })}
@@ -490,6 +543,7 @@ export function AcademicFields({
         error={errors.act}
       />
       <TextField
+        field="ncaaId"
         label="NCAA Eligibility Center ID"
         value={draft.ncaaId}
         onChangeText={(ncaaId) => onChange({ ncaaId })}
@@ -498,6 +552,7 @@ export function AcademicFields({
         error={errors.ncaaId}
         hint="Optional. Added to coach emails and your CV. Stays on this phone."
       />
+      <FieldAnchor name="intendedMajors" invalid={Boolean(errors.intendedMajors)}>
       <AppText variant="label">Intended majors</AppText>
       <AppText variant="caption" style={styles.help}>
         Tap every one you are considering. This is for you. It is not part of the fit score.
@@ -516,6 +571,8 @@ export function AcademicFields({
         ))}
       </Wrap>
       {errors.intendedMajors ? <Error text={errors.intendedMajors} /> : null}
+      </FieldAnchor>
+      <FieldAnchor name="customMajor" invalid={Boolean(errors.customMajor)}>
       <View style={styles.addRow}>
         <TextInput
           value={draft.customMajor}
@@ -532,6 +589,7 @@ export function AcademicFields({
         </Pressable>
       </View>
       {errors.customMajor ? <Error text={errors.customMajor} /> : null}
+      </FieldAnchor>
 
       <AppText variant="label" style={styles.section}>
         Honors & leadership
@@ -561,6 +619,7 @@ export function AcademicFields({
       </Wrap>
       {draft.asb ? (
         <TextField
+          field="asbRole"
           label="Student government role"
           value={draft.asbRole}
           onChangeText={(asbRole) => onChange({ asbRole })}
@@ -569,6 +628,7 @@ export function AcademicFields({
         />
       ) : null}
       <TextField
+        field="apCourses"
         label="AP courses"
         value={draft.apCourses}
         onChangeText={(apCourses) => onChange({ apCourses })}
@@ -577,6 +637,7 @@ export function AcademicFields({
         hint="Optional. A count or a short list."
       />
       <TextField
+        field="honorsCourses"
         label="Honors, IB, or dual enrollment"
         value={draft.honorsCourses}
         onChangeText={(honorsCourses) => onChange({ honorsCourses })}
@@ -585,6 +646,7 @@ export function AcademicFields({
         hint="Optional."
       />
       <TextField
+        field="scholarAthlete"
         label="Scholar-athlete awards"
         value={draft.scholarAthlete}
         onChangeText={(scholarAthlete) => onChange({ scholarAthlete })}
@@ -593,6 +655,7 @@ export function AcademicFields({
         hint="Optional."
       />
       <TextField
+        field="serviceHours"
         label="Community service hours"
         value={draft.serviceHours}
         onChangeText={(serviceHours) => onChange({ serviceHours })}
@@ -602,6 +665,7 @@ export function AcademicFields({
         hint="Optional."
       />
       <TextField
+        field="otherAchievement"
         label="Other achievement"
         value={draft.otherAchievement}
         onChangeText={(otherAchievement) => onChange({ otherAchievement })}
@@ -628,6 +692,7 @@ export function AboutFields({
         Coaches remember a person. Two short answers are plenty, and you can skip either one.
       </AppText>
       <TextField
+        field="proudOf"
         label="Something I'm proud of"
         value={draft.proudOf}
         onChangeText={(proudOf) => onChange({ proudOf })}
@@ -638,6 +703,7 @@ export function AboutFields({
         style={styles.shortNote}
       />
       <TextField
+        field="funFact"
         label="Fun fact about me"
         value={draft.funFact}
         onChangeText={(funFact) => onChange({ funFact })}
@@ -679,6 +745,7 @@ export function PreferenceFields({
       <AppText variant="body" style={styles.help}>
         Four years is a long time. Show us the kind of place that would feel like home.
       </AppText>
+      <FieldAnchor name="levels" invalid={Boolean(errors.levels)}>
       <AppText variant="label">Level</AppText>
       <AppText variant="caption" style={styles.help}>
         Pick every level you'd actually play. Open to all if you are still looking around.
@@ -699,6 +766,8 @@ export function PreferenceFields({
         />
       </Wrap>
       {errors.levels ? <Error text={errors.levels} /> : null}
+      </FieldAnchor>
+      <FieldAnchor name="preferredRegions" invalid={Boolean(errors.preferredRegions)}>
       <AppText variant="label">Preferred regions</AppText>
       <AppText variant="caption" style={styles.help}>
         Pick everywhere you would actually go.
@@ -714,6 +783,8 @@ export function PreferenceFields({
         ))}
       </Wrap>
       {errors.preferredRegions ? <Error text={errors.preferredRegions} /> : null}
+      </FieldAnchor>
+      <FieldAnchor name="schoolSizePreference" invalid={Boolean(errors.schoolSizePreference)}>
       <AppText variant="label" style={styles.section}>
         Campus size
       </AppText>
@@ -728,6 +799,7 @@ export function PreferenceFields({
         ))}
       </Wrap>
       {errors.schoolSizePreference ? <Error text={errors.schoolSizePreference} /> : null}
+      </FieldAnchor>
       <AppText variant="label" style={styles.section}>
         Campus life
       </AppText>
@@ -744,6 +816,7 @@ export function PreferenceFields({
           />
         ))}
       </Wrap>
+      <FieldAnchor name="budgetId" invalid={Boolean(errors.budgetId)}>
       <AppText variant="label" style={styles.section}>
         Budget for net cost
       </AppText>
@@ -758,7 +831,9 @@ export function PreferenceFields({
         ))}
       </Wrap>
       {errors.budgetId ? <Error text={errors.budgetId} /> : null}
+      </FieldAnchor>
       <TextField
+        field="parentEmail"
         label="Parent email"
         value={draft.parentEmail}
         onChangeText={(parentEmail) => onChange({ parentEmail })}
@@ -784,6 +859,8 @@ function Error({ text }: { text: string }) {
 const styles = StyleSheet.create({
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 8 },
   help: { marginTop: -4, marginBottom: 10 },
+  heightRow: { flexDirection: 'row', gap: 8 },
+  heightCell: { flex: 1 },
   stack: { gap: 8, marginBottom: 8 },
   sportGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 8 },
   sportCard: {

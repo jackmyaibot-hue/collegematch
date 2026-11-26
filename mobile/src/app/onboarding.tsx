@@ -14,10 +14,12 @@ import {
   PreferenceFields,
   SoccerFields,
 } from '../components/ProfileFields';
+import { revealFields } from '../components/formScroll';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
 import { openPrivacyPolicy } from '../lib/links';
 import { formatGpa, joinLabels } from '../data/format';
+import { formatHeight } from '../data/height';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
 import { rememberBioSource } from '../data/source';
 import { trackProfileCompleted } from '../data/usage';
@@ -44,9 +46,9 @@ type Step = (typeof STEPS)[number];
 const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
   welcome: [],
   comingSoon: [],
-  you: ['name', 'birthdate', 'gender', 'sport', 'gradYear', 'homeState'],
+  you: ['sport', 'name', 'birthdate', 'gender', 'gradYear', 'homeState'],
   soccer: ['positions', 'primaryPosition', 'clubTeam', 'leagues'],
-  game: ['highlightVideoUrl', 'yearsAtLevel', 'dominantSide', 'jerseyNumber', 'height'],
+  game: ['highlightVideoUrl', 'dominantSide', 'yearsAtLevel', 'jerseyNumber', 'heightFeet', 'heightInches'],
   coaches: [
     'clubCoachName',
     'clubCoachEmail',
@@ -135,6 +137,7 @@ export default function OnboardingScreen() {
     const visible = Object.fromEntries(fields.filter((field) => found[field]).map((field) => [field, found[field]]));
     if (Object.keys(visible).length > 0) {
       setErrors(visible);
+      revealFields(fields.filter((field) => visible[field]));
       return;
     }
     setErrors({});
@@ -149,7 +152,10 @@ export default function OnboardingScreen() {
         const order: Step[] = ['you', 'soccer', 'game', 'coaches', 'academics', 'about', 'preferences'];
         const next = order.find((item) => STEP_FIELDS[item].some((field) => all[field]));
         setErrors(all);
-        if (next) setStep(next);
+        if (next) {
+          setStep(next);
+          revealFields(STEP_FIELDS[next].filter((field) => all[field]));
+        }
         return;
       }
       const profile = profileFromDraft(draft);
@@ -320,7 +326,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Leagues" value={leagueNameList(draft.leagues)} />
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
-        <Line label="Height" value={draft.height.trim() || 'Not added'} />
+        <Line label="Height" value={formatHeight(draft.heightFeet, draft.heightInches) || 'Not added'} />
         <Line label="NCAA ID" value={draft.ncaaId.trim() || 'Not added'} />
         <Line label="Years at level" value={draft.yearsAtLevel} />
         <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />

@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { FormScroll, revealFields } from '../../components/formScroll';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   AboutFields,
@@ -18,7 +19,7 @@ import { PRIVACY_LINE } from '../../copy';
 import { openPrivacyPolicy } from '../../lib/links';
 import { FIT_FACTORS } from '../../data/fitScore';
 import { formatGpa, formatLongDate, joinLabels } from '../../data/format';
-import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
+import { draftFromProfile, FIELD_ORDER, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
 import { dominantSideDisplay, GENDER_LABEL, leagueNameList, positionSlash, SPORT_LABEL } from '../../data/sports';
 import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
 import { stateName } from '../../data/regions';
@@ -51,6 +52,7 @@ export default function ProfileScreen() {
     const found = validateDraft(draft!);
     if (Object.keys(found).length > 0) {
       setErrors(found);
+      revealFields(FIELD_ORDER.filter((field) => found[field]));
       return;
     }
     await saveProfile(profileFromDraft(draft!, profile!.id));
@@ -72,7 +74,7 @@ export default function ProfileScreen() {
 
   return (
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'android' ? undefined : 'padding'}>
-      <ScrollView
+      <FormScroll
         style={styles.flex}
         contentContainerStyle={{ paddingTop: insets.top + 16, paddingHorizontal: 20, paddingBottom: insets.bottom + 32 }}
         keyboardShouldPersistTaps="handled"
@@ -188,7 +190,7 @@ export default function ProfileScreen() {
             Privacy policy
           </AppText>
         </Pressable>
-      </ScrollView>
+      </FormScroll>
     </KeyboardAvoidingView>
   );
 }
