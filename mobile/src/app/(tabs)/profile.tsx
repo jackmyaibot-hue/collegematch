@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -154,6 +155,7 @@ export default function ProfileScreen() {
             <Row label="NCAA ID" value={profile.ncaaId || 'Not added'} />
             <Row label="Parent email" value={profile.parentEmail || 'Not added'} />
             <Button label="Edit profile" onPress={() => setEditing(true)} />
+            <Button label="Social Profile" kind="ghost" icon="image-outline" onPress={() => router.push('/social')} />
             <DownloadCvButton />
             <PublishBio profile={profile} recruiting={recruiting} programs={programs} />
           </View>

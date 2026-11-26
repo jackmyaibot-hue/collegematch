@@ -50,6 +50,13 @@ const CSS = `
   .sheet { max-width: 720px; margin: 0 auto; background: #f3f0e8; min-height: 100vh; }
   .top { background: #0c3b2c; color: #f4f1ea; padding: 28px 24px 72px; }
   .brand { margin: 0 0 18px; letter-spacing: 0.14em; text-transform: uppercase; font-size: 12px; color: #d8f26a; }
+  .logo { display: inline-flex; margin-bottom: 22px; }
+  .logo img { height: 44px; width: auto; display: block; }
+  .cta { margin-top: 8px; background: #0c3b2c; color: #f4f1ea; border-radius: 24px; padding: 22px 20px; }
+  .cta h2 { color: #f4f1ea; margin: 0 0 6px; }
+  .cta p { margin: 0 0 16px; color: #d5e6dc; }
+  .cta a { display: inline-block; background: #d8f26a; color: #0c3b2c; text-decoration: none; font-weight: 700; border-radius: 999px; padding: 14px 18px; }
+  .made { margin-top: 18px; }
   .kicker { margin: 0; font-size: 14px; color: #d5e6dc; }
   h1 { font-family: Georgia, "Iowan Old Style", serif; font-size: 44px; line-height: 1.05; margin: 8px 0 10px; font-weight: 700; }
   .position { margin: 0; font-size: 20px; }
@@ -81,7 +88,7 @@ const CSS = `
   .doc p, .doc li { line-height: 1.5; }
 `;
 
-function shell(title: string, body: string, robots: boolean): string {
+function shell(title: string, body: string, robots: boolean, extraHead = ''): string {
   const robotMeta = robots ? `<meta name="robots" content="${ROBOT_TAG}" />` : '';
   return `<!DOCTYPE html>
 <html lang="en">
@@ -90,6 +97,7 @@ function shell(title: string, body: string, robots: boolean): string {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   ${robotMeta}
   <meta name="referrer" content="same-origin" />
+  ${extraHead}
   <title>${escapeHtml(title)}</title>
   <style>${CSS}</style>
 </head>
@@ -109,7 +117,19 @@ function stat(label: string, value: string): string {
   return `<div class="stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
 }
 
-function bioArticle(record: BioRecord, photoSrc: string | null, extra: string): string {
+function growthBlock(): string {
+  return `<section class="cta">
+    <h2>Get recruited.</h2>
+    <p>Build your free CollegeMatch profile.</p>
+    <a href="/?ref=bio">Start my profile</a>
+  </section>`;
+}
+
+function brandHeader(): string {
+  return `<a class="logo" href="/?ref=bio"><img src="/brand/logo.svg" alt="CollegeMatch" /></a>`;
+}
+
+function bioArticle(record: BioRecord, photoSrc: string | null, extra: string, showGrowth: boolean): string {
   const snap = record.snapshot;
   const portrait = photoSrc
     ? `<img class="photo" src="${escapeHtml(photoSrc)}" alt="${escapeHtml(snap.name)}" />`
@@ -135,7 +155,7 @@ function bioArticle(record: BioRecord, photoSrc: string | null, extra: string): 
   const club = [snap.club, snap.leagues].filter(Boolean).join(' · ');
   return `<div class="sheet">
   <header class="top">
-    <p class="brand">CollegeMatch</p>
+    ${brandHeader()}
     <p class="kicker">Class of ${snap.gradYear} · ${escapeHtml(snap.sportLabel)}</p>
     <h1>${escapeHtml(snap.name)}</h1>
     <p class="position">${escapeHtml(snap.position)}</p>
@@ -157,21 +177,35 @@ function bioArticle(record: BioRecord, photoSrc: string | null, extra: string): 
       <h2>Colleges they're watching</h2>
       ${schools}
     </section>
+    ${showGrowth ? growthBlock() : ''}
     <footer>
       <p>This page is not listed for search engines. Anyone with the link can view it after a parent approves.</p>
+      ${showGrowth ? '<p class="made"><a href="/?ref=bio">Made with CollegeMatch</a></p>' : ''}
       <p><a href="/privacy">Privacy policy</a></p>
     </footer>
   </div>
 </div>`;
 }
 
-export function renderPublicBio(record: BioRecord): string {
+export function renderPublicBio(record: BioRecord, origin = 'https://collegematch.expo.app'): string {
   const photo = record.photo ? `/bio/${record.slug}/photo` : null;
-  return shell(
-    `${record.snapshot.name} · CollegeMatch`,
-    bioArticle(record, photo, ''),
-    true,
-  );
+  const snap = record.snapshot;
+  const title = `${snap.name} · ${snap.position} · Class of ${snap.gradYear}`;
+  const description = `${snap.name} plays ${snap.sportLabel.toLowerCase()}${snap.club ? ` for ${snap.club}` : ''}. A CollegeMatch recruiting bio.`;
+  const pageUrl = `${origin.replace(/\/$/, '')}/bio/${record.slug}`;
+  const image = `${origin.replace(/\/$/, '')}/brand/og.png`;
+  const extraHead = [
+    '<meta property="og:type" content="website" />',
+    `<meta property="og:title" content="${escapeHtml(title)}" />`,
+    `<meta property="og:description" content="${escapeHtml(description)}" />`,
+    `<meta property="og:url" content="${escapeHtml(pageUrl)}" />`,
+    `<meta property="og:image" content="${escapeHtml(image)}" />`,
+    '<meta name="twitter:card" content="summary_large_image" />',
+    `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
+    `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
+    `<meta name="twitter:image" content="${escapeHtml(image)}" />`,
+  ].join('\n  ');
+  return shell(title, bioArticle(record, photo, '', true), true, extraHead);
 }
 
 export function renderPreview(record: BioRecord, token: string): string {
@@ -181,7 +215,7 @@ export function renderPreview(record: BioRecord, token: string): string {
       <button type="submit">Approve and publish</button>
       <p class="fine">Approving makes this page and photo available to anyone with the link. Only the player can take it down later. This link works once and expires in 72 hours.</p>
     </form>`;
-  return shell(`Approve ${record.snapshot.name} · CollegeMatch`, bioArticle(record, photo, banner), true);
+  return shell(`Approve ${record.snapshot.name} · CollegeMatch`, bioArticle(record, photo, banner, false), true);
 }
 
 export function renderApproved(record: BioRecord, origin: string): string {
@@ -223,6 +257,7 @@ export function renderPrivacyPage(): string {
       <p>CollegeMatch is a free app for high school athletes looking at college programs. Many of them are minors. This page says what stays on the phone, what a published bio stores on the server, and how a parent approves it.</p>
       <h2>What stays on the phone</h2>
       <p>The profile is saved on the device. That includes the name, birthday, gender, sport, positions, club, leagues, stats, grades, test scores, home state, preferences, honors, highlight link, the colleges they save or pass, and the parent or guardian email. Coach email drafts open in the device's mail app. The parent email is copied on those drafts. It stays on the phone until the player publishes a bio.</p>
+      <p>A player can also make a social image on the phone for Instagram or TikTok. That image is not uploaded. It leaves the phone only if the player saves or shares it, and it does not include contact details or a link to a private bio.</p>
       <p>There is no account and no password. A random secret stays on the device so only that device can publish or unpublish.</p>
       <h2>Parent email</h2>
       <p>Signup asks for a parent or guardian email, and it can be edited in the profile. Publishing sends that address to our server so we can email a one-time approval link. The address is not shown on the public page or on the athletic resume. A connected email provider receives the address and the approval message only when the player publishes. We do not use it for marketing.</p>

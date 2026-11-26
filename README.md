@@ -154,7 +154,11 @@ Only the player can unpublish. That deletes the bio record and the photo. A pare
 
 The server does not store the birthday or coach contacts. It does store the parent email, a hash of a device secret, and a hash of the approval token. Emails are rate limited (one a minute, three an hour, eight a day per player, and five a day per parent address).
 
-Search engines are asked to skip these pages. The HTML sends `<meta name="robots" content="noindex, nofollow">` and the response sends `X-Robots-Tag: noindex, nofollow`. `public/robots.txt` disallows `/bio/` and `/approve/`.
+Search engines are asked to skip these pages. The HTML sends `<meta name="robots" content="noindex, nofollow">` and the response sends `X-Robots-Tag: noindex, nofollow`. `public/robots.txt` disallows `/bio/` and `/approve/`. A shared link still has a title, description, and branded image for the preview card. The page header uses `public/brand/logo.svg`, which is the file to replace when a final logo arrives.
+
+The public page invites a visitor to build a free profile. That link is `/?ref=bio`. A view of a public bio increments an anonymous bio-view count. If that visit later finishes a profile, it counts as a signup from a bio. The counts do not store a name, a slug, or an install id on the view.
+
+From the profile tab, Social Profile draws a picture on the device for a story (1080×1920) or a feed post (1080×1350). It shows a first name or a last initial, the photo, sport, position, class year, club, and a couple of stats. GPA is included only if the player turns it on. The picture is not uploaded and does not need a parent's approval. Its link and QR code open CollegeMatch, not the private bio.
 
 Records and photos live in Upstash Redis when `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are set, the same database as the usage counts, under `cm:bio:*` keys. Photos are capped at 500KB. Without those variables, a local server keeps bios in memory for that process only. Redis is a fine start for this volume. A photo bucket such as Cloudflare R2 is the right next store if the photos outgrow Redis: the photo is already a separate key, so a later `PhotoStore` can swap in `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_BASE_URL` without changing the approval flow.
 

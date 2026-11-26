@@ -8,6 +8,7 @@ import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDra
 import { regionForState } from './regions';
 import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
+import { socialCard } from './socialCard';
 import { approveBio, bioStatus, previewBio, publicBio, publishBio, TOKEN_TTL_MS, unpublishBio } from '../server/bio';
 import { createMemoryRepo, removeCommands, saveCommands } from '../server/bioRepo';
 import { renderPreview, renderPrivacyPage, renderPublicBio, ROBOT_TAG, ROBOTS_TXT } from '../server/pages';
@@ -587,6 +588,10 @@ if (parsed) {
 }
 const report = usageReport(usage, '2026-10-29');
 check(report.totals.open === 3 && report.active.day === 1 && report.active.week === 2, 'opens count every time and people count once a day');
+const bioView = parseUsage({ id: install, name: 'bio_view', nameOnPage: 'Maya Chen', slug: 'secret-slug' });
+check(bioView?.name === 'bio_view' && !JSON.stringify(bioView).includes('Maya') && !JSON.stringify(bioView).includes('secret'), 'a bio view should be a count with no name or slug');
+const fromBio = applyUsage(usage, { id: install, name: 'bio_signup', sport: null, levels: [] }, '2026-10-29');
+check(fromBio.totals.bio_signup === 1 && fromBio.totals.bio_view === 0, 'a signup from a bio should count once');
 check(report.totals.profile === 1 && report.sports.soccer === 1 && report.levels['NCAA D1'] === 1, 'a profile should count once, with sport and level totals');
 check(passwordsMatch('correct horse', 'correct horse') && !passwordsMatch('correct horse', 'wrong'), 'stats password should match exactly');
 
@@ -657,6 +662,10 @@ async function checkPublishing(): Promise<void> {
   check(live?.snapshot.jersey === '#4' && live.snapshot.foot === 'Left foot', 'the public bio should show stats');
   const livePage = live ? renderPublicBio(live) : '';
   check(livePage.includes('name="robots" content="noindex, nofollow"') && livePage.includes('Class of 2028'), 'the public page should stay out of search results');
+  check(livePage.includes('/brand/logo.svg') && livePage.includes('/?ref=bio') && livePage.includes('Get recruited.'), 'the public bio should carry the logo and a signup link');
+  check(livePage.includes('og:title') && livePage.includes('twitter:card') && livePage.includes('/brand/og.png'), 'a shared bio link should have a preview card');
+  check(!livePage.includes('parent@example.com'), 'the public bio card should not include the parent email');
+  check(!previewPage.includes('og:image'), 'the approval link should not advertise a share card');
   const wrong = await publishBio({
     repo,
     email: mail,
@@ -725,6 +734,14 @@ async function checkPublishing(): Promise<void> {
     'resend should refuse to send until both the key and the from address are set',
   );
   check(emailProviderError({}) == null, 'the email provider should default to the mock sender');
+  const quiet = socialCard(strong, { nameStyle: 'first', includeGpa: false });
+  const named = socialCard({ ...strong, ncaaId: '1234567890' }, { nameStyle: 'initial', includeGpa: true });
+  const quietJson = JSON.stringify(quiet);
+  check(quiet.name === 'Maya' && named.name === 'Maya C.', 'the social name should be a first name or a last initial');
+  check(quiet.gpa == null && named.gpa === '3.6', 'GPA stays off the social image unless the player opts in');
+  check(!quietJson.includes('parent@') && !quietJson.includes('555') && !JSON.stringify(named).includes('1234567890'), 'the social image should hide contact details and the NCAA ID');
+  check(!quietJson.includes('Oregon') && quiet.club === 'Valley United' && quiet.stats.some((stat) => stat.value === '#4'), 'the social image keeps the club and a jersey, not a home address');
+  check(quiet.site === 'https://collegematch.expo.app', 'the social image should link to CollegeMatch, not a private bio');
 }
 
 void (async () => {

@@ -1,7 +1,7 @@
 import { LEVEL_PREFS, SPORTS } from '../data/types';
 
 /** Counts only. A random install id is used to dedupe people, then discarded after 40 days. */
-export const USAGE_EVENTS = ['open', 'profile', 'swipe', 'save', 'email'] as const;
+export const USAGE_EVENTS = ['open', 'profile', 'swipe', 'save', 'email', 'bio_view', 'bio_signup'] as const;
 export type UsageEventName = (typeof USAGE_EVENTS)[number];
 
 const INSTALL_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -52,7 +52,7 @@ export function parseUsage(body: unknown): ParsedUsage | null {
 
 export function emptyUsage(): UsageSnapshot {
   return {
-    totals: { open: 0, profile: 0, swipe: 0, save: 0, email: 0 },
+    totals: { open: 0, profile: 0, swipe: 0, save: 0, email: 0, bio_view: 0, bio_signup: 0 },
     days: {},
     profiles: [],
     sports: {},
@@ -183,6 +183,11 @@ function asIds(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
 }
 
+/** A public bio view. No install id, name, or slug is stored. */
+export function recordBioView(): void {
+  void redis([['INCR', 'cm:t:bio_view']]).catch(() => undefined);
+}
+
 export function storageConfigured(): boolean {
   return upstashConfig() != null;
 }
@@ -208,7 +213,7 @@ export async function recordUsage(event: ParsedUsage, day = utcDay()): Promise<b
 export async function readUsage(today = utcDay()): Promise<UsageReport | null> {
   const days = recentDays(today, 30);
   const commands: (string | number)[][] = [
-    ['MGET', 'cm:t:open', 'cm:t:profile', 'cm:t:swipe', 'cm:t:save', 'cm:t:email'],
+    ['MGET', 'cm:t:open', 'cm:t:profile', 'cm:t:swipe', 'cm:t:save', 'cm:t:email', 'cm:t:bio_view', 'cm:t:bio_signup'],
     ['HGETALL', 'cm:sports'],
     ['HGETALL', 'cm:levels'],
     ['SUNION', ...days.map((day) => `cm:d:${day}`)],
@@ -228,6 +233,8 @@ export async function readUsage(today = utcDay()): Promise<UsageReport | null> {
       swipe: asCount(totalsRaw[2]),
       save: asCount(totalsRaw[3]),
       email: asCount(totalsRaw[4]),
+      bio_view: asCount(totalsRaw[5]),
+      bio_signup: asCount(totalsRaw[6]),
     },
     sports: hashGetAll(rows[1]),
     levels: hashGetAll(rows[2]),
@@ -265,6 +272,8 @@ export function statsPage(report: UsageReport | null, message?: string): string 
           ['Swipes', report.totals.swipe],
           ['Schools saved', report.totals.save],
           ['Coach emails drafted', report.totals.email],
+          ['Bio page views', report.totals.bio_view],
+          ['Signups from a bio', report.totals.bio_signup],
         ]),
         countTable('Profiles by sport', Object.entries(report.sports)),
         countTable('Profiles by level', Object.entries(report.levels)),

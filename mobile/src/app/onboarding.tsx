@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useGlobalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { ImageBackground, KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
@@ -19,6 +19,7 @@ import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
 import { openPrivacyPolicy } from '../lib/links';
 import { formatGpa, joinLabels } from '../data/format';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
+import { rememberBioSource } from '../data/source';
 import { trackProfileCompleted } from '../data/usage';
 import { stateName } from '../data/regions';
 import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
@@ -84,6 +85,10 @@ const TITLES: Record<'you' | 'game' | 'coaches' | 'academics' | 'about' | 'prefe
 
 export default function OnboardingScreen() {
   const { saveProfile, programs } = useAppState();
+  const params = useGlobalSearchParams<{ ref?: string }>();
+  useEffect(() => {
+    if (params.ref === 'bio') void rememberBioSource();
+  }, [params.ref]);
   const insets = useSafeAreaInsets();
   const toolsClearance = expoGoToolsClearance();
   const [step, setStep] = useState<Step>('welcome');

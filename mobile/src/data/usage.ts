@@ -1,11 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import { cameFromBio } from './source';
 import type { LevelPref, Sport } from './types';
 
 const STORAGE_KEY = 'collegematch.usage.v1';
 const PRODUCTION_URL = 'https://collegematch.expo.app/api/usage';
 
-type UsageName = 'open' | 'profile' | 'swipe' | 'save' | 'email';
+type UsageName = 'open' | 'profile' | 'swipe' | 'save' | 'email' | 'bio_signup';
 
 type StoredUsage = { id: string; profileCounted: boolean };
 
@@ -62,6 +63,7 @@ export function trackProfileCompleted(sport: Sport, levels: (LevelPref | 'open')
     usage.profileCounted = true;
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(usage));
     trackUsage('profile', { sport, levels });
+    if (await cameFromBio()) trackUsage('bio_signup');
   })().catch(() => undefined);
 }
 
