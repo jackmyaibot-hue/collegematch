@@ -17,7 +17,7 @@ import { emailProviderError, recordingEmailProvider } from '../server/email';
 import { applyUsage, emptyUsage, parseUsage, passwordsMatch, usageReport } from '../server/usage';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
-import { DIVISIONS, POSITIONS, type PlayerProfile } from './types';
+import { DIVISIONS, POSITIONS, SOCCER_POSITIONS, type PlayerProfile } from './types';
 
 const failures: string[] = [];
 
@@ -48,7 +48,7 @@ for (const program of SAMPLE_PROGRAMS) {
   for (const url of [program.questionnaireUrl, program.admissionsUrl, program.costUrl, program.athleticsUrl]) {
     check(url != null && url.startsWith('https://example.com/'), `${program.id} url is not example.com: ${url}`);
   }
-  check(program.roster.length === POSITIONS.length, `${program.id} roster is missing positions`);
+  check(program.roster.length === SOCCER_POSITIONS.length, `${program.id} roster is missing positions`);
   for (const spot of program.roster) {
     check(spot.graduating <= spot.count && spot.graduating >= 0, `${program.id} ${spot.position} roster is invalid`);
   }
@@ -310,7 +310,11 @@ const draft: ProfileDraft = {
   primaryPosition: 'CB',
   clubTeam: 'Valley United',
   leagues: ['ecnl', 'ga'],
+  otherLeague: '',
   yearsAtLevel: '3',
+  fortyYard: '',
+  shuttle: '',
+  vertical: '',
   dominantSide: 'left',
   jerseyNumber: '4',
   heightFeet: '',
@@ -500,6 +504,29 @@ const badInches = validateDraft({ ...draft, heightFeet: '5', heightInches: '12' 
 check(Boolean(badInches.heightInches), 'inches above 11 should be rejected');
 const blankHeight = validateDraft({ ...draft, heightFeet: '', heightInches: '' });
 check(!blankHeight.heightFeet && !blankHeight.heightInches, 'height should stay optional');
+const flagDraft: ProfileDraft = {
+  ...draft,
+  sport: 'flag-football',
+  positions: ['QB', 'WR'],
+  primaryPosition: 'QB',
+  leagues: ['ff-nfl', 'ff-other'],
+  otherLeague: 'City flag',
+  dominantSide: 'right',
+  fortyYard: '4.95',
+  shuttle: '',
+  vertical: '24',
+};
+check(Object.keys(validateDraft(flagDraft)).length === 0, 'a flag football profile should validate');
+const flagProfile = profileFromDraft(flagDraft, 'player-flag');
+check(flagProfile.stats.fortyYard === 4.95 && flagProfile.stats.vertical === 24, 'flag measurables should be kept');
+check(flagProfile.stats.dominantSide === 'right' && flagProfile.otherLeague === 'City flag', 'throwing hand and other league should be kept');
+check(Boolean(validateDraft({ ...flagDraft, fortyYard: '2' }).fortyYard), 'an impossible 40 should be rejected');
+if (northwind) {
+  check(
+    buildIntroEmail(flagProfile, northwind, northwind.coaches[0], '2026-11-28').body.includes('quarterback'),
+    'a flag email should name the position',
+  );
+}
 check(draftFromProfile({ ...strong, stats: { ...strong.stats, height: `5'6"` } }).heightInches === '6', 'editing a saved height should fill inches');
 
 check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
@@ -550,10 +577,18 @@ for (const program of REAL_PROGRAMS) {
   for (const spot of program.roster) {
     check(POSITIONS.includes(spot.position) && spot.graduating <= spot.count && spot.graduating >= 0, `${program.id} roster row is invalid`);
   }
-  if (program.division === 'NJCAA') {
+  if (program.division === 'NJCAA' && program.sport === 'soccer') {
     check(program.jucoDivision === 'D1' || program.jucoDivision === 'D2' || program.jucoDivision === 'D3', `${program.id} needs a JUCO tier`);
   }
+  if (program.sport === 'flag-football') {
+    check(program.side === 'women', `${program.id} flag football should be a women's program`);
+    check(Boolean(program.athleticsUrl), `${program.id} flag football needs an athletics page`);
+  }
 }
+const flagPrograms = REAL_PROGRAMS.filter((program) => program.sport === 'flag-football');
+check(flagPrograms.length >= 200, `expected a flag football catalog, got ${flagPrograms.length}`);
+check(flagPrograms.some((program) => program.division === 'NCAA D1'), 'flag football should include NCAA D1');
+check(flagPrograms.every((program) => !program.ranking), 'flag football should not carry a poll rank without a dated official poll');
 const floridaState = REAL_PROGRAMS.find((program) => program.id === 'florida-state');
 check(Boolean(floridaState && floridaState.city === 'Tallahassee' && floridaState.state === 'FL'), 'Florida State location should come from Scorecard');
 check(floridaState?.instagramHandle === 'nolesoccer', 'Florida State Instagram should be the handle on the athletics page');

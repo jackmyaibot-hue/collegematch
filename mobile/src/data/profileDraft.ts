@@ -25,9 +25,13 @@ export const FIELD_ORDER: (keyof ProfileDraft)[] = [
   'primaryPosition',
   'clubTeam',
   'leagues',
+  'otherLeague',
   'highlightVideoUrl',
   'dominantSide',
   'yearsAtLevel',
+  'fortyYard',
+  'shuttle',
+  'vertical',
   'jerseyNumber',
   'heightFeet',
   'heightInches',
@@ -91,7 +95,11 @@ export type ProfileDraft = {
   primaryPosition: Position | null;
   clubTeam: string;
   leagues: LeagueId[];
+  otherLeague: string;
   yearsAtLevel: string;
+  fortyYard: string;
+  shuttle: string;
+  vertical: string;
   dominantSide: DominantSide | null;
   jerseyNumber: string;
   heightFeet: string;
@@ -150,7 +158,11 @@ export function emptyDraft(): ProfileDraft {
     primaryPosition: null,
     clubTeam: '',
     leagues: [],
+    otherLeague: '',
     yearsAtLevel: '',
+    fortyYard: '',
+    shuttle: '',
+    vertical: '',
     dominantSide: null,
     jerseyNumber: '',
     heightFeet: '',
@@ -206,7 +218,11 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     primaryPosition: profile.primaryPosition,
     clubTeam: profile.clubTeam,
     leagues: [...profile.leagues],
+    otherLeague: profile.otherLeague ?? '',
     yearsAtLevel: String(profile.stats.yearsAtLevel ?? 0),
+    fortyYard: profile.stats.fortyYard == null ? '' : String(profile.stats.fortyYard),
+    shuttle: profile.stats.shuttle == null ? '' : String(profile.stats.shuttle),
+    vertical: profile.stats.vertical == null ? '' : String(profile.stats.vertical),
     dominantSide: profile.stats.dominantSide ?? null,
     jerseyNumber: profile.stats.jerseyNumber == null ? '' : String(profile.stats.jerseyNumber),
     heightFeet: splitHeight(profile.stats.height ?? '').feet,
@@ -277,6 +293,13 @@ function honorsFromDraft(draft: ProfileDraft): HonorsProfile {
   };
 }
 
+function parseDecimal(value: string): number | null {
+  const text = value.trim();
+  if (!/^\d{1,2}(\.\d{1,2})?$/.test(text)) return null;
+  const number = Number(text);
+  return Number.isFinite(number) ? number : null;
+}
+
 function parseIntField(value: string): number | null {
   if (value.trim() === '') return null;
   if (!/^\d+$/.test(value.trim())) return null;
@@ -324,13 +347,35 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   if (draft.clubTeam.trim().length < 2) errors.clubTeam = 'Add your club team.';
   if (draft.leagues.length === 0) errors.leagues = 'Pick at least one league.';
+  if (draft.leagues.includes('ff-other') && draft.otherLeague.trim().length < 2) {
+    errors.otherLeague = 'Name that other league or club, or pick a different one.';
+  }
+  if (draft.otherLeague.trim().length > 80) errors.otherLeague = 'Keep the other league to a short name.';
 
   const years = parseIntField(draft.yearsAtLevel);
   if (years == null || years > 15) {
-    errors.yearsAtLevel = 'Use a whole number from 0 to 15. 0 means this is your first year at this level.';
+    errors.yearsAtLevel =
+      draft.sport === 'flag-football'
+        ? "Use a whole number from 0 to 15. 0 means this is your first year playing."
+        : 'Use a whole number from 0 to 15. 0 means this is your first year at this level.';
   }
   if (draft.sport === 'soccer' && !draft.dominantSide) {
     errors.dominantSide = 'Pick Left, Right, or Both.';
+  }
+  if (draft.sport === 'flag-football' && draft.dominantSide !== 'left' && draft.dominantSide !== 'right') {
+    errors.dominantSide = 'Pick Left or Right.';
+  }
+  const forty = parseDecimal(draft.fortyYard);
+  if (draft.fortyYard.trim() && (forty == null || forty < 4 || forty > 8)) {
+    errors.fortyYard = 'Use a 40 time from 4.00 to 8.00 seconds, or leave it blank.';
+  }
+  const shuttle = parseDecimal(draft.shuttle);
+  if (draft.shuttle.trim() && (shuttle == null || shuttle < 3.5 || shuttle > 7)) {
+    errors.shuttle = 'Use a shuttle from 3.50 to 7.00 seconds, or leave it blank.';
+  }
+  const vertical = parseDecimal(draft.vertical);
+  if (draft.vertical.trim() && (vertical == null || vertical < 10 || vertical > 50)) {
+    errors.vertical = 'Use a vertical from 10 to 50 inches, or leave it blank.';
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
@@ -430,9 +475,13 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     primaryPosition: draft.primaryPosition,
     clubTeam: draft.clubTeam.trim(),
     leagues: [...draft.leagues],
+    otherLeague: draft.leagues.includes('ff-other') ? draft.otherLeague.trim() : '',
     stats: {
       yearsAtLevel: Number(draft.yearsAtLevel),
-      dominantSide: draft.sport === 'soccer' ? draft.dominantSide : null,
+      dominantSide: draft.sport === 'soccer' || draft.sport === 'flag-football' ? draft.dominantSide : null,
+      fortyYard: draft.sport === 'flag-football' && draft.fortyYard.trim() ? Number(draft.fortyYard) : null,
+      shuttle: draft.sport === 'flag-football' && draft.shuttle.trim() ? Number(draft.shuttle) : null,
+      vertical: draft.sport === 'flag-football' && draft.vertical.trim() ? Number(draft.vertical) : null,
       jerseyNumber: Number(draft.jerseyNumber),
       height: formatHeight(draft.heightFeet, draft.heightInches),
       clubCoach: {

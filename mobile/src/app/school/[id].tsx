@@ -70,6 +70,7 @@ export default function SchoolScreen() {
             </AppText>
           </View>
           <Pill label={program.division} bg={division.bg} fg={division.fg} />
+          {program.launchLabel ? <Pill label={program.launchLabel} bg="#F3E2B3" fg="#6A4B12" /> : null}
         </View>
         <AppText variant="title" color="#F4F1EA">
           {program.schoolName}

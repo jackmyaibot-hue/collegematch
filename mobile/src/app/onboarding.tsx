@@ -31,8 +31,10 @@ import {
   leagueNameList,
   positionSlash,
   programMatchesAthlete,
+  sideStatLabel,
+  sportChoiceLabel,
   sportHeading,
-  SPORT_LABEL,
+  yearsStatLabel,
 } from '../data/sports';
 import { CAMPUS_LIFE_LABEL, LEVEL_LABEL } from '../data/types';
 import { SPORTS, type Sport } from '../data/types';
@@ -232,12 +234,17 @@ export default function OnboardingScreen() {
         <ComingSoon
           sport={draft.sport}
           detail={
-            draft.gender === 'male' && draft.sport === 'soccer'
-              ? "Men's soccer is coming soon. We'll let you know when those programs are ready to swipe."
+            draft.gender === 'male' && (draft.sport === 'soccer' || draft.sport === 'flag-football')
+              ? `Men's ${draft.sport === 'flag-football' ? 'flag football' : 'soccer'} is coming soon. We'll let you know when those programs are ready to swipe.`
               : undefined
           }
+          actionLabel={draft.sport === 'flag-football' ? "Show women's flag football" : "Try women's soccer"}
           onTrySoccer={() => {
-            setDraft((current) => ({ ...current, sport: 'soccer', gender: 'female' }));
+            setDraft((current) => ({
+              ...current,
+              sport: draft.sport === 'flag-football' ? 'flag-football' : 'soccer',
+              gender: 'female',
+            }));
             setStep('you');
           }}
         />
@@ -319,16 +326,19 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Name" value={`${draft.name} · ${draft.gradYear}`} />
         <Line label="Birthday" value={draft.birthdate} />
         <Line label="Gender" value={draft.gender ? GENDER_LABEL[draft.gender] : ''} />
-        <Line label="Sport" value={draft.sport ? SPORT_LABEL[draft.sport] : ''} />
+        <Line label="Sport" value={draft.sport ? sportChoiceLabel(draft.sport) : ''} />
         <Line label="From" value={stateName(draft.homeState)} />
         <Line label="Positions" value={positionSlash(draft.positions, draft.primaryPosition)} />
         <Line label="Club" value={draft.clubTeam} />
-        <Line label="Leagues" value={leagueNameList(draft.leagues)} />
-        <Line label="Foot" value={foot ?? 'Not added'} />
+        <Line label="Leagues" value={leagueNameList(draft.leagues, draft.otherLeague)} />
+        <Line label={draft.sport ? sideStatLabel(draft.sport) : 'Foot'} value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
+        {draft.sport === 'flag-football' ? <Line label="40" value={draft.fortyYard || 'Not added'} /> : null}
+        {draft.sport === 'flag-football' ? <Line label="Shuttle" value={draft.shuttle || 'Not added'} /> : null}
+        {draft.sport === 'flag-football' ? <Line label="Vertical" value={draft.vertical ? `${draft.vertical}"` : 'Not added'} /> : null}
         <Line label="Height" value={formatHeight(draft.heightFeet, draft.heightInches) || 'Not added'} />
         <Line label="NCAA ID" value={draft.ncaaId.trim() || 'Not added'} />
-        <Line label="Years at level" value={draft.yearsAtLevel} />
+        <Line label={draft.sport ? yearsStatLabel(draft.sport) : 'Years at level'} value={draft.yearsAtLevel} />
         <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />
         <Line label="High school coach" value={hs || 'Not added'} />
         <Line label="Highlight" value={draft.highlightVideoUrl || 'Not added'} />

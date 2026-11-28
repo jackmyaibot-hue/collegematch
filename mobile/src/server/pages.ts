@@ -166,8 +166,11 @@ function bioArticle(record: BioRecord, photoSrc: string | null, extra: string, s
     ${extra}
     <section class="stats">
       ${stat('Jersey', snap.jersey)}
-      ${stat('Foot', snap.foot)}
-      ${stat('Years at level', snap.yearsAtLevel)}
+      ${stat(snap.sideLabel || 'Foot', snap.foot)}
+      ${stat('40', snap.forty || '')}
+      ${stat('Shuttle', snap.shuttle || '')}
+      ${stat('Vertical', snap.vertical ? `${snap.vertical}"` : '')}
+      ${stat(snap.yearsLabel || 'Years at level', snap.yearsAtLevel)}
       ${stat('Height', snap.height)}
       ${stat('GPA', snap.gpa)}
       ${stat('Home', snap.homeState)}
@@ -253,7 +256,7 @@ export function renderPrivacyPage(): string {
     `<main class="doc">
       <p class="brand">CollegeMatch</p>
       <h1>Privacy policy</h1>
-      <p>Updated November 26, 2026.</p>
+      <p>Updated November 28, 2026.</p>
       <p>CollegeMatch is a free app for high school athletes looking at college programs. Many of them are minors. This page says what stays on the phone, what a published bio stores on the server, and how a parent approves it.</p>
       <h2>What stays on the phone</h2>
       <p>The profile is saved on the device. That includes the name, birthday, gender, sport, positions, club, leagues, stats, grades, test scores, home state, preferences, honors, highlight link, the colleges they save or pass, and the parent or guardian email. Coach email drafts open in the device's mail app. The parent email is copied on those drafts. It stays on the phone until the player publishes a bio.</p>
@@ -262,7 +265,7 @@ export function renderPrivacyPage(): string {
       <h2>Parent email</h2>
       <p>Signup asks for a parent or guardian email, and it can be edited in the profile. Publishing sends that address to our server so we can email a one-time approval link. The address is not shown on the public page or on the athletic resume. A connected email provider receives the address and the approval message only when the player publishes. We do not use it for marketing.</p>
       <h2>What a published bio stores</h2>
-      <p>When a player taps Publish, the server stores a bio record: name, sport, positions, graduation year, club, leagues, jersey number, dominant foot, years at that level, height, GPA, home state, majors, a short honors line, what they are proud of, a fun fact, the highlight link, and the colleges saved at that moment. It also stores the parent email, a hash of the device secret, and a hash of the approval token. The birthday and coach names and contacts are not stored on the server.</p>
+      <p>When a player taps Publish, the server stores a bio record: name, sport, positions, graduation year, club, leagues, jersey number, dominant foot or throwing hand, years at that level, height, any flag football measurables they added (40-yard dash, shuttle, vertical), GPA, home state, majors, a short honors line, what they are proud of, a fun fact, the highlight link, and the colleges saved at that moment. It also stores the parent email, a hash of the device secret, and a hash of the approval token. The birthday and coach names and contacts are not stored on the server.</p>
       <h2>Photos</h2>
       <p>An optional photo is uploaded with the bio and stored on the server, capped at 500KB. It is not publicly viewable until a parent approves. Unpublish deletes the photo from the server. Records and photos are kept in our Redis database (Upstash) under keys separate from anonymous usage counts. If that store is not configured, a local development server keeps them in memory only.</p>
       <h2>Approval</h2>
@@ -273,7 +276,7 @@ export function renderPrivacyPage(): string {
       <h2>Unpublish and deletion</h2>
       <p>Only the player can unpublish, from the profile tab on the device that published. Unpublish deletes the bio record and the photo from the server. A parent cannot take the page down. Start over tries to unpublish first, then erases the profile from the phone. If the server cannot be reached, the phone profile is kept so the player can try again.</p>
       <h2>Anonymous counts</h2>
-      <p>The app also sends anonymous usage counts (opens, completed profiles, swipes, saves, and drafted coach emails) with a random install id. Those counts are not tied to a name, email, phone number, or bio. Daily install ids expire after 40 days. There is no ad SDK and no third-party tracker.</p>
+      <p>The app also sends anonymous usage counts (opens, completed profiles, swipes, saves, and drafted coach emails) with a random install id. A completed profile is counted once and broken out by sport and by the levels they picked. Those counts are not tied to a name, email, phone number, or bio. Daily install ids expire after 40 days. There is no ad SDK and no third-party tracker.</p>
       <h2>What we do not do</h2>
       <p>We do not sell personal information.</p>
       <p><a href="/">Back to CollegeMatch</a></p>

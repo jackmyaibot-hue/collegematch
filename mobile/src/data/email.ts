@@ -20,13 +20,35 @@ export type IntroEmail = {
 };
 
 function leaguePhrase(profile: PlayerProfile): string {
-  return leagueShortList(profile.leagues);
+  return leagueShortList(profile.leagues, profile.otherLeague ?? '');
 }
 
-function yearsPhrase(years: number): string {
+function yearsPhrase(profile: PlayerProfile): string {
+  const years = profile.stats.yearsAtLevel;
+  if (profile.sport === 'flag-football') {
+    if (years <= 0) return 'This is my first year playing flag football';
+    if (years === 1) return "I've played flag football for 1 year";
+    return `I've played flag football for ${years} years`;
+  }
   if (years <= 0) return 'This is my first year at this league level';
   if (years === 1) return "I've played at this league level for 1 year";
   return `I've played at this league level for ${years} years`;
+}
+
+function seconds(value: number): string {
+  return value.toFixed(2).replace(/\.?0+$/, '');
+}
+
+function measurablePhrase(profile: PlayerProfile): string | null {
+  if (profile.sport !== 'flag-football') return null;
+  const bits = [
+    profile.stats.fortyYard != null ? `my 40 is ${seconds(profile.stats.fortyYard)}` : null,
+    profile.stats.shuttle != null ? `my shuttle is ${seconds(profile.stats.shuttle)}` : null,
+    profile.stats.vertical != null ? `my vertical is ${profile.stats.vertical}"` : null,
+  ].filter((item): item is string => Boolean(item));
+  if (bits.length === 0) return null;
+  const sentence = bits.length === 1 ? bits[0] : `${bits.slice(0, -1).join(', ')} and ${bits[bits.length - 1]}`;
+  return sentence.charAt(0).toUpperCase() + sentence.slice(1);
 }
 
 function positionSentence(profile: PlayerProfile): string {
@@ -52,7 +74,8 @@ function gameSentence(profile: PlayerProfile): string {
   const details = [
     profile.stats.jerseyNumber != null ? `I wear #${profile.stats.jerseyNumber}` : null,
     dominantSidePhrase(profile.sport, profile.stats.dominantSide),
-    yearsPhrase(profile.stats.yearsAtLevel),
+    yearsPhrase(profile),
+    measurablePhrase(profile),
     profile.stats.height ? `I'm ${profile.stats.height}` : null,
   ].filter((line): line is string => Boolean(line));
   return `${positionSentence(profile)}. I play for ${profile.clubTeam} (${leaguePhrase(profile)}) in ${stateName(profile.homeState)}. ${details.join('. ')}.`;

@@ -4,6 +4,7 @@ import type { Sport } from '../data/types';
 const WELCOME_IMAGES: Record<Sport | 'default', ImageSourcePropType> = {
   default: require('../../assets/welcome/welcome-default.jpg'),
   soccer: require('../../assets/welcome/welcome-soccer.jpg'),
+  'flag-football': require('../../assets/welcome/welcome-football.jpg'),
   basketball: require('../../assets/welcome/welcome-basketball.jpg'),
   volleyball: require('../../assets/welcome/welcome-volleyball.jpg'),
   softball: require('../../assets/welcome/welcome-softball.jpg'),

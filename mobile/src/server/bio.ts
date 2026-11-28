@@ -39,7 +39,13 @@ export type BioSnapshot = {
   leagues: string;
   jersey: string;
   foot: string;
+  /** "Foot" for soccer. "Hand" for flag football. Older bios omit this and stay "Foot". */
+  sideLabel?: string;
   yearsAtLevel: string;
+  yearsLabel?: string;
+  forty?: string;
+  shuttle?: string;
+  vertical?: string;
   height: string;
   gpa: string;
   homeState: string;
@@ -153,6 +159,12 @@ function snapshotFrom(body: Record<string, unknown>): BioSnapshot {
   if (!home || homeLabel === home) throw new BioError('Add a home state before publishing.', 400);
   const years = Number(body.yearsAtLevel);
   const jersey = body.jerseyNumber == null || body.jerseyNumber === '' ? null : Number(body.jerseyNumber);
+  const otherLeague = cleanText(body.otherLeague, 80);
+  const measurable = (value: unknown, min: number, max: number, digits: number): string => {
+    const number = typeof value === 'number' ? value : Number(value);
+    if (!Number.isFinite(number) || number < min || number > max) return '';
+    return digits === 0 ? String(Math.round(number)) : number.toFixed(2).replace(/\.?0+$/, '');
+  };
   const side = body.dominantSide === 'left' || body.dominantSide === 'right' || body.dominantSide === 'both' ? body.dominantSide : null;
   const majors = Array.isArray(body.majors)
     ? body.majors.map((item) => cleanText(item, 60)).filter((item) => item.length >= 2).slice(0, 8)
@@ -165,10 +177,15 @@ function snapshotFrom(body: Record<string, unknown>): BioSnapshot {
     position: positionSlash(positions, primary),
     gradYear,
     club: cleanText(body.club, 80),
-    leagues: leagueShortList(leagues),
+    leagues: leagueShortList(leagues, otherLeague),
     jersey: jersey != null && Number.isInteger(jersey) && jersey >= 0 && jersey <= 99 ? `#${jersey}` : '',
     foot: dominantSideDisplay(sport as Sport, side) ?? '',
+    sideLabel: sport === 'flag-football' ? 'Hand' : 'Foot',
     yearsAtLevel: Number.isFinite(years) && years >= 0 && years <= 20 ? String(Math.round(years)) : '0',
+    yearsLabel: sport === 'flag-football' ? 'Years playing' : 'Years at level',
+    forty: sport === 'flag-football' ? measurable(body.fortyYard, 4, 8, 2) : '',
+    shuttle: sport === 'flag-football' ? measurable(body.shuttle, 3.5, 7, 2) : '',
+    vertical: sport === 'flag-football' ? measurable(body.vertical, 10, 50, 0) : '',
     height: cleanText(body.height, 20),
     gpa: cleanText(body.gpa, 24),
     homeState: homeLabel,

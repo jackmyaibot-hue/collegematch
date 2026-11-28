@@ -2,7 +2,7 @@
 
 CollegeMatch is a free iOS and Android app for high school athletes. It works like a card deck for college programs: swipe right to save a school, left to pass, then write a short intro to a coach.
 
-Girls' soccer is the first deck. The default deck is real women's programs from the most recent final national polls. Other sports, and men's programs, are in the profile so they can be added later. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
+Women's soccer and women's flag football are the open decks. Signup and the profile ask which one she plays, and the swipe deck, filters, coach emails, bio, CV, and Social Profile follow that choice. Another sport can be added the same way later. Men's programs are still coming soon. Until a sport has programs, the app shows a coming-soon message instead of an empty deck.
 
 The app does not charge athletes. Sponsor slots are placeholders in the deck, clearly labeled **Sponsored**. The profile stays on the phone until a player publishes a recruiting bio. That bio and an optional photo are stored on the server and stay private until a parent approves. Anonymous usage counts (opens, swipes, saves) are stored without names, emails, or profiles.
 
@@ -33,6 +33,18 @@ python3 scripts/collect_womens_soccer.py
 Seeds and poll notes live in `scripts/data/womens-soccer-seeds.json`. The script writes `mobile/src/data/real/programs.json` and `scripts/data/collect-report.json`. Downloaded pages are cached under `scripts/cache/`, which is gitignored.
 
 The banner reads: "Real programs. Facts come from official athletics sites and the College Scorecard. Verify them before you contact a coach."
+
+### Women's flag football
+
+Flag football programs live in `mobile/src/data/real/flag-programs.json` and are merged into the same deck. Counts are NCAA Division I, II, and III, NAIA, and NJCAA. A school is included only when its own athletics page (or its own announcement) confirms the program. Coach names and emails are copied from the staff page when that page titles someone head coach. If a fact was not there, the field is blank. Schools that have announced a later first season are marked `Launching 20XX`. No flag football ranking is stored: the NAIA Top 10 page does not print a poll date, and the NCAA does not publish one yet.
+
+Schools already in the soccer catalog keep their colors, campus tags, and Scorecard figures. Flag football does not copy soccer coaches, records, or Instagram accounts.
+
+```bash
+python3 scripts/collect_flag_football.py
+```
+
+The script reads BreakAway's CC BY 4.0 program index for athletics URLs, then rechecks those pages. The report is `scripts/data/flag-football-report.json`.
 
 ## Sample data
 

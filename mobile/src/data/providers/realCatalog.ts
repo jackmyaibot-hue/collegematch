@@ -1,5 +1,6 @@
 import { schoolSizeFromEnrollment } from '../format';
 import catalogFile from '../real/programs.json';
+import flagFile from '../real/flag-programs.json';
 import { regionForState } from '../regions';
 import type { Coach, Division, JucoDivision, Position, Program, ProgramRanking, ProgramSource, RosterCount, TeamRecord } from '../types';
 import type { ProgramCatalog } from './types';
@@ -46,6 +47,8 @@ type RawProgram = {
   externalIds?: { scorecard?: string };
   sources?: ProgramSource[];
   lastVerified?: string;
+  sport?: string;
+  launchLabel?: string | null;
 };
 
 const POSITIONS = new Set<Position>(['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST']);
@@ -111,8 +114,9 @@ function toProgram(raw: RawProgram): Program | null {
   const palette = verifiedColors(raw);
   return {
     id: raw.id,
-    sport: 'soccer',
+    sport: raw.sport === 'flag-football' ? 'flag-football' : 'soccer',
     side: 'women',
+    launchLabel: raw.launchLabel?.trim() || null,
     schoolName: raw.schoolName,
     division,
     jucoDivision: division === 'NJCAA' ? juco : null,
@@ -164,7 +168,10 @@ function toProgram(raw: RawProgram): Program | null {
   };
 }
 
-export const REAL_PROGRAMS: Program[] = (catalogFile.programs as RawProgram[])
+export const REAL_PROGRAMS: Program[] = [
+  ...(catalogFile.programs as RawProgram[]),
+  ...(flagFile.programs as RawProgram[]),
+]
   .map(toProgram)
   .filter((program): program is Program => program != null);
 

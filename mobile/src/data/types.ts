@@ -11,7 +11,9 @@
  * are included only when the collection script read them on a public staff page.
  */
 
-export const POSITIONS = ['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST'] as const;
+export const SOCCER_POSITIONS = ['GK', 'CB', 'OB', 'DM', 'CM', 'W', 'ST'] as const;
+export const FLAG_POSITIONS = ['QB', 'C', 'WR', 'RB', 'RUS', 'S', 'CBK', 'LB', 'ATH'] as const;
+export const POSITIONS = [...SOCCER_POSITIONS, ...FLAG_POSITIONS] as const;
 export type Position = (typeof POSITIONS)[number];
 
 export const DIVISIONS = ['NCAA D1', 'NCAA D2', 'NCAA D3', 'NAIA', 'NJCAA'] as const;
@@ -73,6 +75,7 @@ export const CAMPUS_LIFE_LABEL: Record<CampusLife, string> = {
 
 export const SPORTS = [
   'soccer',
+  'flag-football',
   'basketball',
   'volleyball',
   'softball',
@@ -107,6 +110,11 @@ export const LEAGUE_IDS = [
   'nwsl-academy',
   'usl-academy',
   'other',
+  'ff-hs',
+  'ff-nfl',
+  'ff-usa',
+  'ff-7v7',
+  'ff-other',
 ] as const;
 export type LeagueId = (typeof LEAGUE_IDS)[number];
 
@@ -143,14 +151,18 @@ export type PersonContact = {
 
 /** Playing details coaches look for on film and at showcases. No scoring stats. */
 export type PlayerStats = {
-  /** Years at the current league level. */
+  /** Years at the current league level, or years playing flag football. */
   yearsAtLevel: number;
   /**
-   * Soccer stores a foot. Other sports leave this empty until they have
-   * their own equivalent, such as a dominant hand.
+   * Soccer stores a foot. Flag football stores a throwing hand.
+   * Other sports leave this empty until they have their own equivalent.
    */
   dominantSide: DominantSide | null;
   jerseyNumber: number | null;
+  /** Flag football measurables. Empty until the athlete adds them. Soccer leaves them empty. */
+  fortyYard?: number | null;
+  shuttle?: number | null;
+  vertical?: number | null;
   /** Optional, such as 5'7". Left blank when the player has not added it. */
   height: string;
   clubCoach: PersonContact;
@@ -189,6 +201,8 @@ export type PlayerProfile = {
   clubTeam: string;
   /** Every pathway they play in. The strongest one drives the fit level. */
   leagues: LeagueId[];
+  /** What they typed when flag football's Other pathway is selected. Empty otherwise. */
+  otherLeague?: string;
   stats: PlayerStats;
   highlightVideoUrl: string;
   /** 0 to 6.0. Weighted scales can sit above 4.0. */
@@ -364,6 +378,8 @@ export type Program = {
    */
   ranking?: ProgramRanking | null;
   nationalRank?: number;
+  /** Shown when a school has announced the program and is not competing yet, such as "Launching 2027". */
+  launchLabel?: string | null;
   /** ISO date the public sources were fetched. */
   lastVerified?: string;
   sources?: ProgramSource[];
@@ -416,6 +432,15 @@ export const POSITION_LABEL: Record<Position, string> = {
   CM: 'Center mid',
   W: 'Winger',
   ST: 'Striker',
+  QB: 'Quarterback',
+  C: 'Center',
+  WR: 'Wide receiver',
+  RB: 'Running back',
+  RUS: 'Rusher',
+  S: 'Safety',
+  CBK: 'Cornerback',
+  LB: 'Linebacker',
+  ATH: 'Athlete/Utility',
 };
 
 export const POSITION_PLURAL: Record<Position, string> = {
@@ -426,6 +451,15 @@ export const POSITION_PLURAL: Record<Position, string> = {
   CM: 'center mids',
   W: 'wingers',
   ST: 'strikers',
+  QB: 'quarterbacks',
+  C: 'centers',
+  WR: 'wide receivers',
+  RB: 'running backs',
+  RUS: 'rushers',
+  S: 'safeties',
+  CBK: 'cornerbacks',
+  LB: 'linebackers',
+  ATH: 'athletes',
 };
 
 export const SIZE_LABEL: Record<SchoolSize | 'any', string> = {

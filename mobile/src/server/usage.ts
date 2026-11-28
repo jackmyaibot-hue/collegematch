@@ -1,4 +1,5 @@
-import { LEVEL_PREFS, SPORTS } from '../data/types';
+import { SPORT_LABEL } from '../data/sports';
+import { LEVEL_PREFS, SPORTS, type Sport } from '../data/types';
 
 /** Counts only. A random install id is used to dedupe people, then discarded after 40 days. */
 export const USAGE_EVENTS = ['open', 'profile', 'swipe', 'save', 'email', 'bio_view', 'bio_signup'] as const;
@@ -275,7 +276,13 @@ export function statsPage(report: UsageReport | null, message?: string): string 
           ['Bio page views', report.totals.bio_view],
           ['Signups from a bio', report.totals.bio_signup],
         ]),
-        countTable('Profiles by sport', Object.entries(report.sports)),
+        countTable(
+          'Profiles by sport',
+          Object.entries(report.sports).map(([sport, count]) => [
+            sport in SPORT_LABEL ? SPORT_LABEL[sport as Sport] : sport,
+            count,
+          ]),
+        ),
         countTable('Profiles by level', Object.entries(report.levels)),
       ].join('')
     : '';

@@ -44,6 +44,11 @@ const LEAGUE_BADGE: Record<LeagueId, string> = {
   'nwsl-academy': 'NWSL',
   'usl-academy': 'USL',
   other: 'HIGH SCHOOL',
+  'ff-hs': 'HIGH SCHOOL',
+  'ff-nfl': 'NFL FLAG',
+  'ff-usa': 'USA FB',
+  'ff-7v7': '7V7',
+  'ff-other': 'CLUB',
 };
 
 /** Short badge for a saved league id. */
@@ -102,11 +107,15 @@ export function socialCard(
     stats.push({ label: 'Jersey', value: `#${profile.stats.jerseyNumber}`, icon: 'jersey' });
   } else {
     const foot = dominantSideDisplay(profile.sport, profile.stats.dominantSide);
-    if (foot) stats.push({ label: 'Foot', value: foot, icon: 'foot' });
+    if (foot) stats.push({ label: profile.sport === 'flag-football' ? 'Hand' : 'Foot', value: foot, icon: 'foot' });
   }
   const years = profile.stats.yearsAtLevel;
   stats.push({ label: 'Years', value: years === 1 ? '1 year' : `${years} years`, icon: 'years' });
-  if (profile.stats.height) stats.push({ label: 'Height', value: profile.stats.height, icon: 'height' });
+  if (profile.sport === 'flag-football' && profile.stats.fortyYard != null) {
+    stats.push({ label: '40', value: profile.stats.fortyYard.toFixed(2).replace(/\.?0+$/, ''), icon: 'height' });
+  } else if (profile.stats.height) {
+    stats.push({ label: 'Height', value: profile.stats.height, icon: 'height' });
+  }
   const gpa = options.includeGpa ? formatGpa(profile.gpa, profile.gpaWeighted) : null;
   const shown = gpa ? [...stats.slice(0, 2), { label: 'GPA', value: gpa, icon: 'gpa' as const }] : stats.slice(0, 3);
   const stamp = options.stamp ?? null;
