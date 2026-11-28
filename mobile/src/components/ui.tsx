@@ -1,9 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import {
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -11,6 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { FormScroll, registerFieldFocus } from './formScroll';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { REAL_LINE, SAMPLE_LINE } from '../copy';
 import { useSampleCatalog } from '../data/catalogMode';
@@ -65,14 +65,14 @@ export function Screen({
   return (
     <View style={[styles.screen, { backgroundColor }]}>
       {scroll ? (
-        <ScrollView
+        <FormScroll
           style={styles.flex}
           contentContainerStyle={contentStyle}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
           {children}
-        </ScrollView>
+        </FormScroll>
       ) : (
         <View style={[styles.flex, padded ? contentStyle : null]}>{children}</View>
       )}
@@ -160,16 +160,25 @@ export function TextField({
   label,
   error,
   hint,
+  field,
   ...input
 }: {
   label: string;
   error?: string;
   hint?: string;
+  /** Scroll target and focus target when this value is invalid. */
+  field?: string;
 } & TextInputProps) {
+  const inputRef = useRef<TextInput>(null);
+  useEffect(() => {
+    if (!field) return;
+    return registerFieldFocus(field, () => inputRef.current?.focus());
+  }, [field]);
   return (
-    <View style={styles.field}>
+    <View style={styles.field} nativeID={field ? `field-${field}` : undefined} collapsable={false}>
       <AppText variant="label">{label}</AppText>
       <TextInput
+        ref={inputRef}
         placeholderTextColor={colors.muted}
         {...input}
         style={[

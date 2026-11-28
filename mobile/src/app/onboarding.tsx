@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useGlobalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { ImageBackground, KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
@@ -14,10 +14,14 @@ import {
   PreferenceFields,
   SoccerFields,
 } from '../components/ProfileFields';
+import { revealFields } from '../components/formScroll';
 import { AppText, Button, ProgressBar, Screen } from '../components/ui';
 import { PLAYMAKERS, PRIVACY_LINE } from '../copy';
+import { openPrivacyPolicy } from '../lib/links';
 import { formatGpa, joinLabels } from '../data/format';
+import { formatHeight } from '../data/height';
 import { emptyDraft, majorsFromDraft, profileFromDraft, validateDraft, type ProfileDraft } from '../data/profileDraft';
+import { rememberBioSource } from '../data/source';
 import { trackProfileCompleted } from '../data/usage';
 import { stateName } from '../data/regions';
 import { WELCOME_SHOWCASE, welcomeImage } from '../components/welcomeImages';
@@ -42,9 +46,9 @@ type Step = (typeof STEPS)[number];
 const STEP_FIELDS: Record<Step, (keyof ProfileDraft)[]> = {
   welcome: [],
   comingSoon: [],
-  you: ['name', 'birthdate', 'gender', 'sport', 'gradYear', 'homeState'],
+  you: ['sport', 'name', 'birthdate', 'gender', 'gradYear', 'homeState'],
   soccer: ['positions', 'primaryPosition', 'clubTeam', 'leagues'],
-  game: ['highlightVideoUrl', 'yearsAtLevel', 'dominantSide', 'jerseyNumber', 'height'],
+  game: ['highlightVideoUrl', 'dominantSide', 'yearsAtLevel', 'jerseyNumber', 'heightFeet', 'heightInches'],
   coaches: [
     'clubCoachName',
     'clubCoachEmail',
@@ -83,6 +87,10 @@ const TITLES: Record<'you' | 'game' | 'coaches' | 'academics' | 'about' | 'prefe
 
 export default function OnboardingScreen() {
   const { saveProfile, programs } = useAppState();
+  const params = useGlobalSearchParams<{ ref?: string }>();
+  useEffect(() => {
+    if (params.ref === 'bio') void rememberBioSource();
+  }, [params.ref]);
   const insets = useSafeAreaInsets();
   const toolsClearance = expoGoToolsClearance();
   const [step, setStep] = useState<Step>('welcome');
@@ -129,6 +137,7 @@ export default function OnboardingScreen() {
     const visible = Object.fromEntries(fields.filter((field) => found[field]).map((field) => [field, found[field]]));
     if (Object.keys(visible).length > 0) {
       setErrors(visible);
+      revealFields(fields.filter((field) => visible[field]));
       return;
     }
     setErrors({});
@@ -143,7 +152,10 @@ export default function OnboardingScreen() {
         const order: Step[] = ['you', 'soccer', 'game', 'coaches', 'academics', 'about', 'preferences'];
         const next = order.find((item) => STEP_FIELDS[item].some((field) => all[field]));
         setErrors(all);
-        if (next) setStep(next);
+        if (next) {
+          setStep(next);
+          revealFields(STEP_FIELDS[next].filter((field) => all[field]));
+        }
         return;
       }
       const profile = profileFromDraft(draft);
@@ -197,6 +209,11 @@ export default function OnboardingScreen() {
           <AppText variant="caption" color="#D5E6DC">
             {PRIVACY_LINE}
           </AppText>
+          <Pressable accessibilityRole="link" onPress={openPrivacyPolicy} hitSlop={8}>
+            <AppText variant="caption" color={colors.lime}>
+              Privacy policy
+            </AppText>
+          </Pressable>
           <View style={styles.welcomeButton}>
             <Button label="Build my profile" kind="lime" onPress={forward} />
           </View>
@@ -309,7 +326,7 @@ function Review({ draft }: { draft: ProfileDraft }) {
         <Line label="Leagues" value={leagueNameList(draft.leagues)} />
         <Line label="Foot" value={foot ?? 'Not added'} />
         <Line label="Jersey" value={draft.jerseyNumber ? `#${draft.jerseyNumber}` : ''} />
-        <Line label="Height" value={draft.height.trim() || 'Not added'} />
+        <Line label="Height" value={formatHeight(draft.heightFeet, draft.heightInches) || 'Not added'} />
         <Line label="NCAA ID" value={draft.ncaaId.trim() || 'Not added'} />
         <Line label="Years at level" value={draft.yearsAtLevel} />
         <Line label="Club coach" value={draft.clubCoachName.trim() || 'Not added'} />

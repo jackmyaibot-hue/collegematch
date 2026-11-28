@@ -1,3 +1,5 @@
+import { formatHeight, splitHeight } from './height';
+import { formatUsPhone, normalizeUsPhone } from './phone';
 import { BIRTHDATE_MAX, BIRTHDATE_MIN } from './sports';
 import type {
   AthleteGender,
@@ -11,6 +13,51 @@ import type {
 } from './types';
 import { isIsoDate } from './format';
 import type { CampusLife, HonorsProfile, LevelPref } from './types';
+
+export const FIELD_ORDER: (keyof ProfileDraft)[] = [
+  'sport',
+  'name',
+  'birthdate',
+  'gender',
+  'gradYear',
+  'homeState',
+  'positions',
+  'primaryPosition',
+  'clubTeam',
+  'leagues',
+  'highlightVideoUrl',
+  'dominantSide',
+  'yearsAtLevel',
+  'jerseyNumber',
+  'heightFeet',
+  'heightInches',
+  'clubCoachName',
+  'clubCoachEmail',
+  'clubCoachPhone',
+  'highSchoolCoachName',
+  'highSchoolCoachEmail',
+  'highSchoolCoachPhone',
+  'gpa',
+  'sat',
+  'act',
+  'ncaaId',
+  'intendedMajors',
+  'customMajor',
+  'asbRole',
+  'apCourses',
+  'honorsCourses',
+  'scholarAthlete',
+  'serviceHours',
+  'otherAchievement',
+  'proudOf',
+  'funFact',
+  'levels',
+  'preferredRegions',
+  'schoolSizePreference',
+  'budgetId',
+  'parentEmail',
+  'parentPhone',
+];
 
 export const BUDGET_OPTIONS = [
   { id: 'under-15', label: 'Under $15k', min: 0, max: 15000 },
@@ -47,7 +94,8 @@ export type ProfileDraft = {
   yearsAtLevel: string;
   dominantSide: DominantSide | null;
   jerseyNumber: string;
-  height: string;
+  heightFeet: string;
+  heightInches: string;
   clubCoachName: string;
   clubCoachEmail: string;
   clubCoachPhone: string;
@@ -85,6 +133,7 @@ export type ProfileDraft = {
   funFact: string;
   budgetId: string | null;
   parentEmail: string;
+  parentPhone: string;
   ncaaId: string;
 };
 
@@ -104,7 +153,8 @@ export function emptyDraft(): ProfileDraft {
     yearsAtLevel: '',
     dominantSide: null,
     jerseyNumber: '',
-    height: '',
+    heightFeet: '',
+    heightInches: '',
     clubCoachName: '',
     clubCoachEmail: '',
     clubCoachPhone: '',
@@ -140,6 +190,7 @@ export function emptyDraft(): ProfileDraft {
     funFact: '',
     budgetId: null,
     parentEmail: '',
+    parentPhone: '',
     ncaaId: '',
   };
 }
@@ -158,7 +209,8 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     yearsAtLevel: String(profile.stats.yearsAtLevel ?? 0),
     dominantSide: profile.stats.dominantSide ?? null,
     jerseyNumber: profile.stats.jerseyNumber == null ? '' : String(profile.stats.jerseyNumber),
-    height: profile.stats.height ?? '',
+    heightFeet: splitHeight(profile.stats.height ?? '').feet,
+    heightInches: splitHeight(profile.stats.height ?? '').inches,
     clubCoachName: profile.stats.clubCoach?.name ?? '',
     clubCoachEmail: profile.stats.clubCoach?.email ?? '',
     clubCoachPhone: profile.stats.clubCoach?.phone ?? '',
@@ -194,6 +246,7 @@ export function draftFromProfile(profile: PlayerProfile): ProfileDraft {
     funFact: profile.funFact ?? '',
     budgetId: profile.budget.id,
     parentEmail: profile.parentEmail,
+    parentPhone: profile.parentPhone ? formatUsPhone(profile.parentPhone) : '',
     ncaaId: profile.ncaaId ?? '',
   };
 }
@@ -228,12 +281,6 @@ function parseIntField(value: string): number | null {
   if (value.trim() === '') return null;
   if (!/^\d+$/.test(value.trim())) return null;
   return Number(value.trim());
-}
-
-function looksLikeHeight(value: string): boolean {
-  const text = value.trim();
-  if (text.length < 2 || text.length > 16 || !/\d/.test(text)) return false;
-  return /^\d\s*'\s*\d{1,2}(\s*"|in)?$/i.test(text) || /^\d{2,3}(\.\d)?\s*cm$/i.test(text);
 }
 
 function validEmail(value: string): boolean {
@@ -287,8 +334,13 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   const jersey = parseIntField(draft.jerseyNumber);
   if (jersey == null || jersey > 99) errors.jerseyNumber = 'Use a jersey number from 0 to 99.';
-  if ((draft.height ?? '').trim() && !looksLikeHeight(draft.height)) {
-    errors.height = 'Use a height like 5\'7" or 170 cm, or leave it blank.';
+  const feetBlank = !draft.heightFeet.trim();
+  const inchesBlank = !draft.heightInches.trim();
+  if (!feetBlank || !inchesBlank) {
+    const feet = /^\d+$/.test(draft.heightFeet.trim()) ? Number(draft.heightFeet) : NaN;
+    const inches = /^\d+$/.test(draft.heightInches.trim()) ? Number(draft.heightInches) : NaN;
+    if (feetBlank || feet < 4 || feet > 7) errors.heightFeet = 'Enter feet from 4 to 7.';
+    if (inchesBlank || inches < 0 || inches > 11) errors.heightInches = 'Enter inches from 0 to 11.';
   }
   const ncaaId = (draft.ncaaId ?? '').trim().replace(/\s+/g, '');
   if (ncaaId && !/^\d{8,12}$/.test(ncaaId)) {
@@ -341,9 +393,12 @@ export function validateDraft(draft: ProfileDraft): FieldErrors {
   }
   if (!draft.budgetId) errors.budgetId = 'Pick a budget range.';
   if (!draft.parentEmail.trim()) {
-    errors.parentEmail = 'Add a parent email. It is copied on coach emails and stays on this phone.';
+    errors.parentEmail = 'Add a parent email. We send the approval link there when you publish a bio.';
   } else if (!validEmail(draft.parentEmail)) {
     errors.parentEmail = 'That email does not look right.';
+  }
+  if (draft.parentPhone.trim() && !normalizeUsPhone(draft.parentPhone)) {
+    errors.parentPhone = 'Use a US mobile number, like (415) 555-0134, or leave it blank.';
   }
   return errors;
 }
@@ -379,7 +434,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
       yearsAtLevel: Number(draft.yearsAtLevel),
       dominantSide: draft.sport === 'soccer' ? draft.dominantSide : null,
       jerseyNumber: Number(draft.jerseyNumber),
-      height: draft.height.trim(),
+      height: formatHeight(draft.heightFeet, draft.heightInches),
       clubCoach: {
         name: draft.clubCoachName.trim(),
         email: draft.clubCoachEmail.trim(),
@@ -408,6 +463,7 @@ export function profileFromDraft(draft: ProfileDraft, existingId?: string): Play
     funFact: draft.funFact.trim(),
     budget: { id: budget.id, label: budget.label, min: budget.min, max: budget.max },
     parentEmail: draft.parentEmail.trim(),
+    parentPhone: normalizeUsPhone(draft.parentPhone) ?? '',
     ncaaId: draft.ncaaId.trim().replace(/\s+/g, ''),
     updatedAt: new Date().toISOString(),
   };

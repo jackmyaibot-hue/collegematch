@@ -20,12 +20,14 @@ export function DateField({
   onChange,
   error,
   hint,
+  field,
 }: {
   label: string;
   value: string;
   onChange: (iso: string) => void;
   error?: string;
   hint?: string;
+  field?: string;
 }) {
   const [open, setOpen] = useState(Platform.OS === 'ios' && value !== '');
   const shown = value ? parseIso(value) : parseIso('2010-06-15');
@@ -43,7 +45,7 @@ export function DateField({
   }
 
   return (
-    <View style={styles.field}>
+    <View style={styles.field} nativeID={field ? `field-${field}` : undefined} collapsable={false}>
       <AppText variant="label">{label}</AppText>
       {Platform.OS === 'web' ? (
         createElement('input', {

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { canonicalHeight } from '../height';
 import { emptyRecruiting, isIsoDate } from '../format';
 import { migrateGender } from '../sports';
 import {
@@ -70,7 +71,7 @@ function readStats(raw: PlayerProfile): PlayerStats {
     yearsAtLevel: years,
     dominantSide: readSide(stats?.dominantSide),
     jerseyNumber: jersey,
-    height: typeof stats?.height === 'string' ? stats.height.trim() : '',
+    height: canonicalHeight(typeof stats?.height === 'string' ? stats.height : ''),
     clubCoach: readContact(stats?.clubCoach),
     highSchoolCoach: readContact(stats?.highSchoolCoach),
   };
@@ -170,6 +171,7 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
     proudOf: typeof raw.proudOf === 'string' ? raw.proudOf : '',
     funFact: typeof raw.funFact === 'string' ? raw.funFact : '',
     ncaaId: typeof raw.ncaaId === 'string' ? raw.ncaaId.trim().replace(/\s+/g, '') : '',
+    parentPhone: typeof raw.parentPhone === 'string' ? raw.parentPhone : '',
     openToAllLevels: raw.openToAllLevels !== false,
     levels: readLevels(raw.levels),
     campusLife: readCampusLife(raw.campusLife),

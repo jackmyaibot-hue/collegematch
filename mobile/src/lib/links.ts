@@ -6,6 +6,18 @@ import { Linking, Platform } from 'react-native';
  * as the tap. Linking.openURL waits, then calls window.open, and iPhone Safari
  * blocks that or leaves a blank tab.
  */
+const PRODUCTION_ORIGIN = 'https://collegematch.expo.app';
+
+/** Opens the privacy policy. On the web it stays on this host, including a preview deploy. */
+export function openPrivacyPolicy(): void {
+  if (Platform.OS === 'web') {
+    openExternal('/privacy');
+    return;
+  }
+  const configured = process.env.EXPO_PUBLIC_WEB_URL?.trim().replace(/\/$/, '');
+  openExternal(`${configured || PRODUCTION_ORIGIN}/privacy`);
+}
+
 export function openExternal(url: string): Promise<boolean> {
   if (Platform.OS === 'web') {
     try {

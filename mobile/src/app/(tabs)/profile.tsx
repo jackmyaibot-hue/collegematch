@@ -1,5 +1,7 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { FormScroll, revealFields } from '../../components/formScroll';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   AboutFields,
@@ -11,11 +13,13 @@ import {
   SoccerFields,
 } from '../../components/ProfileFields';
 import { DownloadCvButton } from '../../components/DownloadCvButton';
+import { PublishBio } from '../../components/PublishBio';
 import { AppText, Button, SampleBanner } from '../../components/ui';
 import { PRIVACY_LINE } from '../../copy';
+import { openPrivacyPolicy } from '../../lib/links';
 import { FIT_FACTORS } from '../../data/fitScore';
 import { formatGpa, formatLongDate, joinLabels } from '../../data/format';
-import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
+import { draftFromProfile, FIELD_ORDER, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
 import { dominantSideDisplay, GENDER_LABEL, leagueNameList, positionSlash, SPORT_LABEL } from '../../data/sports';
 import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
 import { stateName } from '../../data/regions';
@@ -24,11 +28,12 @@ import { colors, radius } from '../../theme';
 
 export default function ProfileScreen() {
   const insets = useSafeAreaInsets();
-  const { profile, recruiting, saveProfile, clearAll, resetPasses } = useAppState();
+  const { profile, programs, recruiting, saveProfile, clearAll, resetPasses } = useAppState();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState<ProfileDraft | null>(profile ? draftFromProfile(profile) : null);
   const [errors, setErrors] = useState<Partial<Record<keyof ProfileDraft, string>>>({});
   const [confirmReset, setConfirmReset] = useState(false);
+  const [resetError, setResetError] = useState<string | null>(null);
 
   if (!profile || !draft) return null;
   const passed = Object.keys(recruiting.passed).length;
@@ -47,6 +52,7 @@ export default function ProfileScreen() {
     const found = validateDraft(draft!);
     if (Object.keys(found).length > 0) {
       setErrors(found);
+      revealFields(FIELD_ORDER.filter((field) => found[field]));
       return;
     }
     await saveProfile(profileFromDraft(draft!, profile!.id));
@@ -57,14 +63,18 @@ export default function ProfileScreen() {
   function erase() {
     if (!confirmReset) {
       setConfirmReset(true);
+      setResetError(null);
       return;
     }
-    clearAll().catch(() => undefined);
+    clearAll().catch((caught: unknown) => {
+      setConfirmReset(false);
+      setResetError(caught instanceof Error ? caught.message : 'Could not erase the profile.');
+    });
   }
 
   return (
     <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'android' ? undefined : 'padding'}>
-      <ScrollView
+      <FormScroll
         style={styles.flex}
         contentContainerStyle={{ paddingTop: insets.top + 16, paddingHorizontal: 20, paddingBottom: insets.bottom + 32 }}
         keyboardShouldPersistTaps="handled"
@@ -147,7 +157,9 @@ export default function ProfileScreen() {
             <Row label="NCAA ID" value={profile.ncaaId || 'Not added'} />
             <Row label="Parent email" value={profile.parentEmail || 'Not added'} />
             <Button label="Edit profile" onPress={() => setEditing(true)} />
+            <Button label="Social Profile" kind="ghost" icon="image-outline" onPress={() => router.push('/social')} />
             <DownloadCvButton />
+            <PublishBio profile={profile} recruiting={recruiting} programs={programs} />
           </View>
         )}
 
@@ -165,10 +177,20 @@ export default function ProfileScreen() {
 
         {passed > 0 ? <Button label="Put passed schools back" kind="ghost" onPress={resetPasses} /> : null}
         <Button label={confirmReset ? 'Tap again to erase profile' : 'Start over'} kind="danger" onPress={erase} />
+        {resetError ? (
+          <AppText variant="caption" color={colors.rose}>
+            {resetError}
+          </AppText>
+        ) : null}
         <AppText variant="caption" style={styles.privacy}>
           {PRIVACY_LINE}
         </AppText>
-      </ScrollView>
+        <Pressable accessibilityRole="link" onPress={openPrivacyPolicy} hitSlop={8}>
+          <AppText variant="caption" color={colors.green}>
+            Privacy policy
+          </AppText>
+        </Pressable>
+      </FormScroll>
     </KeyboardAvoidingView>
   );
 }

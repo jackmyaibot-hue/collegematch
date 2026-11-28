@@ -82,6 +82,7 @@ function RootStack() {
         <Stack.Screen name="school/[id]" />
         <Stack.Screen name="outreach/[id]" />
         <Stack.Screen name="camp/[id]" />
+        <Stack.Screen name="social" />
       </Stack.Protected>
     </Stack>
   );

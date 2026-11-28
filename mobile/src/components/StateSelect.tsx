@@ -11,19 +11,21 @@ export function StateSelect({
   onChange,
   error,
   hint,
+  field,
 }: {
   label: string;
   value: string;
   onChange: (code: string) => void;
   error?: string;
   hint?: string;
+  field?: string;
 }) {
   const [open, setOpen] = useState(false);
   const insets = useSafeAreaInsets();
   const selected = value ? stateName(value) : '';
 
   return (
-    <View style={styles.field}>
+    <View style={styles.field} nativeID={field ? `field-${field}` : undefined} collapsable={false}>
       <AppText variant="label">{label}</AppText>
       <Pressable
         accessibilityRole="button"

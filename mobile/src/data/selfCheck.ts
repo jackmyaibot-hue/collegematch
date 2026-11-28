@@ -4,10 +4,16 @@ import { buildResumePdf, resumeSections } from './resumePdf';
 import { effectiveStatus, emptyRecruiting, formatGpa } from './format';
 import { comparableGpa, FIT_FACTORS, scoreProgram } from './fitScore';
 import { instagramProfileUrl } from './poster';
-import { profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
+import { canonicalHeight, splitHeight } from './height';
+import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } from './profileDraft';
 import { regionForState } from './regions';
 import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
+import { featuredLeague, leagueBadge, matchSchool, socialCard } from './socialCard';
+import { approveBio, bioStatus, previewBio, publicBio, publishBio, TOKEN_TTL_MS, unpublishBio } from '../server/bio';
+import { createMemoryRepo, removeCommands, saveCommands } from '../server/bioRepo';
+import { renderPreview, renderPrivacyPage, renderPublicBio, ROBOT_TAG, ROBOTS_TXT } from '../server/pages';
+import { emailProviderError, recordingEmailProvider } from '../server/email';
 import { applyUsage, emptyUsage, parseUsage, passwordsMatch, usageReport } from '../server/usage';
 import { SAMPLE_PROGRAMS } from './samplePrograms';
 import { SAMPLE_SPONSORS } from './sponsored';
@@ -143,6 +149,7 @@ const strong: PlayerProfile = {
   funFact: 'I bake bread for the team bus',
   budget: { id: '15-30', label: '$15–30k', min: 15000, max: 30000 },
   parentEmail: 'parent@example.com',
+  parentPhone: '+15035550148',
   ncaaId: '',
   updatedAt: '2026-10-09T00:00:00.000Z',
 };
@@ -306,7 +313,8 @@ const draft: ProfileDraft = {
   yearsAtLevel: '3',
   dominantSide: 'left',
   jerseyNumber: '4',
-  height: '',
+  heightFeet: '',
+  heightInches: '',
   clubCoachName: 'Jordan Lee',
   clubCoachEmail: 'jordan@club.example.com',
   clubCoachPhone: '503-555-0142',
@@ -342,6 +350,7 @@ const draft: ProfileDraft = {
   funFact: 'I bake bread for the team bus',
   budgetId: '15-30',
   parentEmail: 'parent@example.com',
+  parentPhone: '(503) 555-0148',
   ncaaId: '',
 };
 check(Object.keys(validateDraft(draft)).length === 0, `draft should be valid: ${JSON.stringify(validateDraft(draft))}`);
@@ -474,6 +483,24 @@ const missingParent = validateDraft({ ...draft, parentEmail: '' });
 check(Boolean(missingParent.parentEmail), 'parent email should be required');
 const badParent = validateDraft({ ...draft, parentEmail: 'not-an-email' });
 check(Boolean(badParent.parentEmail), 'parent email should be validated');
+const missingPhone = validateDraft({ ...draft, parentPhone: '' });
+check(!missingPhone.parentPhone, 'parent phone should be optional');
+const badPhone = validateDraft({ ...draft, parentPhone: '123' });
+check(Boolean(badPhone.parentPhone), 'a partial parent phone should be rejected');
+check(profileFromDraft({ ...draft, parentPhone: '' }, 'player-1').parentPhone === '', 'a blank parent phone should stay blank');
+const savedHeight = splitHeight(`5'6"`);
+check(savedHeight.feet === '5' && savedHeight.inches === '6', 'a saved height with quote marks should split into feet and inches');
+check(canonicalHeight('170 cm') === `5'7"`, 'a saved centimeter height should become feet and inches');
+check(splitHeight(`5'6`).feet === '5' && splitHeight(`5'6`).inches === '6', 'a height without the inch mark should still migrate');
+const withHeight = profileFromDraft({ ...draft, heightFeet: '5', heightInches: '6' }, 'player-1');
+check(withHeight.stats.height === `5'6"`, 'feet and inches should be stored in the display format');
+const badFeet = validateDraft({ ...draft, heightFeet: '8', heightInches: '2' });
+check(Boolean(badFeet.heightFeet), 'feet above 7 should be rejected');
+const badInches = validateDraft({ ...draft, heightFeet: '5', heightInches: '12' });
+check(Boolean(badInches.heightInches), 'inches above 11 should be rejected');
+const blankHeight = validateDraft({ ...draft, heightFeet: '', heightInches: '' });
+check(!blankHeight.heightFeet && !blankHeight.heightInches, 'height should stay optional');
+check(draftFromProfile({ ...strong, stats: { ...strong.stats, height: `5'6"` } }).heightInches === '6', 'editing a saved height should fill inches');
 
 check(REAL_PROGRAMS.length >= 90, `expected at least 90 real programs, got ${REAL_PROGRAMS.length}`);
 check(new Set(REAL_PROGRAMS.map((program) => program.id)).size === REAL_PROGRAMS.length, 'real program ids are not unique');
@@ -576,10 +603,190 @@ if (parsed) {
 }
 const report = usageReport(usage, '2026-10-29');
 check(report.totals.open === 3 && report.active.day === 1 && report.active.week === 2, 'opens count every time and people count once a day');
+const bioView = parseUsage({ id: install, name: 'bio_view', nameOnPage: 'Maya Chen', slug: 'secret-slug' });
+check(bioView?.name === 'bio_view' && !JSON.stringify(bioView).includes('Maya') && !JSON.stringify(bioView).includes('secret'), 'a bio view should be a count with no name or slug');
+const fromBio = applyUsage(usage, { id: install, name: 'bio_signup', sport: null, levels: [] }, '2026-10-29');
+check(fromBio.totals.bio_signup === 1 && fromBio.totals.bio_view === 0, 'a signup from a bio should count once');
 check(report.totals.profile === 1 && report.sports.soccer === 1 && report.levels['NCAA D1'] === 1, 'a profile should count once, with sport and level totals');
 check(passwordsMatch('correct horse', 'correct horse') && !passwordsMatch('correct horse', 'wrong'), 'stats password should match exactly');
 
+function bytesToBase64(bytes: number[]): string {
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
+async function checkPublishing(): Promise<void> {
+  const repo = createMemoryRepo();
+  const mail = recordingEmailProvider();
+  const now = Date.parse('2026-11-22T12:00:00.000Z');
+  const secret = 'secret-secret-secret-secret';
+  const body = {
+    playerId: 'player-1710000000000',
+    secret,
+    parentEmail: 'Parent@Example.com',
+    name: 'Maya Chen',
+    sport: 'soccer',
+    positions: ['CB'],
+    primaryPosition: 'CB',
+    gradYear: 2028,
+    club: 'Valley United',
+    leagues: ['ecnl'],
+    jerseyNumber: 4,
+    dominantSide: 'left',
+    yearsAtLevel: 3,
+    height: "5'7\"",
+    gpa: '3.6',
+    homeState: 'OR',
+    majors: ['Biology'],
+    honors: 'Team captain',
+    proudOf: 'a hard season',
+    funFact: 'I bake bread',
+    highlightUrl: 'https://video.example.com/maya',
+    colleges: [{ name: 'Northwind College', division: 'NCAA D1', city: 'Portland', state: 'OR' }],
+    birthdate: '2010-04-12',
+    photo: null,
+  };
+  const published = await publishBio({ repo, email: mail, body, origin: 'https://collegematch.test', now });
+  const token = published.mockApprovalUrl?.split('/approve/')[1] ?? '';
+  const sent = mail.messages[0];
+  check(published.delivery === 'mock' && token.length > 20, 'publish should return a one-time mock approval link');
+  check(sent?.to === 'parent@example.com' && sent.text.includes(token) && sent.html.includes(token), 'the email should contain the approval link');
+  check(sent?.html.includes('>Approve<') && sent.text.includes('72 hours') && sent.text.includes('works once'), 'the email should have an approve button, a 72-hour expiry, and a single use');
+  check(sent?.text.toLowerCase().includes('ignore this email'), 'the email should say to ignore an unrecognized request');
+  check(Boolean(sent) && !sent.text.includes('2010-04-12'), 'the email should not include the birthday');
+  check((await publicBio(repo, published.slug)) == null, 'a pending bio should not be public');
+  const preview = await previewBio(repo, token, now);
+  check(preview?.snapshot.name === 'Maya Chen' && preview.snapshot.gradYear === 2028, 'the parent preview should show the bio');
+  check(preview?.snapshot.position === 'Center back', 'the preview should show the position');
+  check(preview?.snapshot.colleges[0]?.name === 'Northwind College', 'the preview should list a watched college');
+  const snapshotJson = JSON.stringify(preview?.snapshot);
+  check(!snapshotJson.includes('2010-04-12') && !snapshotJson.includes('parent@example.com'), 'the snapshot should drop birthday and parent email');
+  check(!snapshotJson.includes('555'), 'the snapshot should not include the parent phone');
+  const previewPage = preview ? renderPreview(preview, token) : '';
+  check(previewPage.includes('noindex, nofollow') && previewPage.includes('Approve and publish'), 'the approval page should be a noindex preview with an approve button');
+  check(!previewPage.includes('555-0148') && !previewPage.includes('parent@example.com'), 'the approval page should hide the parent phone and email');
+  const tooSoon = await publishBio({ repo, email: mail, body, origin: 'https://collegematch.test', now: now + 1000 }).catch((error: unknown) => error);
+  check(tooSoon instanceof Error && /minute/i.test(tooSoon.message), 'a second email inside a minute should be refused');
+  check((await publicBio(repo, published.slug)) == null, 'a refused update should leave the bio unpublished');
+  check((await approveBio(repo, token, now + TOKEN_TTL_MS + 1)) == null, 'an expired token should not approve');
+  const approved = await approveBio(repo, token, now + 1000);
+  check(approved?.status === 'approved', 'a parent approve should publish the bio');
+  check((await approveBio(repo, token, now + 2000)) == null, 'the approval token should work once');
+  const live = await publicBio(repo, published.slug);
+  check(live?.snapshot.jersey === '#4' && live.snapshot.foot === 'Left foot', 'the public bio should show stats');
+  const livePage = live ? renderPublicBio(live) : '';
+  check(livePage.includes('name="robots" content="noindex, nofollow"') && livePage.includes('Class of 2028'), 'the public page should stay out of search results');
+  check(livePage.includes('/brand/logo.svg') && livePage.includes('/?ref=bio') && livePage.includes('Get recruited.'), 'the public bio should carry the logo and a signup link');
+  check(livePage.includes('og:title') && livePage.includes('twitter:card') && livePage.includes('/brand/og.png'), 'a shared bio link should have a preview card');
+  check(!livePage.includes('parent@example.com'), 'the public bio card should not include the parent email');
+  check(!previewPage.includes('og:image'), 'the approval link should not advertise a share card');
+  const wrong = await publishBio({
+    repo,
+    email: mail,
+    body: { ...body, secret: 'another-secret-secret-secret' },
+    origin: 'https://collegematch.test',
+    now: now + 120_000,
+  }).catch((error: unknown) => error);
+  check(wrong instanceof Error && wrong.message.includes('cannot change'), 'another device should not replace the bio');
+  check((await publicBio(repo, published.slug))?.status === 'approved', 'a rejected publish should leave the approved page up');
+  await unpublishBio(repo, { playerId: body.playerId, secret });
+  check((await publicBio(repo, published.slug)) == null, 'unpublish should delete the public bio');
+  check((await bioStatus(repo, { playerId: body.playerId, secret })).state === 'none', 'status after unpublish should be none');
+
+  const jpeg = bytesToBase64([0xff, 0xd8, 0xff, 0xd9]);
+  const withPhoto = await publishBio({
+    repo,
+    email: mail,
+    body: { ...body, photo: { data: jpeg } },
+    origin: 'https://collegematch.test',
+    now: now + 180_000,
+  });
+  const stored = await repo.getByPlayer(body.playerId);
+  check(withPhoto.state === 'pending' && stored?.photo?.contentType === 'image/jpeg', 'a jpeg should be stored while the bio is still private');
+  check((await publicBio(repo, withPhoto.slug)) == null, 'a photo should not be public before approval');
+  const commands = stored ? saveCommands(stored, null, now + 180_000) : [];
+  const playerCommand = commands.find((command) => String(command[1]).startsWith('cm:bio:p:'));
+  check(String(playerCommand?.[2]).includes('"status":"pending"'), 'the stored record should stay pending until approval');
+  check(commands.some((command) => command[0] === 'SET' && String(command[1]).startsWith('cm:bio:pic:')), 'photo bytes should be stored apart from the bio');
+  check(
+    commands.some((command) => command[0] === 'SET' && String(command[1]).startsWith('cm:bio:tok:') && command.includes('EX')),
+    'approval tokens should expire in Redis',
+  );
+  check(
+    stored != null && removeCommands(stored).some((command) => command[0] === 'DEL' && String(command[1]).startsWith('cm:bio:pic:')),
+    'unpublish should delete the photo',
+  );
+  const gif = bytesToBase64([0x47, 0x49, 0x46, 0x38, 0x39, 0x61]);
+  const badPhoto = await publishBio({
+    repo,
+    email: mail,
+    body: { ...body, photo: { data: gif } },
+    origin: 'https://collegematch.test',
+    now: now + 300_000,
+  }).catch((error: unknown) => error);
+  check(badPhoto instanceof Error && badPhoto.message.includes('JPEG'), 'a gif should be rejected');
+  check((await repo.getByPlayer(body.playerId))?.photo?.contentType === 'image/jpeg', 'a rejected photo should not replace the stored jpeg');
+
+  const privacy = renderPrivacyPage();
+  check(!privacy.includes('name="robots"'), 'the privacy policy page itself should not send noindex');
+  check(
+    privacy.toLowerCase().includes('parent') &&
+      privacy.toLowerCase().includes('photo') &&
+      privacy.includes('Unpublish') &&
+      privacy.toLowerCase().includes('only the player'),
+    'the privacy policy should cover the parent phone, photos, approval, and player-only deletion',
+  );
+  check(
+    ROBOTS_TXT.includes('Disallow: /bio/') && ROBOTS_TXT.includes('Disallow: /approve/'),
+    'robots.txt should disallow the bio and approval routes',
+  );
+  check(ROBOT_TAG === 'noindex, nofollow', 'bio responses should send noindex, nofollow');
+  check(
+    emailProviderError({ provider: 'resend' })?.includes('No email was sent') === true &&
+      emailProviderError({ provider: 'resend', key: 're_test' })?.includes('No email was sent') === true &&
+      emailProviderError({ provider: 'resend', key: 're_test', from: 'CollegeMatch <approve@example.com>' }) == null,
+    'resend should refuse to send until both the key and the from address are set',
+  );
+  check(emailProviderError({}) == null, 'the email provider should default to the mock sender');
+  const quiet = socialCard(strong, { nameStyle: 'first', includeGpa: false });
+  const named = socialCard({ ...strong, ncaaId: '1234567890' }, { nameStyle: 'initial', includeGpa: true });
+  const quietJson = JSON.stringify(quiet);
+  check(quiet.name === 'Maya' && named.name === 'Maya C.', 'the social name should be a first name or a last initial');
+  check(quiet.gpa == null && named.gpa === '3.6', 'GPA stays off the social image unless the player opts in');
+  check(!quietJson.includes('parent@') && !quietJson.includes('555') && !JSON.stringify(named).includes('1234567890'), 'the social image should hide contact details and the NCAA ID');
+  check(!quietJson.includes('Oregon') && quiet.club === 'Valley United' && quiet.stats.some((stat) => stat.value === '#4'), 'the social image keeps the club and a jersey, not a home address');
+  check(quiet.site === 'https://collegematch.expo.app', 'the social image should link to CollegeMatch, not a private bio');
+  check(quiet.league?.badge === 'ECNL' && quiet.jerseyNumber === 4 && quiet.stamp == null, 'the social card should feature the saved league and jersey');
+  check(featuredLeague(['ga', 'ecnl']) === 'ecnl' && leagueBadge('other') === 'HIGH SCHOOL', 'the featured league should be the strongest saved one');
+  check(socialCard({ ...strong, leagues: [] }, { nameStyle: 'first', includeGpa: false, leagueId: null }).league == null, 'a missing league should stay off the card until she picks one');
+  const stamped = socialCard(strong, {
+    nameStyle: 'first',
+    includeGpa: false,
+    stamp: 'committed',
+    schoolName: 'Florida International University',
+    schoolColors: ['#FFCC00', '#081E3F'],
+  });
+  check(
+    stamped.stamp === 'committed' &&
+      stamped.schoolName === 'Florida International University' &&
+      !JSON.stringify(stamped).includes('parent@') &&
+      !JSON.stringify(stamped).includes('Biology'),
+    'a committed stamp can name one school without copying private fields or the school list',
+  );
+  check(
+    matchSchool('Florida International', [
+      { schoolName: 'Florida International University', colors: ['#FFCC00', '#081E3F'], colorsVerified: true },
+    ]).colors?.[0] === '#FFCC00' &&
+      matchSchool('Somewhere Else', [
+        { schoolName: 'Florida International University', colors: ['#FFCC00', '#081E3F'], colorsVerified: true },
+      ]).colors == null,
+    'school colors should come only from a verified program match',
+  );
+}
+
 void (async () => {
+  await checkPublishing();
   const pdf = await buildResumePdf({ ...strong, ncaaId: '1234567890', stats: { ...strong.stats, height: '5\'7"' } });
   const pdfText = new TextDecoder().decode(pdf);
   check(pdf[0] === 0x25 && pdfText.startsWith('%PDF'), 'CV should be a PDF');
