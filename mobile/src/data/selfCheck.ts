@@ -9,7 +9,7 @@ import { draftFromProfile, profileFromDraft, validateDraft, type ProfileDraft } 
 import { regionForState } from './regions';
 import { leagueNameList, migrateGender, programMatchesAthlete } from './sports';
 import { REAL_PROGRAMS } from './providers/realCatalog';
-import { socialCard } from './socialCard';
+import { featuredLeague, leagueBadge, matchSchool, socialCard } from './socialCard';
 import { approveBio, bioStatus, previewBio, publicBio, publishBio, TOKEN_TTL_MS, unpublishBio } from '../server/bio';
 import { createMemoryRepo, removeCommands, saveCommands } from '../server/bioRepo';
 import { renderPreview, renderPrivacyPage, renderPublicBio, ROBOT_TAG, ROBOTS_TXT } from '../server/pages';
@@ -757,6 +757,32 @@ async function checkPublishing(): Promise<void> {
   check(!quietJson.includes('parent@') && !quietJson.includes('555') && !JSON.stringify(named).includes('1234567890'), 'the social image should hide contact details and the NCAA ID');
   check(!quietJson.includes('Oregon') && quiet.club === 'Valley United' && quiet.stats.some((stat) => stat.value === '#4'), 'the social image keeps the club and a jersey, not a home address');
   check(quiet.site === 'https://collegematch.expo.app', 'the social image should link to CollegeMatch, not a private bio');
+  check(quiet.league?.badge === 'ECNL' && quiet.jerseyNumber === 4 && quiet.stamp == null, 'the social card should feature the saved league and jersey');
+  check(featuredLeague(['ga', 'ecnl']) === 'ecnl' && leagueBadge('other') === 'HIGH SCHOOL', 'the featured league should be the strongest saved one');
+  check(socialCard({ ...strong, leagues: [] }, { nameStyle: 'first', includeGpa: false, leagueId: null }).league == null, 'a missing league should stay off the card until she picks one');
+  const stamped = socialCard(strong, {
+    nameStyle: 'first',
+    includeGpa: false,
+    stamp: 'committed',
+    schoolName: 'Florida International University',
+    schoolColors: ['#FFCC00', '#081E3F'],
+  });
+  check(
+    stamped.stamp === 'committed' &&
+      stamped.schoolName === 'Florida International University' &&
+      !JSON.stringify(stamped).includes('parent@') &&
+      !JSON.stringify(stamped).includes('Biology'),
+    'a committed stamp can name one school without copying private fields or the school list',
+  );
+  check(
+    matchSchool('Florida International', [
+      { schoolName: 'Florida International University', colors: ['#FFCC00', '#081E3F'], colorsVerified: true },
+    ]).colors?.[0] === '#FFCC00' &&
+      matchSchool('Somewhere Else', [
+        { schoolName: 'Florida International University', colors: ['#FFCC00', '#081E3F'], colorsVerified: true },
+      ]).colors == null,
+    'school colors should come only from a verified program match',
+  );
 }
 
 void (async () => {

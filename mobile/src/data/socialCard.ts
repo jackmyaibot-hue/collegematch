@@ -1,11 +1,23 @@
 import { formatGpa } from './format';
-import { dominantSideDisplay, positionSlash, SPORT_LABEL } from './sports';
-import type { PlayerProfile } from './types';
+import { dominantSideDisplay, leagueById, positionSlash, SPORT_LABEL } from './sports';
+import type { LeagueId, PlayerProfile } from './types';
 
 /** The public site. Social images link here, not to a player's bio. */
 export const SOCIAL_SITE = 'https://collegematch.expo.app';
 
 export type SocialNameStyle = 'first' | 'initial';
+
+export const SOCIAL_STAMPS = [
+  { id: 'uncommitted', label: 'Uncommitted', lines: ['UNCOMMITTED'] },
+  { id: 'id-camp', label: 'ID Camp Ready', lines: ['ID CAMP', 'READY'] },
+  { id: 'offers', label: 'Open to Offers', lines: ['OPEN TO', 'OFFERS'] },
+  { id: 'committed', label: 'Committed', lines: ['COMMITTED'] },
+  { id: 'signed', label: 'Signed', lines: ['SIGNED'] },
+] as const;
+
+export type SocialStampId = (typeof SOCIAL_STAMPS)[number]['id'];
+
+export type SocialStatIcon = 'jersey' | 'years' | 'height' | 'gpa' | 'foot';
 
 export type SocialCard = {
   name: string;
@@ -13,10 +25,53 @@ export type SocialCard = {
   position: string;
   gradYear: number;
   club: string;
-  stats: { label: string; value: string }[];
+  jerseyNumber: number | null;
+  league: { id: LeagueId; badge: string } | null;
+  stats: { label: string; value: string; icon: SocialStatIcon }[];
   gpa: string | null;
+  stamp: SocialStampId | null;
+  schoolName: string | null;
+  schoolColors: [string, string] | null;
   site: string;
 };
+
+const LEAGUE_BADGE: Record<LeagueId, string> = {
+  ecnl: 'ECNL',
+  'ecnl-rl': 'ECNL RL',
+  ga: 'GA',
+  nal: 'NAL',
+  usys: 'USYS',
+  'nwsl-academy': 'NWSL',
+  'usl-academy': 'USL',
+  other: 'HIGH SCHOOL',
+};
+
+/** Short badge for a saved league id. */
+export function leagueBadge(id: LeagueId): string {
+  return LEAGUE_BADGE[id] ?? leagueById(id)?.short ?? id;
+}
+
+/** The strongest saved league, which is the one the card features. */
+export function featuredLeague(leagues: LeagueId[]): LeagueId | null {
+  if (leagues.length === 0) return null;
+  return leagues.reduce((best, id) => ((leagueById(id)?.level ?? 0) > (leagueById(best)?.level ?? 0) ? id : best));
+}
+
+/** School name the player typed, plus verified program colors when the catalog has them. */
+export function matchSchool(
+  name: string,
+  programs: { schoolName: string; colors: [string, string]; colorsVerified?: boolean }[],
+): { name: string; colors: [string, string] | null } {
+  const trimmed = name.trim().replace(/\s+/g, ' ');
+  if (!trimmed) return { name: '', colors: null };
+  const exact = programs.find((program) => program.schoolName.toLowerCase() === trimmed.toLowerCase());
+  const hit =
+    exact ??
+    programs.find((program) => program.schoolName.toLowerCase().startsWith(trimmed.toLowerCase()) && trimmed.length >= 4);
+  if (!hit) return { name: trimmed, colors: null };
+  const colors = hit.colorsVerified ? hit.colors : null;
+  return { name: hit.schoolName, colors };
+}
 
 /** First name, or first name plus a last initial. Nothing else from the full name. */
 export function socialName(fullName: string, style: SocialNameStyle): string {
@@ -28,26 +83,48 @@ export function socialName(fullName: string, style: SocialNameStyle): string {
 
 /**
  * The only fields a social image may show. Email, phone, parent contact, NCAA ID,
- * address, and the school list are not copied onto this object.
+ * address, and the school list are not copied onto this object. A school name
+ * appears only when she types one for a Committed or Signed stamp.
  */
-export function socialCard(profile: PlayerProfile, options: { nameStyle: SocialNameStyle; includeGpa: boolean }): SocialCard {
+export function socialCard(
+  profile: PlayerProfile,
+  options: {
+    nameStyle: SocialNameStyle;
+    includeGpa: boolean;
+    stamp?: SocialStampId | null;
+    schoolName?: string;
+    schoolColors?: [string, string] | null;
+    leagueId?: LeagueId | null;
+  },
+): SocialCard {
   const stats: SocialCard['stats'] = [];
-  if (profile.stats.jerseyNumber != null) stats.push({ label: 'Jersey', value: `#${profile.stats.jerseyNumber}` });
-  else {
+  if (profile.stats.jerseyNumber != null) {
+    stats.push({ label: 'Jersey', value: `#${profile.stats.jerseyNumber}`, icon: 'jersey' });
+  } else {
     const foot = dominantSideDisplay(profile.sport, profile.stats.dominantSide);
-    if (foot) stats.push({ label: 'Foot', value: foot });
+    if (foot) stats.push({ label: 'Foot', value: foot, icon: 'foot' });
   }
   const years = profile.stats.yearsAtLevel;
-  stats.push({ label: 'Years', value: years === 1 ? '1 year' : `${years} years` });
-  if (profile.stats.height) stats.push({ label: 'Height', value: profile.stats.height });
+  stats.push({ label: 'Years', value: years === 1 ? '1 year' : `${years} years`, icon: 'years' });
+  if (profile.stats.height) stats.push({ label: 'Height', value: profile.stats.height, icon: 'height' });
+  const gpa = options.includeGpa ? formatGpa(profile.gpa, profile.gpaWeighted) : null;
+  const shown = gpa ? [...stats.slice(0, 2), { label: 'GPA', value: gpa, icon: 'gpa' as const }] : stats.slice(0, 3);
+  const stamp = options.stamp ?? null;
+  const schoolName = stamp === 'committed' || stamp === 'signed' ? (options.schoolName?.trim() ?? '') : '';
+  const leagueId = options.leagueId === undefined ? featuredLeague(profile.leagues) : options.leagueId;
   return {
     name: socialName(profile.name, options.nameStyle),
     sport: SPORT_LABEL[profile.sport],
     position: positionSlash(profile.positions, profile.primaryPosition),
     gradYear: profile.gradYear,
     club: profile.clubTeam.trim(),
-    stats: stats.slice(0, 3),
-    gpa: options.includeGpa ? formatGpa(profile.gpa, profile.gpaWeighted) : null,
+    jerseyNumber: profile.stats.jerseyNumber,
+    league: leagueId ? { id: leagueId, badge: leagueBadge(leagueId) } : null,
+    stats: shown,
+    gpa,
+    stamp,
+    schoolName: schoolName || null,
+    schoolColors: schoolName && options.schoolColors ? options.schoolColors : null,
     site: SOCIAL_SITE,
   };
 }
