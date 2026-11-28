@@ -7,7 +7,7 @@ import {
   type FieldErrors,
   type ProfileDraft,
 } from '../data/profileDraft';
-import { dominantSidePrompt, GENDER_OPTIONS, positionSlash, sportSetup, SPORT_SETUPS } from '../data/sports';
+import { dominantSidePrompt, GENDER_OPTIONS, offeredSports, positionSlash, sportSetup } from '../data/sports';
 import {
   CAMPUS_LIFE,
   CAMPUS_LIFE_LABEL,
@@ -55,10 +55,10 @@ export function IdentityFields({
       <FieldAnchor name="sport" invalid={Boolean(errors.sport)}>
       <AppText variant="label">Your sport</AppText>
       <AppText variant="caption" style={styles.help}>
-        Athletes, start here. Pick the sport you want college programs for.
+        Athletes, start here. Women's soccer and women's flag football are open. Another sport can join this list later.
       </AppText>
       <View style={styles.sportGrid}>
-        {SPORT_SETUPS.map((sport) => {
+        {offeredSports(draft.sport).map((sport) => {
           const selected = draft.sport === sport.id;
           const ready = openSports.includes(sport.id);
           return (
@@ -66,11 +66,27 @@ export function IdentityFields({
               key={sport.id}
               accessibilityRole="button"
               accessibilityState={{ selected }}
-              onPress={() => onChange({ sport: sport.id })}
+              onPress={() =>
+                onChange(
+                  draft.sport === sport.id
+                    ? { sport: sport.id }
+                    : {
+                        sport: sport.id,
+                        positions: [],
+                        primaryPosition: null,
+                        leagues: [],
+                        otherLeague: '',
+                        dominantSide: null,
+                        fortyYard: '',
+                        shuttle: '',
+                        vertical: '',
+                      },
+                )
+              }
               style={[styles.sportCard, selected && styles.sportOn]}
             >
               <AppText variant="headline" color={selected ? '#F4F1EA' : colors.ink}>
-                {sport.label}
+                {sport.choiceLabel}
               </AppText>
               <AppText variant="caption" color={selected ? '#D5E6DC' : colors.muted}>
                 {ready ? 'Ready' : 'Soon'}
@@ -253,6 +269,18 @@ export function SoccerFields({
         </View>
         {errors.leagues ? <Error text={errors.leagues} /> : null}
       </FieldAnchor>
+      {draft.leagues.includes('ff-other') ? (
+        <TextField
+          field="otherLeague"
+          label="Other league or club"
+          value={draft.otherLeague}
+          onChangeText={(otherLeague) => onChange({ otherLeague })}
+          placeholder="City flag league"
+          autoCapitalize="words"
+          error={errors.otherLeague}
+          hint="Type the name. We won't guess it."
+        />
+      ) : null}
     </View>
   );
 }
@@ -267,6 +295,7 @@ export function GameFields({
   errors: FieldErrors;
 }) {
   const side = dominantSidePrompt(draft.sport ?? 'soccer');
+  const setup = sportSetup(draft.sport ?? 'soccer');
   const slash = positionSlash(draft.positions, draft.primaryPosition);
   return (
     <View>
@@ -314,14 +343,48 @@ export function GameFields({
       )}
       <TextField
         field="yearsAtLevel"
-        label="Years at this league level"
+        label={setup.yearsLabel}
         value={draft.yearsAtLevel}
         onChangeText={(yearsAtLevel) => onChange({ yearsAtLevel })}
         keyboardType="number-pad"
         placeholder="3"
         error={errors.yearsAtLevel}
-        hint="How many years you've played at your current league level. Use 0 if this is year one."
+        hint={setup.yearsHint}
       />
+      {draft.sport === 'flag-football' ? (
+        <>
+          <TextField
+            field="fortyYard"
+            label="40-yard dash"
+            value={draft.fortyYard}
+            onChangeText={(fortyYard) => onChange({ fortyYard })}
+            keyboardType="decimal-pad"
+            placeholder="4.95"
+            error={errors.fortyYard}
+            hint="Optional. Seconds, like 4.95. Leave it blank if you have not been timed."
+          />
+          <TextField
+            field="shuttle"
+            label="Shuttle"
+            value={draft.shuttle}
+            onChangeText={(shuttle) => onChange({ shuttle })}
+            keyboardType="decimal-pad"
+            placeholder="4.50"
+            error={errors.shuttle}
+            hint="Optional. Seconds for your pro-agility shuttle."
+          />
+          <TextField
+            field="vertical"
+            label="Vertical"
+            value={draft.vertical}
+            onChangeText={(vertical) => onChange({ vertical })}
+            keyboardType="decimal-pad"
+            placeholder="24"
+            error={errors.vertical}
+            hint="Optional. Inches. No need for game stats."
+          />
+        </>
+      ) : null}
       <TextField
         field="jerseyNumber"
         label="Jersey number"

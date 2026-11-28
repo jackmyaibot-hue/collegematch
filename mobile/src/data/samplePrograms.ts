@@ -10,7 +10,7 @@ import { schoolSizeFromEnrollment } from './format';
 import { instagramHandleFor, rosterOrigin, seasonStory } from './poster';
 import { regionForState } from './regions';
 import {
-  POSITIONS,
+  SOCCER_POSITIONS,
   type CampusLife,
   type Coach,
   type Division,
@@ -41,7 +41,7 @@ type SchoolSeed = {
   hot: Position[];
 };
 
-const BASE_COUNT: Record<Position, number> = {
+const BASE_COUNT: Record<(typeof SOCCER_POSITIONS)[number], number> = {
   GK: 3,
   CB: 6,
   OB: 4,
@@ -52,7 +52,7 @@ const BASE_COUNT: Record<Position, number> = {
 };
 
 function buildRoster(hot: Position[], salt: number, bump: number): RosterCount[] {
-  return POSITIONS.map((position, index) => {
+  return SOCCER_POSITIONS.map((position, index) => {
     const count = BASE_COUNT[position] + bump + ((salt + index) % 3 === 0 ? 1 : 0);
     const hotRank = hot.indexOf(position);
     let graduating = (salt + index) % 2;

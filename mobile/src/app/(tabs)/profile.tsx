@@ -20,8 +20,18 @@ import { openPrivacyPolicy } from '../../lib/links';
 import { FIT_FACTORS } from '../../data/fitScore';
 import { formatGpa, formatLongDate, joinLabels } from '../../data/format';
 import { draftFromProfile, FIELD_ORDER, profileFromDraft, validateDraft, type ProfileDraft } from '../../data/profileDraft';
-import { dominantSideDisplay, GENDER_LABEL, leagueNameList, positionSlash, SPORT_LABEL } from '../../data/sports';
-import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, type HonorsProfile } from '../../data/types';
+import {
+  dominantSideDisplay,
+  GENDER_LABEL,
+  leagueNameList,
+  positionSlash,
+  programMatchesAthlete,
+  sideStatLabel,
+  SPORT_LABEL,
+  sportChoiceLabel,
+  yearsStatLabel,
+} from '../../data/sports';
+import { CAMPUS_LIFE_LABEL, LEVEL_LABEL, SPORTS, type HonorsProfile, type Sport } from '../../data/types';
 import { stateName } from '../../data/regions';
 import { useAppState } from '../../state/AppState';
 import { colors, radius } from '../../theme';
@@ -89,7 +99,8 @@ export default function ProfileScreen() {
             <AppText variant="label">{dominantSideDisplay(profile.sport, profile.stats.dominantSide)}</AppText>
             <AppText variant="headline">
               #{profile.stats.jerseyNumber ?? '—'} · {profile.stats.yearsAtLevel}{' '}
-              {profile.stats.yearsAtLevel === 1 ? 'year' : 'years'} at this level
+              {profile.stats.yearsAtLevel === 1 ? 'year' : 'years'}{' '}
+              {profile.sport === 'flag-football' ? 'playing' : 'at this level'}
             </AppText>
           </View>
         ) : null}
@@ -102,7 +113,14 @@ export default function ProfileScreen() {
 
         {editing ? (
           <View style={styles.form}>
-            <IdentityFields draft={draft} onChange={patch} errors={errors} />
+            <IdentityFields
+              draft={draft}
+              onChange={patch}
+              errors={errors}
+              openSports={SPORTS.filter((sport: Sport) =>
+                programs.some((program) => programMatchesAthlete(program, { sport, gender: draft.gender })),
+              )}
+            />
             <SoccerFields draft={draft} onChange={patch} errors={errors} />
             <GameFields draft={draft} onChange={patch} errors={errors} />
             <CoachFields draft={draft} onChange={patch} errors={errors} />
@@ -124,14 +142,21 @@ export default function ProfileScreen() {
           <View style={styles.summary}>
             <Row label="Birthday" value={formatLongDate(profile.birthdate)} />
             <Row label="Gender" value={profile.gender ? GENDER_LABEL[profile.gender] : 'Choose Female or Male'} />
-            <Row label="Sport" value={SPORT_LABEL[profile.sport]} />
+            <Row label="Sport" value={sportChoiceLabel(profile.sport)} />
             <Row label="Positions" value={positionSlash(profile.positions, profile.primaryPosition)} />
-            <Row label="Foot" value={dominantSideDisplay(profile.sport, profile.stats.dominantSide) || 'Not added'} />
+            <Row label={sideStatLabel(profile.sport)} value={dominantSideDisplay(profile.sport, profile.stats.dominantSide) || 'Not added'} />
             <Row label="Jersey" value={profile.stats.jerseyNumber == null ? 'Not added' : `#${profile.stats.jerseyNumber}`} />
-            <Row label="Years at level" value={String(profile.stats.yearsAtLevel)} />
+            {profile.sport === 'flag-football' ? (
+              <>
+                <Row label="40" value={profile.stats.fortyYard == null ? 'Not added' : String(profile.stats.fortyYard)} />
+                <Row label="Shuttle" value={profile.stats.shuttle == null ? 'Not added' : String(profile.stats.shuttle)} />
+                <Row label="Vertical" value={profile.stats.vertical == null ? 'Not added' : `${profile.stats.vertical}"`} />
+              </>
+            ) : null}
+            <Row label={yearsStatLabel(profile.sport)} value={String(profile.stats.yearsAtLevel)} />
             <Row label="Club coach" value={contactSummary(profile.stats.clubCoach)} />
             <Row label="High school coach" value={contactSummary(profile.stats.highSchoolCoach)} />
-            <Row label="Leagues" value={leagueNameList(profile.leagues)} />
+            <Row label="Leagues" value={leagueNameList(profile.leagues, profile.otherLeague ?? '')} />
             <Row label="GPA" value={formatGpa(profile.gpa, profile.gpaWeighted)} />
             <Row label="Tests" value={tests(profile.sat, profile.act)} />
             <Row label="Majors" value={joinLabels(profile.intendedMajors)} />

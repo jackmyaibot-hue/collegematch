@@ -1,9 +1,8 @@
 import { ADJACENT_REGIONS, regionForState } from './regions';
 import { formatMoney, joinLabels } from './format';
-import { leagueShortList, positionsInDisplayOrder, programLevel, strongestLeagueLevel } from './sports';
+import { leagueShortList, positionsInDisplayOrder, programLevel, programLevelName, strongestLeagueLevel } from './sports';
 import {
   CAMPUS_LIFE_LABEL,
-  LEVEL_LABEL,
   POSITION_PLURAL,
   type CampusLife,
   type PlayerProfile,
@@ -148,7 +147,11 @@ function levelScore(profile: PlayerProfile, program: Program): { score: number; 
   // Peak when the player is only a touch above the program and can contribute.
   const distance = Math.abs(diff - 0.25);
   let score = roundScore(100 - distance * 38);
-  const chosen = !profile.openToAllLevels && profile.levels.includes(programLevel(program));
+  const unknownJuco = program.division === 'NJCAA' && program.jucoDivision == null;
+  const chosen =
+    !profile.openToAllLevels &&
+    profile.levels.length > 0 &&
+    (unknownJuco ? profile.levels.some((level) => level.startsWith('NJCAA')) : profile.levels.includes(programLevel(program)));
   // A level they asked for should not look like a poor fit. Closer matches still rank higher.
   if (chosen) score = Math.max(score, 74);
   return { score, playerHigher: diff > 0.9, chosen };
@@ -232,7 +235,7 @@ function rosterMatch(
 }
 
 function leagueName(profile: PlayerProfile): string {
-  return leagueShortList(profile.leagues);
+  return leagueShortList(profile.leagues, profile.otherLeague ?? '');
 }
 
 function factorDetail(
@@ -282,7 +285,7 @@ function factorDetail(
       }
       return `Academics are a stretch versus their typical GPA of ${program.academics.avgGpa.toFixed(1)}.`;
     case 'level': {
-      const name = LEVEL_LABEL[programLevel(program)];
+      const name = programLevelName(program);
       if (score == null) {
         return 'This level was left out of the score.';
       }

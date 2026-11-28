@@ -109,6 +109,7 @@ export function ProgramCard({
         <View style={styles.body}>
           <View style={styles.metaRow}>
             <Pill label={program.division} bg={division.bg} fg={division.fg} />
+            {program.launchLabel ? <Pill label={program.launchLabel} bg="#F3E2B3" fg="#6A4B12" /> : null}
             {program.conference ? (
               <AppText variant="caption" numberOfLines={1} style={styles.conference}>
                 {program.conference}

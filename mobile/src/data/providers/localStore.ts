@@ -71,10 +71,18 @@ function readStats(raw: PlayerProfile): PlayerStats {
     yearsAtLevel: years,
     dominantSide: readSide(stats?.dominantSide),
     jerseyNumber: jersey,
+    fortyYard: readMeasurable(stats?.fortyYard, 4, 8),
+    shuttle: readMeasurable(stats?.shuttle, 3.5, 7),
+    vertical: readMeasurable(stats?.vertical, 10, 50),
     height: canonicalHeight(typeof stats?.height === 'string' ? stats.height : ''),
     clubCoach: readContact(stats?.clubCoach),
     highSchoolCoach: readContact(stats?.highSchoolCoach),
   };
+}
+
+function readMeasurable(value: unknown, min: number, max: number): number | null {
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < min || value > max) return null;
+  return Math.round(value * 100) / 100;
 }
 
 function emptyHonors(): HonorsProfile {
@@ -138,13 +146,14 @@ function readGender(raw: object, hadField: boolean): AthleteGender | null {
   return migrateGender((raw as { gender?: unknown }).gender);
 }
 
-function readPositions(value: unknown): Position[] {
-  if (!Array.isArray(value)) return ['CB'];
+function readPositions(value: unknown, sport: Sport): Position[] {
+  const fallback: Position = sport === 'flag-football' ? 'ATH' : 'CB';
+  if (!Array.isArray(value)) return [fallback];
   const mapped = value.map((item) => (item === 'FB' ? 'OB' : item));
   const positions = mapped.filter(
     (item): item is Position => typeof item === 'string' && (POSITIONS as readonly string[]).includes(item),
   );
-  return positions.length > 0 ? positions : ['CB'];
+  return positions.length > 0 ? positions : [fallback];
 }
 
 /** Older profiles stored one league string and no sport, birthday, or gender. */
@@ -153,15 +162,17 @@ function normalizeProfile(raw: PlayerProfile & { league?: string; intendedMajor?
   const fromLegacy: LeagueId[] =
     legacy === 'ECNL' ? ['ecnl'] : legacy === 'Girls Academy' ? ['ga'] : legacy === 'other' ? ['other'] : [];
   const leagues = Array.isArray(raw.leagues) ? raw.leagues.filter(isLeagueId) : fromLegacy;
-  const positions = readPositions(raw.positions);
+  const sport = isSport(raw.sport) ? raw.sport : 'soccer';
+  const positions = readPositions(raw.positions, sport);
   const storedPrimary = String(raw.primaryPosition) === 'FB' ? 'OB' : raw.primaryPosition;
   const primary = positions.includes(storedPrimary) ? storedPrimary : positions[0];
   return {
     ...raw,
-    sport: isSport(raw.sport) ? raw.sport : 'soccer',
+    sport,
     gender: readGender(raw, 'gender' in raw),
     birthdate: isIsoDate(raw.birthdate) ? raw.birthdate : '2010-06-15',
-    leagues: leagues.length > 0 ? leagues : ['other'],
+    leagues: leagues.length > 0 ? leagues : sport === 'soccer' ? ['other'] : [],
+    otherLeague: typeof raw.otherLeague === 'string' ? raw.otherLeague : '',
     positions,
     primaryPosition: primary,
     gpaWeighted: raw.gpaWeighted === true,

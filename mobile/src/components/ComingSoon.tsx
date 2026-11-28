@@ -8,10 +8,12 @@ export function ComingSoon({
   sport,
   detail,
   onTrySoccer,
+  actionLabel = "Try women's soccer",
 }: {
   sport: Sport;
   detail?: string;
   onTrySoccer?: () => void;
+  actionLabel?: string;
 }) {
   const name = SPORT_LABEL[sport];
   return (
@@ -21,8 +23,8 @@ export function ComingSoon({
         {detail ??
           `We'll let you know when ${name.toLowerCase()} programs are ready for ${PLAYMAKERS} to swipe. Your pick stays on this phone.`}
       </AppText>
-      <AppText variant="body">Women's soccer is open now if you want to start.</AppText>
-      {onTrySoccer ? <Button label="Try women's soccer" onPress={onTrySoccer} /> : null}
+      <AppText variant="body">Women's soccer and women's flag football are open if you want to start.</AppText>
+      {onTrySoccer ? <Button label={actionLabel} onPress={onTrySoccer} /> : null}
     </View>
   );
 }

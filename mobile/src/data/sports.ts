@@ -5,6 +5,7 @@ import {
   type DominantSide,
   type JucoDivision,
   type LeagueId,
+  LEVEL_LABEL,
   type LevelPref,
   type PlayerProfile,
   type Position,
@@ -16,6 +17,7 @@ import {
 
 export const SPORT_LABEL: Record<Sport, string> = {
   soccer: 'Soccer',
+  'flag-football': 'Flag football',
   basketball: 'Basketball',
   volleyball: 'Volleyball',
   softball: 'Softball',
@@ -73,37 +75,90 @@ export const SOCCER_LEAGUES: LeagueDef[] = [
   { id: 'other', label: 'Other / High school', short: 'High school', level: 2.25 },
 ];
 
+/**
+ * Flag football pathways. `level` is the same 1–5 scale the fit score uses for
+ * soccer. It is a sorting aid, not an official ranking.
+ */
+export const FLAG_LEAGUES: LeagueDef[] = [
+  { id: 'ff-nfl', label: 'NFL FLAG', short: 'NFL FLAG', level: 3.6 },
+  { id: 'ff-usa', label: 'USA Football', short: 'USA Football', level: 3.3 },
+  { id: 'ff-7v7', label: '7v7 club or travel', short: '7v7', level: 3.1 },
+  { id: 'ff-hs', label: 'High School (state-sanctioned)', short: 'High school', level: 2.6 },
+  { id: 'ff-other', label: 'Other', short: 'Other', level: 2.25 },
+];
+
+const ALL_LEAGUES = [...SOCCER_LEAGUES, ...FLAG_LEAGUES];
+
 type SportPosition = { id: string; label: string };
 
 export type SportSetup = {
   id: Sport;
   label: string;
+  /** The name on the signup and profile picker. Add a sport by adding one of these. */
+  choiceLabel: string;
+  /** True when athletes can pick it. Other sports stay in the model for older profiles. */
+  offered: boolean;
   /** Empty until that sport has a roster model. Soccer ids match `Position`. */
   positions: SportPosition[];
   leagues: LeagueDef[];
+  yearsLabel: string;
+  yearsHint: string;
 };
 
-const EMPTY: Pick<SportSetup, 'positions' | 'leagues'> = { positions: [], leagues: [] };
+const EMPTY: Pick<SportSetup, 'positions' | 'leagues' | 'yearsLabel' | 'yearsHint'> = {
+  positions: [],
+  leagues: [],
+  yearsLabel: 'Years at this league level',
+  yearsHint: "How many years you've played at your current league level. Use 0 if this is year one.",
+};
+
+const FLAG_POSITIONS = ['QB', 'C', 'WR', 'RB', 'RUS', 'S', 'CBK', 'LB', 'ATH'] as const;
 
 export const SPORT_SETUPS: SportSetup[] = [
   {
     id: 'soccer',
     label: SPORT_LABEL.soccer,
-    positions: POSITIONS.map((id) => ({ id, label: `${id} · ${POSITION_LABEL[id]}` })),
+    choiceLabel: "Women's Soccer",
+    offered: true,
+    positions: POSITIONS.filter((id) => !FLAG_POSITIONS.includes(id as (typeof FLAG_POSITIONS)[number])).map((id) => ({
+      id,
+      label: `${id} · ${POSITION_LABEL[id]}`,
+    })),
     leagues: SOCCER_LEAGUES,
+    yearsLabel: 'Years at this league level',
+    yearsHint: "How many years you've played at your current league level. Use 0 if this is year one.",
   },
-  { id: 'basketball', label: SPORT_LABEL.basketball, ...EMPTY },
-  { id: 'volleyball', label: SPORT_LABEL.volleyball, ...EMPTY },
-  { id: 'softball', label: SPORT_LABEL.softball, ...EMPTY },
-  { id: 'baseball', label: SPORT_LABEL.baseball, ...EMPTY },
-  { id: 'lacrosse', label: SPORT_LABEL.lacrosse, ...EMPTY },
-  { id: 'track', label: SPORT_LABEL.track, ...EMPTY },
-  { id: 'swimming', label: SPORT_LABEL.swimming, ...EMPTY },
-  { id: 'football', label: SPORT_LABEL.football, ...EMPTY },
-  { id: 'tennis', label: SPORT_LABEL.tennis, ...EMPTY },
-  { id: 'golf', label: SPORT_LABEL.golf, ...EMPTY },
-  { id: 'other', label: SPORT_LABEL.other, ...EMPTY },
+  {
+    id: 'flag-football',
+    label: SPORT_LABEL['flag-football'],
+    choiceLabel: "Women's Flag Football",
+    offered: true,
+    positions: FLAG_POSITIONS.map((id) => ({ id, label: POSITION_LABEL[id] })),
+    leagues: FLAG_LEAGUES,
+    yearsLabel: 'Years playing',
+    yearsHint: "How many years you've played flag football. Use 0 if this is your first year.",
+  },
+  { id: 'basketball', label: SPORT_LABEL.basketball, choiceLabel: SPORT_LABEL.basketball, offered: false, ...EMPTY },
+  { id: 'volleyball', label: SPORT_LABEL.volleyball, choiceLabel: SPORT_LABEL.volleyball, offered: false, ...EMPTY },
+  { id: 'softball', label: SPORT_LABEL.softball, choiceLabel: SPORT_LABEL.softball, offered: false, ...EMPTY },
+  { id: 'baseball', label: SPORT_LABEL.baseball, choiceLabel: SPORT_LABEL.baseball, offered: false, ...EMPTY },
+  { id: 'lacrosse', label: SPORT_LABEL.lacrosse, choiceLabel: SPORT_LABEL.lacrosse, offered: false, ...EMPTY },
+  { id: 'track', label: SPORT_LABEL.track, choiceLabel: SPORT_LABEL.track, offered: false, ...EMPTY },
+  { id: 'swimming', label: SPORT_LABEL.swimming, choiceLabel: SPORT_LABEL.swimming, offered: false, ...EMPTY },
+  { id: 'football', label: SPORT_LABEL.football, choiceLabel: SPORT_LABEL.football, offered: false, ...EMPTY },
+  { id: 'tennis', label: SPORT_LABEL.tennis, choiceLabel: SPORT_LABEL.tennis, offered: false, ...EMPTY },
+  { id: 'golf', label: SPORT_LABEL.golf, choiceLabel: SPORT_LABEL.golf, offered: false, ...EMPTY },
+  { id: 'other', label: SPORT_LABEL.other, choiceLabel: SPORT_LABEL.other, offered: false, ...EMPTY },
 ];
+
+/** Sports on the signup and profile picker. Pass `current` so an older profile still shows its sport. */
+export function offeredSports(current?: Sport | null): SportSetup[] {
+  return SPORT_SETUPS.filter((item) => item.offered || item.id === current);
+}
+
+export function sportChoiceLabel(sport: Sport): string {
+  return sportSetup(sport).choiceLabel;
+}
 
 export function sportSetup(sport: Sport): SportSetup {
   return SPORT_SETUPS.find((item) => item.id === sport) ?? SPORT_SETUPS[0];
@@ -115,7 +170,7 @@ export function sportHeading(sport: Sport): string {
 }
 
 export function leagueById(id: LeagueId): LeagueDef | undefined {
-  return SOCCER_LEAGUES.find((league) => league.id === id);
+  return ALL_LEAGUES.find((league) => league.id === id);
 }
 
 /** Strongest selected pathway. Multiple leagues are allowed; the top one sets the level. */
@@ -124,17 +179,29 @@ export function strongestLeagueLevel(leagues: LeagueId[] | null | undefined): nu
   return Math.max(...leagues.map((id) => leagueById(id)?.level ?? 2.25));
 }
 
-export function leagueShortList(leagues: LeagueId[]): string {
-  const names = leagues.map((id) => leagueById(id)?.short ?? id);
-  if (names.length === 0) return 'club';
+export function leagueShortList(leagues: LeagueId[], otherLeague = ''): string {
+  const note = otherLeague.trim();
   if (leagues.length === 1 && leagues[0] === 'other') return 'high school or another club league';
+  if (leagues.length === 1 && leagues[0] === 'ff-other') return note || 'another flag league';
+  const names = leagues.map((id) => {
+    if (id === 'ff-other' && note) return note;
+    return leagueById(id)?.short ?? id;
+  });
+  if (names.length === 0) return 'club';
   return names.join(', ');
 }
 
 /** Full league names for review and profile, such as "Elite Clubs National League (ECNL)". */
-export function leagueNameList(leagues: LeagueId[]): string {
+export function leagueNameList(leagues: LeagueId[], otherLeague = ''): string {
   if (!leagues || leagues.length === 0) return '';
-  return leagues.map((id) => leagueById(id)?.label ?? id).join(', ');
+  const note = otherLeague.trim();
+  return leagues
+    .map((id) => {
+      const label = leagueById(id)?.label ?? id;
+      if (id === 'ff-other' && note) return `${label} (${note})`;
+      return label;
+    })
+    .join(', ');
 }
 
 export function positionsInDisplayOrder(positions: Position[], primary: Position | null): Position[] {
@@ -162,30 +229,68 @@ export type SidePrompt = {
  * equivalent, such as a dominant hand.
  */
 export function dominantSidePrompt(sport: Sport): SidePrompt | null {
-  if (sport !== 'soccer') return null;
-  return {
-    label: 'Dominant foot',
-    hint: 'Left-footed center backs and wingers are highly sought after.',
-    options: [
-      { id: 'left', label: 'Left' },
-      { id: 'right', label: 'Right' },
-      { id: 'both', label: 'Both' },
-    ],
-  };
+  if (sport === 'soccer') {
+    return {
+      label: 'Dominant foot',
+      hint: 'Left-footed center backs and wingers are highly sought after.',
+      options: [
+        { id: 'left', label: 'Left' },
+        { id: 'right', label: 'Right' },
+        { id: 'both', label: 'Both' },
+      ],
+    };
+  }
+  if (sport === 'flag-football') {
+    return {
+      label: 'Throwing hand',
+      hint: 'Coaches look for this on film, next to your 40 and your shuttle.',
+      options: [
+        { id: 'left', label: 'Left' },
+        { id: 'right', label: 'Right' },
+      ],
+    };
+  }
+  return null;
 }
 
 export function dominantSideDisplay(sport: Sport, side: DominantSide | null): string | null {
-  if (!side || sport !== 'soccer') return null;
-  if (side === 'left') return 'Left foot';
-  if (side === 'right') return 'Right foot';
-  return 'Both feet';
+  if (!side) return null;
+  if (sport === 'soccer') {
+    if (side === 'left') return 'Left foot';
+    if (side === 'right') return 'Right foot';
+    return 'Both feet';
+  }
+  if (sport === 'flag-football') {
+    if (side === 'left') return 'Left hand';
+    if (side === 'right') return 'Right hand';
+    return 'Both hands';
+  }
+  return null;
 }
 
 export function dominantSidePhrase(sport: Sport, side: DominantSide | null): string | null {
-  if (sport !== 'soccer' || !side) return null;
-  if (side === 'left') return "I'm left-footed";
-  if (side === 'right') return "I'm right-footed";
-  return 'I play with both feet';
+  if (!side) return null;
+  if (sport === 'soccer') {
+    if (side === 'left') return "I'm left-footed";
+    if (side === 'right') return "I'm right-footed";
+    return 'I play with both feet';
+  }
+  if (sport === 'flag-football') {
+    if (side === 'left') return 'I throw with my left hand';
+    if (side === 'right') return 'I throw with my right hand';
+    return 'I can throw with either hand';
+  }
+  return null;
+}
+
+export function sideStatLabel(sport: Sport): string {
+  if (sport === 'flag-football') return 'Throwing hand';
+  if (sport === 'soccer') return 'Foot';
+  return 'Dominant side';
+}
+
+export function yearsStatLabel(sport: Sport): string {
+  return sport === 'flag-football' ? 'Years playing' : 'Years at level';
 }
 
 export function programLevel(program: Pick<Program, 'division' | 'jucoDivision'>): LevelPref {
@@ -198,13 +303,24 @@ export function programLevel(program: Pick<Program, 'division' | 'jucoDivision'>
   return program.division;
 }
 
-/** Open to all, or an empty list from an older profile, keeps every division in the deck. */
+/**
+ * Open to all, or an empty list from an older profile, keeps every division in the deck.
+ * An NJCAA program with no published tier stays in the deck for any NJCAA choice.
+ */
 export function wantsLevel(
   profile: Pick<PlayerProfile, 'openToAllLevels' | 'levels'>,
   program: Pick<Program, 'division' | 'jucoDivision'>,
 ): boolean {
   if (profile.openToAllLevels || profile.levels.length === 0) return true;
+  if (program.division === 'NJCAA' && program.jucoDivision == null) {
+    return profile.levels.some((level) => level.startsWith('NJCAA'));
+  }
   return profile.levels.includes(programLevel(program));
+}
+
+export function programLevelName(program: Pick<Program, 'division' | 'jucoDivision'>): string {
+  if (program.division === 'NJCAA' && program.jucoDivision == null) return 'NJCAA';
+  return LEVEL_LABEL[programLevel(program)];
 }
 
 export function programSidePhrase(program: Pick<Program, 'side' | 'sport'>): string {
